@@ -16,20 +16,26 @@
     "react-dom": "17.0.2"
   },
   "devDependencies": {
+    "@cypress/react": "^5.9.2",
+    "@cypress/webpack-dev-server": "^1.4.0",
     "@types/node": "^16.4.0",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
+    "cypress": "^8.0.0",
     "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.1.0",
     "eslint-plugin-prettier": "^3.3.1",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "html-webpack-plugin": "^5.3.2",
     "husky": "^6.0.0",
     "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
-    "typescript": "^4.2.4"
+    "typescript": "^4.2.4",
+    "webpack": "^5.46.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
