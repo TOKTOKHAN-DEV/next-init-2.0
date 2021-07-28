@@ -1,8 +1,10 @@
 # Commit Convention
 
-- feat / feature: all changes that introduce completely new code or new features
+- feat: all changes that introduce completely new code or new features
 - fix: changes that fix a bug (ideally you will additionally reference an issue if present)
 - refactor: any code related change that is not a fix nor a feature
+- style: all changes that do not affect the meaning of the code (white-space, formatting, missing semi-colons, etc)
+- perf: all changes that improves performance
 - docs: changing existing or creating new documentation (i.e. README, docs for usage of a lib or cli usage)
 - build: all changes regarding the build of the software, changes to dependencies or the addition of new dependencies
 - test: all changes regarding tests (adding new tests or changing existing ones)
