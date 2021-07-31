@@ -142,11 +142,11 @@ Automated tests with cypress.
 
 - **Extensions:** Use .tsx extension for React components.
 
-- **Filename:** Use PascalCase for filenames. E.g., ReservationCard.jsx.
+- **Filename:** Use PascalCase for filenames. E.g., ReservationCard.tsx.
 
 - **Reference Naming:** Use PascalCase for React components and camelCase for their instances.
 
-  ```jsx
+  ```tsx
   // bad
   import reservationCard from './ReservationCard';
 
@@ -160,9 +160,9 @@ Automated tests with cypress.
   const reservationItem = <ReservationCard />;
   ```
 
-- **Component Naming:** Use the filename as the component name. For example, ReservationCard.tsx should have a reference name of ReservationCard. However, for root components of a directory, use index.jsx as the filename and use the directory name as the component name:
+- **Component Naming:** Use the filename as the component name. For example, ReservationCard.tsx should have a reference name of ReservationCard. However, for root components of a directory, use index.tsx as the filename and use the directory name as the component name:
 
-  ```jsx
+  ```tsx
   // bad
   import Footer from './Footer/Footer';
 
