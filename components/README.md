@@ -5,15 +5,18 @@
     ├── components
     │   ├── molecules
     │   │   ├── Example
-    │   │   │   ├── index.tsx               # Container component is concerned with side effects(I/O, network, etc.).
-    │   │   │   ├── index.spec.tsx          # Test code
-    │   │   │   ├── Example.tsx             # Presentational component is concerned with how things look.
-    │   │   │   ├── Example.spec.tsx        # Test code
-    │   │   │   ├── exampleReducer.ts       # Reducer is concerned with logic/business rules.
-    │   │   │   └── exampleReducer.spec.ts  # Test code
+    │   │   │   ├── index.tsx                   # Export component
+    │   │   │   ├── Example.tsx                 # Presentational component is concerned with how things look.
+    │   │   │   ├── Example.spec.tsx            # Test code
+    │   │   │   ├── ExampleContainer.tsx        # Container component is concerned with side effects(I/O, network, etc.).
+    │   │   │   ├── ExampleContainer.spec.tsx   # Test code
+    │   │   │   ├── exampleReducer.ts           # Reducer is concerned with logic/business rules.
+    │   │   │   └── exampleReducer.spec.ts      # Test code
     │   │   └── ...
     │   └── ...
     └── ...
+
+Reducer 대신 Custom Hook으로 대체해도 무방합니다.
 
 # Atomic Design
 
@@ -29,19 +32,21 @@ Molecule은 하나 이상의 Atom과 조합하여 만들어집니다. 복잡한 
 
 ### Organisms
 
-Organism은 Atom, Molecule과 조합하여 만들어집니다.
+Organism은 Atom, Molecule과 조합하여 만들어집니다. 화면의 개별 부분을 구성합니다.
 
 ### Templates
 
-Template은 레이아웃, 와이어 프레임입니다.
+Template은 레이아웃, 와이어 프레임입니다. 구성 요소간의 위치, 배치를 정하게됩니다.
 
 ### Pages
 
+구성 요소들을 조합하여 하나의 템플릿에 적용한 결과물로 사용자가 궁극적으로 보게될 내용입니다.
+
 ### Rules
 
-- The atoms should be written without margins and positions
-- Only the molecules and organisms can set the positions of atoms, but these stacks can’t have any styles of margins and positions;
-- Templates have only one function: to set the grid of pages but never positions of specific components;
+- atoms, molecules, organisms 각각은 자신의 margin과 position을 설정하지 않는다.
+- 상위 단계에서 하위 단계의 margin과 position을 설정할 수 있다.
+- emplates have only one function: to set the grid of pages but never positions of specific components;
 - Pages render the components with a template defined and it’s here that the Atomic Design will be connected to the rest of the application;
 
 # 🤔 Don't use React.FC
@@ -82,6 +87,7 @@ export const Card = ({ image, title, content }: CardProps) => {
 # Reference
 
 - [Unit Testing React Components](https://medium.com/javascript-scene/unit-testing-react-components-aeda9a44aae2)
+- [atomic design](https://bradfrost.com/blog/post/atomic-web-design/)
 - [react-atomic-design](https://github.com/danilowoz/react-atomic-design)
 - [Atomic Design and ReactJS](https://danilowoz.com/blog/atomic-design-with-react)
 - [Ducks: Redux Reducer Bundles](https://github.com/erikras/ducks-modular-redux)
