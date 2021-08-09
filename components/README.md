@@ -18,6 +18,13 @@
 
 Reducer 대신 Custom Hook으로 대체해도 무방합니다.
 
+> **Q. 왜 저렁게 나누어 놓았습니까?**  
+> A. 테스트 가능한 코드를 작성하기 위해서는 관심사를 분리해야 합니다. 다음과 같이 세가지 항목으로 구분하였습니다.
+>
+> - Display/UI Components
+> - Program logic/business rules — the stuff that deals with the problem you’re solving for the user.
+> - Side effects (I/O, network, disk, etc.)
+
 # Atomic Design
 
 ![atomic design](https://user-images.githubusercontent.com/4838076/33235048-d083dca6-d217-11e7-9aea-9a5ef5ae6fe7.png)
