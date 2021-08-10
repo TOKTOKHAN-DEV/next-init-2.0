@@ -16,6 +16,6 @@
     "jsx": "preserve",
     "types": ["cypress"]
   },
-  "include": ["next-env.d.ts", "app.d.ts", "**/*.ts", "**/*.tsx", "cypress/mount.tss"],
+  "include": ["next-env.d.ts", "app.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
