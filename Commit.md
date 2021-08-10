@@ -10,3 +10,8 @@
 - test: all changes regarding tests (adding new tests or changing existing ones)
 - ci: all changes regarding the configuration of continuous integration (i.e. github actions, ci system)
 - chore: all changes to the repository that do not fit into any of the above categories
+
+# Reference
+
+- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+- [Angular Commit Message Guidelines](https://github.com/angular/angular/blob/22b96b9/CONTRIBUTING.md#-commit-message-guidelines)
