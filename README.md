@@ -5,8 +5,8 @@ Kick off your project with this boilerplate.
 # 🚀 Quick Start
 
 ```bash
-git clone
-cd
+git clone https://github.com/TokTokHan/next-init-2.0.git <Project Name>
+cd <Project Name>
 yarn install
 yarn run dev
 ```
