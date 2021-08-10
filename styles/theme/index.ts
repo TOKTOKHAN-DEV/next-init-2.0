@@ -9,10 +9,14 @@ import foundations from './foundations';
 // Component style overrides
 import components from './components';
 
+// TextStyles
+import textStyles from './textStyles';
+
 const overrides = {
   ...foundations,
   components,
   styles,
+  textStyles,
 };
 
 export default extendTheme(overrides);
