@@ -5,7 +5,7 @@ const styles = {
   global: (props: any) => ({
     body: {
       fontFamily: 'Noto Sans KR, sans-serif',
-      color: mode('#1A1A1A', '#FFFFFF')(props),
+      color: mode('currentColor', '#FFFFFF')(props),
       bg: mode('#FFFFFF', '#363636')(props),
     },
     '#__next': {
