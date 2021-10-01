@@ -23,7 +23,8 @@ A quick look at the directories you'll see in this project.
     ├── pages               #
     ├── public              #
     ├── styles              #
-    ├── api                 #
+    ├── apis                #
+    ├── models              #
     ├── components          #
     ├── context             # (alternatively `store`)
     ├── hooks               # Custom hooks
@@ -40,7 +41,7 @@ Each page is associated with a route based on its file name.
     .
     ├── ...
     ├── pages               #
-    │   ├── api             # API endpoint
+    │   ├── apis            # API endpoint
     │   ├── _app.tsx        # App component to initialize pages
     │   ├── _document.tsx   # Custom document to augment application's <html> and <body> tags
     │   └── ...
@@ -80,9 +81,17 @@ Components are independent and reusable bits of code.
     ├── ...
     ├── components          #
     │ ├── icons             #
-    │ ├── atoms             #
-    │ ├── molecules         #
-    │ ├── organisms         #
+    │ ├── common            #
+    │ │   ├── atoms         #
+    │ │   ├── molecules     #
+    │ │   └── organisms     #
+    │ ├── home              # /index
+    │ │   ├── molecules     #
+    │ │   └── organisms     #
+    │ ├── products          # /products
+    │ │   ├── molecules     #
+    │ │   └── organisms     #
+    │ ├── ...               # other pages
     │ └── templates         #
     └── ...
 
