@@ -14,8 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
-    "types": ["cypress"]
+    "types": ["jest"]
   },
-  "include": ["next-env.d.ts", "app.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": ["next-env.d.ts", "app.d.ts", "**/*.ts", "**/*.tsx", "./jest.setup.ts"],
   "exclude": ["node_modules"]
 }

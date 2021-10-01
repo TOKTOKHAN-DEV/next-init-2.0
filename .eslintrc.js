@@ -4,11 +4,15 @@ module.exports = {
     browser: true,
     es6: true,
     node: true,
+    jest: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
+    'plugin:testing-library/react',
+    'plugin:jest-dom/recommended',
+    'plugin:cypress/recommended',
     'plugin:@typescript-eslint/recommended', // 해당 플러그인의 권장 규칙을 사용합니다.
     'plugin:prettier/recommended', // plugin과 eslint-config-prettier 설정을 한번에 합니다.
   ],
@@ -32,4 +36,16 @@ module.exports = {
       version: 'detect', // 현재 사용하고 있는 react 버전을 eslint-plugin-react가 자동으로 감지합니다.
     },
   },
+  overrides: [
+    {
+      files: ['cypress/**/*.js', 'cypress/**/*.ts'],
+      rules: {
+        'testing-library/await-async-utils': 'off',
+        'cypress/no-unnecessary-waiting': 'off',
+        'testing-library/no-debug': 'off',
+        '@typescript-eslint/ban-ts-comment': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+      },
+    },
+  ],
 };
