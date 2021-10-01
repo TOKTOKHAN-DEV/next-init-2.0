@@ -3,15 +3,17 @@
     .
     ├── ...
     ├── components
-    │   ├── molecules
-    │   │   ├── Example
-    │   │   │   ├── index.tsx                   # Export component
-    │   │   │   ├── Example.tsx                 # Presentational component is concerned with how things look.
-    │   │   │   ├── Example.spec.tsx            # Test code
-    │   │   │   ├── ExampleContainer.tsx        # Container component is concerned with side effects(I/O, network, etc.).
-    │   │   │   ├── ExampleContainer.spec.tsx   # Test code
-    │   │   │   ├── exampleReducer.ts           # Reducer is concerned with logic/business rules.
-    │   │   │   └── exampleReducer.spec.ts      # Test code
+    │   ├── common
+    │   │   ├── molecules
+    │   │   │   ├── Example
+    │   │   │   │   ├── index.tsx                   # Export component
+    │   │   │   │   ├── Example.tsx                 # Presentational component is concerned with how things look.
+    │   │   │   │   ├── Example.test.tsx            # Test code
+    │   │   │   │   ├── ExampleContainer.tsx        # Container component is concerned with side effects(I/O, network, etc.).
+    │   │   │   │   ├── ExampleContainer.test.tsx   # Test code
+    │   │   │   │   ├── exampleReducer.ts           # Reducer is concerned with logic/business rules.
+    │   │   │   │   └── exampleReducer.test.ts      # Test code
+    │   │   │   └── ...
     │   │   └── ...
     │   └── ...
     └── ...
