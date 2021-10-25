@@ -71,6 +71,31 @@ const colors = {
     primary: '#1A1A1A80',
     secondary: '#1A1A1A33',
   },
+  kakao: {
+    500: '#FFDE32',
+    600: '#F5D322',
+    700: '#EFCC1A',
+  },
+  naver: {
+    500: '#20CF5D',
+    600: '#17c554',
+    700: '#14bf50',
+  },
+  facebook: {
+    500: '#1877F3',
+    600: '#1874eb',
+    700: '#146cdf',
+  },
+  google: {
+    500: '#FFFFFF',
+    600: '#F5F5F5',
+    700: '#EEEEEE',
+  },
+  apple: {
+    500: '#000000',
+    600: '#111111',
+    700: '#222222',
+  },
 };
 
 export default colors;
