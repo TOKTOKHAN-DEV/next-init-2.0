@@ -3,7 +3,7 @@ import React from 'react';
 import { Box, Stack, Button } from '@chakra-ui/react';
 
 interface HomeTemplateProps {
-  header: JSX.Element;
+  header?: JSX.Element;
 }
 
 const HomeTemplate = ({ header }: HomeTemplateProps) => {
