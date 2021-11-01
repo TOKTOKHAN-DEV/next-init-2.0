@@ -3,20 +3,26 @@ import type { AppProps } from 'next/app';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 
-import { ChakraProvider } from '@chakra-ui/react';
-import theme from 'styles/theme';
+import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
+import { mode } from 'styles/theme/foundations/colors';
+
+import { withChakraProvider } from 'styles/provider';
 
 // Create a client
 const queryClient = new QueryClient();
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }: AppProps) {
+  const { colorMode } = useColorMode();
+  const theme = useTheme();
   return (
     // Provide the client to your App
     <QueryClientProvider client={queryClient}>
-      <ChakraProvider resetCSS theme={theme}>
+      <ThemeProvider theme={{ colors: { ...theme.colors, custom: { ...theme.colors.custom, ...mode[colorMode] } } }}>
         <Component {...pageProps} />
-      </ChakraProvider>
+      </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
+
+export default withChakraProvider(MyApp);
