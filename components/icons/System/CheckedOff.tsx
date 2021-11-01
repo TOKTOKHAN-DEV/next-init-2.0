@@ -1,6 +1,6 @@
 import { Icon, IconProps } from '@chakra-ui/react';
 
-const CheckedOffIcon = ({ ...props }: IconProps) => {
+export const CheckedOffIcon = ({ ...props }: IconProps) => {
   return (
     <Icon viewBox="0 0 24 24" fill="none" {...props}>
       <path d="M16 0H4C1.79086 0 0 1.79086 0 4V16C0 18.2091 1.79086 20 4 20H16C18.2091 20 20 18.2091 20 16V4C20 1.79086 18.2091 0 16 0Z" fill="white" />
@@ -11,5 +11,3 @@ const CheckedOffIcon = ({ ...props }: IconProps) => {
     </Icon>
   );
 };
-
-export default CheckedOffIcon;

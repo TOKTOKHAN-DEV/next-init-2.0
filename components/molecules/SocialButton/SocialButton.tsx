@@ -8,6 +8,7 @@ export interface SocialProps {
 }
 export interface SocialButtonProps {
   data: SocialProps;
+  size: 'md' | 'sm';
 }
 
 export const SOCIAL_DATA = Object.freeze({
@@ -18,15 +19,16 @@ export const SOCIAL_DATA = Object.freeze({
   apple: { icon: '/icons/social/apple.png', text: 'Apple로 로그인' },
 });
 
-export const SocialButton = ({ data }: SocialButtonProps) => {
+export const SocialButton = ({ data, size }: SocialButtonProps) => {
+  const width = size !== 'sm' ? '100%' : '45px';
+  const maxWidth = size !== 'sm' ? '310px' : '45px';
+  const left = size !== 'sm' ? '27px' : '9px';
   return (
-    <>
-      <Button colorScheme={data.social} w="100%" h="45px" maxW="310px" onClick={() => window.open(data.link)} borderRadius="4px">
-        <Flex alignItems="center" justifyContent="center">
-          <Image position="absolute" w="24px" h="24px" left="27px" src={SOCIAL_DATA[data.social].icon} />
-          <Text fontSize={['16px', '14px', '15px']}>{SOCIAL_DATA[data.social].text}</Text>
-        </Flex>
-      </Button>
-    </>
+    <Button colorScheme={data.social} w={width} h="45px" maxW={maxWidth} onClick={() => window.open(data.link)} borderRadius="4px">
+      <Flex alignItems="center" justifyContent="center">
+        <Image position="absolute" w="24px" h="24px" left={left} src={SOCIAL_DATA[data.social].icon} loading="lazy" />
+        {size !== 'sm' && <Text fontSize={['16px', '14px', '15px']}>{SOCIAL_DATA[data.social].text}</Text>}
+      </Flex>
+    </Button>
   );
 };

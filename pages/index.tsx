@@ -1,5 +1,1 @@
-import HomeTemplate from 'components/templates/HomeTemplate';
-
-export default function Home() {
-  return <HomeTemplate />;
-}
+export { HomeContainer as default } from 'containers/home';
