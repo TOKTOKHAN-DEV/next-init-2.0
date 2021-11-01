@@ -17,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     // Provide the client to your App
     <QueryClientProvider client={queryClient}>
-      <ThemeProvider theme={{ colors: { ...theme.colors, custom: { ...theme.colors.custom, ...mode[colorMode] } } }}>
+      <ThemeProvider theme={{ ...theme, colors: { ...theme.colors, custom: { ...theme.colors.custom, ...mode[colorMode] } } }}>
         <Component {...pageProps} />
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />
