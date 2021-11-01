@@ -2,10 +2,14 @@ import Color from './colors.types';
 import config from './config';
 
 const Light: Color = {
-  primary: '#4575F5',
+  primary: {
+    500: '#4575F5',
+    600: '#4575F5',
+    700: '#4575F5',
+  },
   secondary: '#3F4CB2',
   tertiary: '#0C1F6F',
-  'primary.sub': '#4575F5',
+  'primary.sub': '#C3DCFF',
   'secondary.sub': '#3F4CB2',
   'tertiary.sub': '#0C1F6F',
   point: '#F77721',
@@ -33,7 +37,11 @@ const Light: Color = {
 };
 
 const Dark: Color = {
-  primary: '#336BFF',
+  primary: {
+    500: '#336BFF',
+    600: '#336BFF',
+    700: '#336BFF',
+  },
   secondary: '#2E3DAF',
   tertiary: '#07175D',
   'primary.sub': '#B1CCEF',
@@ -69,37 +77,35 @@ export const mode = {
 };
 
 const colors = {
-  custom: {
-    ...mode[config.initialColorMode || 'light'],
-    dim: {
-      primary: '#1A1A1A80',
-      secondary: '#1A1A1A33',
-    },
-    kakao: {
-      500: '#FFDE32',
-      600: '#F5D322',
-      700: '#EFCC1A',
-    },
-    naver: {
-      500: '#20CF5D',
-      600: '#17c554',
-      700: '#14bf50',
-    },
-    facebook: {
-      500: '#1877F3',
-      600: '#1874eb',
-      700: '#146cdf',
-    },
-    google: {
-      500: '#FFFFFF',
-      600: '#F5F5F5',
-      700: '#EEEEEE',
-    },
-    apple: {
-      500: '#000000',
-      600: '#111111',
-      700: '#222222',
-    },
+  ...mode[config.initialColorMode || 'light'],
+  dim: {
+    primary: '#1A1A1A80',
+    secondary: '#1A1A1A33',
+  },
+  kakao: {
+    500: '#FFDE32',
+    600: '#F5D322',
+    700: '#EFCC1A',
+  },
+  naver: {
+    500: '#20CF5D',
+    600: '#17c554',
+    700: '#14bf50',
+  },
+  facebook: {
+    500: '#1877F3',
+    600: '#1874eb',
+    700: '#146cdf',
+  },
+  google: {
+    500: '#FFFFFF',
+    600: '#F5F5F5',
+    700: '#EEEEEE',
+  },
+  apple: {
+    500: '#000000',
+    600: '#111111',
+    700: '#222222',
   },
 };
 

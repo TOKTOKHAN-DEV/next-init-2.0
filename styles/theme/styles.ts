@@ -8,6 +8,9 @@ const styles = {
       color: mode('#1A1A1A', '#FFFFFF')(props),
       bg: mode('#FFFFFF', '#363636')(props),
     },
+    input: {
+      fontSize: ['16px', '14px', '15px'],
+    },
     '#__next': {
       display: 'flex',
       flexDirection: 'column',

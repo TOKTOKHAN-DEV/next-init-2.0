@@ -74,7 +74,7 @@ const Button = {
   sizes: {
     lg: {
       h: '50px',
-      fontSize: ['15px', '14px', '16px'],
+      fontSize: ['16px', '14px', '15px'],
       px: '15px',
     },
     md: {

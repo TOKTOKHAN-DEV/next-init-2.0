@@ -135,16 +135,15 @@ const CustomInput = styled.input<styleProp>`
 const Hr = styled(Box)<styleProp>`
   z-index: 10;
   position: absolute;
-  bottom: -0.5px;
   transition: 0.2s ease;
   width: 0%;
   height: 2px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.primary[500]};
 
   ${(props) =>
     props.hasIcon &&
     css`
-      bottom: -1.5px;
+      bottom: -2px;
     `}
   ${(props) =>
     props.error &&

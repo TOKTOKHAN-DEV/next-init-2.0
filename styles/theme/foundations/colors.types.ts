@@ -1,5 +1,9 @@
 type Color = {
-  primary: string;
+  primary: {
+    500: string;
+    600: string;
+    700: string;
+  };
   secondary: string;
   tertiary: string;
   'primary.sub': string;
