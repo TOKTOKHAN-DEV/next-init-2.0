@@ -1,5 +1,7 @@
 /* eslint-disable no-useless-escape */
+import { ColorModeScript } from '@chakra-ui/color-mode';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import config from 'styles/theme/foundations/config';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: any) {
@@ -27,6 +29,7 @@ class MyDocument extends Document {
           <script dangerouslySetInnerHTML={this.redirectIEtoEdge()} />
         </Head>
         <body>
+          <ColorModeScript initialColorMode={config.initialColorMode} />
           <Main />
           <NextScript />
         </body>
