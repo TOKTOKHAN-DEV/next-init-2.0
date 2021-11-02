@@ -37,9 +37,10 @@ export const Input: React.FC<inputProps> = ({
     }
   };
   const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setText(e.target.value);
+    const val = e.target.value;
+    setText(val);
     if (onChange) {
-      onChange(e.target.value);
+      onChange(val);
     }
   };
 
@@ -70,13 +71,13 @@ export const Input: React.FC<inputProps> = ({
             onChange={changeHandler}
             onFocus={onFocusInput}
             onBlur={onBlurInput}
+            icon={icon ? 1 : 0}
             isNullValue={isNullValue}
             readOnly={isReadOnly}
-            error={!!errorText}
-            hasIcon={!!icon}
             onInput={limitInput}
+            error={errorText ? 1 : 0}
           />
-          <Hr focused={focused} hasIcon={!!icon} error={!!errorText} />
+          <Hr focused={focused || text ? 1 : 0} icon={icon ? 1 : 0} error={errorText ? 1 : 0} />
         </Flex>
         {action && <Box ml="10px">{action}</Box>}
       </Flex>
@@ -89,15 +90,15 @@ export const Input: React.FC<inputProps> = ({
   );
 };
 
-interface styleProp {
-  focused?: boolean;
+interface StyleProp {
   isNullValue?: boolean;
-  error?: boolean;
-  hasIcon?: boolean;
+  error: number;
+  icon: number;
+  focused?: number;
   theme?: ThemeComponentProps;
 }
 
-const CustomInput = styled.input<styleProp>`
+const CustomInput = styled.input<StyleProp>`
   all: unset;
   height: 50px;
   width: 100%;
@@ -108,7 +109,7 @@ const CustomInput = styled.input<styleProp>`
   }
 
   ${(props) =>
-    props.hasIcon &&
+    props.icon &&
     css`
       border: none;
       border-bottom: none;
@@ -132,28 +133,29 @@ const CustomInput = styled.input<styleProp>`
     `}
 `;
 
-const Hr = styled(Box)<styleProp>`
+const Hr = styled(Box)<StyleProp>`
   z-index: 10;
   position: absolute;
+  bottom: -0.5px;
   transition: 0.2s ease;
   width: 0%;
   height: 2px;
   background-color: ${({ theme }) => theme.colors.primary[500]};
 
   ${(props) =>
-    props.hasIcon &&
+    props.icon &&
     css`
-      bottom: -2px;
+      bottom: -1.5px;
     `}
+  ${(props) =>
+    props.focused &&
+    css`
+      width: 100%;
+    `};
   ${(props) =>
     props.error &&
     css`
       width: 100%;
       background-color: ${props.theme.colors.warning};
     `}
-    ${(props) =>
-    props.focused &&
-    css`
-      width: 100%;
-    `};
 `;
