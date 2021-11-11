@@ -25,6 +25,11 @@ const Light: Color = {
   success: '#4575F5',
   'success.sub': '#C3DCFF',
   black: '#1A1A1A',
+  dark: {
+    500: '#1A1A1A',
+    600: '#1A1A1A',
+    700: '#1A1A1A',
+  },
   white: '#FFFFFF',
   gray: {
     100: '#FAFAFA',
@@ -67,6 +72,11 @@ const Dark: Color = {
   success: '#336BFF',
   'success.sub': '#B1CCEF',
   black: '#FFFFFF',
+  dark: {
+    500: '#FFFFFF',
+    600: '#FFFFFF',
+    700: '#FFFFFF',
+  },
   white: '#444444',
   gray: {
     100: '#535353',

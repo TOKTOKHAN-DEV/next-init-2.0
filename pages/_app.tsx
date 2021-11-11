@@ -7,6 +7,7 @@ import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
 import { mode } from 'styles/theme/foundations/colors';
 
 import { withChakraProvider } from 'styles/provider';
+import ToggleColorModeButton from 'components/molecules/ToggleColorModeButton';
 
 // Create a client
 const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     // Provide the client to your App
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={{ ...theme, colors: { ...theme.colors, ...mode[colorMode] } }}>
+        <ToggleColorModeButton />
         <Component {...pageProps} />
       </ThemeProvider>
       <ReactQueryDevtools initialIsOpen={false} />

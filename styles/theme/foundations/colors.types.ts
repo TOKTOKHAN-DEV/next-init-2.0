@@ -25,6 +25,7 @@ type Color = {
   'success.sub': string;
   black: string;
   white: string;
+  dark: ColorProps;
   gray: ColorProps;
   background: {
     primary: string;

@@ -1,5 +1,4 @@
 import { theme as baseTheme } from '@chakra-ui/react';
-import { mode } from '@chakra-ui/theme-tools';
 import { StyleObjectOrFn } from '@chakra-ui/styled-system';
 
 type AccessibleColor = {
@@ -13,9 +12,27 @@ type AccessibleColor = {
 const accessibleColorMap: { [key: string]: AccessibleColor } = {
   kakao: {
     bg: 'kakao.500',
-    color: 'black',
+    color: '#1A1A1A',
     hoverBg: 'kakao.600',
     activeBg: 'kakao.700',
+  },
+  naver: {
+    bg: 'naver.500',
+    color: '#FFFFFF',
+    hoverBg: 'naver.600',
+    activeBg: 'naver.700',
+  },
+  facebook: {
+    bg: 'facebook.500',
+    color: '#FFFFFF',
+    hoverBg: 'facebook.600',
+    activeBg: 'facebook.700',
+  },
+  apple: {
+    bg: 'apple.500',
+    color: '#FFFFFF',
+    hoverBg: 'apple.600',
+    activeBg: 'apple.700',
   },
   google: {
     bg: 'google.500',
@@ -30,36 +47,37 @@ const variantSolid: StyleObjectOrFn = (props) => {
   const { colorScheme: c } = props;
 
   if (c === 'gray') {
-    const bg = mode(`gray.100`, `whiteAlpha.200`)(props);
+    const bg = 'gray.100';
     return {
       bg,
       _hover: {
-        bg: mode(`gray.200`, `whiteAlpha.300`)(props),
+        bg: 'gray.100',
         _disabled: {
           bg,
         },
       },
-      _active: { bg: mode(`gray.300`, `whiteAlpha.400`)(props) },
+      _active: { bg: 'gray.300' },
     };
   }
 
   const { bg = `${c}.500`, color = 'white', hoverBg = `${c}.600`, activeBg = `${c}.700`, border = `${c}.500` } = accessibleColorMap[c] ?? {};
 
-  const background = mode(bg, `${c}.200`)(props);
-  const borderColor = mode(border, `${c}.500`)(props);
+  const background = bg;
+  const borderColor = border;
 
   return {
     bg: background,
-    color: mode(color, `gray.800`)(props),
+    color: color,
     borderWidth: 1,
     borderColor: borderColor,
     _hover: {
-      bg: mode(hoverBg, `${c}.300`)(props),
+      bg: hoverBg,
+      borderColor: hoverBg,
       _disabled: {
         bg: background,
       },
     },
-    _active: { bg: mode(activeBg, `${c}.400`)(props) },
+    _active: { bg: activeBg, borderColor: activeBg },
   };
 };
 
