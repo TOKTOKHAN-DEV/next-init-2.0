@@ -1,9 +1,17 @@
+type ColorProps = {
+  50?: string;
+  100?: string;
+  200?: string;
+  300?: string;
+  400?: string;
+  500?: string;
+  600?: string;
+  700?: string;
+  800?: string;
+  900?: string;
+};
 type Color = {
-  primary: {
-    500: string;
-    600: string;
-    700: string;
-  };
+  primary: ColorProps;
   secondary: string;
   tertiary: string;
   'primary.sub': string;
@@ -17,14 +25,7 @@ type Color = {
   'success.sub': string;
   black: string;
   white: string;
-  gray: {
-    0: string;
-    1: string;
-    2: string;
-    3: string;
-    4: string;
-    5: string;
-  };
+  gray: ColorProps;
   background: {
     primary: string;
     secondary: string;

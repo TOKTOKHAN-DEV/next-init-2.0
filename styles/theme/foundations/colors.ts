@@ -1,11 +1,17 @@
 import Color from './colors.types';
-import config from './config';
 
 const Light: Color = {
   primary: {
-    500: '#4575F5',
-    600: '#4575F5',
-    700: '#4575F5',
+    50: '#acc1fa',
+    100: '#97b2f9',
+    200: '#83a3f8',
+    300: '#6e93f7',
+    400: '#5984f6',
+    500: '#4575f5',
+    600: '#3d68d9',
+    700: '#355bbe',
+    800: '#2e4ea3',
+    900: '#264188',
   },
   secondary: '#3F4CB2',
   tertiary: '#0C1F6F',
@@ -21,12 +27,12 @@ const Light: Color = {
   black: '#1A1A1A',
   white: '#FFFFFF',
   gray: {
-    0: '#FAFAFA',
-    1: '#F7F7F7',
-    2: '#F0F0F0',
-    3: '#BEBEBE',
-    4: '#808080',
-    5: '#444444',
+    100: '#FAFAFA',
+    200: '#F7F7F7',
+    300: '#F0F0F0',
+    400: '#BEBEBE',
+    500: '#808080',
+    600: '#444444',
   },
   background: {
     primary: '#FFFFFF',
@@ -38,9 +44,16 @@ const Light: Color = {
 
 const Dark: Color = {
   primary: {
-    500: '#336BFF',
-    600: '#336BFF',
-    700: '#336BFF',
+    50: '#acc1fa',
+    100: '#97b2f9',
+    200: '#83a3f8',
+    300: '#6e93f7',
+    400: '#5984f6',
+    500: '#4575f5',
+    600: '#3d68d9',
+    700: '#355bbe',
+    800: '#2e4ea3',
+    900: '#264188',
   },
   secondary: '#2E3DAF',
   tertiary: '#07175D',
@@ -56,12 +69,12 @@ const Dark: Color = {
   black: '#FFFFFF',
   white: '#444444',
   gray: {
-    0: '#535353',
-    1: '#585858',
-    2: '#808080',
-    3: '#A7A7A7',
-    4: '#BEBEBE',
-    5: '#EBEBEB',
+    100: '#535353',
+    200: '#585858',
+    300: '#808080',
+    400: '#A7A7A7',
+    500: '#BEBEBE',
+    600: '#EBEBEB',
   },
   background: {
     primary: '#363636',
@@ -77,7 +90,6 @@ export const mode = {
 };
 
 const colors = {
-  ...mode[config.initialColorMode || 'light'],
   dim: {
     primary: '#1A1A1A80',
     secondary: '#1A1A1A33',

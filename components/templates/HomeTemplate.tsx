@@ -24,7 +24,7 @@ const HomeTemplate = ({ header }: HomeTemplateProps) => {
   return (
     <>
       {header}
-      <Box w="300px" h="300px" bg="custom.secondary" onClick={toggleColorMode}>
+      <Box w="300px" h="300px" bg="secondary" onClick={toggleColorMode}>
         colorMode : {colorMode}
       </Box>
       <Box w="100px" h="100px" />
