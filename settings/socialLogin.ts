@@ -1,4 +1,4 @@
-import { SocialProps } from 'components/common/molecules/SocialButton';
+import { SocialProps } from 'components/molecules/SocialButton';
 // SOCIAL
 // 소셜로그인 콜백 URL
 export const SOCIAL_REDIRECT_URL = `http://localhost:3000/login/social/callback`;
