@@ -9,12 +9,19 @@ import { mode } from 'styles/theme/foundations/colors';
 import { withChakraProvider } from 'styles/provider';
 import ToggleColorModeButton from 'components/molecules/ToggleColorModeButton';
 
+import Auth from 'utils/0auth';
+import { useEffect } from 'react';
+
 // Create a client
 const queryClient = new QueryClient();
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { colorMode } = useColorMode();
   const theme = useTheme();
+
+  useEffect(() => {
+    Auth.initialize({ brand: 'test' });
+  }, []);
   return (
     // Provide the client to your App
     <QueryClientProvider client={queryClient}>

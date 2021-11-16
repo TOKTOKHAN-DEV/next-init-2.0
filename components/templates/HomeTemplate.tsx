@@ -1,17 +1,14 @@
 import React from 'react';
-import Router from 'next/router';
 
 import { Box, Stack, Button } from '@chakra-ui/react';
+
+import Auth from 'utils/0auth';
 
 interface HomeTemplateProps {
   header?: JSX.Element;
 }
 
 const HomeTemplate = ({ header }: HomeTemplateProps) => {
-  // Test
-  const setLogin = () => {
-    Router.replace(`https://test.celeb-picks.com/?next=${window.location.href}`);
-  };
   return (
     <>
       {header}
@@ -30,8 +27,11 @@ const HomeTemplate = ({ header }: HomeTemplateProps) => {
           Button
         </Button>
       </Stack>
-      <Button colorScheme="primary" size="lg" borderRadius="50px" maxW="200px" onClick={setLogin}>
+      <Button colorScheme="primary" size="lg" borderRadius="50px" maxW="200px" onClick={Auth.login}>
         로그인
+      </Button>
+      <Button colorScheme="primary" size="lg" borderRadius="50px" maxW="200px" onClick={() => Auth.initialize({ brand: 'test' })}>
+        초기화
       </Button>
     </>
   );
