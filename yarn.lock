@@ -2,6 +2,11 @@
 # yarn lockfile v1
 
 
+"0auth-sdk@^0.0.9":
+  version "0.0.9"
+  resolved "https://registry.yarnpkg.com/0auth-sdk/-/0auth-sdk-0.0.9.tgz#dbdd5d75c7d11ac47ddcb7f220b3860afb47129a"
+  integrity sha512-Oh8qibRbfhdZ9Z07HKHa263O+aM5tyRto5Z6Pg31TYmQo4XePDToWk3oyL166JVjB/9O+rQIdwfcIBdx/eOZlg==
+
 "@babel/code-frame@7.12.11":
   version "7.12.11"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"

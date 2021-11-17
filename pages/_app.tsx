@@ -9,7 +9,7 @@ import { mode } from 'styles/theme/foundations/colors';
 import { withChakraProvider } from 'styles/provider';
 import ToggleColorModeButton from 'components/molecules/ToggleColorModeButton';
 
-import Auth from 'utils/0auth';
+import Auth from '0auth-sdk';
 import { useEffect } from 'react';
 
 // Create a client

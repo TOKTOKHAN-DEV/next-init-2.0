@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Box, Stack, Button } from '@chakra-ui/react';
 
-import Auth from 'utils/0auth';
+import Auth from '0auth-sdk';
 
 interface HomeTemplateProps {
   header?: JSX.Element;

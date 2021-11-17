@@ -16,6 +16,7 @@
     "test": "jest --watch"
   },
   "dependencies": {
+    "0auth-sdk": "^0.0.9",
     "@chakra-ui/react": "^1.6.5",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
