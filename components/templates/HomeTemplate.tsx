@@ -33,6 +33,9 @@ const HomeTemplate = ({ header }: HomeTemplateProps) => {
       <Button colorScheme="primary" size="lg" borderRadius="50px" maxW="200px" onClick={() => Auth.initialize({ brand: 'test' })}>
         초기화
       </Button>
+      <Button colorScheme="primary" size="lg" borderRadius="50px" maxW="200px" onClick={Auth.getProfile}>
+        프로필 가져오기
+      </Button>
     </>
   );
 };
