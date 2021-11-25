@@ -57,6 +57,7 @@ class MyDocument extends Document {
           <link rel="apple-touch-icon" sizes="167x167" href="/icons/167.png" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
 
+          <title>{SITE_NAME}</title>
           <link rel="canonical" href="https://www.toktokhan.dev/" />
           <meta name="description" content={SITE_DESCRIPTION} />
           <meta property="og:type" content="website" />
