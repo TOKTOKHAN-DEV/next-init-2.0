@@ -13,13 +13,14 @@
     "cy:run": "cypress run",
     "gen:theme-typings": "chakra-cli tokens styles/theme",
     "postinstall": "yarn run gen:theme-typings",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "commit": "cz"
   },
   "dependencies": {
-    "0auth-sdk": "^0.0.12",
     "@chakra-ui/react": "^1.6.5",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
+    "0auth-sdk": "^0.0.12",
     "axios": "^0.21.1",
     "dayjs": "^1.10.6",
     "framer-motion": "^4",
@@ -42,6 +43,7 @@
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "babel-jest": "^27.2.4",
+    "commitizen": "^4.2.4",
     "cypress": "^8.5.0",
     "eslint": "^7.24.0",
     "eslint-config-prettier": "^8.1.0",
@@ -51,6 +53,7 @@
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^4.12.4",
+    "git-cz": "^4.8.0",
     "husky": "^6.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.2.4",
@@ -63,5 +66,10 @@
     "**/*.{js,jsx,ts,tsx}": [
       "eslint --fix"
     ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "git-cz"
+    }
   }
 }
