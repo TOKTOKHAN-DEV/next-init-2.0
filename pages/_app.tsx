@@ -7,7 +7,7 @@ import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
 import { mode } from 'styles/theme/foundations/colors';
 
 import { withChakraProvider } from 'styles/provider';
-import ToggleColorModeButton from 'components/molecules/ToggleColorModeButton';
+import ToggleColorModeButton from 'components/ToggleColorModeButton';
 
 import Auth from '0auth-sdk';
 import { useEffect } from 'react';
