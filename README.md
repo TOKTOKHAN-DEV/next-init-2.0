@@ -28,6 +28,7 @@ A quick look at the directories you'll see in this project.
     ├── components          #
     ├── hooks               # Custom hooks
     ├── utils               #
+    ├── templates           # Templates
     ├── libs                #
     ├── cypress             # Automated tests
     ├── README.md           #
@@ -89,15 +90,14 @@ Components are independent and reusable bits of code.
 
 Components are independent and reusable bits of code.
 
-
     .
     ├── ...
     ├── containers                  # containers에 하위 폴더들은 pages와 1:1 매칭
-    │ ├── login                     # 
+    │ ├── login                     #
     │ │  ├── _fragments             # _fragment는 Login 페이지에서만 사용되는 컴포넌트
     │ │  │  ├── LoginForm.tsx       # 중복되는 경우에는 components 폴더로 이동
     │ │  │  └── Intro.tsx           #
-    │ │  ├── Login.tsx              # 
+    │ │  ├── Login.tsx              #
     │ │  ├── LoginContainer.tsx     # LoginContainer 에서 모든 로직에 대한 부분들 작업 (state, props)
     │ │  └── index.tsx              #
     │ ├── home                      #
