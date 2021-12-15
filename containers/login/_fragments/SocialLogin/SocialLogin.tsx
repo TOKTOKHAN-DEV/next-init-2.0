@@ -1,6 +1,6 @@
 import { VStack, HStack } from '@chakra-ui/react';
 
-import SocialButton from 'components/molecules/SocialButton';
+import SocialButton from 'components/SocialButton';
 
 import { SOCIAL_DATA } from 'settings/socialLogin';
 

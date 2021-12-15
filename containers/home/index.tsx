@@ -1,4 +1,4 @@
-import HomeTemplate from 'components/templates/HomeTemplate';
+import HomeTemplate from 'templates/HomeTemplate';
 
 export function HomeContainer() {
   return <HomeTemplate />;

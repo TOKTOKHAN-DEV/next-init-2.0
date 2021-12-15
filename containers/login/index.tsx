@@ -1,6 +1,6 @@
 import React from 'react';
 
-import LoginTemplate from 'components/templates/LoginTemplate';
+import LoginTemplate from 'templates/LoginTemplate';
 
 import Content from './_fragments/Content';
 

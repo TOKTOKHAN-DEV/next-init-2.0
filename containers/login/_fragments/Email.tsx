@@ -2,10 +2,10 @@ import React from 'react';
 
 import Link from 'next/link';
 
-import Input from 'components/atoms/Input';
-import CheckBox from 'components/atoms/CheckBox';
+import Input from 'components/Input';
+import CheckBox from 'components/CheckBox';
 
-import { IdIcon, PasswordIcon } from 'components/icons/System';
+import { IdIcon, PasswordIcon } from 'components/Icons/System';
 
 import { VStack, Button, Image, Flex, Text } from '@chakra-ui/react';
 

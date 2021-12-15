@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SocialLogin from 'components/organisms/SocialLogin';
+import SocialLogin from './SocialLogin';
 import { Box, Flex, Text } from '@chakra-ui/layout';
 import { Image } from '@chakra-ui/image';
 

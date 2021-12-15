@@ -2,10 +2,10 @@ import React from 'react';
 
 import Link from 'next/link';
 
-import Input from 'components/atoms/Input';
+import Input from 'components/Input';
 
-import { IdIcon, PasswordIcon } from 'components/icons/System';
-import SocialLogin from 'components/organisms/SocialLogin';
+import { IdIcon, PasswordIcon } from 'components/Icons/System';
+import SocialLogin from './SocialLogin';
 
 import { VStack, Button, Image, Box, Flex, Text } from '@chakra-ui/react';
 
