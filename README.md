@@ -81,18 +81,9 @@ Components are independent and reusable bits of code.
     ├── ...
     ├── components          #
     │ ├── icons             #
-    │ ├── common            #
-    │ │   ├── atoms         #
-    │ │   ├── molecules     #
-    │ │   └── organisms     #
-    │ ├── home              # /index
-    │ │   ├── molecules     #
-    │ │   └── organisms     #
-    │ ├── products          # /products
-    │ │   ├── molecules     #
-    │ │   └── organisms     #
-    │ ├── ...               # other pages
-    │ └── templates         #
+    │ ├── Select            #
+    │ ├── Calendar          #
+    │ └── ...               #
     └── ...
 
 ### Context
