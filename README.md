@@ -26,7 +26,6 @@ A quick look at the directories you'll see in this project.
     ├── apis                #
     ├── models              #
     ├── components          #
-    ├── context             # (alternatively `store`)
     ├── hooks               # Custom hooks
     ├── utils               #
     ├── libs                #
@@ -86,15 +85,23 @@ Components are independent and reusable bits of code.
     │ └── ...               #
     └── ...
 
-### Context
+### Container
 
-Context provides a way to pass data through the component tree without having to pass props down manually at every level. (just like redux)
+Components are independent and reusable bits of code.
+
 
     .
     ├── ...
-    ├── context             #
-    │   ├── auth            #
-    │   └── ...
+    ├── containers                  # containers에 하위 폴더들은 pages와 1:1 매칭
+    │ ├── login                     # 
+    │ │  ├── _fragments             # _fragment는 Login 페이지에서만 사용되는 컴포넌트
+    │ │  │  ├── LoginForm.tsx       # 중복되는 경우에는 components 폴더로 이동
+    │ │  │  └── Intro.tsx           #
+    │ │  ├── Login.tsx              # 
+    │ │  ├── LoginContainer.tsx     # LoginContainer 에서 모든 로직에 대한 부분들 작업 (state, props)
+    │ │  └── index.tsx              #
+    │ ├── home                      #
+    │ └── ...                       #
     └── ...
 
 ### Hooks
