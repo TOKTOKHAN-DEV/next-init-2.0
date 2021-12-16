@@ -1,5 +1,5 @@
-import HomeTemplate from 'templates/HomeTemplate';
+import HomeLayout from 'components/@Layout/HomeLayout';
 
 export function HomeContainer() {
-  return <HomeTemplate />;
+  return <HomeLayout />;
 }

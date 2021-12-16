@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-interface ContentTemplateProps {
+interface ContentLayoutProps {
   header?: JSX.Element;
   content: JSX.Element;
 }
 
-const ContentTemplate = ({ header, content }: ContentTemplateProps) => {
+const ContentLayout = ({ header, content }: ContentLayoutProps) => {
   return (
     <>
       <Box flexGrow={1}>{header}</Box>
@@ -16,4 +16,4 @@ const ContentTemplate = ({ header, content }: ContentTemplateProps) => {
   );
 };
 
-export default ContentTemplate;
+export default ContentLayout;

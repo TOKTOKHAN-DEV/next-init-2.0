@@ -4,11 +4,11 @@ import { Box, Stack, Button } from '@chakra-ui/react';
 
 import Auth from '0auth-sdk';
 
-interface HomeTemplateProps {
+interface HomeLayoutProps {
   header?: JSX.Element;
 }
 
-const HomeTemplate = ({ header }: HomeTemplateProps) => {
+const HomeLayout = ({ header }: HomeLayoutProps) => {
   return (
     <>
       {header}
@@ -40,4 +40,4 @@ const HomeTemplate = ({ header }: HomeTemplateProps) => {
   );
 };
 
-export default HomeTemplate;
+export default HomeLayout;

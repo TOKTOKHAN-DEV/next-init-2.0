@@ -80,7 +80,8 @@ Components are independent and reusable bits of code.
     .
     ├── ...
     ├── components          #
-    │ ├── icons             #
+    │ ├── @Icons            # 아이콘~
+    │ ├── @Layout           # 레이아웃 템플릿~
     │ ├── Select            #
     │ ├── Calendar          #
     │ └── ...               #

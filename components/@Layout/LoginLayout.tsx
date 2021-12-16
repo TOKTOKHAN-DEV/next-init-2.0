@@ -2,11 +2,11 @@ import React from 'react';
 
 import { Box, Flex } from '@chakra-ui/react';
 
-interface LoginTemplateProps {
+interface LoginLayoutProps {
   content: JSX.Element;
 }
 
-const LoginTemplate = ({ content }: LoginTemplateProps) => {
+const LoginLayout = ({ content }: LoginLayoutProps) => {
   return (
     <Flex h="100vh" backgroundColor={['white', '#FAFAFA']} alignItems="center" justifyContent="center">
       <Box
@@ -27,4 +27,4 @@ const LoginTemplate = ({ content }: LoginTemplateProps) => {
   );
 };
 
-export default LoginTemplate;
+export default LoginLayout;
