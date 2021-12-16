@@ -28,7 +28,6 @@ A quick look at the directories you'll see in this project.
     ├── components          #
     ├── hooks               # Custom hooks
     ├── utils               #
-    ├── templates           # Templates
     ├── libs                #
     ├── cypress             # Automated tests
     ├── README.md           #
@@ -81,7 +80,7 @@ Components are independent and reusable bits of code.
     ├── ...
     ├── components          #
     │ ├── @Icons            # 아이콘~
-    │ ├── @Layout           # 레이아웃 템플릿~
+    │ ├── @Layout           # 레이아웃~
     │ ├── Select            #
     │ ├── Calendar          #
     │ └── ...               #

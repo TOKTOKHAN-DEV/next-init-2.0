@@ -3,17 +3,18 @@
     .
     ├── ...
     ├── components
+    │   ├── @Icons
+    │   ├── @Layout
     │   ├── Select
     │   │   ├── index.tsx                   # Export component
     │   │   ├── Select.tsx                  # Presentational component is concerned with how things look.
     │   │   ├── Select.stories.ts           # StoryBook
-    │   │   ├── Select.test.tsx             # Test code 
+    │   │   ├── Select.test.tsx             # Test code
     │   │   ├── SelectContainer.tsx         # Container component is concerned with side effects(I/O, network, etc.).
     │   │   └── SelectContainer.test.tsx    # Test code
     │   ├── SocialButton
     │   └── ...
     └── ...
-
 
 # 🤔 Don't use React.FC
 
