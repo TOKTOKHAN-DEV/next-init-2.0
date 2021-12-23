@@ -15,10 +15,6 @@ module.exports = {
         source: '/sitemap.xml',
         destination: '/api/sitemap',
       },
-      {
-        source: '/product.xml',
-        destination: '/api/product',
-      },
     ];
   },
 };
