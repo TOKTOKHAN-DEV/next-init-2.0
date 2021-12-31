@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "description": "Simple project that shows the usage of Next.js with TypeScript",
-  "author": "Ken Rhee <hokyun.rhee@gmail.com>",
+  "author": "TOKTOKHAN.DEV<dev@toktokhan.dev>",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
