@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 import { Flex, Box, Text, ThemeComponentProps } from '@chakra-ui/react';
 import { inputProps } from './input.types';
 
-export const Input: React.FC<inputProps> = ({
+export const Input = ({
   name,
   type,
   onChange,
@@ -22,7 +22,7 @@ export const Input: React.FC<inputProps> = ({
   icon,
   inputMaxLength = 30,
   ...props
-}) => {
+}: inputProps) => {
   const [text, setText] = useState<string>('');
   const [focused, setFocused] = useState<boolean>(false);
   const onFocusInput = () => {

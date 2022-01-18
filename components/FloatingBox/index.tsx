@@ -1,9 +1,5 @@
 import { Box } from '@chakra-ui/react';
 
-/**
- * @see Docs https://chakra-ui.com/docs/typography/text
- */
-
 interface Props {
   position: 'top' | 'bottom';
   children: JSX.Element;
