@@ -9,7 +9,7 @@ interface customProps {
   chooseType?: any;
 }
 
-const SelectComponent: React.FC<customProps & selectProps> = ({ chooseType, ...props }) => {
+const SelectComponent = ({ chooseType, ...props }: customProps & selectProps) => {
   const theme = useTheme();
   const handleChange = (e: any) => {
     chooseType(e.value);
