@@ -1,1 +1,1 @@
-export { HomeContainer as default } from 'components/elements/home';
+export { HomeContainer as default } from 'components/elements/Home';

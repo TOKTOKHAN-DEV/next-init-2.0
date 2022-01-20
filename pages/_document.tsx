@@ -51,7 +51,6 @@ class MyDocument extends Document {
           />
 
           {/* SEO */}
-          <title>{SITE_NAME}</title>
           <link rel="apple-touch-icon" href="/icons/120.png" />
           <link rel="apple-touch-icon" sizes="152x152" href="/icons/152.png" />
           <link rel="apple-touch-icon" sizes="180x180" href="/icons/180.png" />
