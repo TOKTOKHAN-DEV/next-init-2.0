@@ -14,7 +14,8 @@
     "postinstall": "yarn run gen:theme-typings",
     "test": "jest --watch",
     "commit": "cz",
-    "gen:api": "orval"
+    "gen:api": "orval",
+    "gen:api2": "node ./scripts/api-generator/index.js"
   },
   "dependencies": {
     "0auth-sdk": "^0.0.12",
