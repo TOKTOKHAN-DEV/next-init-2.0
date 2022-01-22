@@ -1,0 +1,83 @@
+<%
+const { utils, route, config, modelTypes } = it;
+const { _, classNameCase, require } = utils;
+const apiClassName = classNameCase(route.moduleName) + 'Api';
+const routes = route.routes;
+const dataContracts = _.map(modelTypes, "name");
+
+const upperSnakeeCase = (str) => _.upperCase(str).replace(/ /g, '_');
+const queryKeyName = "QUERY_KEY_" + _.upperCase(apiClassName).replace(/ /g, '_');
+
+const paginationKeywords = ["offset" , "limit"];
+const hasPagination = (queryString, keywords = paginationKeywords ) => {
+  const keywordUnion = keywords.map(str => `.*${str}.*`).join("|");
+  const rgxSting = keywords.map(str => `(${keywordUnion})`).join("");
+  const rgx = new RegExp(rgxSting);
+  return rgx.test(queryString);
+}
+
+
+const apiInstanceName =route.moduleName + "Api";
+const removeModuleName = (str) =>  str.replace(route.moduleName,'');
+const dataForReactHookTemplate = { upperSnakeeCase, removeModuleName, apiInstanceName, apiClassName, queryKeyName ,hasPagination};
+
+const projectRootPath = process.env.PWD;
+const reactQueryTemplatePath = `${projectRootPath}/scripts/api-generator/src/template/my-templates/react-query-hook.eta`
+%>
+
+<% if (config.httpClientType === config.constants.HTTP_CLIENT.AXIOS) { %> import { AxiosRequestConfig, AxiosResponse } from "axios"; <% } %>
+
+import { HttpClient, RequestParams, ContentType } from "../<%~ config.fileNames.httpClient %>";
+<% if (dataContracts.length) { %>
+import { <%~ dataContracts.join(", ") %> } from "../<%~ config.fileNames.dataContracts %>"
+<% } %>
+
+import { useMutation ,useQuery, useInfiniteQuery } from 'react-query';
+import { MutationHookParams,QueryHookParams, InfiniteQueryHookParams  } from 'apis/type';
+
+
+
+export class <%= apiClassName %><SecurityDataType = unknown><% if (!config.singleHttpClient) { %> extends HttpClient<SecurityDataType> <% } %> {
+<% if(config.singleHttpClient) { %>
+  http: HttpClient<SecurityDataType>;
+
+  constructor (http: HttpClient<SecurityDataType>) {
+    this.http = http;
+  }
+<% } %>
+
+    <% routes.forEach((route) => { %>
+        <%~ includeFile('./procedure-call.eta', { ...it, route }) %>
+    <% }) %>
+}
+
+export const <%= apiInstanceName %> = new <%= apiClassName %>()
+
+ // ========================HOOKS========================
+
+/**
+ * QUERY_KEYS
+ */
+export const <%= queryKeyName %> = {
+  <% routes.forEach((route) => { %>
+    <% 
+      const functionName = route.routeName.usage;
+      const key = upperSnakeeCase(removeModuleName(functionName));
+      const { query } =  route.request
+    %>
+    <%~ key %>:"<%~ functionName %>",
+    <% if(query?.type && hasPagination(query.type)) { %>
+     <%~ key %>_INFINITE :"<%~ functionName %>Infinite",
+    <% }%>
+  <% }) %>
+} as const;
+
+ <% routes.forEach((route) => { %>
+    <%~ includeFile(reactQueryTemplatePath, { ...it, route , dataFromApiTemplate:dataForReactHookTemplate}) %>
+  <% }) %>
+
+
+
+
+
+
