@@ -8,6 +8,7 @@ const { getPathOnApp } = require('./src/utils/path');
 const { generateApi } = generator;
 
 const customTemplatesFolder = getPathOnApp('src/template/custom-templates');
+const typeFilesName = ['react-query-type.ts', 'data-contracts.ts'];
 
 async function main() {
   const { outputFolder, targetSwaggerFile } = await init();
@@ -19,15 +20,27 @@ async function main() {
     moduleNameFirstTag: true,
     typeSuffix: 'Type',
     templates: customTemplatesFolder,
+    extraTemplates: [
+      {
+        name: 'react-query-type.ts', //
+        path: getPathOnApp('src/template/my-templates/react-query-type.eta'),
+      },
+    ],
   });
 
   files.forEach(({ name, content }) => {
-    const folderName = name.replace('.ts', '');
-    const folderPath = `${outputFolder}/${folderName}`;
-    const filePath = `${folderPath}/index.ts`;
     try {
-      mkdir(folderPath);
-      fs.writeFileSync(filePath, content, console.error);
+      const isTypeFile = typeFilesName.findIndex((typeFile) => typeFile === name) >= 0;
+      const fileNameWithoutExtension = name.replace('.ts', '');
+
+      const apiFolder = `${outputFolder}/${fileNameWithoutExtension}`;
+      const typeFolder = `${outputFolder}/types`;
+
+      const targetFolder = isTypeFile ? typeFolder : apiFolder;
+      const targetFile = isTypeFile ? `${typeFolder}/${name}` : `${apiFolder}/index.ts`;
+
+      mkdir(targetFolder);
+      fs.writeFileSync(targetFile, content, console.error);
     } catch (err) {
       console.error(err);
     }

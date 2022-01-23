@@ -29,11 +29,11 @@ const reactQueryTemplatePath = `${projectRootPath}/scripts/api-generator/src/tem
 
 import { HttpClient, RequestParams, ContentType } from "../<%~ config.fileNames.httpClient %>";
 <% if (dataContracts.length) { %>
-import { <%~ dataContracts.join(", ") %> } from "../<%~ config.fileNames.dataContracts %>"
+import { <%~ dataContracts.join(", ") %> } from "../types/<%~ config.fileNames.dataContracts %>"
 <% } %>
 
 import { useMutation ,useQuery, useInfiniteQuery } from 'react-query';
-import { MutationHookParams,QueryHookParams, InfiniteQueryHookParams  } from 'apis/type';
+import { MutationHookParams,QueryHookParams, InfiniteQueryHookParams  } from '../types/react-query-type';
 
 
 
