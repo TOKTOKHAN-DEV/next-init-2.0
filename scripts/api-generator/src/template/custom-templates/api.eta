@@ -37,7 +37,7 @@ import { MutationHookParams,QueryHookParams, InfiniteQueryHookParams  } from '..
 
 
 
-export class <%= apiClassName %><SecurityDataType = unknown><% if (!config.singleHttpClient) { %> extends HttpClient<SecurityDataType> <% } %> {
+export class <%= apiClassName %><% if (!config.singleHttpClient) { %> extends HttpClient <% } %> {
 <% if(config.singleHttpClient) { %>
   http: HttpClient<SecurityDataType>;
 
