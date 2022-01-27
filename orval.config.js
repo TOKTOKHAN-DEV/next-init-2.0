@@ -1,13 +1,14 @@
-import { BASE_URL } from 'config';
-
 module.exports = {
   api: {
-    input: `${BASE_URL}/openapi.json`,
+    input: `${'http://127.0.0.1:8000'}/openapi.json`,
     output: {
       mode: 'tags-split',
       client: 'react-query',
       target: './apis',
       schemas: './schemas',
+      prettier: './prettier',
+      tslint: './.eslintrc.js',
+      tsconfig: './tsconfig.json',
       override: {
         mutator: {
           path: './apis/customInstance.ts',
