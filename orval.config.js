@@ -1,7 +1,7 @@
 import { BASE_URL } from 'config';
 
 module.exports = {
-  'api': {
+  api: {
     input: `${BASE_URL}/openapi.json`,
     output: {
       mode: 'tags-split',
@@ -34,8 +34,8 @@ module.exports = {
           requestBodies: {
             suffix: 'Data',
           },
-        }
+        },
       },
     },
   },
-}
+};
