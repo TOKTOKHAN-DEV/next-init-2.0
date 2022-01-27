@@ -8,6 +8,7 @@ export const emailValidate = {
 export const passwordValidate = {
   hasNumber: (value: string) => {
     const reg = /[0-9]/;
+    console.log('iii');
     return reg.test(value) ? true : '숫자가 포함되어야 합니다.';
   },
   hasText: (value: string) => {
