@@ -16,6 +16,10 @@ const styles = {
       flexDirection: 'column',
       minHeight: '100vh',
     },
+    '@font-face': {
+      fontFamily: 'Montserrat, sans-serif',
+      unicodeRange: 'U+0030-0039, U+AC00-U+D7A3',
+    },
   }),
 };
 
