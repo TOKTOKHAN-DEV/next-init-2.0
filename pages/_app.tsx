@@ -14,9 +14,24 @@ import { useEffect } from 'react';
 
 import { Provider } from 'react-redux';
 import store from 'features/store';
+import setUpMockServiceWorker from 'apis/_mock/setupMockServiceWorker';
 
 // Create a client
 const queryClient = new QueryClient();
+
+// For mocking-response from network request
+setUpMockServiceWorker({
+  condition: {
+    server: 'off',
+    client: 'off',
+  },
+  handlers: [
+    // ...getNoticeMSW(),
+    // ...getNewsMSW(),
+    // ...getPostMSW(),
+    // ...getStockMSW(),
+  ],
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
   const { colorMode } = useColorMode();
@@ -25,6 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     Auth.initialize({ brand: 'test' });
   }, []);
+
   return (
     // Provide the client to your App
     <Provider store={store}>

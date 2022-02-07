@@ -17,5 +17,5 @@
     "types": ["jest"]
   },
   "include": ["next-env.d.ts", "app.d.ts", "**/*.ts", "**/*.tsx", "./jest.setup.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "./public/mockServiceWorker.js"]
 }
