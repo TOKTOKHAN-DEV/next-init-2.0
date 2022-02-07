@@ -68,3 +68,4 @@ output-path에 target 파일과 ".msw" 확장자를 가진 mock 데이터 관련
 orval: https://orval.dev/reference/configuration/overview
 prompt: https://www.npmjs.com/package/enquirer
 faker : https://github.com/faker-js/faker
+maw: https://mswjs.io/docs/getting-started/mocks/rest-api

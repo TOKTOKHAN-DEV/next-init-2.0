@@ -3,7 +3,11 @@ import { DefaultRequestBody, MockedRequest, RestHandler, setupWorker } from 'msw
 import { setupServer } from 'msw/node';
 
 type Args = {
+  /**
+   * @see https://mswjs.io/docs/getting-started/mocks/rest-api
+   */
   handlers: Handlers;
+  /** 서비스 워커의 구동 여부 (server: node-server, client: web-app) */
   condition?: {
     server?: 'on' | 'off';
     client?: 'on' | 'off';
