@@ -130,6 +130,31 @@ Libraries you can use throughout the application. A library is a JavaScript file
     │   └── ...
     └── ...
 
+### Generated
+
+Generated files such as apis, components, ...
+
+    .
+    ├── ...
+    ├── generated         If you run generate-script, it will be created
+    │ ├── apis            # by orval (ref: orval.config.js )
+    │ ├── schemas         # by orval
+    └── ...
+
+- **generate apis**
+
+1. add "API_BASE_URL" on your .env
+2. run script:
+
+   > ```
+   > npm(or yarn) run gen:api
+   > ```
+
+   Then apis will be created by "orval" based on swagger information.
+   more see: [orval](https://orval.dev/reference/configuration/overview)
+
+   You can use mock data that created by "orval" with [faker](https://github.com/faker-js/faker), [maw](https://mswjs.io/docs/getting-started/mocks/rest-api)
+
 ### Cypress
 
 Automated tests with cypress.
