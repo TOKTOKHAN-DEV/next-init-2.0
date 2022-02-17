@@ -2,10 +2,7 @@
 const fs = require('fs');
 
 function mkdir(path) {
-  if (fs.existsSync(path)) {
-    console.log('already exist folder:', path);
-    return;
-  }
+  if (fs.existsSync(path)) return;
   fs.mkdirSync(path, console.error);
 }
 
