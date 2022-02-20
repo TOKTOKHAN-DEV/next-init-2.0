@@ -2,7 +2,7 @@
   const { utils, route, config,dataFromApiTemplate } = it;
   const { requestBodyInfo, responseBodyInfo, specificArgNameResolver } = route;
   const { parameters, path, method, payload, query, formData, security, requestParams } = route.request;
-  const { upperSnakeeCase, removeModuleName, apiInstanceName, apiClassName, queryKeyName,hasPagination } = dataFromApiTemplate;
+  const { upperSnakeeCase, removeModuleName, apiInstanceName, apiClassName, queryKeyName, hasPagination } = dataFromApiTemplate;
   const { HTTP_CLIENT, RESERVED_REQ_PARAMS_ARG_NAMES } = config.constants;
 
 

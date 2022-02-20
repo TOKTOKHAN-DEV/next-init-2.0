@@ -45,7 +45,7 @@ const isOptialnalVariabels  = _
 
 const conditionalVriablesText = isOptialnalVariabels? "variables?" : "variables";
 const repalceTarget = "${" + conditionalVriablesText + ".";
-const pathWithVariables = path.replace("${",repalceTarget);
+const pathWithVariables = path.replaceAll("${",repalceTarget);
 
 const wrapperArgs = _
     // Sort by optionality
