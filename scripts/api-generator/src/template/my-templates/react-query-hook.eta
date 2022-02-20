@@ -1,61 +1,44 @@
 <%
-  const { utils, route, config,dataFromApiTemplate } = it;
-  const { requestBodyInfo, responseBodyInfo, specificArgNameResolver } = route;
-  const { parameters, path, method, payload, query, formData, security, requestParams } = route.request;
-  const { upperSnakeeCase, removeModuleName, apiInstanceName, apiClassName, queryKeyName, hasPagination } = dataFromApiTemplate;
-  const { HTTP_CLIENT, RESERVED_REQ_PARAMS_ARG_NAMES } = config.constants;
+  const { utils, route, config, dataFromApiTemplate } = it;
+  const { query } = route.request;
+  const { getConfigByRoute,paginationTargetKeywords } = dataFromApiTemplate;
 
+  const { 
+    conditions:{
+      hasPagination,
+      isQuery,
+      isMutation,
+      isOptialnalVariabels,
+    },
+    data: {
+      rawWrapperArgs,
+      wrapperArgs,
+      queryKeyName,
+      functionName,
+      apiInstanceName,
+      apiClassName,
+      hookVariant,
+      key,
+      methodKey
+    },
+    utils: {
+      upperSnakeCase,
+      removeModuleName,
+      argToTmpl,
+    }
+  } = getConfigByRoute(route);
 
-  const { _, getInlineParseContent, getParseContent, parseSchema, getComponentByRef, require, classNameCase} = utils;
-  const pathParams = _.values(parameters);
-  const pathParamsNames = _.map(pathParams, "name");
-
-
-  const requestConfigParam = {
-      name: specificArgNameResolver.resolve(RESERVED_REQ_PARAMS_ARG_NAMES),
-      optional: true,
-      type: "RequestParams",
-  }
-
-
-  const rawWrapperArgs = config.extractRequestParams ?
-      _.compact([
-          requestParams && {
-            name: pathParams.length ? `{ ${_.join(pathParamsNames, ", ")}, ...${queryName} }` : queryName,
-            optional: false,
-            type: getInlineParseContent(requestParams),
-          },
-          ...(!requestParams ? pathParams : []),
-          payload,
-          requestConfigParam,
-      ]) :
-      _.compact([
-          ...pathParams,
-          query,
-          payload,
-          requestConfigParam,
-      ])
-
-  const isOptialnalVariabels  = _
-  // Find optional value
-  .filter(rawWrapperArgs, o => o.optional).length === rawWrapperArgs.length;
-
-  const functionName = route.routeName.usage;
-  const hookVariant = _.upperCase(method) === "GET" ? "Query" : "Mutation"
-
-  const isQuery = hookVariant === "Query";
-  const isMutation = hookVariant === "Mutation";
-
-  const key = upperSnakeeCase(removeModuleName(functionName));
+  const { _, classNameCase } = utils;
 
   const conditionalParamsText = isOptialnalVariabels ? "params?" : "params"
   const conditionCallWithVariabels = isQuery ? `(${conditionalParamsText}.variables)` : "";
   const conditionParamQueryKey = isQuery ? `,${conditionalParamsText}.variables` : "";
   const conditionWrapFunc =  isQuery ? "() =>" : "";
+  const conditionalQueryKeyParams =  isQuery ? `${conditionalParamsText}.variables` : "";
 
   const routeDocs = includeFile("@base/route-docs", { config, route, utils });
-
-  const isHasPagination = !!query?.type && hasPagination(query?.type)
+  const lowerhookVariant =  _.lowerCase(hookVariant)
+  const hookKeyName = `${lowerhookVariant}Key`;
  %>
 
  /**
@@ -69,14 +52,17 @@
   export const use<%~ classNameCase(functionName) %><%~ hookVariant %> = (
   <%~ conditionalParamsText %>: <%~ hookVariant %>HookParams<typeof <%= apiInstanceName %>.<%~ functionName %>>,
 ) => {
-  return use<%~ hookVariant %>(
-    [<%~ queryKeyName %>.<%~ key %><%~ conditionParamQueryKey %>],
+  const <%~ hookKeyName %> =  <%~ queryKeyName %>.<%~ methodKey %>(<%~ conditionalQueryKeyParams %>);
+  const result = use<%~ hookVariant %>(
+    <%~ hookKeyName %>,
     <%~ conditionWrapFunc %> <%= apiInstanceName %>.<%~ functionName %><%~ conditionCallWithVariabels %>,
     params?.options,
   );
+
+  return {...result ,  <%~ hookKeyName %>}
 };
 
-<% if (isQuery && isHasPagination) { %>
+<% if (isQuery && hasPagination) { %>
 
  /**
  <%~ routeDocs.description %>
@@ -89,12 +75,14 @@
 export const use<%~ classNameCase(functionName) %>InfiniteQuery = (
   <%~ conditionalParamsText %>: InfiniteQueryHookParams<typeof <%= apiInstanceName %>.<%~ functionName %>>,
 ) => {
-  return useInfiniteQuery(
-    [<%~ queryKeyName %>.<%~ key %>_INFINITE<%~ conditionParamQueryKey %>],
+  const <%~ hookKeyName %> =  <%~ queryKeyName %>.<%~ methodKey %>_INFINITE(<%~ conditionalQueryKeyParams %>);
+
+  const result = useInfiniteQuery(
+    <%~ hookKeyName %>,
     ({ pageParam = 0 }) => {
       return <%= apiInstanceName %>.<%~ functionName %>({
         ...params?.variables,
-        query: { ...params?.variables?.query, offset: pageParam, }
+        query: { ...params?.variables?.query, <%~ paginationTargetKeywords %>: pageParam, }
       });
     },
     {
@@ -102,13 +90,14 @@ export const use<%~ classNameCase(functionName) %>InfiniteQuery = (
         const params = lastPage.next
           ? new URL(lastPage.next).searchParams
           : null;
-        const offset = params ? params.get('offset') : null;
-        return offset;
+        const <%~ paginationTargetKeywords %> = params ? params.get('<%~ paginationTargetKeywords %>') : null;
+        return <%~ paginationTargetKeywords %>;
       },
       ...params?.options,
     },
   );
 
+  return {...result,  <%~ hookKeyName %>}
 };
 
 <% } %>
