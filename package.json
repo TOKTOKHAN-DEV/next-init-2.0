@@ -10,6 +10,7 @@
     "start": "next start",
     "prepare": "husky install",
     "gen:theme-typings": "chakra-cli tokens styles/theme",
+    "open:theme-typings": "code -r node_modules/@chakra-ui/styled-system/dist/declarations/src/theming.types.d.ts",
     "postinstall": "yarn run gen:theme-typings",
     "test": "jest --watch",
     "commit": "cz"
