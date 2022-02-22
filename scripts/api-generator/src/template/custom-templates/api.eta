@@ -1,4 +1,7 @@
 <%
+const PAGINATION_KEYWORDS =  process.env.PAGINATION_KEYWORDS
+const PAGINATION_KEY =  process.env.PAGINATION_KEY
+
 const { utils, route, config, modelTypes } = it;
 const { _, classNameCase, require,getInlineParseContent } = utils;
 const {  RESERVED_REQ_PARAMS_ARG_NAMES } = config.constants;
@@ -12,8 +15,8 @@ const reactQueryTemplatePath = `${myTemeplatePat}/react-query-hook.eta`
 const reactQuerKeyTemplatePath = `${myTemeplatePat}/react-query-key.eta`
 
 const apiClassName = classNameCase(route.moduleName) + 'Api';
-const paginationKeywords = ["page"];
-const paginationTargetKeywords = "page";
+const paginationKeywords = PAGINATION_KEYWORDS ? PAGINATION_KEYWORDS.trim().split(",") : ["cursor"];
+const paginationTargetKeywords = PAGINATION_KEY || "cursor";
 
 const apiInstanceName =route.moduleName + "Api";
 const queryKeyName = "QUERY_KEY_" + _.upperCase(apiClassName).replace(/ /g, '_');
