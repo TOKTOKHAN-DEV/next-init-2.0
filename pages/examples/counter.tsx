@@ -1,1 +1,1 @@
-export { CounterContainer as default } from 'components/elements/Example/Counter';
+export { CounterContainer as default } from 'components/elements/Examples/Counter';
