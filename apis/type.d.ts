@@ -1,36 +1,26 @@
-import { AxiosRequestConfig } from 'axios';
+import { AxiosError } from 'axios';
 import { UseInfiniteQueryOptions, UseMutationOptions, UseQueryOptions } from 'react-query';
 
-type OptionalVariables<T> = undefined extends T ? { variables?: T } : { variables: T };
+export type QueryHookParams<T extends CustomRequestFn, Data = RequestFnReturn<T>, Variables = Parameter<T>, Error = MyError> = {
+  options?: Omit<UseQueryOptions<Data, Error>, 'queryKey' | 'queryFn'>;
+} & OptionalVariables<Variables>;
 
-type QueryHookParams<T extends (any?: any) => Promise<any>> = {
-  options?: UseQueryOptions<UnboxPromise<ReturnType<T>>>;
-} & OptionalVariables<Parameter<T>>;
+export type InfiniteQueryHookParams<T extends CustomRequestFn, Data = RequestFnReturn<T>, Variables = Parameter<T>, Error = MyError> = {
+  options?: Omit<UseInfiniteQueryOptions<Data, Error, Data, Data, any>, 'queryKey' | 'queryFn'>;
+} & OptionalVariables<Variables>;
 
-type InfiniteQueryHookParams<T extends (any?: any) => Promise> = {
-  options?: UseInfiniteQueryOptions<UnboxPromise<ReturnType<T>>>;
-} & OptionalVariables<Parameter<T>>;
-
-type MutationHookParams<T extends (any?: any) => Promise<any>> = {
-  options?: UseMutationOptions<UnboxPromise<ReturnType<T>>, unknown, undefined extends Parameter<T> ? void : Parameter<T>, unknown>;
+export type MutationHookParams<T extends CustomRequestFn, Data = RequestFnReturn<T>, Variables = Parameter<T>, Error = MyError> = {
+  options?: Omit<UseMutationOptions<Data, Error, Variables>, 'mutationFn' | 'mutationKey'>;
 };
 
-type CustomResponseError = {
-  code?: string;
-  config?: AxiosRequestConfig;
-  response?: {
-    config: AxiosRequestConfig;
-    data: any;
-    headers: Headers;
-    request: XMLHttpRequest;
-    status: number;
-    statusText: string;
-  };
-};
+export type CustomRequestFn = (variables?: any) => Promise<any>;
 
-type PageNationResponse<T> = {
-  count: number;
-  next: string | null;
-  previous: string | null;
-  results: T;
-};
+export type RequestFnReturn<T extends CustomRequestFn> = UnboxPromise<ReturnType<T>>;
+
+export type OptionalVariables<T> = undefined extends T ? { variables?: T } : { variables: T };
+
+export type UnboxPromise<T extends Promise<any>> = T extends Promise<infer U> ? U : never;
+
+export type Parameter<T> = T extends (param: infer U) => any ? U : never;
+
+export type MyError = AxiosError;
