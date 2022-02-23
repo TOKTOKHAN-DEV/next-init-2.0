@@ -20,7 +20,7 @@ export function getColorSchema(
   const { darkTones, lightTones } = getColorToneSafety({
     color, //
     percent: 5,
-    safetyLength: { light: 6, dark: 5 },
+    safetyLength: { light: 6, dark: 6 },
   });
 
   const colorMap = {
