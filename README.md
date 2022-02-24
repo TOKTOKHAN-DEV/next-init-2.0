@@ -150,7 +150,15 @@ Generated files such as apis, components, ...
    > npm(or yarn) run gen:api
    > ```
 
-   mock-data by [orval](https://orval.dev/reference/configuration/overview), [faker](https://github.com/faker-js/faker), [maw](https://mswjs.io/docs/getting-started/mocks/rest-api)
+3. usage mock data
+
+   > ```
+   > mock-data-path: /generated/mock/[filename].msw
+   > mock-data: Use Function "~Mock"
+   > network-mocking: Use function "~MSW" and set on "_App.ts"
+   > ```
+
+   mock-data by [orval](https://orval.dev/reference/configuration/overview), [faker](https://github.com/faker-js/faker), [msw](https://mswjs.io/docs/getting-started/mocks/rest-api)
    api-data by [swagger-typescript-api](https://www.npmjs.com/package/swagger-typescript-api)
 
 ### Cypress
