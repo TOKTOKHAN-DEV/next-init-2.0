@@ -11,9 +11,9 @@
 ### 실행 방법
 
 - script: npm(or yarn) run gen:api
-- output-path : generated/api/{{swagger-name}}
+- config: "{{project_root_path}}/.env"
+- output-path :
+  -apis: "{{project_root_path}}/generated/apis"
+  -mock: "{{project_root_path}}/generated/mock"
 
-### 그밖의 설정 사항
-
-- .env 에 api base-url을 설정해주세요
-- 참고: {{output-path}}/http-client/index.ts
+\*more info : "./template/README.md"

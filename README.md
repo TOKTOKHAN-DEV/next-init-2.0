@@ -137,23 +137,21 @@ Generated files such as apis, components, ...
     .
     ├── ...
     ├── generated         If you run generate-script, it will be created
-    │ ├── apis            # by orval (ref: orval.config.js )
-    │ ├── schemas         # by orval
+    │ ├── apis            # by swagger-typescript-api
+    │ ├── mock         # by orval
     └── ...
 
 - **generate apis**
 
-1. add "API_BASE_URL" on your .env
-2. run script:
+1. set config about gen_api on your .env
+2. script
 
    > ```
    > npm(or yarn) run gen:api
    > ```
 
-   Then apis will be created by "orval" based on swagger information.
-   more see: [orval](https://orval.dev/reference/configuration/overview)
-
-   You can use mock data that created by "orval" with [faker](https://github.com/faker-js/faker), [maw](https://mswjs.io/docs/getting-started/mocks/rest-api)
+   mock-data by [orval](https://orval.dev/reference/configuration/overview), [faker](https://github.com/faker-js/faker), [maw](https://mswjs.io/docs/getting-started/mocks/rest-api)
+   api-data by [swagger-typescript-api](https://www.npmjs.com/package/swagger-typescript-api)
 
 ### Cypress
 
