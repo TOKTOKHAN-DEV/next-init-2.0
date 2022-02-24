@@ -5,7 +5,7 @@ const { getPathOnProject } = require('./utils/path');
 
 const typeFilesName = ['react-query-type.ts', 'data-contracts.ts'];
 
-const generateApiFiles = (files) => async () => {
+const generateApiFiles = async (files) => {
   const generatedFolder = getPathOnProject('generated');
   mkdir(generatedFolder);
   const apisFolder = getPathOnProject('generated/apis');

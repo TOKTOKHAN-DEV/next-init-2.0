@@ -10,7 +10,7 @@
 
 ### 실행 방법
 
-- script: npm(or yarn) run gen-api
+- script: npm(or yarn) run gen:api
 - output-path : generated/api/{{swagger-name}}
 
 ### 그밖의 설정 사항

@@ -7,7 +7,8 @@ require('dotenv').config();
 const readConfig = async () => {
   const config_path = await getPathOnProject('config.ts');
   const { CONFIG } = await tsImport.compile(config_path);
-  return CONFIG.API_BASE_URL;
+
+  return CONFIG;
 };
 
 module.exports = { readConfig };

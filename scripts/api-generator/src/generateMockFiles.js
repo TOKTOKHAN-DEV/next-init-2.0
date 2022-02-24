@@ -4,25 +4,15 @@ const orval = require('orval');
 const fs = require('fs');
 const { withLoading } = require('./utils/withLoading');
 
-const generateMockFiles =
-  ({ swaggerUrl, targetPath, schemaPath }) =>
-  async () => {
-    await withLoading('generate api, mock, schema by orval', async () => {
-      await generateOrvalFilesWithMock({ swaggerUrl, targetPath, schemaPath });
-    });
-
-    await withLoading('remove orval-api', () => {
-      removeOrvalApiFiles(targetPath);
-    });
-
-    await withLoading('remove orval-schema', () => {
-      fs.rmSync(schemaPath, { recursive: true });
-    });
-  };
+const generateMockFiles = async ({ swaggerUrl, targetPath, schemaPath }) => {
+  await withLoading('generate api, mock, schema by orval', async () => generateOrvalFilesWithMock({ swaggerUrl, targetPath, schemaPath }));
+  await withLoading('remove orval-api', () => removeOrvalApiFiles(targetPath));
+  await withLoading('remove orval-schema', () => fs.rmSync(schemaPath, { recursive: true }));
+};
 
 const generateOrvalFilesWithMock = async ({ swaggerUrl, targetPath, schemaPath }) => {
   try {
-    await orval.generate({
+    const res = await orval.generate({
       input: swaggerUrl,
       output: {
         mode: 'tags-split',
@@ -49,12 +39,14 @@ const generateOrvalFilesWithMock = async ({ swaggerUrl, targetPath, schemaPath }
         },
       },
     });
+    return res;
   } catch (error) {
     console.log(error);
   }
 };
 
 const removeOrvalApiFiles = (targetPath) => {
+  if (!fs.existsSync(targetPath)) return;
   fs.readdirSync(targetPath, { withFileTypes: true })
     .filter((dir) => dir.isDirectory())
     .forEach((dir) => {

@@ -7,6 +7,7 @@ async function withLoading(title, callback) {
     spinner.succeed(`${title} : succeeded`).stop().clear();
     return res;
   } catch (err) {
+    console.error(err);
     spinner.fail(`${title}:failed`).clear();
   }
 }
