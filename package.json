@@ -34,12 +34,8 @@
     "react-hook-form": "^7.20.2",
     "react-query": "^3.19.1",
     "react-redux": "^7.2.0",
-<<<<<<< HEAD
     "react-select": "^5.2.1",
     "tinycolor2": "^1.4.2"
-=======
-    "react-select": "^5.2.1"
->>>>>>> 596d03c (feat(scripts): 🎸 api-gen)
   },
   "devDependencies": {
     "@chakra-ui/cli": "^1.5.0",
