@@ -1,0 +1,171 @@
+<%
+const PAGINATION_KEYWORDS =  process.env.PAGINATION_KEYWORDS
+const PAGINATION_KEY =  process.env.PAGINATION_KEY
+
+const { utils, route, config, modelTypes } = it;
+const { _, classNameCase, require,getInlineParseContent } = utils;
+const {  RESERVED_REQ_PARAMS_ARG_NAMES } = config.constants;
+
+const routes = route.routes;
+const dataContracts = _.map(modelTypes, "name");
+
+const projectRootPath = process.env.PWD;
+const myTemeplatePat = `${projectRootPath}/scripts/api-generator/src/template/my-templates`
+const reactQueryTemplatePath = `${myTemeplatePat}/react-query-hook.eta`
+const reactQuerKeyTemplatePath = `${myTemeplatePat}/react-query-key.eta`
+
+const apiClassName = classNameCase(route.moduleName) + 'Api';
+const paginationKeywords = PAGINATION_KEYWORDS ? PAGINATION_KEYWORDS.trim().split(",") : ["cursor"];
+const paginationTargetKeywords = PAGINATION_KEY || "cursor";
+
+const apiInstanceName =route.moduleName + "Api";
+const queryKeyName = "QUERY_KEY_" + _.upperCase(apiClassName).replace(/ /g, '_');
+
+const hasPaginationKeyword = (queryString, keywords = paginationKeywords ) => {
+  const keywordUnion = keywords.map(str => `.*${str}.*`).join("|");
+  const rgxSting = keywords.map(str => `(${keywordUnion})`).join("");
+  const rgx = new RegExp(rgxSting);
+  return rgx.test(queryString);
+}
+
+const upperSnakeCase = (str) => _.upperCase(str).replace(/ /g, '_');
+
+const removeModuleName = (str) =>  str.replace(route.moduleName,'');
+
+const getConfigByRoute = (route) => {
+  const { specificArgNameResolver } = route
+  const { parameters, path, method, payload, query, formData, security, requestParams } = route.request;
+  const pathParams = _.values(parameters);
+  const pathParamsNames = _.map(pathParams, "name");
+  const queryName = (query && query.name) || "query";
+
+  const requestConfigParam = {
+    name: specificArgNameResolver.resolve(RESERVED_REQ_PARAMS_ARG_NAMES),
+    optional: true,
+    type: "RequestParams",
+}
+
+  const argToTmpl = ({ name, optional, type, defaultValue }) => `${name}${!defaultValue && optional ? '?' : ''}: ${type}`;
+
+  const rawWrapperArgs = config.extractRequestParams ?
+  _.compact([
+      requestParams && {
+        name: pathParams.length ? `{ ${_.join(pathParamsNames, ", ")}, ...${queryName} }` : queryName,
+        optional: false,
+        type: getInlineParseContent(requestParams),
+      },
+      ...(!requestParams ? pathParams : []),
+      payload,
+      requestConfigParam,
+  ]) :
+  _.compact([
+      ...pathParams,
+      query,
+      payload,
+      requestConfigParam,
+  ]);
+
+  const wrapperArgs = _
+    // Sort by optionality
+    .sortBy(rawWrapperArgs, [o => o.optional])
+    .map(argToTmpl)
+    .join('; ')
+
+
+  const functionName = route.routeName.usage;
+  const hookVariant = _.upperCase(method) === "GET" ? "Query" : "Mutation"
+  const key = upperSnakeCase(functionName);
+  const methodKey = upperSnakeCase(removeModuleName(functionName));
+
+  const isQuery = hookVariant === "Query";
+  const isMutation = hookVariant === "Mutation";
+  const hasPagination = !!query?.type && hasPaginationKeyword(query?.type)
+
+  const isOptialnalVariabels  = _
+  // Find optional value
+  .filter(rawWrapperArgs, o => o.optional).length === rawWrapperArgs.length;
+
+  const conditionalVriablesText = isOptialnalVariabels? "variables?" : "variables";
+  const repalceTarget = "${" + conditionalVriablesText + ".";
+
+
+  return {
+    conditions:{
+      hasPagination,
+      isQuery,
+      isMutation,
+      isOptialnalVariabels,
+    },
+    data: {
+      rawWrapperArgs,
+      wrapperArgs,
+      queryKeyName,
+      functionName,
+      apiInstanceName,
+      apiClassName,
+      hookVariant,
+      key,
+      methodKey,
+    },
+    utils: {
+      upperSnakeCase,
+      removeModuleName,
+      argToTmpl,
+    }
+  }
+}
+
+const dataForReactHookTemplate = {
+        getConfigByRoute,
+        queryKeyName,
+        apiClassName,
+        paginationKeywords,
+        paginationTargetKeywords,
+        apiInstanceName,
+    };
+%>
+
+<% if (config.httpClientType === config.constants.HTTP_CLIENT.AXIOS) { %> import { AxiosRequestConfig, AxiosResponse } from "axios"; <% } %>
+
+import { HttpClient, RequestParams, ContentType } from "../<%~ config.fileNames.httpClient %>";
+<% if (dataContracts.length) { %>
+import { <%~ dataContracts.join(", ") %> } from "../types/<%~ config.fileNames.dataContracts %>"
+<% } %>
+
+import { useMutation ,useQuery, useInfiniteQuery } from 'react-query';
+import { MutationHookParams,QueryHookParams, InfiniteQueryHookParams  } from '../types/react-query-type';
+
+
+
+export class <%= apiClassName %><% if (!config.singleHttpClient) { %> extends HttpClient <% } %> {
+<% if(config.singleHttpClient) { %>
+  http: HttpClient<SecurityDataType>;
+
+  constructor (http: HttpClient<SecurityDataType>) {
+    this.http = http;
+  }
+<% } %>
+
+    <% routes.forEach((route) => { %>
+        <%~ includeFile('./procedure-call.eta', { ...it, route }) %>
+    <% }) %>
+}
+
+export const <%= apiInstanceName %> = new <%= apiClassName %>()
+
+ // ========================HOOKS========================
+
+/**
+ * QUERY_KEYS
+ */
+ <%~ includeFile(reactQuerKeyTemplatePath, { ...it, route , dataFromApiTemplate:dataForReactHookTemplate}) %>
+
+ <% routes.forEach((route) => { %>
+    <%~ includeFile(reactQueryTemplatePath, { ...it, route , dataFromApiTemplate:dataForReactHookTemplate}) %>
+  <% }) %>
+
+
+
+
+
+

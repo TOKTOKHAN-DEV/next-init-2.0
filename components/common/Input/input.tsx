@@ -53,7 +53,7 @@ export const Input = ({
 
   return (
     <Box {...props} w="100%">
-      {label && <Text sm>{label}</Text>}
+      {label && <Text textStyle="sm">{label}</Text>}
       <Flex alignItems="center" justifyContent="center" position="relative" borderColor="custom.gray3" borderBottomWidth={icon ? '2px' : 'none'}>
         <Flex w="100%" direction={icon ? 'row' : 'column'}>
           {icon && (

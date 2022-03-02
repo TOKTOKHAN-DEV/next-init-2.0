@@ -1,4 +1,4 @@
-import instance from '../config';
+import instance from '../_axios/instance';
 
 export default {
   emailLogin: async (variables: EmailParameter): Promise<AuthParameter> => {
