@@ -1,21 +1,14 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const fs = require('fs');
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { getFileNames } = require('./scripts/getFileNames');
+const rootPath = process.env.PWD;
 
-const pagesPath = './pages';
-const rootPath = './';
-const rootDirs = fs
-  .readdirSync(rootPath, { withFileTypes: true })
-  .filter((dir) => dir.isDirectory())
-  .map((dir) => dir.name);
-const pages = fs
-  .readdirSync(pagesPath, { withFileTypes: true })
-  .filter((dir) => dir.isDirectory())
-  .map((dir) => dir.name);
+const files = getFileNames(rootPath, {
+  isRecursive: true,
+});
 
 const scopes = {
   skip: [''],
-  big: [...rootDirs],
-  pages,
+  files,
   etc: ['commitizen', 'header'],
 };
 
@@ -26,7 +19,7 @@ module.exports = {
   maxMessageLength: 64,
   minMessageLength: 3,
   questions: ['type', 'scope', 'subject', 'body', 'issues'],
-  scopes: [...scopes.skip, ...scopes.big, ...scopes.pages, ...scopes.etc],
+  scopes: [...scopes.skip, ...scopes.files, ...scopes.etc],
   types: {
     chore: {
       description: '자잘한 수정',
