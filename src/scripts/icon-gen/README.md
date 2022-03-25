@@ -12,3 +12,8 @@ ex)
 npm run gen:icon -- -o compoenets/icons/Target.tsx
 npm run gen:icon -- -i svgs/happy.svg
 ```
+
+### options
+
+- -i, -input : svg 파일, svg 목록이 포함 된 폴더
+- -o, -output : 생성 경로 위치

@@ -25,6 +25,7 @@ function createIcon(options) {
   let output = path.resolve(process.env.PWD, options.output || 'src/generated/icons/MyIcons.tsx');
 
   const outputInfo = path.parse(output);
+  const inputInfo = path.parse(input);
   if (!outputInfo.ext) output += '.tsx';
 
   mkdirSync(outputInfo.dir, { recursive: true });
@@ -35,6 +36,7 @@ function createIcon(options) {
     ts: true,
     type: 'C',
     suffix: 'Icon',
+    name: inputInfo.ext ? inputInfo.name : void 0,
   });
 }
 
