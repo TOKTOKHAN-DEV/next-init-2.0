@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { getFileNames } = require('./scripts/getFileNames');
+const { getFileNames } = require('./src/scripts/getFileNames');
 const rootPath = process.env.PWD;
 
 const files = getFileNames(rootPath, {
