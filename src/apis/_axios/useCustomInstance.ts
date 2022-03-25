@@ -1,4 +1,5 @@
 import { AxiosError, AxiosRequestConfig } from 'axios';
+
 import instance from './instance';
 
 export const useCustomInstance = <T>(): ((config: AxiosRequestConfig) => Promise<T>) => {

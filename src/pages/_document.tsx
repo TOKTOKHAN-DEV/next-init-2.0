@@ -1,6 +1,8 @@
 /* eslint-disable no-useless-escape */
+import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+
 import { ColorModeScript } from '@chakra-ui/color-mode';
-import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
+
 import config from 'src/styles/theme/foundations/config';
 
 const SITE_NAME = 'TOKTOKHAN.DEV';

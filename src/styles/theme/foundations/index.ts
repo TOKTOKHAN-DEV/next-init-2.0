@@ -1,7 +1,7 @@
 import breakpoints from './breakpoints';
+import colors from './colors';
 import sizes from './sizes';
 import typography from './typography';
-import colors from './colors';
 
 const foundations = {
   breakpoints,

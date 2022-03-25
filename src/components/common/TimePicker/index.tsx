@@ -1,6 +1,7 @@
-import { Container, Center, Flex, Text } from '@chakra-ui/react';
 import { useEffect } from 'react';
-import { useState, useRef } from 'react';
+import { useRef, useState } from 'react';
+
+import { Center, Container, Flex, Text } from '@chakra-ui/react';
 
 interface Props {
   handleTimeClick?: (val: { start: number; end: number }) => void;
@@ -12,7 +13,10 @@ const TimePicker = ({ handleTimeClick }: Props) => {
   const [endPos, setEndPos] = useState<number>(0);
 
   const [disabledTime, setDisabledTime] = useState<any>([0, 1, 2, 3, 4, 5]);
-  const [pickTime, setPickTime] = useState<{ start: number; end: number }>({ start: -1, end: -1 });
+  const [pickTime, setPickTime] = useState<{ start: number; end: number }>({
+    start: -1,
+    end: -1,
+  });
 
   const onScrollHandler = () => {
     if (!active) {

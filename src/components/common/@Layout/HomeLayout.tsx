@@ -1,9 +1,9 @@
+import Link from 'next/link';
 import React from 'react';
 
-import Link from 'next/link';
-import { Box, Stack, VStack, Button } from '@chakra-ui/react';
-
 import Auth from '0auth-sdk';
+
+import { Box, Button, Stack, VStack } from '@chakra-ui/react';
 
 interface HomeLayoutProps {
   header?: JSX.Element;

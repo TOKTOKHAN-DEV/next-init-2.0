@@ -1,6 +1,6 @@
-import { configureStore } from '@reduxjs/toolkit';
-
 import counterSlice from 'src/features/Count/counterSlice';
+
+import { configureStore } from '@reduxjs/toolkit';
 
 export function makeStore() {
   return configureStore({

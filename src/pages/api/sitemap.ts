@@ -1,9 +1,9 @@
+import { NextApiRequest, NextApiResponse } from 'next';
+
 /* eslint-disable @typescript-eslint/no-var-requires */
 const prettier = require('prettier');
 
 const axios = require('axios');
-
-import { NextApiRequest, NextApiResponse } from 'next';
 
 const DOMAIN = process.env.NODE_ENV === 'production' ? 'https://test.toktokhan.dev/' : 'http://localhost:3000';
 

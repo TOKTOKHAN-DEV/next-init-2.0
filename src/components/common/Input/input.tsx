@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 
-import { Flex, Box, Text, ThemeComponentProps } from '@chakra-ui/react';
+import { Box, Flex, Text, ThemeComponentProps } from '@chakra-ui/react';
+
 import { inputProps } from './input.types';
+
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
 
 export const Input = ({
   name,

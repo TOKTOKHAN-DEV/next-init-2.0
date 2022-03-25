@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { Text, Divider, Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react';
+
+import moment from 'moment';
+
+import { Divider, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react';
 
 import CalendarHeader from './header';
-import moment from 'moment';
 
 interface Props {
   handleDayClick?: (val: moment.Moment) => void;

@@ -1,5 +1,6 @@
-import Auth from '.';
 import { useMutation } from 'react-query';
+
+import Auth from '.';
 
 import { MutationHookParams } from 'src/apis/type';
 

@@ -1,20 +1,20 @@
 import type { AppProps } from 'next/app';
-
+import { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
-
-import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
-import { mode } from 'src/styles/theme/foundations/colors';
-
-import { withChakraProvider } from 'src/styles/provider';
-import ToggleColorModeButton from 'src/components/common/ToggleColorModeButton';
+import { Provider } from 'react-redux';
 
 import Auth from '0auth-sdk';
-import { useEffect } from 'react';
 
-import { Provider } from 'react-redux';
-import store from 'src/features/store';
+import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
+
 import setUpMockServiceWorker from 'src/apis/_mock/setupMockServiceWorker';
+import store from 'src/features/store';
+
+import ToggleColorModeButton from 'src/components/common/ToggleColorModeButton';
+
+import { withChakraProvider } from 'src/styles/provider';
+import { mode } from 'src/styles/theme/foundations/colors';
 
 // Create a client
 const queryClient = new QueryClient();

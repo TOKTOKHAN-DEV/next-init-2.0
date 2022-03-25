@@ -1,7 +1,9 @@
-import { HStack, Button, Text } from '@chakra-ui/react';
+import { useDispatch } from 'react-redux';
+
+import { Button, HStack, Text } from '@chakra-ui/react';
 
 import { decrement, increment } from 'src/features/Count/counterSlice';
-import { useDispatch } from 'react-redux';
+
 import { useRootState } from 'src/components/hooks/useRootState';
 
 const Content = () => {

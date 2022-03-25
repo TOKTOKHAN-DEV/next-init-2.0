@@ -1,10 +1,11 @@
 import React from 'react';
-import { Text, Flex, Center } from '@chakra-ui/react';
-
-import ArrowRightIcon from 'src/components/common/@Icons/System/ArrowRight';
-import ArrowLeftIcon from 'src/components/common/@Icons/System/ArrowLeft';
 
 import moment from 'moment';
+
+import { Center, Flex, Text } from '@chakra-ui/react';
+
+import ArrowLeftIcon from 'src/components/common/@Icons/System/ArrowLeft';
+import ArrowRightIcon from 'src/components/common/@Icons/System/ArrowRight';
 
 interface Props {
   date: moment.Moment;

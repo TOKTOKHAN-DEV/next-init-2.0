@@ -1,4 +1,5 @@
 import { Button, Image, useColorMode } from '@chakra-ui/react';
+
 import FloatingBox from 'src/components/common/FloatingBox';
 
 export const ToggleColorModeButton = () => {

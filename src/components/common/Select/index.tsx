@@ -1,9 +1,10 @@
 /* eslint-disable no-use-before-define */
 import React from 'react';
+import Select, { Props as selectProps } from 'react-select';
+
+import { useTheme } from '@chakra-ui/react';
 
 import styled from '@emotion/styled';
-import Select, { Props as selectProps } from 'react-select';
-import { useTheme } from '@chakra-ui/react';
 
 interface customProps {
   chooseType?: any;

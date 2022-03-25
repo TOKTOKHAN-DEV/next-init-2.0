@@ -1,5 +1,6 @@
-import { AxiosError } from 'axios';
 import { UseInfiniteQueryOptions, UseMutationOptions, UseQueryOptions } from 'react-query';
+
+import { AxiosError } from 'axios';
 
 export type QueryHookParams<T extends CustomRequestFn, Data = RequestFnReturn<T>, Variables = Parameter<T>, Error = MyError> = {
   options?: Omit<UseQueryOptions<Data, Error>, 'queryKey' | 'queryFn'>;

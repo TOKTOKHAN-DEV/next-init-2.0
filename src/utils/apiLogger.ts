@@ -1,5 +1,6 @@
-import { AxiosRequestConfig } from 'axios';
 import { CSSProperties } from 'react';
+
+import { AxiosRequestConfig } from 'axios';
 
 import styledConsole, { StyledConsoleArgs } from './styledConsole';
 

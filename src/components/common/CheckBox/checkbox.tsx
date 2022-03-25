@@ -3,6 +3,7 @@ import React from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 
 import { CheckedOffIcon, CheckedOnIcon } from 'src/components/common/@Icons/System';
+
 import { checkboxProps } from './checkbox.types';
 
 export const CheckBox = ({ checked, children, ...props }: checkboxProps) => {

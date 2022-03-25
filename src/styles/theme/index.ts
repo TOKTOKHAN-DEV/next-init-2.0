@@ -1,14 +1,11 @@
 import { extendTheme } from '@chakra-ui/react';
 
-// Global style overrides
-import styles from './styles';
-
-// Foundational style overrides
-import foundations from './foundations';
-
 // Component style overrides
 import components from './components';
-
+// Foundational style overrides
+import foundations from './foundations';
+// Global style overrides
+import styles from './styles';
 // TextStyles
 import textStyles from './textStyles';
 
