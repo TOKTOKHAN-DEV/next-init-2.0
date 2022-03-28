@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import { AppState } from 'src/features/store';
+import { AppState } from '@features/store';
 
 type StateSelector<T> = (state: AppState) => T;
 type EqualityFn<T> = (left: T, right: T) => boolean;

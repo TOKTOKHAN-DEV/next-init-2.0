@@ -1,4 +1,4 @@
-import { CONFIG } from 'config';
+import { CONFIG } from '@config';
 
 import { getLocalStorage, removeLocalStorage, setLocalStorage } from '../helper';
 

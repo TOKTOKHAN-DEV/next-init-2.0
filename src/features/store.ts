@@ -1,4 +1,4 @@
-import counterSlice from 'src/features/Count/counterSlice';
+import counterSlice from '@features/Count/counterSlice';
 
 import { configureStore } from '@reduxjs/toolkit';
 

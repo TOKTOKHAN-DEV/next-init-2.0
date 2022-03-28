@@ -8,13 +8,14 @@ import Auth from '0auth-sdk';
 
 import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
 
-import setUpMockServiceWorker from 'src/apis/_mock/setupMockServiceWorker';
-import store from 'src/features/store';
+import setUpMockServiceWorker from '@apis/_mock/setupMockServiceWorker';
+import store from '@features/store';
 
-import ToggleColorModeButton from 'src/components/common/ToggleColorModeButton';
+import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
 
-import { withChakraProvider } from 'src/styles/provider';
-import { mode } from 'src/styles/theme/foundations/colors';
+import { mode } from '@theme/foundations/colors';
+
+import { withChakraProvider } from 'styles/provider';
 
 // Create a client
 const queryClient = new QueryClient();

@@ -1,4 +1,4 @@
-import { getColorSchema } from '../../../utils/color-generator';
+import { getColorSchema } from '@utils/color-generator';
 
 const Light = {
   primary: getColorSchema('#3F4CB2'),

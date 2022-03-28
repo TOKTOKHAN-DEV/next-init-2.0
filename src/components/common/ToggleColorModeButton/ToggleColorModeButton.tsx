@@ -1,6 +1,6 @@
 import { Button, Image, useColorMode } from '@chakra-ui/react';
 
-import FloatingBox from 'src/components/common/FloatingBox';
+import FloatingBox from '@components/common/FloatingBox';
 
 export const ToggleColorModeButton = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -8,7 +8,7 @@ export const ToggleColorModeButton = () => {
   return (
     <FloatingBox position="top">
       <Button onClick={toggleColorMode} colorScheme="dark" w="50px" h="50px" borderRadius="full" p="0">
-        <Image src={colorMode === 'light' ? '/icons/moon.svg' : '/icons/sun.svg'} />
+        <Image src={colorMode === 'light' ? '/icons/svg/moon.svg' : '/icons/svg/sun.svg'} />
       </Button>
     </FloatingBox>
   );

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Box, Divider, HStack, Text, VStack } from '@chakra-ui/layout';
 
-import { mode } from 'src/styles/theme/foundations/colors';
+import { mode } from '@theme/foundations/colors';
 
 export const ThemeColors = () => {
   const { light, dark } = mode;

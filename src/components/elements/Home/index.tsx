@@ -1,4 +1,4 @@
-import HomeLayout from 'src/components/common/@Layout/HomeLayout';
+import HomeLayout from '@components/common/@Layout/HomeLayout';
 
 export function HomeContainer() {
   return <HomeLayout />;

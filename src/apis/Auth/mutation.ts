@@ -2,7 +2,7 @@ import { useMutation } from 'react-query';
 
 import Auth from '.';
 
-import { MutationHookParams } from 'src/apis/type';
+import { MutationHookParams } from '@apis/type';
 
 export const useEmailLoginMutation = (params?: MutationHookParams<typeof Auth.emailLogin>) => {
   return useMutation(Auth.emailLogin, {

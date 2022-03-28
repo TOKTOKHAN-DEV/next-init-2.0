@@ -1,1 +1,1 @@
-export { ThemeColors as default } from 'src/components/elements/Examples/ThemeColors';
+export { ThemeColors as default } from '@components/elements/Examples/ThemeColors';

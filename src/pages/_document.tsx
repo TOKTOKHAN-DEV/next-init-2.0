@@ -3,7 +3,7 @@ import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/do
 
 import { ColorModeScript } from '@chakra-ui/color-mode';
 
-import config from 'src/styles/theme/foundations/config';
+import config from '@theme/foundations/config';
 
 const SITE_NAME = 'TOKTOKHAN.DEV';
 const SITE_TITLE = 'TOKTOKHAN.DEV';

@@ -1,4 +1,4 @@
-import HomeLayout from 'src/components/common/@Layout/HomeLayout';
+import HomeLayout from '@components/common/@Layout/HomeLayout';
 
 import Content from './_fragments/Content';
 

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Flex, Text } from '@chakra-ui/react';
 
-import { CheckedOffIcon, CheckedOnIcon } from 'src/components/common/@Icons/System';
+import { CheckedOffIcon, CheckedOnIcon } from '@icons/System';
 
 import { checkboxProps } from './checkbox.types';
 
