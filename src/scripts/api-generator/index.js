@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
+const scriptConfig = require('../../../tok-script.config.js').module;
 const { generateApiFiles } = require('./src/generateApiFiles');
 const { generateMockFiles } = require('./src/generateMockFiles');
 const { getSwaggerFiles } = require('./src/getSwaggerFiles');
-const { readConfig } = require('./src/readConfig');
 const { getPathOnProject } = require('./src/utils/path');
 const { withLoading } = require('./src/utils/withLoading');
 const convertArgsToObject = require('minimist');
@@ -11,22 +11,23 @@ const convertArgsToObject = require('minimist');
 const mappingArg = convertArgsToObject(process.argv.slice(2));
 
 async function main() {
-  const { API_BASE_URL, SWAGGER_SCHEMA_PATH_NAME } = await withLoading('read-config', () => readConfig());
-  const DEFAULT_INPUT = `${API_BASE_URL}/${SWAGGER_SCHEMA_PATH_NAME}`;
-  const DEFAULT_OUTPUT = 'src/generated/apis';
+  const config = scriptConfig['api:gen'];
+  const { swaggerSchemaUrl } = config;
 
-  const input = mappingArg['i'] || mappingArg['input'] || DEFAULT_INPUT;
-  const output = mappingArg['o'] || mappingArg['output'] || DEFAULT_OUTPUT;
+  const input = mappingArg['i'] || mappingArg['input'] || swaggerSchemaUrl;
+  const output = mappingArg['o'] || mappingArg['output'] || config.outputPath || 'src/generated/apis';
 
-  const files = await withLoading(`read-swagger`, () => getSwaggerFiles(input));
+  const files = await withLoading(`read-swagger`, () => getSwaggerFiles({ ...config, swaggerSchemaUrl: input }));
   await withLoading('generate-files', () => generateApiFiles({ files, outputPath: output }));
-  await withLoading(`generate-mock-data`, () =>
-    generateMockFiles({
-      swaggerUrl: input, //
-      targetPath: getPathOnProject(path.resolve(output, '@mocks')),
-      schemaPath: getPathOnProject(path.resolve(output, 'will-remove')),
-    }),
-  );
+  if (config.includeMock) {
+    await withLoading(`generate-mock-data`, () =>
+      generateMockFiles({
+        swaggerUrl: input, //
+        targetPath: getPathOnProject(path.resolve(output, '@mocks')),
+        schemaPath: getPathOnProject(path.resolve(output, 'will-remove')),
+      }),
+    );
+  }
 }
 
 main();

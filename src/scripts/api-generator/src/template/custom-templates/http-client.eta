@@ -3,8 +3,8 @@ const { apiConfig, generateResponses, config } = it;
 %>
 
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, ResponseType } from "axios";
-import { CONFIG } from 'constants/config';
-import { getToken } from 'utils/localStorage/token';
+import { CONFIG } from '@config';
+import { getToken } from '@utils/localStorage/token';
 
 export type QueryParamsType = Record<string | number, any>;
 

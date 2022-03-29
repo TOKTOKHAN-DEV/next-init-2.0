@@ -86,6 +86,7 @@ const describeReturnType = () => {
 }
 
 %>
+
 /**
 <%~ routeDocs.description %>
 
@@ -94,7 +95,6 @@ const describeReturnType = () => {
 <%~ routeDocs.lines %>
 
  */
-
   <%~ route.routeName.usage %> = async (<%~ conditionalVriablesText %> : {<%~ wrapperArgs %>})<%~ config.toJS ? `: ${describeReturnType()}` : "" %> => {
     const { data } = await <%~ config.singleHttpClient ? 'this.http.request' : 'this.request' %><<%~ type %>, <%~ errorType %>>({
         path: `<%~ pathWithVariables %>`,

@@ -6,13 +6,13 @@ const { getPathOnApp } = require('./utils/path');
 const customTemplatesFolder = getPathOnApp('src/template/custom-templates');
 const reactQueryTypeTemplate = getPathOnApp('src/template/my-templates/react-query-type.eta');
 
-const getSwaggerFiles = async (swaggerUrl) => {
+const getSwaggerFiles = async (config) => {
   const { files } = await generateApi({
-    url: swaggerUrl,
+    url: config.swaggerSchemaUrl,
     httpClientType: 'axios', // or "fetch"
+    typeSuffix: 'Type',
     modular: true,
     moduleNameFirstTag: true,
-    typeSuffix: 'Type',
     templates: customTemplatesFolder,
     extraTemplates: [
       {
@@ -20,6 +20,11 @@ const getSwaggerFiles = async (swaggerUrl) => {
         path: reactQueryTypeTemplate,
       },
     ],
+    hooks: {
+      onPrepareConfig: (defaultConfig) => {
+        return { ...defaultConfig, myConfig: config };
+      },
+    },
   });
   return files;
 };

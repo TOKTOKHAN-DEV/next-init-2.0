@@ -1,8 +1,5 @@
 <%
-const PAGINATION_KEYWORDS =  process.env.PAGINATION_KEYWORDS
-const PAGINATION_KEY =  process.env.PAGINATION_KEY
-
-const { utils, route, config, modelTypes } = it;
+const { utils, route, config, modelTypes, myConfig } = it;
 const { _, classNameCase, require,getInlineParseContent } = utils;
 const {  RESERVED_REQ_PARAMS_ARG_NAMES } = config.constants;
 
@@ -10,18 +7,19 @@ const routes = route.routes;
 const dataContracts = _.map(modelTypes, "name");
 
 const projectRootPath = process.env.PWD;
-const myTemeplatePat = `${projectRootPath}/scripts/api-generator/src/template/my-templates`
+const myTemeplatePat = `${projectRootPath}/src/scripts/api-generator/src/template/my-templates`
 const reactQueryTemplatePath = `${myTemeplatePat}/react-query-hook.eta`
 const reactQuerKeyTemplatePath = `${myTemeplatePat}/react-query-key.eta`
 
 const apiClassName = classNameCase(route.moduleName) + 'Api';
-const paginationKeywords = PAGINATION_KEYWORDS ? PAGINATION_KEYWORDS.trim().split(",") : ["cursor"];
-const paginationTargetKeywords = PAGINATION_KEY || "cursor";
+const paginationKeywords = myConfig?.paginationKeywords || ["cursor"];
+const paginationTargetKeywords = myConfig?.paginationKey || "cursor";
 
 const apiInstanceName =route.moduleName + "Api";
 const queryKeyName = "QUERY_KEY_" + _.upperCase(apiClassName).replace(/ /g, '_');
 
 const hasPaginationKeyword = (queryString, keywords = paginationKeywords ) => {
+  if(!myConfig?.includeReactInfiniteQuery) return false;
   const keywordUnion = keywords.map(str => `.*${str}.*`).join("|");
   const rgxSting = keywords.map(str => `(${keywordUnion})`).join("");
   const rgx = new RegExp(rgxSting);
@@ -153,19 +151,18 @@ export class <%= apiClassName %><% if (!config.singleHttpClient) { %> extends Ht
 
 export const <%= apiInstanceName %> = new <%= apiClassName %>()
 
- // ========================HOOKS========================
+<% if(myConfig.includeReactQuery) { %>
+  // ========================HOOKS========================
 
-/**
- * QUERY_KEYS
- */
- <%~ includeFile(reactQuerKeyTemplatePath, { ...it, route , dataFromApiTemplate:dataForReactHookTemplate}) %>
-
- <% routes.forEach((route) => { %>
-    <%~ includeFile(reactQueryTemplatePath, { ...it, route , dataFromApiTemplate:dataForReactHookTemplate}) %>
-  <% }) %>
-
-
-
-
+  /**
+   * QUERY_KEYS
+   */
+   <%~ includeFile(reactQuerKeyTemplatePath, { ...it, route , dataFromApiTemplate:dataForReactHookTemplate}) %>
+  
+   <% routes.forEach((route) => { %>
+      <%~ includeFile(reactQueryTemplatePath, { ...it, route , dataFromApiTemplate:dataForReactHookTemplate}) %>
+    <% }) %>
+<% } %>
+ 
 
 
