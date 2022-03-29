@@ -1,21 +1,23 @@
 import { getColorSchema } from '@utils/color-generator';
 
 const Light = {
-  primary: getColorSchema('#3F4CB2'),
-  'primary.sub': getColorSchema('#C3DCFF'),
-  secondary: getColorSchema('#3F4CB2'),
-  'secondary.sub': getColorSchema('#3F4CB2'),
-  tertiary: getColorSchema('#0C1F6F'),
-  'tertiary.sub': getColorSchema('#0C1F6F'),
-  point: getColorSchema('#F77721'),
-  'point.sub': getColorSchema('#FFCAB2'),
+  primary: getColorSchema('#4850FF'),
+  secondary: getColorSchema('#7B61FF'),
   warning: getColorSchema('#FF6060'),
-  'warning.sub': getColorSchema('#FFE2E2'),
-  success: getColorSchema('#4575F5'),
-  'success.sub': getColorSchema('#C3DCFF'),
-  dark: getColorSchema('#1A1A1A'),
-  gray: getColorSchema('#f8f9fa'),
-  black: '#1F1E1E',
+  success: getColorSchema('#4850FF'),
+  gray: {
+    50: '#FAFAFA',
+    100: '#F7F7F7',
+    200: '#F2F3F4',
+    300: '#E5E7EC',
+    400: '#D1D4DD',
+    500: '#B8BCC8',
+    600: '#8C919F',
+    700: '#757983',
+    800: '#4A4D55',
+    900: '#292A2E',
+  },
+  black: '#1A1A1A',
   white: '#FFFFFF',
   background: {
     primary: '#FFFFFF',
@@ -26,46 +28,78 @@ const Light = {
 };
 
 const Dark = {
-  primary: getColorSchema('#4575f5'),
-  'primary.sub': getColorSchema('#B1CCEF'),
-  secondary: getColorSchema('#2E3DAF'),
-  'secondary.sub': getColorSchema('#8D9DE0'),
-  tertiary: getColorSchema('#07175D'),
-  'tertiary.sub': getColorSchema('#687CD8'),
-  point: getColorSchema('#FF7215'),
-  'point.sub': getColorSchema('#F2B9A0'),
+  primary: getColorSchema('#485BFF'),
+  secondary: getColorSchema('#755AFF'),
   warning: getColorSchema('#FF6060'),
-  'warning.sub': getColorSchema('#EFC2C2'),
-  success: getColorSchema('#336BFF'),
-  'success.sub': getColorSchema('#B1CCEF'),
-  dark: getColorSchema('#FFFFFF'),
-  gray: getColorSchema('#ced4da'),
-  black: '#FFFFFF',
-  white: '#444444',
-  background: {
-    primary: '#363636',
-    secondary: '#2B2B2B',
-    tertiary: '#1A1A1A',
+  success: getColorSchema('#4850FF'),
+  gray: {
+    50: '#292A2E',
+    100: '#313236',
+    200: '#39393D',
+    300: '#4A4D55',
+    400: '#5C606A',
+    500: '#757983',
+    600: '#8C919F',
+    700: '#B8BCC8',
+    800: '#D1D4DD',
+    900: '#DFE1E7',
   },
-  modal: '#444444',
+  black: '#E5E7EC',
+  white: '#232325',
+  background: {
+    primary: '#FFFFFF',
+    secondary: '#FAFAFA',
+    tertiary: '#F0F0F0',
+  },
+  modal: '#FFFFFF',
 };
 
-export const mode = {
+const Brand = {
+  kakao: {
+    500: '#FFDE32',
+    600: '#F5D322',
+    700: '#EFCC1A',
+  },
+  naver: {
+    500: '#20CF5D',
+    600: '#17c554',
+    700: '#14bf50',
+  },
+  facebook: {
+    500: '#1877F3',
+    600: '#1874eb',
+    700: '#146cdf',
+  },
+  google: {
+    500: '#FFFFFF',
+    600: '#F5F5F5',
+    700: '#EEEEEE',
+  },
+  apple: {
+    500: '#000000',
+    600: '#111111',
+    700: '#222222',
+  },
+};
+
+const Dim = {
+  primary: '#1A1A1A80',
+  secondary: '#1A1A1A33',
+};
+
+const mode = {
   light: Light,
   dark: Dark,
 };
 
 const colors = {
-  ...mode.light,
-  kakao: getColorSchema('#FFDE32', [500, 600, 700]),
-  naver: getColorSchema('#20CF5D', [500, 600, 700]),
-  facebook: getColorSchema('#1877F3', [500, 600, 700]),
-  google: getColorSchema('#FFFFFF', [500, 600, 700]),
-  apple: getColorSchema('#000000', [500, 600, 700]),
+  ...Light,
+  ...Brand,
   dim: {
-    primary: '#1A1A1A80',
-    secondary: '#1A1A1A33',
+    ...Dim,
   },
 };
+
+export { mode, Brand, Light, Dark, Dim };
 
 export default colors;

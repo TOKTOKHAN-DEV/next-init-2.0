@@ -1,64 +1,73 @@
 import React from 'react';
 
-import { Box, Divider, HStack, Text, VStack } from '@chakra-ui/layout';
+import { Box, Center, Divider, Flex, Text, VStack } from '@chakra-ui/layout';
+import { chakra } from '@chakra-ui/react';
 
-import { mode } from '@theme/foundations/colors';
+import { Brand, Dark, Dim, Light } from '@theme/foundations/colors';
 
 export const ThemeColors = () => {
-  const { light, dark } = mode;
-  type KeyofLight = keyof typeof light;
-  type KeyofDark = keyof typeof dark;
-
   return (
     <Box p="60px">
       <Divider w="100%" h="30px" bg="pink.300" />
-      <Text textStyle="xl" mb="50px">
-        LIGHT COLORS
-      </Text>
-
-      {Object.keys(light).map((key, idx) => {
-        const targetColor = light[key as KeyofLight];
-        return (
-          <VStack align="start" key={idx} mb="20px">
-            <Text textStyle="lg">{key}</Text>
-            <HStack>
-              {Object.keys(targetColor).map((colorTone, idx) => {
-                const colorSchema = targetColor;
-                type keyofSchema = keyof typeof colorSchema;
-                return (
-                  <Box key={idx} w="100px" h="100px" bg={colorSchema[colorTone as keyofSchema]}>
-                    {colorTone}
-                  </Box>
-                );
-              })}
-            </HStack>
-          </VStack>
-        );
-      })}
-
+      <BrandBox title="LIGHT COLORS" colors={Light} />
       <Divider w="100%" h="30px" bg="pink.300" />
+      <BrandBox title="DARK COLORS" colors={Dark} />
+      <Divider w="100%" h="30px" bg="pink.300" />
+      <BrandBox title="BRAND COLORS" colors={Brand} />
+      <Divider w="100%" h="30px" bg="pink.300" />
+      <BrandBox title="DIM COLORS" colors={Dim} />
+    </Box>
+  );
+};
+
+const BrandBox = ({ title, colors }: { title: string; colors: Record<any, any> }) => {
+  return (
+    <Box>
       <Text textStyle="xl" mb="50px">
-        DARK COLORS
+        {title}
       </Text>
-      {Object.keys(dark).map((key, idx) => {
-        const targetColor = dark[key as KeyofDark];
+      {Object.keys(colors).map((key, idx) => {
+        const targetColor = colors[key];
         return (
           <VStack align="start" key={idx} mb="20px">
-            <Text textStyle="lg">{key}</Text>
-            <HStack>
-              {Object.keys(targetColor).map((colorTone, idx) => {
-                const colorSchema = dark[key as KeyofDark];
-                type keyofSchema = keyof typeof colorSchema;
-                return (
-                  <Box key={idx} w="100px" h="100px" bg={colorSchema[colorTone as keyofSchema]}>
-                    {colorTone}
-                  </Box>
-                );
-              })}
-            </HStack>
+            <Text textStyle="lg" fontWeight="bold">
+              {key}
+            </Text>
+            <Flex flexWrap="wrap" justify="center">
+              {typeof targetColor === 'object' ? (
+                Object.keys(targetColor).map((colorTone, idx) => {
+                  const colorSchema = targetColor;
+                  return (
+                    <Box key={idx} mr="10px">
+                      <Text>{colorTone}</Text>
+                      <ColorBox bg={colorSchema[colorTone]}>
+                        <Center bg="white">{colorSchema[colorTone]}</Center>
+                      </ColorBox>
+                    </Box>
+                  );
+                })
+              ) : (
+                <ColorBox bg={targetColor}>
+                  <Center bg="white">{targetColor}</Center>
+                </ColorBox>
+              )}
+            </Flex>
           </VStack>
         );
       })}
     </Box>
   );
 };
+
+const ColorBox = chakra('div', {
+  baseStyle: {
+    boxShadow: '1px 1px 1px rgba(0,0,0,0.2)',
+    overflow: 'hidden',
+    borderRadius: '10px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'end',
+    w: '100px',
+    h: '100px',
+  },
+});
