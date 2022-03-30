@@ -11,7 +11,7 @@ const convertArgsToObject = require('minimist');
 const mappingArg = convertArgsToObject(process.argv.slice(2));
 
 async function main() {
-  const config = scriptConfig['api:gen'];
+  const config = scriptConfig['gen:api'];
   const { swaggerSchemaUrl } = config;
 
   const input = mappingArg['i'] || mappingArg['input'] || swaggerSchemaUrl;
