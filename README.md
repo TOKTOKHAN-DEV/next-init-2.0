@@ -174,6 +174,17 @@ Automated tests with cypress.
     │ ├── support             #
     └── ...
 
+### Scripts
+
+there is useful scripts in [package.json](package.json)
+
+- **yarn run gen:api**
+  - swagger => axios-api, react-hook, mock-data
+- **yarn run gen:icon**
+  - svg => chakra-icon
+
+see more [README.md](/src/scripts/README.md)
+
 # 📛 Naming
 
 ### 👨‍🦳 React Component
@@ -188,13 +199,18 @@ Automated tests with cypress.
   // bad
   import reservationCard from './ReservationCard';
 
-  // good
+  
+  
+  
+  /
   import ReservationCard from './ReservationCard';
-
-  // bad
+  
+  
+  //
   const ReservationItem = <ReservationCard />;
-
-  // good
+  
+  
+  // g
   const reservationItem = <ReservationCard />;
   ```
 
