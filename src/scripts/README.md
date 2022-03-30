@@ -60,7 +60,7 @@ yarn(or npm) run gen:api -- -i "https://another-url.api.net/openapi.json" -o "sr
 
 ℹ️  npm 스크립트에 arguments 를 전달하기 위해서는 스크립트와 옵션 사이에 “—” 가 추가되어야합니다.
 
-## Out-Put
+## Output
 
 - **http-client:**
   스웨거 태그별로 나뉘어진 axios class 가 상속하는 부모 class 입니다.
@@ -182,7 +182,7 @@ yarn(or npm) run gen:icon -- -i "src/myicons" -o "src/generated/MyIcon.tsx"
 ℹ️  npm 스크립트에 arguments 를 전달하기 위해서는 스크립트와 옵션 사이에 “—” 가 추가되어야합니다.
 ℹ️  단일 파일로 생성되기 때문에 output-path 에는 .tsx 확장자를 가진 파일 명을 입력해주어야 합니다.
 
-## Out-Put
+## Output
 
 ### Example
 
