@@ -16,7 +16,7 @@
     "postinstall": "yarn run gen:theme-typings",
     "test": "jest --watch",
     "commit": "cz",
-    "format": "prettier-eslint \"./**/*.{tsx,ts}\" --config ./.prettierrc --write"
+    "format": "format(){ prettier-eslint ${1-\"./**/*.{tsx,ts}\"} --config ./.prettierrc --write; }; format"
   },
   "dependencies": {
     "0auth-sdk": "^0.0.12",

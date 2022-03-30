@@ -2,6 +2,8 @@
 // const FsHelper = require('src/utils/nodejs/fs-helper.js');
 
 const path = require('path');
+const scriptConfig = require('../../../tok-script.config.js').module;
+
 const { spawn } = require('child_process');
 const { cli } = require('create-chakra-icons');
 const { mkdirSync } = require('fs');
@@ -9,20 +11,22 @@ const convertArgsToObject = require('minimist');
 const mappingArg = convertArgsToObject(process.argv.slice(2));
 
 function main() {
-  const io = {
-    input: mappingArg['i'] || mappingArg['input'],
-    output: mappingArg['o'] || mappingArg['output'],
+  const defaultConfig = scriptConfig['gen:icon'];
+  const config = {
+    ...defaultConfig,
+    inputPath: mappingArg['i'] || mappingArg['input'] || defaultConfig.inputPath || 'public/icons/svg',
+    outputPath: mappingArg['o'] || mappingArg['output'] || defaultConfig.outputPath || 'src/generated/icons/MyIcons.tsx',
   };
 
-  createIcon(io);
-  prettier();
+  createIcon(config);
+  prettier(config.outputPath);
 }
 
 main();
 
-function createIcon(options) {
-  let input = path.resolve(process.env.PWD, options.input || 'public/icons/svg');
-  let output = path.resolve(process.env.PWD, options.output || 'src/generated/icons/MyIcons.tsx');
+function createIcon(config) {
+  let input = path.resolve(process.env.PWD, config.inputPath);
+  let output = path.resolve(process.env.PWD, config.outputPath);
 
   const outputInfo = path.parse(output);
   const inputInfo = path.parse(input);
@@ -35,11 +39,13 @@ function createIcon(options) {
     o: output,
     ts: true,
     type: 'C',
-    suffix: 'Icon',
+    suffix: config.suffix || 'Icon',
+    prefix: config.prefix,
     name: inputInfo.ext ? inputInfo.name : void 0,
   });
 }
 
-function prettier() {
-  spawn('npm', ['run', 'format'], { stdio: 'inherit' });
+function prettier(outputPath) {
+  let output = path.resolve(process.env.PWD, outputPath);
+  spawn('npm', ['run', 'format', '--', output], { stdio: 'inherit' });
 }

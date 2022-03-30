@@ -26,4 +26,14 @@ exports.module = {
      */
     paginationKey: 'cursor',
   },
+  'gen:icon': {
+    /** 조회할 svg 파일 혹은 svg 파일이 포함되어있는 폴더 입니다. */
+    inputPath: 'public/icons/svg',
+    /** 생성될 파일이 위치할 경로입니다.*/
+    outputPath: 'src/generated/icons/MyIcons.tsx',
+    /** 생성될 Chakra Component 이름 뒤에 붙을 추가 텍스트 입니다 (기본적으로 Component 는 파일 이름을 따르게 됩니다.) */
+    suffix: 'Icon',
+    /** 생성될 Chakra Component 이름 앞에 붙을 추가 텍스트 입니다 (기본적으로 Component 는 파일 이름을 따르게 됩니다.) */
+    prefix: '',
+  },
 };
