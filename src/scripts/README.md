@@ -2,7 +2,7 @@
 
 next-init-2 에는 업무를 도와줄 유용한 스크립트가 있습니다.
 
-# OverView
+# Overview
 
 ```jsx
 
