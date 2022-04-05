@@ -36,4 +36,14 @@ exports.module = {
     /** 생성될 Chakra Component 이름 앞에 붙을 추가 텍스트 입니다 (기본적으로 Component 는 파일 이름을 따르게 됩니다.) */
     prefix: '',
   },
+  'gen:img': {
+    /** 조회할 img 파일들이 포함되어있는 폴더 입니다. */
+    inputPath: 'public',
+    /** 생성될 파일이 위치할 경로입니다.*/
+    outputPath: 'src/generated/path/images.ts',
+    /** 생성될 image 객체의 이름입니다 */
+    displayName: 'MY_IMAGES',
+    /** 생성될 이미지 파일의 확장자 목록으로써, 해당 목록에 포함된 확장자를 가진 파일만, 생성됩니다. */
+    imageExtension: ['.png', '.jpg', '.svg'],
+  },
 };
