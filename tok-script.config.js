@@ -43,7 +43,13 @@ exports.module = {
     outputPath: 'src/generated/path/images.ts',
     /** 생성될 image 객체의 이름입니다 */
     displayName: 'MY_IMAGES',
-    /** 생성될 이미지 파일의 확장자 목록으로써, 해당 목록에 포함된 확장자를 가진 파일만, 생성됩니다. */
-    imageExtension: ['.png', '.jpg', '.svg'],
+    /** 생성될 객체의 value 에 할당될 경로의 base-path 입니다 */
+    basePath: '',
+    /** 생성될 이미지 파일을 판별하는 패턴으로써, 파일이름이 패턴과 일치할 경우에만 객체에 포함됩니다. */
+    includingPattern: ['*.jpg', '*.png', '*.svg', '*.jpeg'],
+    /** 제외 될 이미지 파일을 판별하는 패턴으로써, 파일이름이 패턴과 일치할 경우에 객체에서 제외 됩니다. */
+    ignoredPattern: ['*node_module*'],
+    /** key 값을 결정할 포멧함수입니다. 기본적으로, SNAKE_UPPER_CASE 로 생성됩니다. */
+    // formatKey: (filename) => str
   },
 };
