@@ -32,7 +32,7 @@ async function main() {
 
   const templateConfig = {
     //
-    imgObject: util.inspect(imgObject),
+    imgObject: util.inspect(imgObject, { depth: Infinity }),
     displayName: displayName,
   };
 
