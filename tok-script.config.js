@@ -25,6 +25,8 @@ exports.module = {
      * useInfiniteQuery 의 nextPageParam 을 통해 다음 페이지를 위한 param을 결정하게 됩니다.
      */
     paginationKey: 'cursor',
+    /** Api 의 axios 요청 instance 주소입니다 */
+    axiosInstancePath: '@apis/_axios/instance',
   },
   'gen:icon': {
     /** 조회할 svg 파일 혹은 svg 파일이 포함되어있는 폴더 입니다. */

@@ -6,7 +6,7 @@ const typeFilesName = ['react-query-type.ts', 'data-contracts.ts'];
 
 const generateApiFiles = async ({ files, outputPath }) => {
   const output = path.resolve(process.env.PWD, outputPath);
-  const typeFolder = path.resolve(output, 'types');
+  const typeFolder = path.resolve(output, '@types');
 
   files.forEach(({ name, content }) => {
     try {

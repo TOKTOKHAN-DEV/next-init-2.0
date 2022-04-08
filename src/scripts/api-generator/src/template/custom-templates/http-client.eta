@@ -4,7 +4,6 @@ const { apiConfig, generateResponses, config } = it;
 
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse, ResponseType } from "axios";
 import { CONFIG } from '@config';
-import { getToken } from '@utils/localStorage/token';
 
 export type QueryParamsType = Record<string | number, any>;
 
@@ -52,14 +51,14 @@ export class HttpClient {
     }
 
     private securityWorker: ApiConfig['securityWorker'] = () => {
-        const { access, isRegister } = getToken();
-        const isLogged = !!access && isRegister;
-        if (isLogged)
-        return {
-            headers: {
-            Authorization: 'Bearer ' + access,
-            },
-        };
+        // const { access, isRegister } = getToken();
+        // const isLogged = !!access && isRegister;
+        // if (isLogged)
+        //   return {
+        //     headers: {
+        //       Authorization: 'Bearer ' + access,
+        //     },
+        //   };
     };
 
 

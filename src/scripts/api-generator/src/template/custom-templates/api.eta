@@ -14,6 +14,7 @@ const reactQuerKeyTemplatePath = `${myTemeplatePat}/react-query-key.eta`
 const apiClassName = classNameCase(route.moduleName) + 'Api';
 const paginationKeywords = myConfig?.paginationKeywords || ["cursor"];
 const paginationTargetKeywords = myConfig?.paginationKey || "cursor";
+const axiosInstancePath = myConfig?.axiosInstancePath || "@apis/_axios/instance.ts"
 
 const apiInstanceName =route.moduleName + "Api";
 const queryKeyName = "QUERY_KEY_" + _.upperCase(apiClassName).replace(/ /g, '_');
@@ -125,13 +126,15 @@ const dataForReactHookTemplate = {
 
 <% if (config.httpClientType === config.constants.HTTP_CLIENT.AXIOS) { %> import { AxiosRequestConfig, AxiosResponse } from "axios"; <% } %>
 
+import instance from "<%~ axiosInstancePath %>";
+
 import { HttpClient, RequestParams, ContentType } from "../<%~ config.fileNames.httpClient %>";
 <% if (dataContracts.length) { %>
-import { <%~ dataContracts.join(", ") %> } from "../types/<%~ config.fileNames.dataContracts %>"
+import { <%~ dataContracts.join(", ") %> } from "../@types/<%~ config.fileNames.dataContracts %>"
 <% } %>
 
 import { useMutation ,useQuery, useInfiniteQuery } from 'react-query';
-import { MutationHookParams,QueryHookParams, InfiniteQueryHookParams  } from '../types/react-query-type';
+import { MutationHookParams,QueryHookParams, InfiniteQueryHookParams  } from '../@types/react-query-type';
 
 
 
@@ -149,7 +152,7 @@ export class <%= apiClassName %><% if (!config.singleHttpClient) { %> extends Ht
     <% }) %>
 }
 
-export const <%= apiInstanceName %> = new <%= apiClassName %>()
+export const <%= apiInstanceName %> = new <%= apiClassName %>({ instance })
 
 <% if(myConfig.includeReactQuery) { %>
   // ========================HOOKS========================
