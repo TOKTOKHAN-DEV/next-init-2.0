@@ -1,0 +1,42 @@
+<%
+const { utils, data } = it;
+const { getTextCase } = utils;
+const { apiLabel, apiClassName, apiClassInstanceName } = data;
+const apiNameCase = getTextCase(apiLabel);
+%>
+
+import { useMutation } from 'react-query';
+
+import { MutationHookParams } from '@apis/type';
+
+import <%~ apiClassInstanceName %> from './<%~ apiClassName %>';
+import { <%~ apiNameCase.pascal %>DTOType, <%~ apiNameCase.pascal %>ParamPatchType, <%~ apiNameCase.pascal %>ParamPutType } from './<%~ apiClassName %>.type';
+
+export const <%~ apiNameCase.snakeUpperCase %>_API_MUTATION_KEY = {
+  POST: (param: <%~ apiNameCase.pascal %>DTOType) => ['<%~ apiLabel %>-update', param],
+  PUT: (req: <%~ apiNameCase.pascal %>ParamPutType) => ['<%~ apiLabel %>-put', req],
+  PATCH: (req: <%~ apiNameCase.pascal %>ParamPatchType) => ['<%~ apiLabel %>-patch', req],
+  DELETE: (id: string) => ['<%~ apiLabel %>-delete', id],
+};
+
+export const usePost<%~ apiNameCase.pascal %>Mutation = (params?: MutationHookParams<typeof <%~ apiClassInstanceName %>.post<%~ apiNameCase.pascal %>>) => {
+  return useMutation(<%~ apiClassInstanceName %>.post<%~ apiNameCase.pascal %>, {
+    ...params?.options,
+  });
+};
+
+export const usePut<%~ apiNameCase.pascal %>Mutation = (params?: MutationHookParams<typeof <%~ apiClassInstanceName %>.put<%~ apiNameCase.pascal %>>) => {
+  return useMutation(<%~ apiClassInstanceName %>.put<%~ apiNameCase.pascal %>, {
+    ...params?.options,
+  });
+};
+export const usePatch<%~ apiNameCase.pascal %>Mutation = (params?: MutationHookParams<typeof <%~ apiClassInstanceName %>.patch<%~ apiNameCase.pascal %>>) => {
+  return useMutation(<%~ apiClassInstanceName %>.patch<%~ apiNameCase.pascal %>, {
+    ...params?.options,
+  });
+};
+export const useDelete<%~ apiNameCase.pascal %>Mutation = (params?: MutationHookParams<typeof <%~ apiClassInstanceName %>.delete<%~ apiNameCase.pascal %>>) => {
+  return useMutation(<%~ apiClassInstanceName %>.delete<%~ apiNameCase.pascal %>, {
+    ...params?.options,
+  });
+};

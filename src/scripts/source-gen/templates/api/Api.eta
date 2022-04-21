@@ -1,0 +1,73 @@
+<%
+  const { utils, data } = it;
+  const { getTextCase } = utils;
+  const { apiLabel, apiClassName, apiClassInstanceName } = data;
+  const apiNameCase = getTextCase(apiLabel);
+%>
+import { AxiosInstance } from 'axios';
+
+import instance from '@apis/_axios/instance';
+
+import { <%~ apiNameCase.pascal %>DTOType, <%~ apiNameCase.pascal %>ParamGetType, <%~ apiNameCase.pascal %>ParamPatchType, <%~ apiNameCase.pascal %>ParamPutType } from './<%~ apiNameCase.pascal %>Api.type';
+
+export class <%~ apiClassName %> {
+  axios: AxiosInstance = instance;
+  constructor(axios?: AxiosInstance) {
+    if (axios) this.axios = axios;
+  }
+
+  async get<%~ apiNameCase.pascal %>List(params: <%~ apiNameCase.pascal %>ParamGetType): Promise<<%~ apiNameCase.pascal %>DTOType[]> {
+    const { data } = await this.axios({
+      method: 'GET',
+      url: `/v1/posts`,
+      params,
+    });
+    return data;
+  }
+
+  async get<%~ apiNameCase.pascal %>ById(id: string): Promise<<%~ apiNameCase.pascal %>DTOType> {
+    const { data } = await this.axios({
+      method: 'GET',
+      url: `/v1/<%~ apiLabel %>/${id}`,
+    });
+    return data;
+  }
+
+  async post<%~ apiNameCase.pascal %>(body: <%~ apiNameCase.pascal %>DTOType): Promise<<%~ apiNameCase.pascal %>DTOType> {
+    const { data } = await this.axios({
+      method: 'POST',
+      url: `/v1/<%~ apiLabel %>`,
+      data: body,
+    });
+    return data;
+  }
+
+  async put<%~ apiNameCase.pascal %>(req: <%~ apiNameCase.pascal %>ParamPutType): Promise<<%~ apiNameCase.pascal %>DTOType> {
+    const { data } = await this.axios({
+      method: 'PUT',
+      url: `/v1/<%~ apiLabel %>/${req.id}`,
+      data: req.data,
+    });
+    return data;
+  }
+  async patch<%~ apiNameCase.pascal %>(req: <%~ apiNameCase.pascal %>ParamPatchType): Promise<<%~ apiNameCase.pascal %>DTOType> {
+    const { data } = await this.axios({
+      method: 'PATCH',
+      url: `/v1/<%~ apiLabel %>/${req.id}`,
+      data: req.data,
+    });
+    return data;
+  }
+
+  async delete<%~ apiNameCase.pascal %>(id: string): Promise<boolean> {
+    const { data } = await this.axios({
+      method: 'DELETE',
+      url: `/v1/<%~ apiLabel %>/${id}`,
+    });
+    return data;
+  }
+}
+
+const <%~ apiClassInstanceName %> = new <%~ apiClassName %>();
+
+export default <%~ apiClassInstanceName %>;

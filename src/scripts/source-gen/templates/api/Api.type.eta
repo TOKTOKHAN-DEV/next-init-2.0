@@ -1,0 +1,17 @@
+<%
+  const { utils, data } = it;
+  const { getTextCase } = utils;
+  const { apiLabel } = data;
+  const apiNameCase = getTextCase(apiLabel)
+%>
+
+export type <%~ apiNameCase.pascal %>DTOType = {};
+export type <%~ apiNameCase.pascal %>ParamGetType = {};
+export type <%~ apiNameCase.pascal %>ParamPutType = {
+  id: string;
+  data: <%~ apiNameCase.pascal %>DTOType;
+};
+export type <%~ apiNameCase.pascal %>ParamPatchType = {
+  id: string;
+  data: Partial<<%~ apiNameCase.pascal %>DTOType>;
+};
