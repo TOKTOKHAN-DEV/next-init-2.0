@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const { AutoComplete } = require('enquirer');
 const { apiResolver } = require('./resolver/api.resolver');
+const { pageResolver } = require('./resolver/page.resolver');
 
 const resolvers = {
   api: apiResolver,
-  page: () => console.log('준비중 입니다.'),
+  page: pageResolver,
 };
 
 async function main() {

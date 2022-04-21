@@ -1,0 +1,13 @@
+<%
+  const { name, contentName } = it;
+%>
+
+
+import HomeLayout from '@components/common/@Layout/HomeLayout';
+import <%~ contentName%> from './_fragments/<%~ contentName%>';
+
+function  <%~ name%>() {
+  return <HomeLayout content={<<%~ contentName%> />}/>;
+}
+
+export default <%~ name%>;
