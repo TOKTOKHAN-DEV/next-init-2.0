@@ -4,9 +4,9 @@ import { Flex, Text } from '@chakra-ui/react';
 
 import { CheckedOffIcon, CheckedOnIcon } from '@icons/System';
 
-import { checkboxProps } from './checkbox.types';
+import { CheckBoxProps } from './CheckBox.type';
 
-export const CheckBox = ({ checked, children, ...props }: checkboxProps) => {
+const CheckBox = ({ checked, children, ...props }: CheckBoxProps) => {
   return (
     <Flex cursor="pointer" alignItems="center" {...props}>
       {checked ? <CheckedOnIcon w="20px" h="20px" color="primary" /> : <CheckedOffIcon w="20px" h="20px" color="primary" />}
@@ -20,3 +20,5 @@ export const CheckBox = ({ checked, children, ...props }: checkboxProps) => {
     </Flex>
   );
 };
+
+export default CheckBox;
