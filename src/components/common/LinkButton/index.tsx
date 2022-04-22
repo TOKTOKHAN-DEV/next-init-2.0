@@ -7,7 +7,9 @@ import { Button, ButtonProps } from '@chakra-ui/react';
  * @see Docs https://nextjs.org/docs/api-reference/next/link
  */
 
-export interface LinkButtonProps extends LinkProps, Omit<ButtonProps, 'as'> {}
+export interface LinkButtonProps extends LinkProps, Omit<ButtonProps, 'as'> {
+  target?: React.AnchorHTMLAttributes<HTMLAnchorElement>['target'];
+}
 
 const LinkButton = ({
   href, // Next Link Props
@@ -18,6 +20,7 @@ const LinkButton = ({
   passHref = true,
   prefetch,
   locale,
+  target,
 
   ...props
 }: LinkButtonProps) => {
@@ -34,6 +37,7 @@ const LinkButton = ({
     >
       <Button //
         as="a"
+        target={target}
         {...props}
       />
     </Link>

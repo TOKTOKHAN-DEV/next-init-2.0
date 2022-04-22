@@ -12,7 +12,7 @@ function HomePage() {
 
   // For: Redirect To Starter Docs Page (나중에 꼭 지워주세요)
   React.useEffect(() => {
-    router.push(ROUTES.STARTER_DOCS);
+    router.push(ROUTES.STARTER_DOCS.MAIN);
   }, [router]);
 
   return <HomeLayout content={<HomePageContent />} />;
