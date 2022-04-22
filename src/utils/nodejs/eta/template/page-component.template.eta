@@ -3,7 +3,7 @@
 %>
 
 
-import HomeLayout from '@components/common/@Layout/HomeLayout';
+import HomeLayout from '@components/common/@Layout/layouts/HomeLayout';
 import <%~ contentName%> from './_fragments/<%~ contentName%>';
 
 function  <%~ name%>() {
