@@ -1,6 +1,8 @@
 import React from 'react';
 
-import { Box, BoxProps, Center, SimpleGrid, Text } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+
+import { Box, BoxProps, Center, Flex, SimpleGrid, Text } from '@chakra-ui/react';
 
 import LinkButton from '@components/common/LinkButton';
 
@@ -16,9 +18,13 @@ function StarterDocsPagePageContent({ ...basisProps }: StarterDocsPagePageConten
   return (
     <Box {...basisProps}>
       <Center flexDirection="column" h={`calc(100vh - ${LAYOUT.HEADER.HEIGHT})`}>
-        <Text color="primary.500" textStyle="xl" fontWeight="bold" mb="50px">
-          Welcome!
-        </Text>
+        <Flex alignItems="center" mb="50px">
+          <RotateBox mx="20px" bg="cyan.500" transition={{ repeat: Infinity, duration: 2, delay: 1 }} />
+          <Text color="primary.500" textStyle="xl" fontWeight="bold">
+            Welcome!
+          </Text>
+          <RotateBox mx="20px" bg="secondary.500" />
+        </Flex>
         <SimpleGrid spacing="20px" columns={2} w="700px" h="fit-content">
           <LinkButton h="140px" w="100%" variant="unstyled" target="_black" href={OUTER_LINKS.NOTION_CONVENTION}>
             <SummaryCard h="100%" title="Convention" description="코딩하며 지켜야 할 똑.개 규칙" />
@@ -39,3 +45,20 @@ function StarterDocsPagePageContent({ ...basisProps }: StarterDocsPagePageConten
 }
 
 export default StarterDocsPagePageContent;
+
+const MotionBox = motion<Omit<BoxProps, 'transition'>>(Box);
+const RotateBox = (props: Parameter<typeof MotionBox>) => (
+  <MotionBox
+    bg="red.500"
+    w="10px"
+    h="10px"
+    transition={{ repeat: Infinity, duration: 2 }}
+    animate={{
+      repeatCount: Infinity,
+      scale: [1, 2, 2, 1, 1],
+      rotate: [0, 0, 200, 200, 0],
+      borderRadius: ['20%', '20%', '50%', '50%', '20%'],
+    }}
+    {...props}
+  />
+);
