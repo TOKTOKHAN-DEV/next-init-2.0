@@ -7,12 +7,12 @@ import { Center, Flex, Text } from '@chakra-ui/react';
 import ArrowLeftIcon from '@icons/System/ArrowLeft';
 import ArrowRightIcon from '@icons/System/ArrowRight';
 
-interface Props {
+interface CalendarHeaderProps {
   date: moment.Moment;
   setDate: (val: moment.Moment) => void;
 }
 
-const CalendarHeader = ({ date, setDate }: Props) => {
+const CalendarHeader = ({ date, setDate }: CalendarHeaderProps) => {
   // const returnToday = () => setDate(moment());
   const jumpToMonth = (num: number) => (num ? setDate(date.clone().add(1, 'month')) : setDate(date.clone().subtract(1, 'month')));
 
