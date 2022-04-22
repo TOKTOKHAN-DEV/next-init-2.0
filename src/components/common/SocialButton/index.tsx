@@ -1,2 +1,2 @@
-export { SocialButtonContainer as default } from './SocialButtonContainer';
-export type { SocialType, SocialProps } from './SocialButton';
+export { default } from './SocialButton';
+export type { SocialButtonProps, SocialType } from './SocialButton';

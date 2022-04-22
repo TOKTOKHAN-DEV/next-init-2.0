@@ -1,1 +1,1 @@
-export { ToggleColorModeButtonContainer as default } from './ToggleColorModeButtonContainer';
+export { default } from './ToggleColorModeButton';

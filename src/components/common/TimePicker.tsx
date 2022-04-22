@@ -1,19 +1,18 @@
-import { useEffect } from 'react';
-import { useRef, useState } from 'react';
+import React from 'react';
 
 import { Center, Container, Flex, Text } from '@chakra-ui/react';
 
-interface Props {
+interface TimePickerProps {
   handleTimeClick?: (val: { start: number; end: number }) => void;
 }
-const TimePicker = ({ handleTimeClick }: Props) => {
-  const timepickerRef = useRef<any>(null);
-  const [active, setActive] = useState<boolean>(false);
-  const [startPos, setStartPos] = useState<number>(0);
-  const [endPos, setEndPos] = useState<number>(0);
+const TimePicker = ({ handleTimeClick }: TimePickerProps) => {
+  const timepickerRef = React.useRef<any>(null);
+  const [active, setActive] = React.useState<boolean>(false);
+  const [startPos, setStartPos] = React.useState<number>(0);
+  const [endPos, setEndPos] = React.useState<number>(0);
 
-  const [disabledTime, setDisabledTime] = useState<any>([0, 1, 2, 3, 4, 5]);
-  const [pickTime, setPickTime] = useState<{ start: number; end: number }>({
+  const [disabledTime, setDisabledTime] = React.useState<any>([0, 1, 2, 3, 4, 5]);
+  const [pickTime, setPickTime] = React.useState<{ start: number; end: number }>({
     start: -1,
     end: -1,
   });
@@ -55,10 +54,9 @@ const TimePicker = ({ handleTimeClick }: Props) => {
     }
   };
 
-  useEffect(() => {
-    if (handleTimeClick) {
-      handleTimeClick(pickTime);
-    }
+  // For: Execute callback when pickTime changed
+  React.useEffect(() => {
+    if (handleTimeClick) handleTimeClick(pickTime);
   }, [pickTime]);
 
   return (

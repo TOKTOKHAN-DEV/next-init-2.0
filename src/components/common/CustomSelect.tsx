@@ -1,16 +1,16 @@
 /* eslint-disable no-use-before-define */
 import React from 'react';
-import Select, { Props as selectProps } from 'react-select';
+import Select, { Props as ReactSelectProps } from 'react-select';
 
 import { useTheme } from '@chakra-ui/react';
 
 import styled from '@emotion/styled';
 
-interface customProps {
+interface CustomSelectProps {
   chooseType?: any;
 }
 
-const SelectComponent = ({ chooseType, ...props }: customProps & selectProps) => {
+const CustomSelect = ({ chooseType, ...props }: CustomSelectProps & ReactSelectProps) => {
   const theme = useTheme();
   const handleChange = (e: any) => {
     chooseType(e.value);
@@ -18,22 +18,22 @@ const SelectComponent = ({ chooseType, ...props }: customProps & selectProps) =>
 
   return (
     <Wrap>
-      <CustomSelect {...props} customTheme={theme} classNamePrefix={'Select'} onChange={handleChange} />
+      <StyledReactSelect {...props} customTheme={theme} classNamePrefix={'Select'} onChange={handleChange} />
     </Wrap>
   );
 };
 
-export default SelectComponent;
+export default CustomSelect;
 
-interface wrapStyle {
+interface WrapStyleProps {
   width?: string;
 }
 
-const Wrap = styled.div<wrapStyle>`
+const Wrap = styled.div<WrapStyleProps>`
   width: ${({ width }) => (width ? width : '100%')};
 `;
 
-const CustomSelect = styled(Select)<{ customTheme: any }>`
+const StyledReactSelect = styled(Select)<{ customTheme: any }>`
   svg {
     width: 24px;
     height: 24px;
