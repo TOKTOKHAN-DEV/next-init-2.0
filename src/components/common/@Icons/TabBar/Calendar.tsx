@@ -24,8 +24,18 @@ const CalendarIcon = ({ variant = 'solid', ...props }: Props & IconProps) => {
         <path d="M12.5 13.499H11.5V14.499H12.5V13.499Z" stroke="white" />
         <path d="M12.5 17.499H11.5V18.499H12.5V17.499Z" stroke="white" />
         <path d="M16.5 17.499H15.5V18.499H16.5V17.499Z" stroke="white" />
-        <path d="M6.26001 2.797V6.297" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-        <path d="M17.74 2.797V6.297" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+        <path
+          d="M6.26001 2.797V6.297"
+          stroke="currentColor"
+          strokeWidth="1.3"
+          strokeLinecap="round"
+        />
+        <path
+          d="M17.74 2.797V6.297"
+          stroke="currentColor"
+          strokeWidth="1.3"
+          strokeLinecap="round"
+        />
       </Icon>
     );
   }
@@ -44,8 +54,18 @@ const CalendarIcon = ({ variant = 'solid', ...props }: Props & IconProps) => {
       <path d="M12.5 13.499H11.5V14.499H12.5V13.499Z" stroke="currentColor" />
       <path d="M12.5 17.499H11.5V18.499H12.5V17.499Z" stroke="currentColor" />
       <path d="M16.5 17.499H15.5V18.499H16.5V17.499Z" stroke="currentColor" />
-      <path d="M6.26001 2.797V6.297" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-      <path d="M17.74 2.797V6.297" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      <path
+        d="M6.26001 2.797V6.297"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+      <path
+        d="M17.74 2.797V6.297"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
     </Icon>
   );
 };

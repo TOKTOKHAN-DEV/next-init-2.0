@@ -53,7 +53,9 @@ export const formatDateTime = (d: any) => {
   const hour = date.getHours();
   const min = date.getMinutes();
 
-  return `${year}.${monthIndex}.${`0${day}`.slice(-2)} ${hour}:${`0${min}`.slice(-2)}`;
+  return `${year}.${monthIndex}.${`0${day}`.slice(
+    -2,
+  )} ${hour}:${`0${min}`.slice(-2)}`;
 };
 
 export const getDays = (d: any) => {

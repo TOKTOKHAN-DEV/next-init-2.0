@@ -8,7 +8,13 @@ const CheckedLineIcon = ({ ...props }: IconProps) => {
         stroke="currentColor"
         strokeWidth="1.5"
       />
-      <path d="M6.3894 11.7524L10.7304 15.9653L16.9984 8.61631" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M6.3894 11.7524L10.7304 15.9653L16.9984 8.61631"
+        stroke="currentColor"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </Icon>
   );
 };

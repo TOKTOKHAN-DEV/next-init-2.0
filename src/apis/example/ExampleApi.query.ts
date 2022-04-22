@@ -10,15 +10,27 @@ export const EXAMPLE_API_QUERY_KEY = {
   GET_BY_ID: (id: string) => ['example-by-id', id],
 };
 
-export function useGetPostListQuery(params: QueryHookParams<typeof exampleApi.getExampleList>) {
+export function useGetPostListQuery(
+  params: QueryHookParams<typeof exampleApi.getExampleList>,
+) {
   const queryKey = EXAMPLE_API_QUERY_KEY.GET(params.variables);
-  const query = useQuery(queryKey, () => exampleApi.getExampleList(params.variables), params?.options);
+  const query = useQuery(
+    queryKey,
+    () => exampleApi.getExampleList(params.variables),
+    params?.options,
+  );
   return { ...query, queryKey };
 }
 
-export function useGetPostByIdQuery(params: QueryHookParams<typeof exampleApi.getExampleById>) {
+export function useGetPostByIdQuery(
+  params: QueryHookParams<typeof exampleApi.getExampleById>,
+) {
   const queryKey = EXAMPLE_API_QUERY_KEY.GET_BY_ID(params.variables);
-  const query = useQuery(queryKey, () => exampleApi.getExampleById(params.variables), params?.options);
+  const query = useQuery(
+    queryKey,
+    () => exampleApi.getExampleById(params.variables),
+    params?.options,
+  );
 
   return { ...query, queryKey };
 }

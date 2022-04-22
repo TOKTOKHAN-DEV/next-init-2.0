@@ -47,7 +47,11 @@ const HomeHeader = ({ variant = 'light' }: HomeHeaderProps) => {
           aria-label="btn-toggle-drawer"
         />
       </Flex>
-      <HomeHeaderDrawer isOpen={isOpen} onClose={onClose} bodyProps={cssByVariant.drawer} />
+      <HomeHeaderDrawer
+        isOpen={isOpen}
+        onClose={onClose}
+        bodyProps={cssByVariant.drawer}
+      />
     </>
   );
 };

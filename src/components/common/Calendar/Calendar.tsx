@@ -2,7 +2,16 @@ import React, { useState } from 'react';
 
 import moment from 'moment';
 
-import { Divider, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react';
+import {
+  Divider,
+  Table,
+  Tbody,
+  Td,
+  Text,
+  Th,
+  Thead,
+  Tr,
+} from '@chakra-ui/react';
 
 import CalendarHeader from './_fragments/CalendarHeader';
 
@@ -31,7 +40,10 @@ const Calendar = ({ handleDayClick }: CalendarProps) => {
     // endOf('month').week() : 이번 달의 마지막 날로 설정 한 후 그것이 이번 년도의 몇번째 주인지 체크
     // 만약 이번 해의 첫번째 주(1월 1일이 속한 주)라면 53으로 세팅, 아니라면 그대로 유지
     // 이런 작업의 이유는 마지막 주가 첫 주가 될 수 없기 때문에 당연한 것임
-    const endWeek = today.clone().endOf('month').week() === 1 ? 53 : today.clone().endOf('month').week();
+    const endWeek =
+      today.clone().endOf('month').week() === 1
+        ? 53
+        : today.clone().endOf('month').week();
 
     const calendar = [];
 
@@ -50,11 +62,15 @@ const Calendar = ({ handleDayClick }: CalendarProps) => {
                 .startOf('week')
                 .add(n + i, 'day');
               // 오늘이 current와 같다면 우선 '선택'으로 두자
-              const isSelected = today.format('YYYYMMDD') === current.format('YYYYMMDD') ? 'selected' : '';
+              const isSelected =
+                today.format('YYYYMMDD') === current.format('YYYYMMDD')
+                  ? 'selected'
+                  : '';
 
               // 만약, 이번 달이 아닌 다른 달의 날짜라면 회색으로 표시하자
               const isRed = i === 0;
-              const isGrayed = current.format('MM') !== today.format('MM') ? 'grayed' : '';
+              const isGrayed =
+                current.format('MM') !== today.format('MM') ? 'grayed' : '';
 
               return (
                 <Td
@@ -67,7 +83,19 @@ const Calendar = ({ handleDayClick }: CalendarProps) => {
                   h="40px"
                   bg={isSelected ? 'primary.500' : 'white'}
                 >
-                  <Text fontSize="14px" textAlign="center" color={isSelected ? 'white' : isGrayed ? 'gray.200' : isRed ? 'red' : 'gray.500'}>
+                  <Text
+                    fontSize="14px"
+                    textAlign="center"
+                    color={
+                      isSelected
+                        ? 'white'
+                        : isGrayed
+                        ? 'gray.200'
+                        : isRed
+                        ? 'red'
+                        : 'gray.500'
+                    }
+                  >
                     {current.format('D')}
                   </Text>
                 </Td>
@@ -87,7 +115,12 @@ const Calendar = ({ handleDayClick }: CalendarProps) => {
         <Thead>
           <Tr>
             {['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'].map((el) => (
-              <Th p="0px" h="40px" color={el === 'SUN' ? 'red' : 'gray.500'} key={el}>
+              <Th
+                p="0px"
+                h="40px"
+                color={el === 'SUN' ? 'red' : 'gray.500'}
+                key={el}
+              >
                 <Text fontSize="12px" textAlign="center">
                   {el}
                 </Text>

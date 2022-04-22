@@ -8,7 +8,10 @@ const ChatIcon = ({ ...props }: IconProps) => {
         stroke="currentColor"
         strokeWidth="1.3"
       />
-      <path d="M8 10C8 9.44772 7.55228 9 7 9C6.44772 9 6 9.44772 6 10V12C6 12.5523 6.44772 13 7 13C7.55228 13 8 12.5523 8 12V10Z" fill="currentColor" />
+      <path
+        d="M8 10C8 9.44772 7.55228 9 7 9C6.44772 9 6 9.44772 6 10V12C6 12.5523 6.44772 13 7 13C7.55228 13 8 12.5523 8 12V10Z"
+        fill="currentColor"
+      />
       <path
         d="M13 10C13 9.44772 12.5523 9 12 9C11.4477 9 11 9.44772 11 10V12C11 12.5523 11.4477 13 12 13C12.5523 13 13 12.5523 13 12V10Z"
         fill="currentColor"

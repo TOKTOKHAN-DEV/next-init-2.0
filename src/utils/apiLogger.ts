@@ -10,10 +10,17 @@ interface ApiLoggerArgs extends Pick<StyledConsoleArgs, 'method'> {
   resData: unknown;
 }
 
-export const apiLogger = ({ status, reqData, resData, method: consoleMethod = 'log' }: ApiLoggerArgs) => {
+export const apiLogger = ({
+  status,
+  reqData,
+  resData,
+  method: consoleMethod = 'log',
+}: ApiLoggerArgs) => {
   const { method, url, params } = reqData || {};
   const METHOD = method ? method.toUpperCase() : '';
-  const paramSerialized = params ? `?${new URLSearchParams(params).toString()}` : '';
+  const paramSerialized = params
+    ? `?${new URLSearchParams(params).toString()}`
+    : '';
 
   styledConsole({
     topic: `${METHOD}:${status}`,

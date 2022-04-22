@@ -8,7 +8,10 @@ const HomeIcon = ({ variant = 'solid', ...props }: Props & IconProps) => {
   if (variant === 'solid') {
     return (
       <Icon viewBox="0 0 24 24" {...props}>
-        <path d="M9.64396 20.142V14.407H13.502V20.142H18.324V12.493H21.217L11.573 3.89301L1.92896 12.493H4.82196V20.14L9.64396 20.142Z" fill="currentColor" />
+        <path
+          d="M9.64396 20.142V14.407H13.502V20.142H18.324V12.493H21.217L11.573 3.89301L1.92896 12.493H4.82196V20.14L9.64396 20.142Z"
+          fill="currentColor"
+        />
       </Icon>
     );
   }

@@ -27,7 +27,12 @@ export const PasswordIcon = ({ fill, ...props }: IconProps) => {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M12 15.192V17.496" stroke="#4575F5" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M12 15.192V17.496"
+        stroke="#4575F5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </Icon>
   );
 };

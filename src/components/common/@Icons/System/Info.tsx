@@ -10,8 +10,17 @@ const InfoIcon = ({ ...props }: IconProps) => {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M11.5 11.838H12.223V16.896H12.946" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M12 10C12.5523 10 13 9.55228 13 9C13 8.44772 12.5523 8 12 8C11.4477 8 11 8.44772 11 9C11 9.55228 11.4477 10 12 10Z" fill="currentColor" />
+      <path
+        d="M11.5 11.838H12.223V16.896H12.946"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M12 10C12.5523 10 13 9.55228 13 9C13 8.44772 12.5523 8 12 8C11.4477 8 11 8.44772 11 9C11 9.55228 11.4477 10 12 10Z"
+        fill="currentColor"
+      />
     </Icon>
   );
 };

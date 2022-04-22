@@ -20,7 +20,13 @@ export const ThemeColors = () => {
   );
 };
 
-const BrandBox = ({ title, colors }: { title: string; colors: Record<any, any> }) => {
+const BrandBox = ({
+  title,
+  colors,
+}: {
+  title: string;
+  colors: Record<any, any>;
+}) => {
   return (
     <Box>
       <Text textStyle="xl" mb="50px">

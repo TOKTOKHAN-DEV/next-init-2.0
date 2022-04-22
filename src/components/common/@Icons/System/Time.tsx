@@ -8,7 +8,11 @@ const TimeIcon = ({ ...props }: IconProps) => {
         stroke="currentColor"
         strokeWidth="1.5"
       />
-      <path d="M12 6.22691V12.0003H17.7109" stroke="currentColor" strokeWidth="1.5" />
+      <path
+        d="M12 6.22691V12.0003H17.7109"
+        stroke="currentColor"
+        strokeWidth="1.5"
+      />
     </Icon>
   );
 };

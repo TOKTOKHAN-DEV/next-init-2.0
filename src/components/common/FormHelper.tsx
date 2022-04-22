@@ -60,13 +60,17 @@ const FormHelper = ({
         </FormLabel>
       )}
       {children}
-      {isShowErrorText && <FormErrorMessage {...errorTextProps}>{errorText}</FormErrorMessage>}
+      {isShowErrorText && (
+        <FormErrorMessage {...errorTextProps}>{errorText}</FormErrorMessage>
+      )}
       {isShowSuccessText && (
         <FormHelperText color="custom.primary" {...successTextProps}>
           {successText}
         </FormHelperText>
       )}
-      {isShowHelper && <FormHelperText {...helperTextProps}>{helperText}</FormHelperText>}
+      {isShowHelper && (
+        <FormHelperText {...helperTextProps}>{helperText}</FormHelperText>
+      )}
     </FormControl>
   );
 };

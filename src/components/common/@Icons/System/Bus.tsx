@@ -3,8 +3,20 @@ import { Icon, IconProps } from '@chakra-ui/react';
 const BusIcon = ({ ...props }: IconProps) => {
   return (
     <Icon viewBox="0 0 24 24" fill="none" {...props}>
-      <path d="M4 6H20" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
-      <path d="M4 12H20" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M4 6H20"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <path
+        d="M4 12H20"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
       <path
         d="M20.2051 18.129H3.96509V6.04299C3.96509 5.44201 4.20383 4.86565 4.62878 4.44069C5.05374 4.01573 5.63011 3.77699 6.23109 3.77699H17.9391C18.5401 3.77699 19.1164 4.01573 19.5414 4.44069C19.9664 4.86565 20.2051 5.44201 20.2051 6.04299V18.129Z"
         stroke="currentColor"
@@ -26,8 +38,14 @@ const BusIcon = ({ ...props }: IconProps) => {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M16 16C16.5523 16 17 15.5523 17 15C17 14.4477 16.5523 14 16 14C15.4477 14 15 14.4477 15 15C15 15.5523 15.4477 16 16 16Z" fill="currentColor" />
-      <path d="M8 16C8.55228 16 9 15.5523 9 15C9 14.4477 8.55228 14 8 14C7.44772 14 7 14.4477 7 15C7 15.5523 7.44772 16 8 16Z" fill="currentColor" />
+      <path
+        d="M16 16C16.5523 16 17 15.5523 17 15C17 14.4477 16.5523 14 16 14C15.4477 14 15 14.4477 15 15C15 15.5523 15.4477 16 16 16Z"
+        fill="currentColor"
+      />
+      <path
+        d="M8 16C8.55228 16 9 15.5523 9 15C9 14.4477 8.55228 14 8 14C7.44772 14 7 14.4477 7 15C7 15.5523 7.44772 16 8 16Z"
+        fill="currentColor"
+      />
     </Icon>
   );
 };

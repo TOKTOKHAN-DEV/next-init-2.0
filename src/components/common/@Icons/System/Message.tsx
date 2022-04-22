@@ -10,7 +10,13 @@ const MessageIcon = ({ ...props }: IconProps) => {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M21 5L12 12L3 5" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" strokeLinejoin="round" />
+      <path
+        d="M21 5L12 12L3 5"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
     </Icon>
   );
 };

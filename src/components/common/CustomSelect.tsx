@@ -10,7 +10,10 @@ interface CustomSelectProps {
   chooseType?: any;
 }
 
-const CustomSelect = ({ chooseType, ...props }: CustomSelectProps & ReactSelectProps) => {
+const CustomSelect = ({
+  chooseType,
+  ...props
+}: CustomSelectProps & ReactSelectProps) => {
   const theme = useTheme();
   const handleChange = (e: any) => {
     chooseType(e.value);
@@ -18,7 +21,12 @@ const CustomSelect = ({ chooseType, ...props }: CustomSelectProps & ReactSelectP
 
   return (
     <Wrap>
-      <StyledReactSelect {...props} customTheme={theme} classNamePrefix={'Select'} onChange={handleChange} />
+      <StyledReactSelect
+        {...props}
+        customTheme={theme}
+        classNamePrefix={'Select'}
+        onChange={handleChange}
+      />
     </Wrap>
   );
 };

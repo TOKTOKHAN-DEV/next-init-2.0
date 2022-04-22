@@ -7,7 +7,11 @@ interface SummaryCardProps extends BoxProps {
   description: string;
 }
 
-const SummaryCard = ({ title, description, ...basisProps }: SummaryCardProps) => {
+const SummaryCard = ({
+  title,
+  description,
+  ...basisProps
+}: SummaryCardProps) => {
   return (
     <Basis
       _hover={{ boxShadow: 'xl', translateY: '-10px', transform: 'auto' }}

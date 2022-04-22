@@ -9,7 +9,13 @@ export type StyledConsoleArgs = {
   method?: 'log' | 'warn' | 'error' | 'info';
 };
 
-function styledConsole({ topic = '', title = '', data, topicColor = 'skyblue', method = 'log' }: StyledConsoleArgs) {
+function styledConsole({
+  topic = '',
+  title = '',
+  data,
+  topicColor = 'skyblue',
+  method = 'log',
+}: StyledConsoleArgs) {
   const term_1 = `%c[${topic}]`;
   const term_1_style = [`color: ${topicColor}`, 'font-weight : bold'].join(';');
   const term_2 = `%c${title}`;

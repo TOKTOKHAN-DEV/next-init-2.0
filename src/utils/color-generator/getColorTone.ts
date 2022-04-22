@@ -8,7 +8,10 @@ import tinycolor from 'tinycolor2';
  * - target color 부터 색상 밝기 간격을 결정합니다.
  * @return target color 부터 점점 어두워지는 darkTones 배열과, 점점 밝아지는 lightTones 배열을 리턴합니다.
  */
-export function getColorTone(color: string, percent = 5): { darkTones: string[]; lightTones: string[] } {
+export function getColorTone(
+  color: string,
+  percent = 5,
+): { darkTones: string[]; lightTones: string[] } {
   const t = tinycolor(color);
   // hsl(hue, saturation, lightness)
   const hsl = t.toHsl();
@@ -25,12 +28,16 @@ export function getColorTone(color: string, percent = 5): { darkTones: string[];
   for (let i = 0; i < 100; i = i + percent) {
     // 기존 밝기에서 (percent * n)% 만큼 올린값
     const lighten = colorL + i;
-    const lightColor = tinycolor('hsl(' + colorH + ', ' + colorS + '%, ' + lighten + '%)');
+    const lightColor = tinycolor(
+      'hsl(' + colorH + ', ' + colorS + '%, ' + lighten + '%)',
+    );
     const lightHex = lightColor.toHexString();
 
     // 기존 밝기에서 (percent * n)%만큼 내린 값
     const darken = colorL - i;
-    const darkColor = tinycolor('hsl(' + colorH + ', ' + colorS + '%, ' + darken + '%)');
+    const darkColor = tinycolor(
+      'hsl(' + colorH + ', ' + colorS + '%, ' + darken + '%)',
+    );
     const darkHex = darkColor.toHexString();
 
     if (lighten <= 100) lightTones.push(lightHex);

@@ -1,15 +1,26 @@
 import React from 'react';
 
-import { AccordionButton, AccordionItem, AccordionItemProps, AccordionPanel } from '@chakra-ui/accordion';
+import {
+  AccordionButton,
+  AccordionItem,
+  AccordionItemProps,
+  AccordionPanel,
+} from '@chakra-ui/accordion';
 import { Box, Text } from '@chakra-ui/layout';
 
-interface ThemeViewerAccordionItemProps extends Omit<AccordionItemProps, 'title'> {
+interface ThemeViewerAccordionItemProps
+  extends Omit<AccordionItemProps, 'title'> {
   title?: string | JSX.Element;
   content?: JSX.Element;
   code?: JSX.Element;
 }
 
-const ThemeViewerAccordionItem = ({ title, content, code, ...baseProps }: ThemeViewerAccordionItemProps) => {
+const ThemeViewerAccordionItem = ({
+  title,
+  content,
+  code,
+  ...baseProps
+}: ThemeViewerAccordionItemProps) => {
   return (
     <AccordionItem {...baseProps}>
       <AccordionButton fontWeight="bold">

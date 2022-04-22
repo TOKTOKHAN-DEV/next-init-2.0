@@ -1,4 +1,9 @@
-import { DefaultRequestBody, MockedRequest, RestHandler, setupWorker } from 'msw';
+import {
+  DefaultRequestBody,
+  MockedRequest,
+  RestHandler,
+  setupWorker,
+} from 'msw';
 import { setupServer } from 'msw/node';
 
 import { CONFIG } from '@config';

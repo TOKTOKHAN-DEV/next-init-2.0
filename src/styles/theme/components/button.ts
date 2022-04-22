@@ -1,4 +1,7 @@
-import { ComponentSingleStyleConfig, theme as baseTheme } from '@chakra-ui/react';
+import {
+  ComponentSingleStyleConfig,
+  theme as baseTheme,
+} from '@chakra-ui/react';
 import { StyleObjectOrFn } from '@chakra-ui/styled-system';
 
 type AccessibleColor = {
@@ -60,7 +63,13 @@ const variantSolid: StyleObjectOrFn = (props) => {
     };
   }
 
-  const { bg = `${c}.500`, color = 'white', hoverBg = `${c}.600`, activeBg = `${c}.700`, border = `${c}.500` } = accessibleColorMap[c] ?? {};
+  const {
+    bg = `${c}.500`,
+    color = 'white',
+    hoverBg = `${c}.600`,
+    activeBg = `${c}.700`,
+    border = `${c}.500`,
+  } = accessibleColorMap[c] ?? {};
 
   const background = bg;
   const borderColor = border;

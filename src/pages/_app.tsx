@@ -46,7 +46,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     // Provide the client to your App
     <Provider store={store}>
       <QueryClientProvider client={queryClient}>
-        <ThemeProvider theme={{ ...theme, colors: { ...theme.colors, ...mode[colorMode] } }}>
+        <ThemeProvider
+          theme={{ ...theme, colors: { ...theme.colors, ...mode[colorMode] } }}
+        >
           <ToggleColorModeButton />
           <Component {...pageProps} />
         </ThemeProvider>

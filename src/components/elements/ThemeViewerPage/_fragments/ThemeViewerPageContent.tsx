@@ -3,7 +3,14 @@ import React from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-import { Accordion, Box, BoxProps, Center, Text, useTheme } from '@chakra-ui/react';
+import {
+  Accordion,
+  Box,
+  BoxProps,
+  Center,
+  Text,
+  useTheme,
+} from '@chakra-ui/react';
 
 import ThemeViewerAccordionItem from './ThemeViewerAccordionItem';
 import ColorSection from './sections/ColorSection';
@@ -12,7 +19,9 @@ const codeStyle = atomOneDark;
 
 interface ThemeViewerPageContentProps extends BoxProps {}
 
-function ThemeViewerPageContent({ ...basisProps }: ThemeViewerPageContentProps) {
+function ThemeViewerPageContent({
+  ...basisProps
+}: ThemeViewerPageContentProps) {
   const theme = useTheme();
   console.log({ theme });
   const {

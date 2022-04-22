@@ -4,7 +4,7 @@ module.exports = {
   useTabs: false,
   tabWidth: 2,
   trailingComma: 'all',
-  printWidth: 160,
+  printWidth: 80,
   importOrder: [
     '^(react|next|redux|msw).*',
     '^((?!(/|^@config$)).)*$', // target: 외부 라이브러리 (문자열에 "/"" 가 포함되지 않을때, 예외처리: @config 도 포함되지 않을때)

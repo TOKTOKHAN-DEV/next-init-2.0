@@ -8,7 +8,12 @@ const SearchIcon = ({ ...props }: IconProps) => {
         stroke="currentColor"
         strokeWidth="1.5"
       />
-      <path d="M15.5 15.5L21.5 21.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+      <path
+        d="M15.5 15.5L21.5 21.5"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+      />
     </Icon>
   );
 };

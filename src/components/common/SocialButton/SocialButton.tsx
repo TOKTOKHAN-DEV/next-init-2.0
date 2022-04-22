@@ -16,10 +16,28 @@ const SocialButton = ({ data, size }: SocialButtonProps) => {
   const maxWidth = size !== 'sm' ? '310px' : '45px';
   const left = size !== 'sm' ? '27px' : '9px';
   return (
-    <Button colorScheme={data.social} w={width} h="45px" maxW={maxWidth} onClick={() => window.open(data.link)} borderRadius="4px">
+    <Button
+      colorScheme={data.social}
+      w={width}
+      h="45px"
+      maxW={maxWidth}
+      onClick={() => window.open(data.link)}
+      borderRadius="4px"
+    >
       <Flex alignItems="center" justifyContent="center">
-        <Image position="absolute" w="24px" h="24px" left={left} src={SocialButtonData.SOCIALS[data.social].icon} loading="lazy" />
-        {size !== 'sm' && <Text fontSize={['16px', '14px', '15px']}>{SocialButtonData.SOCIALS[data.social].text}</Text>}
+        <Image
+          position="absolute"
+          w="24px"
+          h="24px"
+          left={left}
+          src={SocialButtonData.SOCIALS[data.social].icon}
+          loading="lazy"
+        />
+        {size !== 'sm' && (
+          <Text fontSize={['16px', '14px', '15px']}>
+            {SocialButtonData.SOCIALS[data.social].text}
+          </Text>
+        )}
       </Flex>
     </Button>
   );

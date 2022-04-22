@@ -17,10 +17,16 @@ type NullAble<T> = {
 
 type ValueOf<T> = T extends Obj ? T[keyof T] : unknown;
 
-type UnboxPromise<T extends Promise<any>> = T extends Promise<infer U> ? U : never;
+type UnboxPromise<T extends Promise<any>> = T extends Promise<infer U>
+  ? U
+  : never;
 
 type Parameter<T> = T extends (param: infer U) => any ? U : never;
 
-type GetComponentProps<T> = T extends React.ComponentType<infer P> | React.Component<infer P> ? P : never;
+type GetComponentProps<T> = T extends
+  | React.ComponentType<infer P>
+  | React.Component<infer P>
+  ? P
+  : never;
 
 type ReactSetter<T> = React.Dispatch<React.SetStateAction<T>>;

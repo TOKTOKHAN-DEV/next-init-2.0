@@ -5,7 +5,10 @@ const prettier = require('prettier');
 
 const axios = require('axios');
 
-const DOMAIN = process.env.NODE_ENV === 'production' ? 'https://test.toktokhan.dev/' : 'http://localhost:3000';
+const DOMAIN =
+  process.env.NODE_ENV === 'production'
+    ? 'https://test.toktokhan.dev/'
+    : 'http://localhost:3000';
 
 export default async (_req: NextApiRequest, res: NextApiResponse) => {
   try {

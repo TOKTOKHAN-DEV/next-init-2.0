@@ -51,7 +51,8 @@ instance.interceptors.response.use(
       const isExpiredToken = status === 444;
       const isDev = CONFIG.ENV === 'development';
 
-      if (isDev) apiLogger({ status, reqData, resData: error, method: 'error' });
+      if (isDev)
+        apiLogger({ status, reqData, resData: error, method: 'error' });
 
       if (isExpiredToken) {
         // const token = await refreshToken();

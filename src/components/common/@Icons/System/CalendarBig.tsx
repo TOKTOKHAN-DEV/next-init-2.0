@@ -28,8 +28,18 @@ const CalendarBigIcon = ({ ...props }: IconProps) => {
       <path d="M14.5 14H13.5V15H14.5V14Z" stroke="currentColor" />
       <path d="M15 17.5H13V19.5H15V17.5Z" fill="currentColor" />
       <path d="M14.5 18H13.5V19H14.5V18Z" stroke="currentColor" />
-      <path d="M5.5 1.5V5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-      <path d="M18.5 1.5V5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+      <path
+        d="M5.5 1.5V5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
+      <path
+        d="M18.5 1.5V5"
+        stroke="currentColor"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
     </Icon>
   );
 };

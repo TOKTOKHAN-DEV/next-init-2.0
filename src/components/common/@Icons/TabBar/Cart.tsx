@@ -30,7 +30,10 @@ const CartIcon = ({ variant = 'solid', ...props }: Props & IconProps) => {
           stroke="currentColor"
           strokeWidth="0.25"
         />
-        <path d="M2.2002 8.01001L4.88281 15.345H17.0508L19.167 8.01001H2.2002Z" fill="currentColor" />
+        <path
+          d="M2.2002 8.01001L4.88281 15.345H17.0508L19.167 8.01001H2.2002Z"
+          fill="currentColor"
+        />
       </Icon>
     );
   }

@@ -14,7 +14,10 @@ interface CalendarHeaderProps {
 
 const CalendarHeader = ({ date, setDate }: CalendarHeaderProps) => {
   // const returnToday = () => setDate(moment());
-  const jumpToMonth = (num: number) => (num ? setDate(date.clone().add(1, 'month')) : setDate(date.clone().subtract(1, 'month')));
+  const jumpToMonth = (num: number) =>
+    num
+      ? setDate(date.clone().add(1, 'month'))
+      : setDate(date.clone().subtract(1, 'month'));
 
   return (
     <Flex w="100%" alignItems="center" justifyContent="space-between">

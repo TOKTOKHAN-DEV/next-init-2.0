@@ -24,8 +24,18 @@ const CalendarSmallIcon = ({ ...props }: IconProps) => {
       <path d="M12.5 17.5H11.5V18.5H12.5V17.5Z" stroke="currentColor" />
       <path d="M17 17H15V19H17V17Z" fill="currentColor" />
       <path d="M16.5 17.5H15.5V18.5H16.5V17.5Z" stroke="currentColor" />
-      <path d="M6.26001 2.798V6.298" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
-      <path d="M17.74 2.798V6.298" stroke="currentColor" strokeWidth="1.3" strokeLinecap="round" />
+      <path
+        d="M6.26001 2.798V6.298"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
+      <path
+        d="M17.74 2.798V6.298"
+        stroke="currentColor"
+        strokeWidth="1.3"
+        strokeLinecap="round"
+      />
     </Icon>
   );
 };

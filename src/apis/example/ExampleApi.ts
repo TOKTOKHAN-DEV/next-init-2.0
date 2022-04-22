@@ -2,7 +2,12 @@ import { AxiosInstance } from 'axios';
 
 import instance from '@apis/_axios/instance';
 
-import { ExampleDTOType, ExampleParamGetType, ExampleParamPatchType, ExampleParamPutType } from './ExampleApi.type';
+import {
+  ExampleDTOType,
+  ExampleParamGetType,
+  ExampleParamPatchType,
+  ExampleParamPutType,
+} from './ExampleApi.type';
 
 export class ExampleApi {
   axios: AxiosInstance = instance;

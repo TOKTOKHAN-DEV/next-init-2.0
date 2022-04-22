@@ -1,5 +1,11 @@
 /* eslint-disable no-useless-escape */
-import Document, { DocumentContext, Head, Html, Main, NextScript } from 'next/document';
+import Document, {
+  DocumentContext,
+  Head,
+  Html,
+  Main,
+  NextScript,
+} from 'next/document';
 
 import { ColorModeScript } from '@chakra-ui/color-mode';
 
@@ -71,12 +77,18 @@ class MyDocument extends Document {
           <meta name="twitter:title" content={SITE_TITLE} />
           <meta name="twitter:description" content={SITE_DESCRIPTION} />
           <meta property="twitter:image" content={SITE_IMAGE} />
-          <meta name="format-detection" content="telephone=no, address=no, email=no" />
+          <meta
+            name="format-detection"
+            content="telephone=no, address=no, email=no"
+          />
           <link rel="shortcut icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
 
           {/* Global site tag (gtag.js) - Google Analytics */}
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}></script>
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
+          ></script>
           <script dangerouslySetInnerHTML={this.setGoogleAnalytics()} />
         </Head>
         <body>

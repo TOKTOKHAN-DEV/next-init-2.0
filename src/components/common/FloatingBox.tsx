@@ -6,7 +6,13 @@ interface FloatingBoxProps {
 }
 const FloatingBox = ({ position, children }: FloatingBoxProps) => {
   return (
-    <Box position="absolute" bottom={position === 'bottom' ? '30px' : 'none'} top={position === 'top' ? '30px' : 'none'} right="16px" zIndex="999">
+    <Box
+      position="absolute"
+      bottom={position === 'bottom' ? '30px' : 'none'}
+      top={position === 'top' ? '30px' : 'none'}
+      right="16px"
+      zIndex="999"
+    >
       {children}
     </Box>
   );
