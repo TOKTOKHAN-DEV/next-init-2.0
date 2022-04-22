@@ -1,7 +1,7 @@
-export interface inputProps {
+export interface InputProps {
   label?: string;
   disabled?: boolean;
-  InputProps?: {
+  inputAttrs?: {
     ref?: React.Ref<HTMLInputElement>;
     className?: string;
     type?: string;

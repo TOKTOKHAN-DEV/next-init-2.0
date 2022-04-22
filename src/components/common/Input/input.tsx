@@ -5,9 +5,9 @@ import { Box, Flex, Text, ThemeComponentProps } from '@chakra-ui/react';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
-import { inputProps } from './input.types';
+import { InputProps } from './Input.types';
 
-export const Input = ({
+const Input = ({
   name,
   type,
   onChange,
@@ -16,7 +16,7 @@ export const Input = ({
   placeholder,
   value,
   disabled,
-  InputProps,
+  inputAttrs,
   action,
   errorText,
   isNullValue,
@@ -24,7 +24,7 @@ export const Input = ({
   icon,
   inputMaxLength = 30,
   ...props
-}: inputProps) => {
+}: InputProps) => {
   const [text, setText] = useState<string>('');
   const [focused, setFocused] = useState<boolean>(false);
   const onFocusInput = () => {
@@ -64,7 +64,7 @@ export const Input = ({
             </Flex>
           )}
           <CustomInput
-            {...InputProps}
+            {...inputAttrs}
             name={name}
             type={type}
             placeholder={placeholder}
@@ -91,6 +91,8 @@ export const Input = ({
     </Box>
   );
 };
+
+export default Input;
 
 interface StyleProp {
   isNullValue?: boolean;
