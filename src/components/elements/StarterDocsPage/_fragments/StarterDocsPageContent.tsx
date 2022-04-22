@@ -23,7 +23,7 @@ function StarterDocsPagePageContent({ ...basisProps }: StarterDocsPagePageConten
           <Text color="primary.500" textStyle="xl" fontWeight="bold">
             Welcome!
           </Text>
-          <RotateBox mx="20px" bg="secondary.500" />
+          <RotateBox mx="20px" bg="secondary.500" transition={{ repeat: Infinity, duration: 2 }} />
         </Flex>
         <SimpleGrid spacing="20px" columns={2} w="700px" h="fit-content">
           <LinkButton h="140px" w="100%" variant="unstyled" target="_black" href={OUTER_LINKS.NOTION_CONVENTION}>
