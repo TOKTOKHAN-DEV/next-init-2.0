@@ -20,7 +20,9 @@ const ignored = ['node_modules', '.next'];
  */
 const forEachFiles = (targetPath, callback, options) => {
   const { ignoredFiles = ignored, isRecursive = false } = options || {};
-  const ignoredRgx = new RegExp(ignoredFiles.map((str) => `(${str})`).join('|'));
+  const ignoredRgx = new RegExp(
+    ignoredFiles.map((str) => `(${str})`).join('|'),
+  );
 
   const setFile = (TPath) => {
     fs.readdirSync(TPath, { withFileTypes: true }) //

@@ -38,7 +38,9 @@ async function apiResolver() {
 
 async function generateApiFile({ targetTemplate, outputPath, config }) {
   const etaName = targetTemplate.split('/').pop();
-  const tsName = etaName.replace('.eta', '.ts').replace('Api.', `${config.data.apiClassName}.`);
+  const tsName = etaName
+    .replace('.eta', '.ts')
+    .replace('Api.', `${config.data.apiClassName}.`);
   const view = await eta.renderFile(targetTemplate, config);
   const targetPath = path.resolve(outputPath, tsName);
 

@@ -46,9 +46,15 @@ async function pageResolver() {
   });
 }
 
-async function generateIndexFile({ config: { exportName, importPath }, output }) {
+async function generateIndexFile({
+  config: { exportName, importPath },
+  output,
+}) {
   const { Index } = generator.definedTemplate;
-  const view = await generator.renderDefinedEta(Index.name, { exportName, importPath });
+  const view = await generator.renderDefinedEta(Index.name, {
+    exportName,
+    importPath,
+  });
   generator.generate({ view, output });
 }
 async function generateComponentFile({ config: { name }, output }) {
@@ -56,9 +62,15 @@ async function generateComponentFile({ config: { name }, output }) {
   const view = await generator.renderDefinedEta(ChakraComponent.name, { name });
   generator.generate({ view, output });
 }
-async function generatePageComponentFile({ config: { name, contentName }, output }) {
+async function generatePageComponentFile({
+  config: { name, contentName },
+  output,
+}) {
   const { PageComponent } = generator.definedTemplate;
-  const view = await generator.renderDefinedEta(PageComponent.name, { name, contentName });
+  const view = await generator.renderDefinedEta(PageComponent.name, {
+    name,
+    contentName,
+  });
   generator.generate({ view, output });
 }
 

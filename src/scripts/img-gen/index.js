@@ -5,7 +5,9 @@ const eta = require('eta');
 const path = require('path');
 const { prettierString } = require('../../utils/nodejs/prettier');
 const { getImageGeneratorConfig } = require('./getImageGeneratorConfig');
-const { convertFilePathToObject } = require('../../utils/nodejs/convertFilePathToObject');
+const {
+  convertFilePathToObject,
+} = require('../../utils/nodejs/convertFilePathToObject');
 
 eta.configure({
   views: path.join(__dirname, 'templates'),

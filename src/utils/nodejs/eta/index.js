@@ -9,7 +9,10 @@ class GeneratorByEta {
   eta = Eta;
 
   rootPath = process.env.PWD;
-  commonTemplatePath = path.resolve(this.rootPath, 'src/utils/nodejs/eta/template');
+  commonTemplatePath = path.resolve(
+    this.rootPath,
+    'src/utils/nodejs/eta/template',
+  );
 
   definedTemplate = {
     Index: {
@@ -24,7 +27,10 @@ class GeneratorByEta {
     },
     PageComponent: {
       name: 'PageComponent',
-      path: path.resolve(this.commonTemplatePath, 'page-component.template.eta'),
+      path: path.resolve(
+        this.commonTemplatePath,
+        'page-component.template.eta',
+      ),
       getProps: ({ name, contentName }) => ({ name, contentName }),
     },
     Import: {
@@ -58,7 +64,9 @@ class GeneratorByEta {
   }
 
   async renderDefinedEta(name, options) {
-    return this.eta.render(`<%~ include("${name}",${JSON.stringify(options)})%>`);
+    return this.eta.render(
+      `<%~ include("${name}",${JSON.stringify(options)})%>`,
+    );
   }
 
   async generate({

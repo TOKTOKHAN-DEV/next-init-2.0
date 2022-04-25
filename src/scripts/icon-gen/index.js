@@ -14,8 +14,16 @@ function main() {
   const defaultConfig = scriptConfig['gen:icon'];
   const config = {
     ...defaultConfig,
-    inputPath: mappingArg['i'] || mappingArg['input'] || defaultConfig.inputPath || 'public/icons/svg',
-    outputPath: mappingArg['o'] || mappingArg['output'] || defaultConfig.outputPath || 'src/generated/icons/MyIcons.tsx',
+    inputPath:
+      mappingArg['i'] ||
+      mappingArg['input'] ||
+      defaultConfig.inputPath ||
+      'public/icons/svg',
+    outputPath:
+      mappingArg['o'] ||
+      mappingArg['output'] ||
+      defaultConfig.outputPath ||
+      'src/generated/icons/MyIcons.tsx',
   };
 
   createIcon(config);

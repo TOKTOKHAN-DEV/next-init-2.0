@@ -4,7 +4,9 @@ const { generateApi } = require('swagger-typescript-api');
 const { getPathOnApp } = require('./utils/path');
 
 const customTemplatesFolder = getPathOnApp('src/template/custom-templates');
-const reactQueryTypeTemplate = getPathOnApp('src/template/my-templates/react-query-type.eta');
+const reactQueryTypeTemplate = getPathOnApp(
+  'src/template/my-templates/react-query-type.eta',
+);
 
 const getSwaggerFiles = async (config) => {
   const { files } = await generateApi({

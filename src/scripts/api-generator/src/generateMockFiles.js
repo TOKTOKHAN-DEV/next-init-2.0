@@ -5,12 +5,20 @@ const fs = require('fs');
 const { withLoading } = require('./utils/withLoading');
 
 const generateMockFiles = async ({ swaggerUrl, targetPath, schemaPath }) => {
-  await withLoading('generate api, mock, schema by orval', async () => generateOrvalFilesWithMock({ swaggerUrl, targetPath, schemaPath }));
+  await withLoading('generate api, mock, schema by orval', async () =>
+    generateOrvalFilesWithMock({ swaggerUrl, targetPath, schemaPath }),
+  );
   await withLoading('remove orval-api', () => removeOrvalApiFiles(targetPath));
-  await withLoading('remove orval-schema', () => fs.rmSync(schemaPath, { recursive: true }));
+  await withLoading('remove orval-schema', () =>
+    fs.rmSync(schemaPath, { recursive: true }),
+  );
 };
 
-const generateOrvalFilesWithMock = async ({ swaggerUrl, targetPath, schemaPath }) => {
+const generateOrvalFilesWithMock = async ({
+  swaggerUrl,
+  targetPath,
+  schemaPath,
+}) => {
   try {
     const res = await orval.generate({
       input: swaggerUrl,

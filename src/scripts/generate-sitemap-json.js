@@ -10,7 +10,13 @@ const FORBIDDEN = ['/signup', '/login'].map((route) => `!**${route}`);
   /**
    * localRoutes: pages 폴더 내 파일을 기준으로 만듭니다.
    */
-  const localFiles = await globby(['pages/**/*.{js,tsx}', '!pages/_*.{js,tsx}', '!pages/**/[*.{js,tsx}', '!pages/api', ...FORBIDDEN]);
+  const localFiles = await globby([
+    'pages/**/*.{js,tsx}',
+    '!pages/_*.{js,tsx}',
+    '!pages/**/[*.{js,tsx}',
+    '!pages/api',
+    ...FORBIDDEN,
+  ]);
 
   const localRoutes = localFiles
     .map((file) => {

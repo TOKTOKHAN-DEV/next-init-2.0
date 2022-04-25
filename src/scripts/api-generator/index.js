@@ -15,10 +15,18 @@ async function main() {
   const { swaggerSchemaUrl } = config;
 
   const input = mappingArg['i'] || mappingArg['input'] || swaggerSchemaUrl;
-  const output = mappingArg['o'] || mappingArg['output'] || config.outputPath || 'src/generated/apis';
+  const output =
+    mappingArg['o'] ||
+    mappingArg['output'] ||
+    config.outputPath ||
+    'src/generated/apis';
 
-  const files = await withLoading(`read-swagger`, () => getSwaggerFiles({ ...config, swaggerSchemaUrl: input }));
-  await withLoading('generate-files', () => generateApiFiles({ files, outputPath: output }));
+  const files = await withLoading(`read-swagger`, () =>
+    getSwaggerFiles({ ...config, swaggerSchemaUrl: input }),
+  );
+  await withLoading('generate-files', () =>
+    generateApiFiles({ files, outputPath: output }),
+  );
   if (config.includeMock) {
     await withLoading(`generate-mock-data`, () =>
       generateMockFiles({

@@ -15,7 +15,10 @@ function prettierCli(outputPath) {
 }
 
 async function prettierString(string) {
-  return prettier.format(string, { ...(await prettierConfig), parser: 'babel' });
+  return prettier.format(string, {
+    ...(await prettierConfig),
+    parser: 'babel',
+  });
 }
 
 module.exports = {

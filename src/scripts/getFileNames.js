@@ -5,9 +5,15 @@ const path = require('path');
 const ignored = ['node_modules', '.next'];
 
 const getFileNames = (targetPath, options) => {
-  const { ignoredFiles = ignored, isRecursive = false, forEachFile } = options || {};
+  const {
+    ignoredFiles = ignored,
+    isRecursive = false,
+    forEachFile,
+  } = options || {};
 
-  const ignoredRgx = new RegExp(ignoredFiles.map((str) => `(${str})`).join('|'));
+  const ignoredRgx = new RegExp(
+    ignoredFiles.map((str) => `(${str})`).join('|'),
+  );
   const fileSet = new Set();
 
   const setFile = (TPath) => {

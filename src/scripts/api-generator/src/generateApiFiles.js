@@ -10,11 +10,16 @@ const generateApiFiles = async ({ files, outputPath }) => {
 
   files.forEach(({ name, content }) => {
     try {
-      const isTypeFile = typeFilesName.findIndex((typeFile) => typeFile === name) >= 0;
+      const isTypeFile =
+        typeFilesName.findIndex((typeFile) => typeFile === name) >= 0;
       const filename = name.replace('.ts', '');
 
-      const targetFolder = isTypeFile ? typeFolder : path.resolve(output, filename);
-      const targetFile = isTypeFile ? path.resolve(typeFolder, name) : path.resolve(targetFolder, 'index.ts');
+      const targetFolder = isTypeFile
+        ? typeFolder
+        : path.resolve(output, filename);
+      const targetFile = isTypeFile
+        ? path.resolve(typeFolder, name)
+        : path.resolve(targetFolder, 'index.ts');
 
       fs.mkdirSync(targetFolder, { recursive: true });
       fs.writeFileSync(targetFile, content, console.error);
