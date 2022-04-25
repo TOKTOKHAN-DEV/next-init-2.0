@@ -1,4 +1,5 @@
 import { useRouter } from 'next/dist/client/router';
+import { Head } from 'next/document';
 import React from 'react';
 
 import HomeLayout from '@components/common/@Layout/layouts/HomeLayout/HomeLayout';
@@ -15,7 +16,15 @@ function HomePage() {
     router.push(ROUTES.STARTER_DOCS.MAIN);
   }, [router]);
 
-  return <HomeLayout content={<HomePageContent />} />;
+  return (
+    <>
+      <Head>
+        {/* ex) Your App Name | Page Name */}
+        <title>똑똑한 개발자 | 메인</title>
+      </Head>
+      <HomeLayout content={<HomePageContent />} />
+    </>
+  );
 }
 
 export default HomePage;

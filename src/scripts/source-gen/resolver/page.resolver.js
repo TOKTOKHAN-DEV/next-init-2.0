@@ -41,7 +41,11 @@ async function pageResolver() {
   });
 
   generatePageComponentFile({
-    config: { name: name.element, contentName: name.content },
+    config: {
+      name: name.element,
+      contentName: name.content,
+      pageTitle: `똑똑한 개발자 | ${page}`,
+    },
     output: outputPath.elementFile,
   });
 }
@@ -63,13 +67,14 @@ async function generateComponentFile({ config: { name }, output }) {
   generator.generate({ view, output });
 }
 async function generatePageComponentFile({
-  config: { name, contentName },
+  config: { name, contentName, pageTitle },
   output,
 }) {
   const { PageComponent } = generator.definedTemplate;
   const view = await generator.renderDefinedEta(PageComponent.name, {
     name,
     contentName,
+    pageTitle,
   });
   generator.generate({ view, output });
 }

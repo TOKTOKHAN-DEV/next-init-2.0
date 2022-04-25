@@ -11,7 +11,7 @@ interface <%~ name%>Props extends BoxProps {};
 function <%~ name%>({ ...basisProps }: <%~ name%>Props) {
   return (
     <Box {...basisProps}>
-      <Text>hello world</Text>
+      <Text><%~ name%></Text>
     </Box>
   );
 };

@@ -10,11 +10,25 @@ function getPageEtaConfig(pageName) {
   const pageContentName = pageTextCase.pascal + 'PageContent';
 
   const outputPathPage = path.resolve(rootPath, 'src/pages', pageName);
-  const outputPathComponent = path.resolve(rootPath, 'src/components/elements', pageComponentName);
-  const outputPathComponentFile = path.resolve(outputPathComponent, pageComponentName + '.tsx');
-  const outputPathContent = path.resolve(outputPathComponent, '_fragments', pageContentName + '.tsx');
+  const outputPathComponent = path.resolve(
+    rootPath,
+    'src/components/elements',
+    pageComponentName,
+  );
+  const outputPathComponentFile = path.resolve(
+    outputPathComponent,
+    pageComponentName + '.tsx',
+  );
+  const outputPathContent = path.resolve(
+    outputPathComponent,
+    '_fragments',
+    pageContentName + '.tsx',
+  );
 
-  const templatePath = path.resolve(rootPath, 'src/scripts/source-gen/templates/page');
+  const templatePath = path.resolve(
+    rootPath,
+    'src/scripts/source-gen/templates/page',
+  );
 
   return {
     data: {
