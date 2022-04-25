@@ -1,5 +1,5 @@
 import { useRouter } from 'next/dist/client/router';
-import { Head } from 'next/document';
+import Head from 'next/head';
 import React from 'react';
 
 import HomeLayout from '@components/common/@Layout/layouts/HomeLayout/HomeLayout';
