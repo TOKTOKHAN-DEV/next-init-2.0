@@ -91,6 +91,34 @@ class GeneratorByEta {
     this.generate({ view, output });
     return this;
   }
+
+  async generateIndexFile({ config: { exportName, importPath }, output }) {
+    const { Index } = this.definedTemplate;
+    const view = await this.renderDefinedEta(Index.name, {
+      exportName,
+      importPath,
+    });
+    this.generate({ view, output });
+  }
+  async generateComponentFile({ config: { name }, output }) {
+    const { ChakraComponent } = this.definedTemplate;
+    const view = await this.renderDefinedEta(ChakraComponent.name, {
+      name,
+    });
+    this.generate({ view, output });
+  }
+  async generatePageComponentFile({
+    config: { name, contentName, pageTitle },
+    output,
+  }) {
+    const { PageComponent } = this.definedTemplate;
+    const view = await this.renderDefinedEta(PageComponent.name, {
+      name,
+      contentName,
+      pageTitle,
+    });
+    this.generate({ view, output });
+  }
 }
 
 module.exports = GeneratorByEta;

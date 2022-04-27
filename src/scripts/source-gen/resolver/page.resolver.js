@@ -1,33 +1,37 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
-const { prompt } = require('enquirer');
+const fs = require('fs');
+const { prompt, AutoComplete } = require('enquirer');
 const { getPageEtaConfig } = require('../config/page.config');
 
 const GeneratorByEta = require('../../../utils/nodejs/eta');
 const generator = new GeneratorByEta();
 
 async function pageResolver() {
+  const pageRootPath = path.resolve(process.env.PWD, 'src/pages');
+  const targetPath = await getTargetPage(pageRootPath);
+
   const response = await prompt({
     type: 'input',
-    name: 'page',
+    name: 'pageName',
     message: 'What is your page name?',
   });
-  const { page } = response;
+  const { pageName } = response;
 
-  const config = getPageEtaConfig(page);
+  const config = getPageEtaConfig(targetPath, pageName);
   const {
     data: { outputPath, name },
   } = config;
 
-  generateIndexFile({
+  generator.generateIndexFile({
     config: {
       exportName: name.element,
       importPath: `@components/elements/${name.element}`,
     },
-    output: path.resolve(outputPath.page, 'index.ts'),
+    output: outputPath.page,
   });
 
-  generateIndexFile({
+  generator.generateIndexFile({
     config: {
       exportName: name.element,
       importPath: `./${name.element}`,
@@ -35,50 +39,48 @@ async function pageResolver() {
     output: path.resolve(outputPath.element, 'index.ts'),
   });
 
-  generateComponentFile({
+  generator.generateComponentFile({
     config: { name: name.content },
     output: outputPath.content,
   });
 
-  generatePageComponentFile({
+  generator.generatePageComponentFile({
     config: {
       name: name.element,
       contentName: name.content,
-      pageTitle: `똑똑한 개발자 | ${page}`,
+      pageTitle: `똑똑한 개발자 | ${pageName}`,
     },
     output: outputPath.elementFile,
   });
 }
 
-async function generateIndexFile({
-  config: { exportName, importPath },
-  output,
-}) {
-  const { Index } = generator.definedTemplate;
-  const view = await generator.renderDefinedEta(Index.name, {
-    exportName,
-    importPath,
-  });
-  generator.generate({ view, output });
-}
-async function generateComponentFile({ config: { name }, output }) {
-  const { ChakraComponent } = generator.definedTemplate;
-  const view = await generator.renderDefinedEta(ChakraComponent.name, { name });
-  generator.generate({ view, output });
-}
-async function generatePageComponentFile({
-  config: { name, contentName, pageTitle },
-  output,
-}) {
-  const { PageComponent } = generator.definedTemplate;
-  const view = await generator.renderDefinedEta(PageComponent.name, {
-    name,
-    contentName,
-    pageTitle,
-  });
-  generator.generate({ view, output });
-}
-
 module.exports = {
   pageResolver,
 };
+
+async function getTargetPage(targetFolder) {
+  const pwd = process.env.PWD;
+  const files = fs.readdirSync(targetFolder, {
+    encoding: 'utf-8',
+    withFileTypes: true,
+  });
+
+  const dirs = files
+    .filter((file) => file.isDirectory())
+    .map((file) => path.resolve(targetFolder, file.name).replace(`${pwd}/`, ''))
+    .concat([targetFolder.replace(`${pwd}/`, '')])
+    .reverse();
+
+  const prompt = new AutoComplete({
+    name: 'target',
+    message: 'Select Page Path',
+    initial: 0,
+    choices: dirs,
+  });
+
+  const target = await prompt.run();
+  const targetStaticPath = path.join(pwd, target);
+
+  if (targetStaticPath === targetFolder) return targetFolder;
+  return getTargetPage(targetStaticPath);
+}

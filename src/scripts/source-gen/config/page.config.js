@@ -4,17 +4,18 @@ const { getTextCase } = require('../../../utils/nodejs/getTextCase');
 
 const rootPath = process.env.PWD;
 
-function getPageEtaConfig(pageName) {
+function getPageEtaConfig(pagePath, pageName) {
   const pageTextCase = getTextCase(pageName);
   const pageComponentName = pageTextCase.pascal + 'Page';
   const pageContentName = pageTextCase.pascal + 'PageContent';
 
-  const outputPathPage = path.resolve(rootPath, 'src/pages', pageName);
+  const outputPathPage = path.resolve(pagePath, pageName, 'index.ts');
   const outputPathComponent = path.resolve(
     rootPath,
     'src/components/elements',
     pageComponentName,
   );
+
   const outputPathComponentFile = path.resolve(
     outputPathComponent,
     pageComponentName + '.tsx',
