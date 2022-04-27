@@ -1,20 +1,16 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { prompt } = require('enquirer');
 const fs = require('fs');
 const path = require('path');
 const eta = require('eta');
+
 const { prettierString } = require('../../../utils/nodejs/prettier');
 const { getEtaConfig } = require('../config/api.config');
+const { getApiLabel } = require('../prompts/getApiLabel');
 
 const rootPath = process.env.PWD;
 
 async function apiResolver() {
-  const response = await prompt({
-    type: 'input',
-    name: 'apiLabel',
-    message: 'What is your api-tag?',
-  });
-  const { apiLabel } = response;
+  const apiLabel = await getApiLabel();
 
   const outputPath = path.resolve(rootPath, 'src/apis', apiLabel);
   const templatePath = path.resolve(__dirname, '../templates/api');
