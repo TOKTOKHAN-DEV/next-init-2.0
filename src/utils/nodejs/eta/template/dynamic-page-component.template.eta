@@ -1,0 +1,27 @@
+<%
+  const { name, contentName, pageTitle, slug } = it;
+%>
+
+import { useRouter } from 'next/dist/client/router';
+import Head from 'next/head'
+import HomeLayout from '@components/common/@Layout/layouts/HomeLayout';
+import <%~ contentName%> from './_fragments/<%~ contentName%>';
+
+function  <%~ name%>() {
+  const router = useRouter();
+  const {<%~ slug%>} = router.query;
+
+  return (
+      <>
+      <% if (pageTitle) { %>
+        <Head>
+          {/* ex) Your App Name | Page Name */}
+          <title><%~ pageTitle%></title>
+        </Head>
+      <% } %>
+        <HomeLayout content={<<%~ contentName%> <%~ slug%> ={<%~ slug%>} />}/>
+      </>
+    );
+}
+
+export default <%~ name%>;

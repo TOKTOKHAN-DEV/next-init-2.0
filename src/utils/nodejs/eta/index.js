@@ -23,7 +23,11 @@ class GeneratorByEta {
     ChakraComponent: {
       name: 'ChakraComponent',
       path: path.resolve(this.commonTemplatePath, 'component.template.eta'),
-      getProps: ({ name }) => ({ name }),
+      getProps: ({ name, props, additionalImports }) => ({
+        name,
+        props,
+        additionalImports,
+      }),
     },
     PageComponent: {
       name: 'PageComponent',
@@ -31,7 +35,24 @@ class GeneratorByEta {
         this.commonTemplatePath,
         'page-component.template.eta',
       ),
-      getProps: ({ name, contentName }) => ({ name, contentName }),
+      getProps: ({ name, contentName, pageTitle }) => ({
+        name,
+        contentName,
+        pageTitle,
+      }),
+    },
+    DynamicPageComponent: {
+      name: 'DynamicPageComponent',
+      path: path.resolve(
+        this.commonTemplatePath,
+        'dynamic-page-component.template.eta',
+      ),
+      getProps: ({ name, contentName, pageTitle, slug }) => ({
+        name,
+        contentName,
+        pageTitle,
+        slug,
+      }),
     },
     Import: {
       name: 'Import',
@@ -100,13 +121,20 @@ class GeneratorByEta {
     });
     this.generate({ view, output });
   }
-  async generateComponentFile({ config: { name }, output }) {
+
+  async generateComponentFile({
+    config: { name, props, additionalImports },
+    output,
+  }) {
     const { ChakraComponent } = this.definedTemplate;
     const view = await this.renderDefinedEta(ChakraComponent.name, {
       name,
+      props,
+      additionalImports,
     });
     this.generate({ view, output });
   }
+
   async generatePageComponentFile({
     config: { name, contentName, pageTitle },
     output,
@@ -116,6 +144,20 @@ class GeneratorByEta {
       name,
       contentName,
       pageTitle,
+    });
+    this.generate({ view, output });
+  }
+
+  async generateDynamicPageComponentFile({
+    config: { name, contentName, pageTitle, slug },
+    output,
+  }) {
+    const { DynamicPageComponent } = this.definedTemplate;
+    const view = await this.renderDefinedEta(DynamicPageComponent.name, {
+      name,
+      contentName,
+      pageTitle,
+      slug,
     });
     this.generate({ view, output });
   }
