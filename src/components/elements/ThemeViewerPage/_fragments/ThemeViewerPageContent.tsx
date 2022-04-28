@@ -1,7 +1,7 @@
 import React from 'react';
 //TODO: 개발기간이 끝나면 제거해주세요 "yarn remove react-syntax-highlighter"
 import SyntaxHighlighter from 'react-syntax-highlighter';
-import { atomOneDark } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 import {
   Accordion,
