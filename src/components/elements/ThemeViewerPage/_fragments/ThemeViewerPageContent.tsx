@@ -14,6 +14,9 @@ import {
 
 import ThemeViewerAccordionItem from './ThemeViewerAccordionItem';
 import ColorSection from './sections/ColorSection';
+import ComponentSection from './sections/ComponentSection';
+import ShadowSection from './sections/ShadowSection';
+import SpaceSection from './sections/SpaceSection';
 
 const codeStyle = atomOneDark;
 
@@ -55,11 +58,7 @@ function ThemeViewerPageContent({
         />
         <ThemeViewerAccordionItem //
           title="SPACE"
-          code={
-            <SyntaxHighlighter language="json" style={codeStyle}>
-              {JSON.stringify(space, null, 4)}
-            </SyntaxHighlighter>
-          }
+          content={<SpaceSection spaces={space} />}
         />
         <ThemeViewerAccordionItem //
           title="SHADOWS"
@@ -68,14 +67,11 @@ function ThemeViewerPageContent({
               {JSON.stringify(shadows, null, 4)}
             </SyntaxHighlighter>
           }
+          content={<ShadowSection boxShadows={shadows} />}
         />
         <ThemeViewerAccordionItem //
           title="COMPONENTS"
-          code={
-            <SyntaxHighlighter language="json" style={codeStyle}>
-              {JSON.stringify(components, null, 4)}
-            </SyntaxHighlighter>
-          }
+          content={<ComponentSection components={components} />}
         />
       </Accordion>
 
