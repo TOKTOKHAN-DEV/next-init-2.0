@@ -15,8 +15,12 @@ import {
 import ThemeViewerAccordionItem from './ThemeViewerAccordionItem';
 import ColorSection from './sections/ColorSection';
 import ComponentSection from './sections/ComponentSection';
+import FontWeightSection from './sections/FontWeightSection';
+import LetterSpacingSection from './sections/LetterSpacingSection';
+import RadiusSection from './sections/RadiusSection';
 import ShadowSection from './sections/ShadowSection';
 import SpaceSection from './sections/SpaceSection';
+import TextStyleSection from './sections/TextStyleSection';
 
 const codeStyle = atomOneDark;
 
@@ -34,6 +38,10 @@ function ThemeViewerPageContent({
     space,
     shadows,
     components,
+    letterSpacings,
+    radii,
+    fontWeights,
+    textStyles,
   } = theme;
 
   return (
@@ -61,6 +69,10 @@ function ThemeViewerPageContent({
           content={<SpaceSection spaces={space} />}
         />
         <ThemeViewerAccordionItem //
+          title="RADIUS"
+          content={<RadiusSection radii={radii} />}
+        />
+        <ThemeViewerAccordionItem //
           title="SHADOWS"
           code={
             <SyntaxHighlighter language="json" style={codeStyle}>
@@ -70,12 +82,27 @@ function ThemeViewerPageContent({
           content={<ShadowSection boxShadows={shadows} />}
         />
         <ThemeViewerAccordionItem //
+          title="LATTER SPACING"
+          content={<LetterSpacingSection letterSpacings={letterSpacings} />}
+        />
+        <ThemeViewerAccordionItem //
+          title="FONT WEIGHT"
+          content={<FontWeightSection fontWeights={fontWeights} />}
+        />
+        <ThemeViewerAccordionItem //
+          title="TEXT STYLE"
+          code={
+            <SyntaxHighlighter language="json" style={codeStyle}>
+              {JSON.stringify(textStyles, null, 4)}
+            </SyntaxHighlighter>
+          }
+          content={<TextStyleSection textStyles={textStyles} />}
+        />
+        <ThemeViewerAccordionItem //
           title="COMPONENTS"
           content={<ComponentSection components={components} />}
         />
       </Accordion>
-
-      <Text>{}</Text>
     </Box>
   );
 }

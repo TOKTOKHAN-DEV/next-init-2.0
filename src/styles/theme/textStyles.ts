@@ -4,7 +4,7 @@ const textStyles = {
     lineHeight: ['18px', '16px', '18px'],
   },
   md: {
-    fontSize: ['16px', '14px', '15px'],
+    fontSize: { base: '16px', sm: '14px', md: '15px' },
     lineHeight: ['28px', '26px', '27px'],
   },
   lg: {
