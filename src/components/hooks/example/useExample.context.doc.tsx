@@ -63,8 +63,8 @@ function Child() {
  */
 const [ExampleProvider, useExampleCount, useExampleIncrement] = constate(
   useCounter,
-  (value) => value.count, // becomes useCount
-  (value) => value.increment, // becomes useIncrement
+  (value) => value.count, // becomes useExampleCount
+  (value) => value.increment, // becomes useExampleIncrement
 );
 
 /**
