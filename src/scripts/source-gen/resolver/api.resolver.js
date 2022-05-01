@@ -40,8 +40,17 @@ async function generateApiFile({ targetTemplate, outputPath, config }) {
   const view = await eta.renderFile(targetTemplate, config);
   const targetPath = path.resolve(outputPath, tsName);
 
+  const formatted = isTypeTemplate(targetTemplate)
+    ? view
+    : await prettierString(view);
+
   fs.mkdirSync(outputPath, { recursive: true });
-  fs.writeFileSync(targetPath, await prettierString(view), 'utf-8');
+  fs.writeFileSync(targetPath, formatted, 'utf-8');
+}
+
+function isTypeTemplate(templatePath) {
+  const templateName = templatePath.split('/').pop();
+  return templateName === 'Api.type.eta';
 }
 
 module.exports = {

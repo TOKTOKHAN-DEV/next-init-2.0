@@ -4,7 +4,6 @@
   const { apiLabel } = data;
   const apiNameCase = getTextCase(apiLabel)
 %>
-
 export type <%~ apiNameCase.pascal %>DTOType = {};
 export type <%~ apiNameCase.pascal %>ParamGetType = {};
 export type <%~ apiNameCase.pascal %>ParamPutType = {
