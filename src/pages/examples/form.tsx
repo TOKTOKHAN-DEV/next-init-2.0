@@ -1,3 +1,3 @@
-import FormContainer from '@components/elements/Examples/Form';
+import FormPage from '@components/elements/Examples/FormPage';
 
-export default FormContainer;
+export default FormPage;

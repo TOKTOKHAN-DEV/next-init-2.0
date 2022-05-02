@@ -15,7 +15,7 @@ export type FormDataType = {
  * yup 을 이용하여 form의 유효성 검사를 도와줍니다.
  * react-hook-form과 yup을 연결해 줄 yupResolver 을 함께 사용합니다.
  *
- * validation에 반복되는 값은 상수로 빼서 관리해도 좋을 것 같습니다.
+ * validation에 반복되는 값은 상수로 빼서 관리하면 좋습니다.
  *
  *
  *

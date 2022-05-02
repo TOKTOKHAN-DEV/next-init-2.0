@@ -1,9 +1,9 @@
 import HomeLayout from '@components/common/@Layout/layouts/HomeLayout/HomeLayout';
 
-import ExampleForm from './_fragments/Form.container';
+import ExampleForm from './_fragments/ExampleFormContent';
 
-function FormContainer() {
+function FormPage() {
   return <HomeLayout content={<ExampleForm />} />;
 }
 
-export default FormContainer;
+export default FormPage;

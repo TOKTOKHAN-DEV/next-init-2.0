@@ -5,13 +5,13 @@ import { Box, BoxProps, Button, Input } from '@chakra-ui/react';
 
 import FormHelper from '@components/common/FormHelper';
 
-import { FormDataType } from '../_hooks/useFormSchema';
+import { FormDataType } from '../_hooks/useExampleForm';
 
 interface ExampleFormProps extends BoxProps {
   formData: UseFormReturn<FormDataType>;
 }
 
-const ExampleFormPresenter = ({
+const ExampleFormContentView = ({
   formData: {
     register,
     formState: { errors },
@@ -49,4 +49,4 @@ const ExampleFormPresenter = ({
   );
 };
 
-export default ExampleFormPresenter;
+export default ExampleFormContentView;

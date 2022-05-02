@@ -1,3 +1,3 @@
-import CounterContainer from '@components/elements/Examples/Counter';
+import CounterPage from '@components/elements/Examples/CounterPage';
 
-export default CounterContainer;
+export default CounterPage;
