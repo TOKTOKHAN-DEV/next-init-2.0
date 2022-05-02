@@ -16,10 +16,10 @@ export class <%~ apiClassName %> {
     if (axios) this.axios = axios;
   }
 
-  async get<%~ apiNameCase.pascal %>List(params: <%~ apiNameCase.pascal %>ParamGetType): Promise<<%~ apiNameCase.pascal %>DTOType[]> {
+  async get<%~ apiNameCase.pascal %>List(params?: <%~ apiNameCase.pascal %>ParamGetType): Promise<<%~ apiNameCase.pascal %>DTOType[]> {
     const { data } = await this.axios({
       method: 'GET',
-      url: `/v1/posts`,
+      url: `/v1/<%~ apiLabel %>`,
       params,
     });
     return data;
