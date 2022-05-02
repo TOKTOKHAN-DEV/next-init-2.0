@@ -56,7 +56,7 @@ async function dynamicPageResolver() {
       name: name.element,
       contentName: name.content,
       slug: name.slug,
-      pageTitle: `똑똑한 개발자 | 상세 페이지`,
+      pageTitle: `${name.app} | 상세 페이지`,
     },
     output: outputPath.elementFile,
   });

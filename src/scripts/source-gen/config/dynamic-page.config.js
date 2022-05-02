@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const { getTextCase } = require('../../../utils/nodejs/getTextCase');
+const scriptConfig = require('../../../../tok-script.config');
+const generatorConfig = scriptConfig['module']['gen:source']['page'];
 
 const rootPath = process.env.PWD;
 
@@ -42,6 +44,7 @@ function getDynamicPageConfig(pagePath, slugName) {
         parentPage: parentPageName,
         element: pageComponentName,
         content: pageContentName,
+        app: generatorConfig.appName || '똑똑한 개발자',
       },
       outputPath: {
         page: outputPathPage,

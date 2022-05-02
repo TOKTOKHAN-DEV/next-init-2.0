@@ -54,4 +54,10 @@ exports.module = {
     /** key 값을 결정할 포멧함수입니다. 기본적으로, SNAKE_UPPER_CASE 로 생성됩니다. */
     // formatKey: (filename) => str
   },
+  'gen:source': {
+    page: {
+      /** 컴포넌트 생성시 Next Head 의 <title> 태그에 들어가게될 앱 이름입니다. */
+      appName: process.env.NEXT_PUBLIC_APP_NAME || '똑똑한 개발자',
+    },
+  },
 };

@@ -46,7 +46,7 @@ async function pageResolver() {
     config: {
       name: name.element,
       contentName: name.content,
-      pageTitle: `똑똑한 개발자 | ${pageName}`,
+      pageTitle: `${name.app} | ${pageName}`,
     },
     output: outputPath.elementFile,
   });
