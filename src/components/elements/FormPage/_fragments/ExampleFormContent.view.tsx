@@ -1,7 +1,17 @@
 import React from 'react';
-import { UseFormReturn } from 'react-hook-form';
+import { Controller, UseFormReturn } from 'react-hook-form';
 
-import { Box, BoxProps, Button, Input } from '@chakra-ui/react';
+import { Select } from 'chakra-react-select';
+
+import {
+  Box,
+  BoxProps,
+  Button,
+  Input,
+  Radio,
+  RadioGroup,
+  Stack,
+} from '@chakra-ui/react';
 
 import FormHelper from '@components/common/FormHelper';
 
@@ -14,6 +24,7 @@ interface ExampleFormProps extends BoxProps {
 const ExampleFormContentView = ({
   formData: {
     register,
+    control,
     formState: { errors },
   },
   onSubmit,
@@ -32,6 +43,44 @@ const ExampleFormContentView = ({
       <FormHelper mb="40px" label="전화번호" errorText={errors.phone?.message}>
         <Input flexGrow={1} {...register('phone')} autoComplete="off" />
       </FormHelper>
+
+      <Controller
+        control={control}
+        name="gender"
+        render={({ field: { onChange } }) => (
+          <FormHelper
+            mb="40px"
+            label="성별"
+            errorText={errors.gender?.value?.message}
+          >
+            <Select
+              isSearchable={false}
+              onChange={onChange}
+              options={[
+                { value: 'men', label: '남자' },
+                { value: 'women', label: '여자' },
+              ]}
+              placeholder=""
+            />
+          </FormHelper>
+        )}
+      />
+
+      <Controller
+        control={control}
+        name="fruit"
+        render={({ field: { onChange } }) => (
+          <FormHelper mb="40px" label="과일" errorText={errors.fruit?.message}>
+            <RadioGroup onChange={onChange}>
+              <Stack direction="row">
+                <Radio value="apple">사과</Radio>
+                <Radio value="banana">바나나</Radio>
+                <Radio value="orange">오렌지</Radio>
+              </Stack>
+            </RadioGroup>
+          </FormHelper>
+        )}
+      />
 
       <Button border="1px solid black" type="submit" position="fixed">
         확인

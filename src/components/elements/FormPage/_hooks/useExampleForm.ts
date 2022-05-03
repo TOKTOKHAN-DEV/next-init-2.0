@@ -8,7 +8,11 @@ export type FormDataType = {
   username: string;
   email: string;
   phone: string;
-  gender: string;
+  gender: {
+    label: string;
+    value: string;
+  };
+  fruit: string;
 };
 
 /**
@@ -38,6 +42,10 @@ export const exampleFormSchema = yup.object().shape({
     )
     .min(8, '최소 길이는 8자 입니다.')
     .max(11, '최대 길이는 11자 입니다.'),
+  gender: yup.object().shape({
+    value: yup.string().required('해당 항목은 필수값 입니다.'),
+  }),
+  fruit: yup.string().required('해당 항목은 필수값 입니다.'),
 });
 
 const useExampleForm = (options?: UseFormProps<FormDataType>) => {
