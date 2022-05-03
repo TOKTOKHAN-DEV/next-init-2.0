@@ -6,7 +6,7 @@ import { decrement, increment } from '@features/Count/counterSlice';
 
 import { useRootState } from '@components/hooks/useRootState';
 
-const FormContent = () => {
+const CounterPageContent = () => {
   const dispatch = useDispatch();
   const { value } = useRootState((state) => state.COUNTER);
   return (
@@ -18,4 +18,4 @@ const FormContent = () => {
   );
 };
 
-export default FormContent;
+export default CounterPageContent;

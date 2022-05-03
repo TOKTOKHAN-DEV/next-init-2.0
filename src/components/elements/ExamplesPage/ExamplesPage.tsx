@@ -1,9 +1,9 @@
 import HomeLayout from '@components/common/@Layout/layouts/HomeLayout';
 
-import Content from './_fragments/Content';
+import Content from './_fragments/ExamplesPageContent';
 
-function CounterPage() {
+function ExamplesPage() {
   return <HomeLayout content={<Content />} />;
 }
 
-export default CounterPage;
+export default ExamplesPage;

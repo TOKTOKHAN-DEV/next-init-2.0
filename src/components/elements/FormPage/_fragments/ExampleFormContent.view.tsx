@@ -22,24 +22,15 @@ const ExampleFormContentView = ({
   return (
     <Box as="form" onSubmit={onSubmit} {...basisProps}>
       <FormHelper mb="40px" label="이름" errorText={errors.username?.message}>
-        <Input
-          {...register('username', { required: true })}
-          autoComplete="off"
-        />
+        <Input {...register('username')} autoComplete="off" />
       </FormHelper>
 
       <FormHelper mb="40px" label="이메일" errorText={errors.email?.message}>
-        <Input {...register('email', { required: true })} autoComplete="off" />
+        <Input {...register('email')} autoComplete="off" />
       </FormHelper>
 
       <FormHelper mb="40px" label="전화번호" errorText={errors.phone?.message}>
-        <Input
-          flexGrow={1}
-          {...register('phone', {
-            required: true,
-          })}
-          autoComplete="off"
-        />
+        <Input flexGrow={1} {...register('phone')} autoComplete="off" />
       </FormHelper>
 
       <Button border="1px solid black" type="submit" position="fixed">
