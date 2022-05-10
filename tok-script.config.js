@@ -60,4 +60,10 @@ exports.module = {
       appName: process.env.NEXT_PUBLIC_APP_NAME || '똑똑한 개발자',
     },
   },
+  'w:start': {
+    token: process.env.GITHUB_TOKEN,
+    repoName: 'next-init-2.0',
+    owner: 'TOKTOKHAN-DEV',
+    assignees: ['ldu1020'],
+  },
 };
