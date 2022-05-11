@@ -58,15 +58,15 @@ async function runQuestions() {
     {
       type: 'input',
       name: 'detail',
-      message: 'has detail?(skip: Enter)',
+      message: 'has detail?(skip by: Enter)',
     },
   ]);
 
   const labels = await new AutoComplete({
     name: 'labels',
-    message: 'Select issue labels(select: Space)',
+    message: 'Select issue labels(select by: Space)',
     multiple: true,
-    choices: ['bug', 'features'],
+    choices: config.labels,
   }).run();
 
   return { title, detail, labels };

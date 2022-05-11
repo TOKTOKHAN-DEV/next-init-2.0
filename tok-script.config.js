@@ -61,9 +61,15 @@ exports.module = {
     },
   },
   'w:start': {
+    /** 이슈 생성 권한을 가진 github 토큰입니다. 개인 계정 에서 발급가능합니다 */
     token: process.env.GITHUB_TOKEN,
-    repoName: 'next-init-2.0',
+    /**  해당 프로젝트의 github repository 이름입니다. 이슈 생성시 해당 이름으로 접근하기에, 정확히 기입해야 합니다 */
+    repoName: process.env.GITHUB_REPO,
+    /**  해당 프로젝트 repository 의 owner 로 써. organization 이름입니다 */
     owner: 'TOKTOKHAN-DEV',
+    /**  이슈 생성시 이슈를 추적할 맴버의 아이디 목록 입니다 */
     assignees: ['ldu1020'],
+    /**  이슈 생성시 이슈에 달릴 수 있는 이슈 label 의 목록입니다 */
+    labels: ['bug', 'feature'],
   },
 };
