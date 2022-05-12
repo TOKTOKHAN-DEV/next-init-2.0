@@ -19,7 +19,8 @@
     "postinstall": "yarn run gen:theme-typings",
     "test": "jest --watch",
     "commit": "cz",
-    "format": "format(){ prettier-eslint ${1-\"./**/*.{tsx,ts}\"} --config ./.prettierrc --write; }; format"
+    "format": "format(){ prettier-eslint ${1-\"./**/*.{tsx,ts}\"} --config ./.prettierrc --write; }; format",
+    "lint": "tsc --noEmit && eslint --fix"
   },
   "dependencies": {
     "0auth-sdk": "^0.0.12",
@@ -94,7 +95,7 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx}": [
-      "eslint --fix"
+      "npm run lint"
     ]
   },
   "config": {
