@@ -6,6 +6,7 @@ export const CONFIG = {
     'https://api.yourhompage.co.kr',
   ),
   APP_NAME: requireEnv('APP_NAME', '똑똑한 개발자'),
+  AUTH_TOKEN_KEY: requireEnv('AUTH_TOKEN_KEY', '@token'),
   /** For Script w:start */
   GITHUB_TOKEN: requireEnv('GITHUB_TOKEN'),
   GITHUB_REPO: requireEnv('GITHUB_REPO'),
