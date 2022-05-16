@@ -13,6 +13,7 @@ const github = new Octokit({
 });
 
 async function main() {
+  console.log('test');
   const { title, detail, labels } = await runQuestions();
   const { data } = await createGitHubIssue({ title, detail, labels }); //
   const issueNumber = data.number;
