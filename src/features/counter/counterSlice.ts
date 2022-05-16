@@ -1,11 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
-export interface CounterState {
+export interface CounterStateType {
   value: number;
   status: 'idle' | 'loading' | 'failed';
 }
 
-const initialState: CounterState = {
+const initialState: CounterStateType = {
   value: 0,
   status: 'idle',
 };
@@ -26,6 +26,9 @@ export const counterSlice = createSlice({
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const {
+  actions: counterSliceAction, //
+  reducer: counterSliceReducer,
+} = counterSlice;
 
 export default counterSlice;
