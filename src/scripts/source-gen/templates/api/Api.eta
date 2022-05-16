@@ -16,7 +16,7 @@ export class <%~ apiClassName %> {
     if (axios) this.axios = axios;
   }
 
-  async get<%~ apiNameCase.pascal %>List(params?: <%~ apiNameCase.pascal %>ParamGetType): Promise<<%~ apiNameCase.pascal %>DTOType[]> {
+  get<%~ apiNameCase.pascal %>List = async (params?: <%~ apiNameCase.pascal %>ParamGetType): Promise<<%~ apiNameCase.pascal %>DTOType[]> => {
     const { data } = await this.axios({
       method: 'GET',
       url: `/v1/<%~ apiLabel %>`,
@@ -25,7 +25,7 @@ export class <%~ apiClassName %> {
     return data;
   }
 
-  async get<%~ apiNameCase.pascal %>ById(id: string): Promise<<%~ apiNameCase.pascal %>DTOType> {
+  get<%~ apiNameCase.pascal %>ById = async(id: string): Promise<<%~ apiNameCase.pascal %>DTOType> => {
     const { data } = await this.axios({
       method: 'GET',
       url: `/v1/<%~ apiLabel %>/${id}`,
@@ -33,7 +33,7 @@ export class <%~ apiClassName %> {
     return data;
   }
 
-  async post<%~ apiNameCase.pascal %>(body: <%~ apiNameCase.pascal %>DTOType): Promise<<%~ apiNameCase.pascal %>DTOType> {
+  post<%~ apiNameCase.pascal %> = async(body: <%~ apiNameCase.pascal %>DTOType): Promise<<%~ apiNameCase.pascal %>DTOType> => {
     const { data } = await this.axios({
       method: 'POST',
       url: `/v1/<%~ apiLabel %>`,
@@ -42,7 +42,7 @@ export class <%~ apiClassName %> {
     return data;
   }
 
-  async put<%~ apiNameCase.pascal %>(req: <%~ apiNameCase.pascal %>ParamPutType): Promise<<%~ apiNameCase.pascal %>DTOType> {
+  put<%~ apiNameCase.pascal %> = async(req: <%~ apiNameCase.pascal %>ParamPutType): Promise<<%~ apiNameCase.pascal %>DTOType> => {
     const { data } = await this.axios({
       method: 'PUT',
       url: `/v1/<%~ apiLabel %>/${req.id}`,
@@ -50,7 +50,7 @@ export class <%~ apiClassName %> {
     });
     return data;
   }
-  async patch<%~ apiNameCase.pascal %>(req: <%~ apiNameCase.pascal %>ParamPatchType): Promise<<%~ apiNameCase.pascal %>DTOType> {
+  patch<%~ apiNameCase.pascal %> = async(req: <%~ apiNameCase.pascal %>ParamPatchType): Promise<<%~ apiNameCase.pascal %>DTOType> => {
     const { data } = await this.axios({
       method: 'PATCH',
       url: `/v1/<%~ apiLabel %>/${req.id}`,
@@ -59,7 +59,7 @@ export class <%~ apiClassName %> {
     return data;
   }
 
-  async delete<%~ apiNameCase.pascal %>(id: string): Promise<boolean> {
+  delete<%~ apiNameCase.pascal %> = async(id: string): Promise<boolean> => {
     const { data } = await this.axios({
       method: 'DELETE',
       url: `/v1/<%~ apiLabel %>/${id}`,

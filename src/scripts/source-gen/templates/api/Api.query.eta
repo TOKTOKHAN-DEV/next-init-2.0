@@ -14,7 +14,7 @@ import { <%~ apiNameCase.pascal %>ParamGetType } from './<%~ apiClassName %>.typ
 
 export const <%~ apiNameCase.snakeUpperCase %>_API_QUERY_KEY = {
   GET: (param?: <%~ apiNameCase.pascal %>ParamGetType) => ['<%~ apiLabel %>-list', param],
-  GET_BY_ID: (id: string) => ['<%~ apiLabel %>-by-id', id],
+  GET_BY_ID: (id?: string) => ['<%~ apiLabel %>-by-id', id],
 };
 
 export function useGet<%~ apiNameCase.pascal %>ListQuery(params?: QueryHookParams<typeof <%~ apiClassInstanceName %>.get<%~ apiNameCase.pascal %>List>) {

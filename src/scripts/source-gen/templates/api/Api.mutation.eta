@@ -13,10 +13,10 @@ import <%~ apiClassInstanceName %> from './<%~ apiClassName %>';
 import { <%~ apiNameCase.pascal %>DTOType, <%~ apiNameCase.pascal %>ParamPatchType, <%~ apiNameCase.pascal %>ParamPutType } from './<%~ apiClassName %>.type';
 
 export const <%~ apiNameCase.snakeUpperCase %>_API_MUTATION_KEY = {
-  POST: (param: <%~ apiNameCase.pascal %>DTOType) => ['<%~ apiLabel %>-update', param],
-  PUT: (req: <%~ apiNameCase.pascal %>ParamPutType) => ['<%~ apiLabel %>-put', req],
-  PATCH: (req: <%~ apiNameCase.pascal %>ParamPatchType) => ['<%~ apiLabel %>-patch', req],
-  DELETE: (id: string) => ['<%~ apiLabel %>-delete', id],
+  POST: (param?: <%~ apiNameCase.pascal %>DTOType) => ['<%~ apiLabel %>-post', param],
+  PUT: (req?: <%~ apiNameCase.pascal %>ParamPutType) => ['<%~ apiLabel %>-put', req],
+  PATCH: (req?: <%~ apiNameCase.pascal %>ParamPatchType) => ['<%~ apiLabel %>-patch', req],
+  DELETE: (id?: string) => ['<%~ apiLabel %>-delete', id],
 };
 
 export const usePost<%~ apiNameCase.pascal %>Mutation = (params?: MutationHookParams<typeof <%~ apiClassInstanceName %>.post<%~ apiNameCase.pascal %>>) => {

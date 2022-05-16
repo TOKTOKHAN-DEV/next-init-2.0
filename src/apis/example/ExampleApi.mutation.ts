@@ -10,10 +10,10 @@ import {
 } from './ExampleApi.type';
 
 export const EXAMPLE_API_MUTATION_KEY = {
-  POST: (param: ExampleDTOType) => ['example-update', param],
-  PUT: (req: ExampleParamPutType) => ['example-put', req],
-  PATCH: (req: ExampleParamPatchType) => ['example-patch', req],
-  DELETE: (id: string) => ['example-delete', id],
+  POST: (param?: ExampleDTOType) => ['example-post', param],
+  PUT: (req?: ExampleParamPutType) => ['example-put', req],
+  PATCH: (req?: ExampleParamPatchType) => ['example-patch', req],
+  DELETE: (id?: string) => ['example-delete', id],
 };
 
 export const usePostExampleMutation = (
