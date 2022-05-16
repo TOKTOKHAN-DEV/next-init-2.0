@@ -47,7 +47,6 @@ function ExamplesPageContent({ ...basisProps }: ExamplesPageContentProps) {
             h="140px"
             w="100%"
             variant="unstyled"
-            target="_black"
             href={ROUTES.STARTER_DOCS.EXAMPLES.COUNTER}
           >
             <SummaryCard h="100%" title="redux-toolkit 예시" description="" />

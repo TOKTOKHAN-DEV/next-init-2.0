@@ -2,18 +2,21 @@ import { useDispatch } from 'react-redux';
 
 import { Button, HStack, Text } from '@chakra-ui/react';
 
-import { decrement, increment } from '@features/Count/counterSlice';
-
-import { useRootState } from '@components/hooks/useRootState';
+import { counterSliceAction } from '@features/counter/counterSlice';
+import useAppStore from '@features/useAppStore';
 
 const CounterPageContent = () => {
   const dispatch = useDispatch();
-  const { value } = useRootState((state) => state.COUNTER);
+  const { value } = useAppStore((store) => store.COUNTER);
   return (
     <HStack>
-      <Button onClick={() => dispatch(increment())}>+</Button>
+      <Button onClick={() => dispatch(counterSliceAction.increment())}>
+        +
+      </Button>
       <Text>{value}</Text>
-      <Button onClick={() => dispatch(decrement())}>-</Button>
+      <Button onClick={() => dispatch(counterSliceAction.decrement())}>
+        -
+      </Button>
     </HStack>
   );
 };
