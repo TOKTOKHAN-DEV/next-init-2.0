@@ -1,13 +1,9 @@
-import Button from './button';
-import Container from './container';
-import Input from './input';
-import Link from './link';
+import * as MultiPartsComponents from './multi-parts';
+import * as SingleComponents from './single';
 
 const components = {
-  Link,
-  Button,
-  Container,
-  Input,
+  ...MultiPartsComponents,
+  ...SingleComponents,
 };
 
 export default components;

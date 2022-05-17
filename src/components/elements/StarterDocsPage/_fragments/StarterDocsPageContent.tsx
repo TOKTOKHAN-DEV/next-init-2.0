@@ -5,10 +5,12 @@ import { motion } from 'framer-motion';
 import {
   Box,
   BoxProps,
+  Button,
   Center,
   Flex,
   SimpleGrid,
   Text,
+  useDisclosure,
 } from '@chakra-ui/react';
 
 import LinkButton from '@components/common/LinkButton';
@@ -17,6 +19,7 @@ import { LAYOUT } from '@constants/layout';
 import { OUTER_LINKS } from '@constants/outer-links';
 import { ROUTES } from '@constants/routes';
 
+import MyModal from '../Modal';
 import SummaryCard from './SummaryCard';
 
 interface StarterDocsPagePageContentProps extends BoxProps {}
@@ -24,6 +27,8 @@ interface StarterDocsPagePageContentProps extends BoxProps {}
 function StarterDocsPagePageContent({
   ...basisProps
 }: StarterDocsPagePageContentProps) {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <Box {...basisProps}>
       <Center
@@ -39,12 +44,14 @@ function StarterDocsPagePageContent({
           <Text color="primary.500" textStyle="xl" fontWeight="bold">
             Welcome!
           </Text>
+          <Button onClick={onOpen}>open Modal</Button>
           <RotateBox
             mx="20px"
             bg="secondary.500"
             transition={{ repeat: Infinity, duration: 2 }}
           />
         </Flex>
+        <MyModal isOpen={isOpen} onClose={onClose} />
         <SimpleGrid spacing="20px" columns={2} w="700px" h="fit-content">
           <LinkButton
             h="140px"

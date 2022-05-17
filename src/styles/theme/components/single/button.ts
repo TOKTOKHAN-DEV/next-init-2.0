@@ -1,7 +1,4 @@
-import {
-  ComponentSingleStyleConfig,
-  theme as baseTheme,
-} from '@chakra-ui/react';
+import { ComponentSingleStyleConfig } from '@chakra-ui/react';
 import { StyleObjectOrFn } from '@chakra-ui/styled-system';
 
 type AccessibleColor = {
@@ -90,9 +87,8 @@ const variantSolid: StyleObjectOrFn = (props) => {
   };
 };
 
-const Button: ComponentSingleStyleConfig = {
+export const Button: ComponentSingleStyleConfig = {
   baseStyle: {
-    ...baseTheme.components.Button.baseStyle,
     w: 'fit-content',
     h: 'fit-content',
     _focus: { boxShadow: 'none' },
@@ -123,5 +119,3 @@ const Button: ComponentSingleStyleConfig = {
     },
   },
 };
-
-export default Button;
