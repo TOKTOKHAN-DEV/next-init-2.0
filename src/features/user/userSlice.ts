@@ -1,11 +1,11 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export interface UserStateType {
-  isLogged: boolean;
+  isLogin: boolean;
 }
 
 const initialState: UserStateType = {
-  isLogged: false,
+  isLogin: false,
 };
 
 export const userSlice = createSlice({
@@ -13,7 +13,7 @@ export const userSlice = createSlice({
   initialState,
   reducers: {
     setIsLogged: (state, action: PayloadAction<boolean>) => {
-      state.isLogged = action.payload;
+      state.isLogin = action.payload;
     },
   },
 });

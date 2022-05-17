@@ -37,7 +37,7 @@ setUpMockServiceWorker({
 function MyApp({ Component, pageProps }: AppProps) {
   const isServer = typeof window === 'undefined';
 
-  const isLogged = useAppStore((store) => store.USER.isLogged);
+  const isLogin = useAppStore((store) => store.USER.isLogin);
   const queryClient = useQueryClient();
   const dispatch = useDispatch();
   const theme = useTheme();
@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   const { isLoading } = useRefreshTokenQuery({
     options: {
-      enabled: isLogged,
+      enabled: isLogin,
       staleTime: 0,
       refetchInterval: 1000 * 60 * 20,
       onError: () => {
