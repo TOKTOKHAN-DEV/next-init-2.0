@@ -1,6 +1,6 @@
 import { Button, Flex, Image, Text } from '@chakra-ui/react';
 
-import SocialButtonData from './SocialButton.data';
+import { SOCIALS } from './SocialButton.data';
 
 export type SocialType = 'kakao' | 'naver' | 'facebook' | 'google' | 'apple';
 export interface SocialButtonProps {
@@ -30,12 +30,12 @@ const SocialButton = ({ data, size }: SocialButtonProps) => {
           w="24px"
           h="24px"
           left={left}
-          src={SocialButtonData.SOCIALS[data.social].icon}
+          src={SOCIALS[data.social].icon}
           loading="lazy"
         />
         {size !== 'sm' && (
           <Text fontSize={['16px', '14px', '15px']}>
-            {SocialButtonData.SOCIALS[data.social].text}
+            {SOCIALS[data.social].text}
           </Text>
         )}
       </Flex>

@@ -5,17 +5,17 @@ import MenuIcon from '@components/common/@Icons/System/Menu';
 
 import { LAYOUT } from '@constants/layout';
 
-import HomeHeaderData from './HomeHeader.data';
+import { HOME_HEADER_VARIANTS, HomeHeaderVariantType } from './HomeHeader.data';
 import HomeHeaderDrawer from './_fragments/HomeHeaderDrawer';
 
 interface HomeHeaderProps {
-  variant?: HomeHeaderData.VariantType;
+  variant?: HomeHeaderVariantType;
 }
 
 const HomeHeader = ({ variant = 'light' }: HomeHeaderProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  const cssByVariant = HomeHeaderData.VARIANTS[variant];
+  const cssByVariant = HOME_HEADER_VARIANTS[variant];
 
   return (
     <>

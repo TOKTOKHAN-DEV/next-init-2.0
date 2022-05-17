@@ -7,7 +7,9 @@ import { Button, ButtonProps } from '@chakra-ui/react';
  * @see Docs https://nextjs.org/docs/api-reference/next/link
  */
 
-export interface LinkButtonProps extends LinkProps, Omit<ButtonProps, 'as'> {
+export interface LinkButtonProps
+  extends LinkProps,
+    Omit<ButtonProps, 'as' | 'onMouseEnter' | 'onClick'> {
   target?: React.AnchorHTMLAttributes<HTMLAnchorElement>['target'];
 }
 
