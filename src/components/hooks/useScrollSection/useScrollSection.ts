@@ -5,12 +5,14 @@ import {
   UseScrollSectionParamType,
 } from './useScrollSection.type';
 
-export default function useScrollSection({
+export default function useScrollSection<T extends HTMLElement | null>({
   parentsRef,
-  targetRef,
   onProgress,
   onInValid,
+  entryPoint = 'bottom',
 }: UseScrollSectionParamType) {
+  const targetRef = React.useRef<T>(null);
+
   React.useEffect(() => {
     const parentsEl = parentsRef?.current || document.querySelector('body');
     const targetEl = targetRef.current;
@@ -18,7 +20,7 @@ export default function useScrollSection({
     if (!parentsEl) return;
 
     const handleProgress = () => {
-      const progress = getProgress(parentsEl, targetEl);
+      const progress = getProgress({ parentsEl, targetEl, type: entryPoint });
       const isValid = progress > 0 && progress < 1;
       if (!isValid) {
         onInValid?.(progress);
@@ -40,23 +42,37 @@ export default function useScrollSection({
       window.removeEventListener('load', handleProgress);
       window.removeEventListener('resize', handleProgress);
     };
-  }, [parentsRef, targetRef]);
+  }, [parentsRef, targetRef, entryPoint]);
+
+  return { ref: targetRef };
 }
 
-function getProgress(parentsEl: HTMLElement, targetEl: HTMLElement) {
+function getProgress({
+  parentsEl,
+  targetEl,
+  type,
+}: {
+  parentsEl: HTMLElement;
+  targetEl: HTMLElement;
+  type: 'top' | 'bottom';
+}) {
   const { y: parentsY } = parentsEl.getBoundingClientRect();
   const { y: targetY, height: targetHeight } = targetEl.getBoundingClientRect();
 
-  const pt = window.scrollY + parentsY;
-  const targetOffset = (targetY - pt) * -1;
-  const progress = targetOffset / targetHeight;
+  const entryBase = type === 'bottom' ? innerHeight : scrollY + parentsY;
+  const entryPoint = entryBase - targetY;
+
+  const progress = entryPoint / targetHeight;
   return progress;
 }
 
 function createHelper(progress: number): ProgressHelper {
-  return ({ start = 0, end = 1, inOutPoint = 0, onIn, onOut }) => {
+  return ({ start = 0, end = 1, inOutPoint = 0, onIn, onOut, onInvalid }) => {
     const isValid = progress > start && progress < end;
-    if (!isValid) return;
+    if (!isValid) {
+      onInvalid?.(progress);
+      return;
+    }
 
     const range = end - start;
     const rangeOfIn = inOutPoint - start;

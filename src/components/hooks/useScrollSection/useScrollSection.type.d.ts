@@ -2,12 +2,6 @@ type UseScrollSectionParamType = {
   /** 부모요소에 해당하는 HTML Element 입니다 scroll yOffset 의 기준이 됩니다. default: "body" */
   parentsRef?: React.MutableRefObject<HTMLElement | null>;
   /** scroll progress 를 조회할 대상 Element 입니다. */
-  targetRef: React.MutableRefObject<HTMLElement | null>;
-  /**
-   * Element 의 최상단이 window 의 최상단에 도달하는 시점부터
-   * Element 의 최하단이 window 의 최상단에 도달하는 시점까지
-   *  실행되는 함수입니다.
-   * */
   onProgress: (arg: {
     /** Target Element 의 높이 대비 window 의 scroll 정도입니다. */
     progress: number;
@@ -20,6 +14,7 @@ type UseScrollSectionParamType = {
    * Element 가 onProgress 상태가 아닐때 실행되는 함수 입니다.
    * */
   onInValid?: (progress: number) => void;
+  entryPoint?: 'top' | 'bottom';
 };
 
 type HelperOptionsType = {
@@ -42,6 +37,10 @@ type HelperOptionsType = {
     /** isOutPoint ~ end 까지의 구간 길이 대비 progress 입니다.. */
     progressOnOut: number;
   }) => void;
+  /**
+   * Element 가 start ~ end 구간이 아닐때 실행되는 함수 입니다.
+   * */
+  onInvalid?: (progress: number) => void;
 };
 
 export type ProgressHelper = (options: HelperOptionsType) => void;
