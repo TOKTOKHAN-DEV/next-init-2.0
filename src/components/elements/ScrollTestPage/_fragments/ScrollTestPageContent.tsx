@@ -3,6 +3,7 @@ import React from 'react';
 import { Box, ChakraProps, Heading, Text } from '@chakra-ui/react';
 
 import useScrollSection from '@components/hooks/useScrollSection';
+import useScrollIsShow from '@components/hooks/useScrollIsShow';
 
 interface ScrollTestPageContentProps extends ChakraProps {}
 
@@ -14,6 +15,9 @@ function ScrollTestPageContent({ ...basisProps }: ScrollTestPageContentProps) {
   const section4Ref = React.useRef<HTMLDivElement | null>(null);
   const section5Ref = React.useRef<HTMLDivElement | null>(null);
   const textRef = React.useRef<HTMLParagraphElement | null>(null);
+
+  const { ref: text1Ref, isShow: text1IsShow } =
+    useScrollIsShow<HTMLParagraphElement>(0.8);
 
   useScrollSection({
     parentsRef,
@@ -76,10 +80,19 @@ function ScrollTestPageContent({ ...basisProps }: ScrollTestPageContentProps) {
         1
       </Box>
       <Box h="600px" ref={section2Ref} bg="yellow">
-        2
+        <Text
+          fontSize="2em"
+          pt="5em"
+          ref={text1Ref}
+          opacity={text1IsShow ? 1 : 0}
+          transition="all 2s ease-in-out 0s"
+          transform={`translate(0px, ${text1IsShow ? 0 : 20}px)`}
+        >
+          3
+        </Text>
       </Box>
       <Box h="500vh" ref={section3Ref} bg="blue">
-        3
+        <h1>2</h1>
       </Box>
       <Box h="500vh" ref={section4Ref} bg="green">
         4
