@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "0auth-sdk": "^0.0.12",
-    "@chakra-ui/react": "^1.6.5",
+    "@chakra-ui/react": "^2.1.0",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@hookform/resolvers": "^2.8.8",
