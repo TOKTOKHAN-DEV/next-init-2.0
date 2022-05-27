@@ -1,7 +1,0 @@
-<%
-  const { importPath, exportName } = it;
-%>
-
-import <%~ exportName %> from '<%~ importPath %>';
-
-export default <%~ exportName %>

@@ -1,1 +1,0 @@
-import <%~ it.exportName %> from '<%~ it.importPath %>';

@@ -72,4 +72,22 @@ exports.module = {
     /**  이슈 생성시 이슈에 달릴 수 있는 이슈 label 의 목록입니다 */
     labels: ['bug', 'feature'],
   },
+  'gen:font': {
+    /** 조회할 font 파일들이 포함되어있는 폴더 입니다. */
+    inputPath: 'public/fonts',
+    /** 생성될 파일이 위치할 경로입니다.*/
+    outputPath: 'src/generated/fonts/fonts.tsx',
+    /** 생성될 font 객체의 이름입니다 */
+    displayName: 'FONTS',
+    /** 생성될 객체의 value 에 할당될 경로의 base-path 입니다 */
+    basePath: '',
+    /** 생성될 폰트 파일을 판별하는 패턴으로써, 파일이름이 패턴과 일치할 경우에만 객체에 포함됩니다.
+     * (default: ['*.otf', '*.ttf', '*.woff', '*.woff2'])
+     */
+    includingPattern: ['*.otf', '*.ttf', '*.woff', '*.woff2'],
+    /** 제외 될 폰트 파일을 판별하는 패턴으로써, 파일이름이 패턴과 일치할 경우에 객체에서 제외 됩니다.
+     * (default: ['*node_module*'])
+     */
+    ignoredPattern: ['*node_module*'],
+  },
 };
