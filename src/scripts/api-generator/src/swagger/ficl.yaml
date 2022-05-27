@@ -1,0 +1,2687 @@
+openapi: 3.0.3
+info:
+  title: FICL API
+  version: 1.0.0
+  description: FICL의 API입니다.
+paths:
+  /v1/login/:
+    post:
+      operationId: login_create
+      description: |-
+        유저 로그인
+        ---
+      tags:
+        - login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+            examples:
+              로그인성공요청:
+                value:
+                  email: test@ficl.com
+                  password: password
+                summary: 로그인 성공 요청
+                description: 로그인 성공 요청 예시입니다.
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserLogin'
+        required: true
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserLogin'
+          description: ''
+  /v1/logout/:
+    post:
+      operationId: logout_create
+      description: |-
+        유저 로그아웃
+        ---
+        모바일앱에서만 사용하며, 유저와 디바이스 토큰의 연결을 끊어주기위해 사용합니다.
+      tags:
+        - logout
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserLogout'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserLogout'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserLogout'
+      security:
+        - Bearer: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserLogout'
+          description: ''
+  /v1/refresh/:
+    post:
+      operationId: refresh_create
+      description: |-
+        유저 토큰리프레시
+        ---
+        refresh토큰으로 새로운 access토큰과 refresh토큰을 요청합니다.
+      tags:
+        - refresh
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/TokenRefresh'
+        required: true
+      security:
+        - Bearer: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenRefresh'
+          description: ''
+  /v1/social_login/:
+    post:
+      operationId: social_login_create
+      description: |-
+        유저 소셜로그인
+        ---
+        소셜로그인의 callback으로 전달받은 code와 state값으로 로그인 또는 회원가입을 합니다.
+      tags:
+        - social_login
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserSocialLogin'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserSocialLogin'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserSocialLogin'
+        required: true
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserSocialLogin'
+          description: ''
+  /v1/register/:
+    post:
+      operationId: register_create
+      description: |-
+        유저 회원가입
+        ---
+      tags:
+        - register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserRegister'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserRegister'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserRegister'
+        required: true
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserRegister'
+          description: ''
+  /v1/me/:
+    get:
+      operationId: me_retrieve
+      description: |-
+        유저 정보
+        ---
+      tags:
+        - me
+      security:
+        - Bearer: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMe'
+          description: ''
+    put:
+      operationId: me_update
+      description: |-
+        유저 정보
+        ---
+      tags:
+        - me
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserMe'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserMe'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserMe'
+      security:
+        - Bearer: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMe'
+          description: ''
+    patch:
+      operationId: me_partial_update
+      description: |-
+        유저 정보
+        ---
+      tags:
+        - me
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserMe'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserMe'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserMe'
+      security:
+        - Bearer: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMe'
+          description: ''
+    delete:
+      operationId: me_destroy
+      description: |-
+        유저 정보
+        ---
+      tags:
+        - me
+      security:
+        - Bearer: []
+      responses:
+        '204':
+          description: No response body
+  /v1/password_reset/:
+    post:
+      operationId: password_reset_create
+      description: |-
+        유저 비밀번호 재설정 요청
+        ---
+        이메일을 통해 비밀번호 재설정 가능한 link을 발급받습니다.
+      tags:
+        - password_reset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPasswordResetCreate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserPasswordResetCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserPasswordResetCreate'
+        required: true
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPasswordResetCreate'
+          description: ''
+  /v1/password_reset/confirm/:
+    put:
+      operationId: password_reset_confirm_update
+      description: |-
+        유저 비밀번호 재설정
+        ---
+        유저 비밀번호 재설정 요청 API를 통해 발급받은 link를 통해 비밀번호를 재설정합니다.
+      tags:
+        - password_reset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserPasswordResetConfirm'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/UserPasswordResetConfirm'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/UserPasswordResetConfirm'
+        required: true
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPasswordResetConfirm'
+          description: ''
+    patch:
+      operationId: password_reset_confirm_partial_update
+      description: |-
+        유저 비밀번호 재설정
+        ---
+        유저 비밀번호 재설정 요청 API를 통해 발급받은 link를 통해 비밀번호를 재설정합니다.
+      tags:
+        - password_reset
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPasswordResetConfirm'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPasswordResetConfirm'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedUserPasswordResetConfirm'
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserPasswordResetConfirm'
+          description: ''
+  /v1/phone_verifier/:
+    post:
+      operationId: phone_verifier_create
+      description: |-
+        휴대폰 인증
+        ---
+      tags:
+        - phone_verifier
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhoneVerifierCreate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PhoneVerifierCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PhoneVerifierCreate'
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhoneVerifierCreate'
+          description: ''
+  /v1/phone_verifier/confirm/:
+    post:
+      operationId: phone_verifier_confirm_create
+      description: |-
+        휴대폰 인증 확인
+        ---
+        응답값의 token값으로 회원가입의 phoneToken으로 사용
+      tags:
+        - phone_verifier
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PhoneVerifierConfirm'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PhoneVerifierConfirm'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PhoneVerifierConfirm'
+        required: true
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PhoneVerifierConfirm'
+          description: ''
+  /v1/consulting/:
+    get:
+      operationId: consulting_list
+      description: |-
+        GET => 상담 객체 조회
+
+        POST => 상담 객체 생성
+      tags:
+        - consulting
+      security:
+        - Bearer: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Consulting'
+              examples:
+                상담일지예시:
+                  value:
+                    name: 김준성
+                    job: 개발자
+                    age: 23
+                    address: '서울특별시 마포구 공덕동 '
+                    email: admin@admin.com
+                    gender: M
+                    landAddress: 가고자 하는 주소 정보
+                    fish: 새우
+                    project_name: hihihi
+                    validitys:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    estimates:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    constructs:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    consultingfiles:
+                      - id: 1
+                        type: 맟춤예산솔루션
+                        file: https://localhost:123213/file.pdf
+                      - id: 2
+                        type: 유저업로드
+                        file: https://localhost:123213/file.pdf
+                  summary: 상담일지 예시
+          description: ''
+    post:
+      operationId: consulting_create
+      description: |-
+        GET => 상담 객체 조회
+
+        POST => 상담 객체 생성
+      tags:
+        - consulting
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Consulting'
+            examples:
+              상담일지생성요청에시:
+                value:
+                  name: 김준성
+                  job: 개발자
+                  age: 23
+                  address: '서울특별시 마포구 공덕동 '
+                  email: admin@admin.com
+                  gender: M
+                  landAddress: 가고자 하는 주소 정보
+                  fish: 새우
+                  isValidity: true
+                  isEstimate: true
+                  isConstruct: true
+                summary: 상담일지 생성 요청 에시
+                description: '남자 => M<br/>여자 => F<br/> '
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Consulting'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Consulting'
+        required: true
+      security:
+        - Bearer: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Consulting'
+              examples:
+                상담일지예시:
+                  value:
+                    name: 김준성
+                    job: 개발자
+                    age: 23
+                    address: '서울특별시 마포구 공덕동 '
+                    email: admin@admin.com
+                    gender: M
+                    landAddress: 가고자 하는 주소 정보
+                    fish: 새우
+                    project_name: hihihi
+                    validitys:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    estimates:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    constructs:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    consultingfiles:
+                      - id: 1
+                        type: 맟춤예산솔루션
+                        file: https://localhost:123213/file.pdf
+                      - id: 2
+                        type: 유저업로드
+                        file: https://localhost:123213/file.pdf
+                  summary: 상담일지 예시
+          description: ''
+  /v1/consulting/{id}/:
+    get:
+      operationId: consulting_retrieve
+      description: ''
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - consulting
+      security:
+        - Bearer: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Consulting'
+              examples:
+                상담일지예시:
+                  value:
+                    name: 김준성
+                    job: 개발자
+                    age: 23
+                    address: '서울특별시 마포구 공덕동 '
+                    email: admin@admin.com
+                    gender: M
+                    landAddress: 가고자 하는 주소 정보
+                    fish: 새우
+                    project_name: hihihi
+                    validitys:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    estimates:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    constructs:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    consultingfiles:
+                      - id: 1
+                        type: 맟춤예산솔루션
+                        file: https://localhost:123213/file.pdf
+                      - id: 2
+                        type: 유저업로드
+                        file: https://localhost:123213/file.pdf
+                  summary: 상담일지 예시
+          description: ''
+    put:
+      operationId: consulting_update
+      description: ''
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - consulting
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Consulting'
+            examples:
+              상담일지생성요청에시:
+                value:
+                  name: 김준성
+                  job: 개발자
+                  age: 23
+                  address: '서울특별시 마포구 공덕동 '
+                  email: admin@admin.com
+                  gender: M
+                  landAddress: 가고자 하는 주소 정보
+                  fish: 새우
+                  isValidity: true
+                  isEstimate: true
+                  isConstruct: true
+                summary: 상담일지 생성 요청 에시
+                description: '남자 => M<br/>여자 => F<br/> '
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/Consulting'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/Consulting'
+        required: true
+      security:
+        - Bearer: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Consulting'
+              examples:
+                상담일지예시:
+                  value:
+                    name: 김준성
+                    job: 개발자
+                    age: 23
+                    address: '서울특별시 마포구 공덕동 '
+                    email: admin@admin.com
+                    gender: M
+                    landAddress: 가고자 하는 주소 정보
+                    fish: 새우
+                    project_name: hihihi
+                    validitys:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    estimates:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    constructs:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    consultingfiles:
+                      - id: 1
+                        type: 맟춤예산솔루션
+                        file: https://localhost:123213/file.pdf
+                      - id: 2
+                        type: 유저업로드
+                        file: https://localhost:123213/file.pdf
+                  summary: 상담일지 예시
+          description: ''
+    patch:
+      operationId: consulting_partial_update
+      description: ''
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - consulting
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedConsulting'
+            examples:
+              상담일지생성요청에시:
+                value:
+                  name: 김준성
+                  job: 개발자
+                  age: 23
+                  address: '서울특별시 마포구 공덕동 '
+                  email: admin@admin.com
+                  gender: M
+                  landAddress: 가고자 하는 주소 정보
+                  fish: 새우
+                  isValidity: true
+                  isEstimate: true
+                  isConstruct: true
+                summary: 상담일지 생성 요청 에시
+                description: '남자 => M<br/>여자 => F<br/> '
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedConsulting'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedConsulting'
+      security:
+        - Bearer: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Consulting'
+              examples:
+                상담일지예시:
+                  value:
+                    name: 김준성
+                    job: 개발자
+                    age: 23
+                    address: '서울특별시 마포구 공덕동 '
+                    email: admin@admin.com
+                    gender: M
+                    landAddress: 가고자 하는 주소 정보
+                    fish: 새우
+                    project_name: hihihi
+                    validitys:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    estimates:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    constructs:
+                      - id: 0
+                        process: 10.22
+                        status: A
+                        service_cost: 12312
+                        deposit:
+                          - id: 1
+                            account: 123-123-123
+                            bank: 물고기은행
+                            name: 김새우
+                            amount: 11232
+                            due_date: '2010-10-21'
+                            is_deposited: false
+                          - id: 2
+                            account: 123-123-123
+                            bank: 미역은행
+                            name: 장장어
+                            amount: 1123232
+                            due_date: '2012-10-21'
+                            is_deposited: false
+                        process_log:
+                          - id: 2
+                            title: 일이 재밌습니다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                          - id: 3
+                            title: 일이 재미있었습다.
+                            content: <p> html 형식으로 내려옵니다.</p>
+                    consultingfiles:
+                      - id: 1
+                        type: 맟춤예산솔루션
+                        file: https://localhost:123213/file.pdf
+                      - id: 2
+                        type: 유저업로드
+                        file: https://localhost:123213/file.pdf
+                  summary: 상담일지 예시
+          description: ''
+  /v1/consulting/file/:
+    post:
+      operationId: consulting_file_create
+      description: 유저가 파일을 추가
+      tags:
+        - consulting
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsultingFileCreate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ConsultingFileCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ConsultingFileCreate'
+        required: true
+      security:
+        - Bearer: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsultingFileCreate'
+          description: ''
+  /v1/consulting/file/{id}/:
+    delete:
+      operationId: consulting_file_destroy
+      description: 유저가 파일을 삭제
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - consulting
+      security:
+        - Bearer: []
+      responses:
+        '204':
+          description: No response body
+  /v1/buget_solution/:
+    get:
+      operationId: buget_solution_list
+      description: |-
+        get = 맞춤 예산 솔루션 리스트 검색
+
+        post = 맟춤 예산 솔루션 저장. 비회원이 보내면 계산만 해줌
+      tags:
+        - buget_solution
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BugetSolutionListCreate'
+          description: ''
+    post:
+      operationId: buget_solution_create
+      description: |-
+        get = 맞춤 예산 솔루션 리스트 검색
+
+        post = 맟춤 예산 솔루션 저장. 비회원이 보내면 계산만 해줌
+      tags:
+        - buget_solution
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BugetSolutionListCreate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/BugetSolutionListCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/BugetSolutionListCreate'
+        required: true
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BugetSolutionListCreate'
+          description: ''
+  /v1/model_house/:
+    get:
+      operationId: model_house_list
+      description: 피클 모델하우스 리스트 를 반환합니다.
+      tags:
+        - model_house
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelHouseList'
+          description: ''
+  /v1/model_product/:
+    get:
+      operationId: model_product_list
+      description: |-
+        GET - 유저가 생성한 피클 모델하우스 리스트 를 반환합니다.
+        POST - 유저가 피클 모델하우스를 저장합니다.
+      tags:
+        - model_product
+      security:
+        - Bearer: []
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ModelHouseProductListCreate'
+              examples:
+                응답예시:
+                  value:
+                    name: 커스텀 이름
+                    modelhouse: 0
+                    selectedOption:
+                      data:
+                        - name: 벽지
+                          num: 1
+                          price: 20500
+                        - name: 수도관
+                          num: 2
+                          price: 900
+                    num: 1
+                    totalCost: 11111
+                    totalProfit: 22222
+                    created: 2021-10-20 T17:00:00
+                  summary: 응답 예시
+          description: ''
+    post:
+      operationId: model_product_create
+      description: |-
+        GET - 유저가 생성한 피클 모델하우스 리스트 를 반환합니다.
+        POST - 유저가 피클 모델하우스를 저장합니다.
+      tags:
+        - model_product
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ModelHouseProductListCreate'
+            examples:
+              _Post요청예시:
+                value:
+                  name: 커스텀 이름
+                  modelhouse: 0
+                  selectedOption:
+                    data:
+                      - name: 벽지
+                        num: 1
+                        price: 20500
+                      - name: 수도관
+                        num: 2
+                        price: 900
+                  num: 1
+                  totalCost: 11111
+                  totalProfit: 22222
+                summary: ' Post 요청 예시'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModelHouseProductListCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/ModelHouseProductListCreate'
+        required: true
+      security:
+        - Bearer: []
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ModelHouseProductListCreate'
+              examples:
+                응답예시:
+                  value:
+                    name: 커스텀 이름
+                    modelhouse: 0
+                    selectedOption:
+                      data:
+                        - name: 벽지
+                          num: 1
+                          price: 20500
+                        - name: 수도관
+                          num: 2
+                          price: 900
+                    num: 1
+                    totalCost: 11111
+                    totalProfit: 22222
+                    created: 2021-10-20 T17:00:00
+                  summary: 응답 예시
+          description: ''
+  /v1/land_data/:
+    get:
+      operationId: land_data_list
+      description: ''
+      tags:
+        - land_data
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LandDataListCreate'
+          description: ''
+    post:
+      operationId: land_data_create
+      description: ''
+      tags:
+        - land_data
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LandDataListCreate'
+            examples:
+              데이터형예시:
+                value:
+                  address: 전라남도 구례군 광의면 한국통신로 83-22
+                  admCd: '4673035025'
+                  lnbrMnnm: 41
+                  lnbrSlno: 2
+                  name: test name
+                summary: 데이터형 예시
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/LandDataListCreate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/LandDataListCreate'
+        required: true
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '201':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LandDataListCreate'
+          description: ''
+  /v1/fish/:
+    get:
+      operationId: fish_list
+      description: ''
+      tags:
+        - fish
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/FishList'
+          description: ''
+  /v1/scrap_info/:
+    get:
+      operationId: scrap_info_list
+      description: |-
+        date param으로 검색 가능
+        - ex) v1/scrap_info/?date=2021-10-01
+      tags:
+        - scrap_info
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ScrapInfoList'
+              examples:
+                자금정보예시:
+                  value:
+                    id: 1
+                    name: test
+                    url: test
+                    phone: test
+                    address: test
+                    new_info: 0
+                    scrap_data:
+                      id: 0
+                      title: test
+                      created: '2021-10-10'
+                  summary: 자금정보 예시
+          description: ''
+  /v1/completion/:
+    get:
+      operationId: completion_list
+      description: ''
+      parameters:
+        - name: limit
+          required: false
+          in: query
+          description: Number of results to return per page.
+          schema:
+            type: integer
+        - in: query
+          name: modelhouse__fish
+          schema:
+            type: integer
+        - in: query
+          name: modelhouse__fish__tank
+          schema:
+            type: string
+        - in: query
+          name: name
+          schema:
+            type: string
+        - name: offset
+          required: false
+          in: query
+          description: The initial index from which to return the results.
+          schema:
+            type: integer
+      tags:
+        - completion
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedCompletionListList'
+              examples:
+                완공현장예시:
+                  value:
+                    count: 1
+                    next: https://api.ficl.co.kr/completion/?limit=50&offset=0
+                    previous: https://api.ficl.co.kr/completion/?limit=50&offset=2
+                    results:
+                      - id: 1
+                        name: test
+                        completedDate: '2021-12-16'
+                        modelhouse:
+                          id: 0
+                          fish:
+                            id: 0
+                            name: name
+                            tank: 레일형
+                          name: 새우-베이직
+                        buildingType: TYPE1
+                        review: hahahahaah
+                        thumnail: https://ficl-static.s3.ap-northeast-2.amazonaws.com/media/complation/img/down.png
+                  summary: 완공현장 예시
+                  description: 'limit: response당 result 갯수<br/> offset: 0부터 시작하고 몇번째
+                    페이지를 보여줄지'
+          description: ''
+  /v1/completion/{id}/:
+    get:
+      operationId: completion_retrieve
+      description: ''
+      parameters:
+        - in: path
+          name: id
+          schema:
+            type: integer
+          required: true
+      tags:
+        - completion
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompletionRetrieve'
+              examples:
+                완공현장예시:
+                  value:
+                    id: 1
+                    name: test
+                    completedDate: '2021-12-16'
+                    modelhouse:
+                      id: 0
+                      fish:
+                        id: 0
+                        name: name
+                        tank: 레일형
+                      name: 새우-베이직
+                    review: hahahahaah
+                    blueprint: 0.001
+                    land_area: 0.001
+                    building_cover_ratio: 0.001
+                    building_area: 0.001
+                    floor_area_ratio: 0.001
+                    gross_floor_area: 0.001
+                    design_cost: 0.001
+                    construction_cost: 0.001
+                    contractor: 똑똑한개발자
+                    forster_grow: 0.001
+                    facilities: 0.001
+                    parking: 7
+                    thumnail: https://ficl-static.s3.ap-northeast-2.amazonaws.com/media/complation/img/down.png
+                    images:
+                      - id: 0
+                        image: http://loacalhost3000/ping.png
+                        created: 2021-02-10 T10:00:00
+                      - id: 1
+                        image: http://loacalhost3000/ping.png
+                        created: 2021-02-10 T10:00:00
+                    next:
+                      id: 0
+                      name: 오브젝트 이름
+                      address: 화성시 달나라
+                    previous:
+                      id: 0
+                      name: 오브젝트 이름
+                      address: 화성시 달나라
+                  summary: 완공현장 예시
+                  description: 'limit: response당 result 갯수<br/> offset: 0부터 시작하고 몇번째
+                    페이지를 보여줄지'
+          description: ''
+  /v1/notice/:
+    get:
+      operationId: notice_list
+      description: ''
+      parameters:
+        - name: limit
+          required: false
+          in: query
+          description: Number of results to return per page.
+          schema:
+            type: integer
+        - name: offset
+          required: false
+          in: query
+          description: The initial index from which to return the results.
+          schema:
+            type: integer
+      tags:
+        - notice
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedNoticeListList'
+          description: ''
+  /v1/login_banner/:
+    get:
+      operationId: login_banner_list
+      description: ''
+      tags:
+        - login_banner
+      security:
+        - Bearer: []
+        - {}
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/LoginBannerList'
+              examples:
+                로그인이미지예시:
+                  value:
+                    id: 1
+                    name: test
+                    image: http://localhost:8000/picture.jpeg
+                  summary: 로그인 이미지 예시
+          description: ''
+components:
+  schemas:
+    BugetSolutionListCreate:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        fish:
+          type: integer
+          nullable: true
+          title: 어종
+        name:
+          type: string
+          nullable: true
+          title: 이름
+          maxLength: 50
+        buget:
+          type: integer
+          maximum: 2147483647
+          title: 예산(천원)
+          minimum: 0
+        ownArea:
+          type: number
+          format: float
+          title: 평수
+          description: 0 이상 500 이상 일때 다른 상태로 취급함
+        isGoverLoan:
+          type: boolean
+          title: 정부 대출 여부
+        byBuget:
+          type: string
+          readOnly: true
+          description: own-area 가 0이면 다른 결과 값
+        byLand:
+          type: string
+          readOnly: true
+          description: own-area 가 0이면 null
+        landUnit:
+          enum:
+            - P
+            - M
+          type: string
+          title: 대지 단위
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 생성일시
+      required:
+        - buget
+        - byBuget
+        - byLand
+        - created
+        - id
+        - isGoverLoan
+        - landUnit
+        - ownArea
+    CompletionList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: 이름
+          maxLength: 50
+        modelhouse:
+          $ref: '#/components/schemas/ModelHouse'
+        address:
+          type: string
+          title: 위치
+          maxLength: 50
+        completedDate:
+          type: string
+          format: date
+          title: 준공일
+        thumnail:
+          type: string
+          format: uri
+          title: 썸네일
+        review:
+          type: string
+          nullable: true
+          title: 후기
+      required:
+        - address
+        - completedDate
+        - id
+        - modelhouse
+        - name
+        - thumnail
+    CompletionRetrieve:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: 이름
+          maxLength: 50
+        completedDate:
+          type: string
+          format: date
+          title: 준공일
+        thumnail:
+          type: string
+          format: uri
+          title: 썸네일
+        modelhouse:
+          $ref: '#/components/schemas/ModelHouse'
+        blueprint:
+          type: string
+          format: uri
+          title: 설계도
+        landArea:
+          type: number
+          format: float
+          title: 대지 면적(m²)
+        buildingCoverRatio:
+          type: number
+          format: float
+          title: 건폐율(%)
+        buildingArea:
+          type: number
+          format: float
+          title: 건축 면적(m²)
+        floorAreaRatio:
+          type: number
+          format: float
+          title: 용적률(%)
+        grossFloorArea:
+          type: number
+          format: float
+          title: 연면적(m²)
+        designCost:
+          type: number
+          format: float
+          title: 설계비용(만원)
+        constructionCost:
+          type: number
+          format: float
+          title: 시공 비용(만원)
+        contractor:
+          type: string
+          title: 시공사
+          maxLength: 50
+        forsterGrow:
+          type: number
+          format: float
+          nullable: true
+          title: 본양성장
+        facilities:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          title: 부가시설(만원)
+        parking:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          title: 주차 대수(대)
+        images:
+          type: string
+          readOnly: true
+        previous:
+          type: string
+          readOnly: true
+        next:
+          type: string
+          readOnly: true
+      required:
+        - blueprint
+        - buildingArea
+        - buildingCoverRatio
+        - completedDate
+        - constructionCost
+        - contractor
+        - designCost
+        - facilities
+        - floorAreaRatio
+        - grossFloorArea
+        - id
+        - images
+        - landArea
+        - modelhouse
+        - name
+        - next
+        - parking
+        - previous
+        - thumnail
+    Construct:
+      type: object
+      properties:
+        id:
+          type: integer
+        process:
+          type: number
+          format: float
+        status:
+          type: string
+        serviceCost:
+          type: integer
+        startDate:
+          type: string
+          format: date
+          readOnly: true
+        endDate:
+          type: string
+          format: date
+          readOnly: true
+        deposit:
+          type: string
+          readOnly: true
+        processLog:
+          type: string
+          readOnly: true
+      required:
+        - deposit
+        - endDate
+        - id
+        - process
+        - processLog
+        - serviceCost
+        - startDate
+        - status
+    Consulting:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: 고객 이름
+          maxLength: 20
+        age:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+          title: 나이
+        job:
+          enum:
+            - A
+            - B
+            - C
+            - D
+            - E
+            - F
+            - G
+            - H
+          type: string
+          title: 직업
+        address:
+          type: string
+          title: 고객 거주지
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: 이메일
+          maxLength: 254
+        gender:
+          enum:
+            - M
+            - F
+          type: string
+          title: 성별
+        landAddress:
+          type: string
+          title: 토지주소
+          maxLength: 150
+        fish:
+          type: string
+          nullable: true
+          title: 새우
+          maxLength: 150
+        isValidity:
+          type: boolean
+          writeOnly: true
+        isEstimate:
+          type: boolean
+          writeOnly: true
+        isConstruct:
+          type: boolean
+          writeOnly: true
+        projectName:
+          type: string
+          readOnly: true
+        validitys:
+          type: array
+          items:
+            $ref: '#/components/schemas/Validity'
+          readOnly: true
+        estimates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Estimate'
+          readOnly: true
+        constructs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Construct'
+          readOnly: true
+        consultingfiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConsultingFileCreate'
+          readOnly: true
+      required:
+        - address
+        - constructs
+        - consultingfiles
+        - email
+        - estimates
+        - gender
+        - id
+        - isConstruct
+        - isEstimate
+        - isValidity
+        - job
+        - landAddress
+        - name
+        - projectName
+        - validitys
+    ConsultingFileCreate:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        type:
+          type: string
+        file:
+          type: string
+          format: uri
+        consultingId:
+          type: integer
+          writeOnly: true
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+        - consultingId
+        - created
+        - file
+        - id
+        - type
+    Estimate:
+      type: object
+      properties:
+        id:
+          type: integer
+        process:
+          type: number
+          format: float
+        status:
+          type: string
+        startDate:
+          type: string
+          format: date
+          readOnly: true
+        endDate:
+          type: string
+          format: date
+          readOnly: true
+        dueDateFrom:
+          type: string
+          format: date
+        dueDateTo:
+          type: string
+          format: date
+        deposit:
+          type: string
+          readOnly: true
+        processLog:
+          type: string
+          readOnly: true
+      required:
+        - deposit
+        - dueDateFrom
+        - dueDateTo
+        - endDate
+        - id
+        - process
+        - processLog
+        - startDate
+        - status
+    Fish:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: 어종
+          description: "'기타어종'과 '기본'이름은 수정하지 마세요."
+          maxLength: 50
+        tank:
+          type: string
+          title: 수조
+          maxLength: 50
+      required:
+        - id
+        - name
+        - tank
+    FishList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: 어종
+          description: "'기타어종'과 '기본'이름은 수정하지 마세요."
+          maxLength: 50
+        egName:
+          type: string
+          nullable: true
+          title: 어종(영어)
+          maxLength: 50
+        fishDescription:
+          type: string
+          title: 어종 설명
+        bgImage:
+          type: string
+          format: uri
+          nullable: true
+          title: 배경 사진
+          description: 이미지의 크기는 5MB 가 최대 입니다
+        tank:
+          type: string
+          title: 수조
+          maxLength: 50
+        tanks:
+          type: string
+          readOnly: true
+        tankImage:
+          type: string
+          format: uri
+          nullable: true
+          title: 수조 사진
+          description: 이미지의 크기는 5MB 가 최대 입니다
+      required:
+        - fishDescription
+        - id
+        - name
+        - tank
+        - tanks
+    LandDataListCreate:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        user:
+          type: integer
+          readOnly: true
+          title: 사용지
+        address:
+          type: string
+          title: 위치
+          maxLength: 50
+        name:
+          type: string
+          title: 이름
+          maxLength: 50
+        buildingCoverRatio:
+          type: number
+          format: float
+          readOnly: true
+          title: 건폐율(%)
+        floorAreaRatio:
+          type: number
+          format: float
+          readOnly: true
+          title: 용적률(%)
+        buildingArea:
+          type: number
+          format: float
+          readOnly: true
+          title: 건축 면적(m²)
+        grossFloorArea:
+          type: number
+          format: float
+          readOnly: true
+          title: 연면적(m²)
+        planedBuildingCoverRatio:
+          type: string
+          readOnly: true
+          description: 실건폐율
+        landArea:
+          type: number
+          format: float
+          readOnly: true
+          title: 대지 면적(m²)
+        landCategory:
+          type: string
+          readOnly: true
+          title: 지목
+        purpose:
+          type: string
+          readOnly: true
+          title: 용도
+        parking:
+          type: integer
+          readOnly: true
+          title: 주차 대수(??)
+        price:
+          type: integer
+          readOnly: true
+          title: 공시지가(만원)
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 생성일시
+        admCd:
+          type: string
+          writeOnly: true
+          description: 행정구역코드
+        lnbrMnnm:
+          type: integer
+          writeOnly: true
+          description: 지번본번
+        lnbrSlno:
+          type: integer
+          writeOnly: true
+          description: 지번부번
+      required:
+        - address
+        - admCd
+        - buildingArea
+        - buildingCoverRatio
+        - created
+        - floorAreaRatio
+        - grossFloorArea
+        - id
+        - landArea
+        - landCategory
+        - lnbrMnnm
+        - lnbrSlno
+        - name
+        - parking
+        - planedBuildingCoverRatio
+        - price
+        - purpose
+        - user
+    LoginBannerList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: 이름
+          maxLength: 50
+        image:
+          type: string
+          format: uri
+          title: 이미지
+      required:
+        - id
+        - image
+        - name
+    ModelHouse:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: 모델 이름
+          maxLength: 50
+        fish:
+          $ref: '#/components/schemas/Fish'
+      required:
+        - fish
+        - id
+        - name
+    ModelHouseList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: 모델 이름
+          maxLength: 50
+        fish:
+          $ref: '#/components/schemas/FishList'
+        area:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          title: 면적(평)
+        cost:
+          type: integer
+          maximum: 2147483647
+          title: 개당 견적(천원)
+          minimum: 0
+        profit:
+          type: integer
+          maximum: 2147483647
+          title: 개당 예상 수익성(천원)
+          minimum: 0
+        options:
+          type: string
+          readOnly: true
+        imageInner:
+          type: string
+          format: uri
+          nullable: true
+          title: 내부 사진
+          description: 이미지의 크기는 5MB 가 최대 입니다
+        imageOut:
+          type: string
+          format: uri
+          nullable: true
+          title: 외부 사진
+          description: 이미지의 크기는 5MB 가 최대 입니다
+      required:
+        - area
+        - cost
+        - fish
+        - id
+        - name
+        - options
+        - profit
+    ModelHouseProductListCreate:
+      type: object
+      properties:
+        user:
+          type: integer
+          readOnly: true
+          title: 유저
+        modelhouse:
+          type: integer
+          nullable: true
+          title: 모델하우스
+        name:
+          type: string
+          title: 이름
+          maxLength: 50
+        selectedOption:
+          type: object
+          additionalProperties: {}
+          title: 선택 옵션
+          description: 선택된 옵션 오브젝트를 '{data:[...]}' 넣어주세요
+        num:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+          title: 개수
+        totalCost:
+          type: integer
+          maximum: 2147483647
+          title: 총 견적(천원)
+          minimum: 0
+        totalProfit:
+          type: integer
+          maximum: 2147483647
+          title: 총 예상 수익성(천원)
+          minimum: 0
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 생성일시
+      required:
+        - created
+        - name
+        - selectedOption
+        - totalCost
+        - totalProfit
+        - user
+    NoticeList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        title:
+          type: string
+          title: 제목
+          maxLength: 250
+        content:
+          type: string
+        created:
+          type: string
+          format: date-time
+          readOnly: true
+          title: 생성일시
+      required:
+        - content
+        - created
+        - id
+        - title
+    PaginatedCompletionListList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/CompletionList'
+    PaginatedNoticeListList:
+      type: object
+      properties:
+        count:
+          type: integer
+          example: 123
+        next:
+          type: string
+          nullable: true
+        previous:
+          type: string
+          nullable: true
+        results:
+          type: array
+          items:
+            $ref: '#/components/schemas/NoticeList'
+    PatchedConsulting:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: 고객 이름
+          maxLength: 20
+        age:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+          nullable: true
+          title: 나이
+        job:
+          enum:
+            - A
+            - B
+            - C
+            - D
+            - E
+            - F
+            - G
+            - H
+          type: string
+          title: 직업
+        address:
+          type: string
+          title: 고객 거주지
+          maxLength: 150
+        email:
+          type: string
+          format: email
+          title: 이메일
+          maxLength: 254
+        gender:
+          enum:
+            - M
+            - F
+          type: string
+          title: 성별
+        landAddress:
+          type: string
+          title: 토지주소
+          maxLength: 150
+        fish:
+          type: string
+          nullable: true
+          title: 새우
+          maxLength: 150
+        isValidity:
+          type: boolean
+          writeOnly: true
+        isEstimate:
+          type: boolean
+          writeOnly: true
+        isConstruct:
+          type: boolean
+          writeOnly: true
+        projectName:
+          type: string
+          readOnly: true
+        validitys:
+          type: array
+          items:
+            $ref: '#/components/schemas/Validity'
+          readOnly: true
+        estimates:
+          type: array
+          items:
+            $ref: '#/components/schemas/Estimate'
+          readOnly: true
+        constructs:
+          type: array
+          items:
+            $ref: '#/components/schemas/Construct'
+          readOnly: true
+        consultingfiles:
+          type: array
+          items:
+            $ref: '#/components/schemas/ConsultingFileCreate'
+          readOnly: true
+    PatchedUserMe:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        email:
+          type: string
+          format: email
+          nullable: true
+          title: 이메일
+          maxLength: 254
+        username:
+          type: string
+          nullable: true
+          title: 이름
+          maxLength: 8
+        phone:
+          type: string
+          nullable: true
+          title: 휴대폰
+          maxLength: 11
+    PatchedUserPasswordResetConfirm:
+      type: object
+      properties:
+        password:
+          type: string
+          writeOnly: true
+        passwordConfirm:
+          type: string
+          writeOnly: true
+        token:
+          type: string
+          writeOnly: true
+    PhoneVerifierConfirm:
+      type: object
+      properties:
+        phone:
+          type: string
+          writeOnly: true
+        code:
+          type: string
+          writeOnly: true
+        token:
+          type: string
+          readOnly: true
+      required:
+        - code
+        - phone
+        - token
+    PhoneVerifierCreate:
+      type: object
+      properties:
+        phone:
+          type: string
+          writeOnly: true
+    ScrapInfoList:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        name:
+          type: string
+          title: 이름
+          maxLength: 50
+        url:
+          type: string
+          format: uri
+          title: 웹 주소
+          maxLength: 200
+        phone:
+          type: string
+          title: 연락처
+          maxLength: 50
+        address:
+          type: string
+          title: 위치
+          maxLength: 50
+        newInfo:
+          type: string
+          readOnly: true
+        scrapData:
+          type: string
+          readOnly: true
+      required:
+        - address
+        - id
+        - name
+        - newInfo
+        - phone
+        - scrapData
+        - url
+    TokenRefresh:
+      type: object
+      properties:
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+      required:
+        - access
+        - refresh
+    UserLogin:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          readOnly: true
+      required:
+        - access
+        - email
+        - password
+        - refresh
+    UserLogout:
+      type: object
+      properties:
+        uid:
+          type: string
+          description: 기기의 고유id
+    UserMe:
+      type: object
+      properties:
+        id:
+          type: integer
+          readOnly: true
+        email:
+          type: string
+          format: email
+          nullable: true
+          title: 이메일
+          maxLength: 254
+        username:
+          type: string
+          nullable: true
+          title: 이름
+          maxLength: 8
+        phone:
+          type: string
+          nullable: true
+          title: 휴대폰
+          maxLength: 11
+      required:
+        - id
+    UserPasswordResetConfirm:
+      type: object
+      properties:
+        password:
+          type: string
+          writeOnly: true
+        passwordConfirm:
+          type: string
+          writeOnly: true
+        token:
+          type: string
+          writeOnly: true
+      required:
+        - password
+        - passwordConfirm
+        - token
+    UserPasswordResetCreate:
+      type: object
+      properties:
+        email:
+          type: string
+          format: email
+      required:
+        - email
+    UserRegister:
+      type: object
+      properties:
+        username:
+          type: string
+          writeOnly: true
+        email:
+          type: string
+          writeOnly: true
+        phone:
+          type: string
+          writeOnly: true
+        code:
+          type: string
+          writeOnly: true
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          readOnly: true
+      required:
+        - access
+        - code
+        - email
+        - phone
+        - refresh
+        - username
+    UserSocialLogin:
+      type: object
+      properties:
+        code:
+          type: string
+          writeOnly: true
+        state:
+          type: string
+          writeOnly: true
+        redirectUri:
+          type: string
+          writeOnly: true
+        access:
+          type: string
+          readOnly: true
+        refresh:
+          type: string
+          readOnly: true
+        isRegister:
+          type: boolean
+          readOnly: true
+          description: 폰 번호 인증 했으면 true
+      required:
+        - access
+        - code
+        - isRegister
+        - redirectUri
+        - refresh
+        - state
+    Validity:
+      type: object
+      properties:
+        id:
+          type: integer
+        process:
+          type: number
+          format: float
+        status:
+          type: string
+        serviceCost:
+          type: integer
+        startDate:
+          type: string
+          format: date
+          readOnly: true
+        endDate:
+          type: string
+          format: date
+          readOnly: true
+        deposit:
+          type: string
+          readOnly: true
+        processLog:
+          type: string
+          readOnly: true
+      required:
+        - deposit
+        - endDate
+        - id
+        - process
+        - processLog
+        - serviceCost
+        - startDate
+        - status
+  securitySchemes:
+    Bearer:
+      type: apiKey
+      in: header
+      name: Authorization

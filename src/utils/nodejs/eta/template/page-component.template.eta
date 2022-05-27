@@ -1,0 +1,24 @@
+<%
+  const { name, contentName, pageTitle } = it;
+%>
+
+
+import Head from 'next/head'
+import HomeLayout from '@components/common/@Layout/layouts/HomeLayout';
+import <%~ contentName%> from './_fragments/<%~ contentName%>';
+
+function  <%~ name%>() {
+  return (
+      <>
+      <% if (pageTitle) { %>
+        <Head>
+          {/* ex) Your App Name | Page Name */}
+          <title><%~ pageTitle%></title>
+        </Head>
+      <% } %>
+        <HomeLayout content={<<%~ contentName%> />}/>
+      </>
+    );
+}
+
+export default <%~ name%>;

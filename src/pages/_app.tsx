@@ -8,6 +8,7 @@ import Auth from '0auth-sdk';
 
 import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
 
+import setUpMockServiceWorker from '@apis/_mock/setupMockServiceWorker';
 import { useRefreshTokenQuery } from '@apis/auth/AuthApi.query';
 import useAppStore from '@features/useAppStore';
 import { userSliceActions } from '@features/user/userSlice';
@@ -18,6 +19,20 @@ import { mode } from '@theme/foundations/colors';
 import { deleteToken } from '@utils/localStorage/token';
 
 import withAppProvider from 'contexts/app/app.provider';
+
+// For mocking-response from network request
+setUpMockServiceWorker({
+  condition: {
+    server: 'off',
+    client: 'off',
+  },
+  handlers: [
+    // ...getNoticeMSW(),
+    // ...getNewsMSW(),
+    // ...getPostMSW(),
+    // ...getStockMSW(),
+  ],
+});
 
 function MyApp({ Component, pageProps }: AppProps) {
   const isServer = typeof window === 'undefined';
