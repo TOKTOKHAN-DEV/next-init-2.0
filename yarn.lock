@@ -6903,10 +6903,10 @@ toggle-selection@^1.0.6:
   resolved "https://registry.npmjs.org/toggle-selection/-/toggle-selection-1.0.6.tgz"
   integrity sha1-bkWxJj8gF/oKzH2J14sVuL932jI=
 
-tokript@^0.8.4:
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/tokript/-/tokript-0.8.4.tgz#fb74d547592046979ad8db4bc40bc67e5d198ff7"
-  integrity sha512-fD9RELMwYgViVhqfrGZwapfl9v4yCQj6VIg9l5Eh4EpZ2KbQPK5ZVmMcX7Yd5uCNrFt0qSs6aIh/eJoVM5I2wA==
+tokript@^0.8.6:
+  version "0.8.6"
+  resolved "https://registry.yarnpkg.com/tokript/-/tokript-0.8.6.tgz#bf709c0a1854c00540ba53f1a54adfee0dcb9b51"
+  integrity sha512-Va5SoQMKAtvnY/Ye6azFNxF/jDXRywlzJJWCJzsLieuJfQRhATRh7OK4TvKb0CbVgNjO4NWCaq4QRcKnRMBwtQ==
   dependencies:
     chalk "4.1.2"
     clear "^0.1.0"
