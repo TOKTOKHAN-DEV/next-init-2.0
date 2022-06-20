@@ -96,6 +96,32 @@ function StarterDocsPagePageContent({
               description="개발을 도와줄 스크립트"
             />
           </LinkButton>
+          <LinkButton
+            h="140px"
+            w="100%"
+            variant="unstyled"
+            target="_black"
+            href={OUTER_LINKS.NOTION_GIT_FLOW}
+          >
+            <SummaryCard
+              h="100%"
+              title="Git flow"
+              description="협업 시 Git flow"
+            />
+          </LinkButton>
+          <LinkButton
+            h="140px"
+            w="100%"
+            variant="unstyled"
+            target="_black"
+            href={OUTER_LINKS.NOTION_SUMMARY}
+          >
+            <SummaryCard
+              h="100%"
+              title="OnBoarding Summary"
+              description="온보딩 과정 중 학습할 내용에 관한 요약"
+            />
+          </LinkButton>
         </SimpleGrid>
       </Center>
     </Box>
