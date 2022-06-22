@@ -64,13 +64,13 @@ Post.api.ts 에서 POST, PUT, PATCH , DELETE 요청에 해당하는 함수를 Re
 
 instance 가 달라 질 수 있는 경우에 대응하기 쉬워집니다.
 
-**LEVEL 3** 😈 class mentod 의 네이밍은, request 의 method 네이밍을 preffix 로 붙여서 사용해주세요
+**LEVEL 3** 😈 class method 의 네이밍은, request 의 method 네이밍을 prefix 로 붙여서 사용해주세요
 
 나를 포함한 동료들이 코드를 파악하기 쉬워집니다 ex) GET: getPost, PATCH: patchPost
 
 **LEVEL 3** 😈 class method 의 인자는 반드시 1개 이하 이어야 합니다. 2개 이상일시 객체로 넘겨주세요
 
-리액트 쿼리로 랩핑할때 class 의 Method 인자는 커스텀 타입정의에 의해 variables 라는 단일 값으로 관리가 되기 때문에 하나의 인자로 작성해주세요 자세한 사항은 —— 에서 확인 가능합니다
+리액트 쿼리로 랩핑할때 class 의 method 인자는 커스텀 타입정의에 의해 variables 라는 단일 값으로 관리가 되기 때문에 하나의 인자로 작성해주세요 자세한 사항은 —— 에서 확인 가능합니다
 
 **LEVEL 3** 😈 class method 의 인자타입과 리턴타입을 반드시 명시 해주세요.
 
@@ -88,11 +88,11 @@ class PostApi {
     this.axios = axios;
   }
 
-  async getPosts(parmas: SomePramType):SomeReturnType {
+  async getPosts(params: SomePramType): SomeReturnType {
     const { data } = await this.axios({
       method: 'GET',
       url: `/v1/posts`,
-      parmas,
+      params,
     });
     return data;
   }

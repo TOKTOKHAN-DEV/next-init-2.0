@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 
-import { Button, HStack, Text } from '@chakra-ui/react';
+import { Button, Flex, Text } from '@chakra-ui/react';
 
 import { counterSliceAction } from '@features/counter/counterSlice';
 import useAppStore from '@features/useAppStore';
@@ -8,16 +8,30 @@ import useAppStore from '@features/useAppStore';
 const CounterPageContent = () => {
   const dispatch = useDispatch();
   const { value } = useAppStore((store) => store.COUNTER);
+
   return (
-    <HStack>
-      <Button onClick={() => dispatch(counterSliceAction.increment())}>
-        +
-      </Button>
-      <Text>{value}</Text>
-      <Button onClick={() => dispatch(counterSliceAction.decrement())}>
-        -
-      </Button>
-    </HStack>
+    <Flex
+      padding="10px 0px"
+      direction="column"
+      align="center"
+      justifyContent="center"
+    >
+      <Text>Redux Toolkit Counter Example</Text>
+      <Flex
+        align="center"
+        justifyContent="center"
+        padding="10px 0px"
+        gap="10px"
+      >
+        <Button onClick={() => dispatch(counterSliceAction.increment())}>
+          +
+        </Button>
+        <Text>{value}</Text>
+        <Button onClick={() => dispatch(counterSliceAction.decrement())}>
+          -
+        </Button>
+      </Flex>
+    </Flex>
   );
 };
 
