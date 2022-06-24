@@ -1,25 +1,11 @@
 export const CONFIG = {
   ENV: process.env.NODE_ENV,
-  DOMAIN: requireEnv('NEXT_PUBLIC_DOMAIN', 'https://yourhompage.com'),
-  API_BASE_URL: requireEnv(
-    'NEXT_PUBLIC_API_BASE_URL',
-    'https://api.yourhompage.co.kr',
-  ),
-  APP_NAME: requireEnv('APP_NAME', '똑똑한 개발자'),
-  AUTH_TOKEN_KEY: requireEnv('AUTH_TOKEN_KEY', '@token'),
-  /** For Script w:start */
-  GITHUB_TOKEN: requireEnv('GITHUB_TOKEN'),
-  GITHUB_REPO: requireEnv('GITHUB_REPO'),
-} as const;
+  DOMAIN: process.env.NEXT_PUBLIC_API_DOMAIN,
+  API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
+  APP_NAME: process.env.NEXT_PUBLIC_APP_NAME,
+  AUTH_TOKEN_KEY: process.env.NEXT_PUBLIC_AUTH_TOKEN_KEY,
 
-function requireEnv(key: string): string | undefined;
-function requireEnv<T>(key: string, defaultValue: T): string | T;
-function requireEnv<T>(key: string, defaultValue?: T) {
-  const envValue = process.env[key];
-  envValue ??
-    console.error(`
-  - Missing Env: ${key}
-  ${defaultValue ? `- Default Value: ${defaultValue}` : ''}
-  `);
-  return envValue ?? defaultValue;
-}
+  /** For Script w:start */
+  GITHUB_TOKEN: process.env._GITHUB_TOKEN,
+  GITHUB_REPO: process.env._GITHUB_REPO,
+} as const;
