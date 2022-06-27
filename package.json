@@ -8,7 +8,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prepare": "husky install",
+    "prepare": "husky install && node_modules/.bin/ls-engines",
     "gen:theme-typings": "chakra-cli tokens src/styles/theme",
     "tokript": "tokript",
     "gen:source": "tokript gen:source",
@@ -35,6 +35,7 @@
     "constate": "^3.3.2",
     "dayjs": "^1.10.6",
     "framer-motion": "^4",
+    "ls-engines": "^0.7.0",
     "moment": "^2.29.1",
     "next": "^12.1.6",
     "react": "^18.1.0",
@@ -92,5 +93,9 @@
   },
   "msw": {
     "workerDirectory": "public"
-  }
+  },
+  "engines": {
+    "node": ">= 16.0.0"
+  },
+  "engineStrict": true
 }
