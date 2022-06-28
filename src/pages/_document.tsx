@@ -53,11 +53,6 @@ class MyDocument extends Document {
           <script dangerouslySetInnerHTML={this.redirectIEtoEdge()} />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link
-            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap"
-            rel="stylesheet"
-          />
-
           {/* SEO */}
           <link rel="apple-touch-icon" href="/icons/120.png" />
           <link rel="apple-touch-icon" sizes="152x152" href="/icons/152.png" />
