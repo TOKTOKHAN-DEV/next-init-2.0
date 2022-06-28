@@ -7,6 +7,7 @@ export const ROUTES = {
       MAIN: '/starter-docs/examples',
       COUNTER: '/starter-docs/examples/counter',
       FORM: '/starter-docs/examples/form',
+      MODALS: '/starter-docs/examples/modals',
     },
   },
 } as const;
