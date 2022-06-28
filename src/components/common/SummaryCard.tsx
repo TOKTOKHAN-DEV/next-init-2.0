@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Box, BoxProps, Text } from '@chakra-ui/layout';
 
-interface SummaryCardProps extends BoxProps {
-  title: string;
-  description: string;
+interface SummaryCardProps extends Omit<BoxProps, 'title'> {
+  title: string | JSX.Element;
+  description: string | JSX.Element;
 }
 
 const SummaryCard = ({
@@ -14,15 +14,15 @@ const SummaryCard = ({
 }: SummaryCardProps) => {
   return (
     <Basis
-      _hover={{ boxShadow: 'xl', translateY: '-10px', transform: 'auto' }}
-      transition="all 0.2s"
       display="flex"
       flexDirection="column"
-      p="20px"
       justifyContent="space-between"
-      boxShadow="md"
+      p="20px"
       bg="gray.100"
       borderRadius="sm"
+      boxShadow="md"
+      transition="all 0.2s"
+      _hover={{ boxShadow: 'xl', translateY: '-10px', transform: 'auto' }}
       {...basisProps}
     >
       <Text textStyle="lg">{title}</Text>
