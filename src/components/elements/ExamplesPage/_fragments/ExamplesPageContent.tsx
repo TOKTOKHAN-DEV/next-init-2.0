@@ -3,10 +3,9 @@ import React from 'react';
 import { SimpleGrid } from '@chakra-ui/react';
 
 import LinkButton from '@components/common/LinkButton';
+import SummaryCard from '@components/common/SummaryCard';
 
 import { ROUTES } from '@constants/routes';
-
-import SummaryCard from './SummaryCard';
 
 function ExamplesPageContent() {
   return (
