@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { mode } from '@chakra-ui/theme-tools';
+import { StyleFunctionProps, mode } from '@chakra-ui/theme-tools';
 
 const styles = {
-  global: (props: any) => ({
+  global: (props: StyleFunctionProps) => ({
     body: {
-      fontFamily: 'Pretendard, sans-serif',
+      fontFamily: 'body',
       color: mode('#1A1A1A', '#FFFFFF')(props),
       bg: mode('#FFFFFF', '#363636')(props),
     },
