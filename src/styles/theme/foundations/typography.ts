@@ -1,7 +1,7 @@
 const typography = {
   fonts: {
-    heading: 'Noto Sans KR, sans-serif',
-    body: 'Noto Sans KR, sans-serif',
+    heading: 'Pretendard, sans-serif',
+    body: 'Pretendard, sans-serif',
   },
 };
 
