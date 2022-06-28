@@ -6,6 +6,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 import store from '@features/store';
 
+import Fonts from 'generated/fonts/fonts';
 import theme from 'styles/theme';
 
 // Create a client
@@ -17,6 +18,7 @@ function withAppProvider(AppComponent: React.FC<AppProps>) {
       <RTKProvider store={store}>
         <QueryClientProvider client={queryClient}>
           <ChakraProvider resetCSS theme={theme}>
+            <Fonts />
             <AppComponent {...props} />
           </ChakraProvider>
         </QueryClientProvider>
