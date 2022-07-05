@@ -1,36 +1,32 @@
-# Next.js starter1
+# Next.js starter2
 
-Kick off your project with this boilerplate.
+똑똑한개발자에서 진행하는 프로젝트의 스타터 프로젝트 next-init 2.0입니다.
 
 # 🚀 Quick Start
 
-```bash
-git clone https://github.com/TokTokHan/next-init-2.0.git <Project Name>
-cd <Project Name>
-yarn install
-yarn run dev
-```
-
-your site is now running at `http://localhost:3000`
+Use this template 버튼을 활용해서 프로젝트의 repository를 생성해주세요.
 
 # 📁 Folder Structure
 
 A quick look at the directories you'll see in this project.
 
-### Root driectory layout
+### Root directory layout
 
-    .
-    ├── pages               #
-    ├── public              #
-    ├── styles              #
-    ├── apis                #
-    ├── models              #
-    ├── components          #
-    ├── hooks               # Custom hooks
-    ├── utils               #
-    ├── libs                #
-    ├── cypress             # Automated tests
-    ├── README.md           #
+    ├── public                  #
+    ├── src                     #
+        ├── apis                #
+        ├── components          #
+            ├── common          #
+            ├── elements        #
+            ├── hooks           #
+        ├── constants           #
+        ├── features            #
+        ├── generated           #
+        ├── pages               #
+        ├── scripts             #
+        ├── styles              #
+        ├── utils               #
+    ├── README.md               #
     └── ...
 
 ### Pages
@@ -57,20 +53,32 @@ Next.js can serve static files, like images, under a folder called public in the
     │   └── ...
     └── ...
 
-### Styles
+### styles
 
-Css, theme configuration files are placed into this folder.
+Css, Chakra-ui theme configuration files are placed into this folder.
 
     .
     ├── ...
-    ├── styles              #
-    │   ├── theme.tsx       #
-    │   └── ...
+    ├── styles           
+    │   ├── theme        
+    │       └── index.ts
+    │       └── styles.ts
+    │       └── textStyles.ts
     └── ...
 
-### Api
+### apis
 
 Api call related functions.
+
+    .
+    ├── apis              
+    │   ├── _axios        
+    │       └── instance.ts
+    │       └── useCustomInstance.ts
+    │   ├── auth          
+    │   ├── example       
+    │   ├── theme         
+    └── ...
 
 ### Components
 
@@ -78,57 +86,32 @@ Components are independent and reusable bits of code.
 
     .
     ├── ...
-    ├── components          #
-    │ ├── @Icons            # 아이콘~
-    │ ├── @Layout           # 레이아웃~
-    │ ├── Select            #
-    │ ├── Calendar          #
-    │ └── ...               #
-    └── ...
-
-### Container
-
-Components are independent and reusable bits of code.
-
-    .
-    ├── ...
-    ├── containers                  # containers에 하위 폴더들은 pages와 1:1 매칭
-    │ ├── login                     #
-    │ │  ├── _fragments             # _fragment는 Login 페이지에서만 사용되는 컴포넌트
-    │ │  │  ├── LoginForm.tsx       # 중복되는 경우에는 components 폴더로 이동
-    │ │  │  └── Intro.tsx           #
-    │ │  ├── Login.tsx              #
-    │ │  ├── LoginContainer.tsx     # LoginContainer 에서 모든 로직에 대한 부분들 작업 (state, props)
-    │ │  └── index.tsx              #
-    │ ├── home                      #
-    │ └── ...                       #
+    ├── components   
+    │ ├── common     
+    │   ├── @Icons   
+    │   ├── @Layout  
+    │   ├── Select   
+    │   ├── Calendar 
+    │   └── ...      
+    │ ├── elements   
+    │ ├── hooks       
     └── ...
 
 ### Hooks
 
 Custom hook allows you to extract some components logic into a reusable function that starts with use and that call can other hooks.
 
-    .
+      .
     ├── ...
-    ├── hooks                #
-    │   ├── useScript.tsx    #
-    │   └── ...
+    ├── components   
+    │ ├── common     
+    │ ├── elements   
+    │ ├── hooks      
+    │   ├── useSize.ts       
     └── ...
-
 ### Utils
 
 Small snippets you can use throughout the application. Short and specific functions and constants used throughout application.
-
-### Libs
-
-Libraries you can use throughout the application. A library is a JavaScript file that contains a bunch of functions, and those functions accomplish some specific purpose.
-
-    .
-    ├── ...
-    ├── libs                  #
-    │   ├── gtm.ts            #
-    │   └── ...
-    └── ...
 
 ### Generated
 
@@ -136,9 +119,9 @@ Generated files such as apis, components, ...
 
     .
     ├── ...
-    ├── generated         If you run generate-script, it will be created
+    ├── generated         # If you run generate-script, it will be created
     │ ├── apis            # by swagger-typescript-api
-    │ ├── mock         # by orval
+    │ ├── mock            # by orval
     └── ...
 
 - **generate apis**
@@ -160,19 +143,6 @@ Generated files such as apis, components, ...
 
    mock-data by [orval](https://orval.dev/reference/configuration/overview), [faker](https://github.com/faker-js/faker), [msw](https://mswjs.io/docs/getting-started/mocks/rest-api)
    api-data by [swagger-typescript-api](https://www.npmjs.com/package/swagger-typescript-api)
-
-### Cypress
-
-Automated tests with cypress.
-
-    .
-    ├── ...
-    ├── cypess                #
-    │ ├── fixtures            # Fixed data sets
-    │ ├── integration         # End-to-end, integration tests (alternatively `e2e`)
-    │ ├── plugins             #
-    │ ├── support             #
-    └── ...
 
 ### Scripts
 
@@ -198,19 +168,16 @@ see more [README.md](/src/scripts/README.md)
   ```tsx
   // bad
   import reservationCard from './ReservationCard';
-
-  
-  
-  
-  /
+ 
+  // good
   import ReservationCard from './ReservationCard';
   
   
-  //
+  // bad
   const ReservationItem = <ReservationCard />;
   
   
-  // g
+  // good
   const reservationItem = <ReservationCard />;
   ```
 
@@ -225,28 +192,14 @@ see more [README.md](/src/scripts/README.md)
 
   // good
   import Footer from './Footer';
-  ```
+  ```# ⭐️ Stack
 
-### 🐪 Others
-
-Always use camelCase for others.
-
-- scripts
-- folders
-- variables
-- functions
-
-# ⭐️ Stack
-
-- **Framework:** Next.js
-- **State Management:** React Query, Context API
-- **Styling:** Chakra-ui, Emotion
-- **Forms:** React Hook Form
-- **Testing:** Cypress
-
+- **Framework:** [Next.js](https://nextjs.org/)
+- **State Management:** [React Query](https://react-query.tanstack.com/), [Redux Toolkit](https://redux-toolkit.js.org/)
+- **Styling:** [Chakra-ui](https://chakra-ui.com/), [Emotion](https://emotion.sh/docs/introduction)
+- **Forms:** [React Hook Form](https://react-hook-form.com/)
 # Reference
 
-- [Folder-Structure-Conventions](https://github.com/kriasoft/Folder-Structure-Conventions/blob/master/README.md)
 - [Airbnb React/JSX Style Guide - Naming](https://github.com/airbnb/javascript/tree/master/react#naming)
 - [JavaScript Naming Conventions](https://www.robinwieruch.de/javascript-naming-conventions)
 - [리액트 어플리케이션의 상태 관리하기](https://www.kenrhee.com/blog/react-application-state-management)
