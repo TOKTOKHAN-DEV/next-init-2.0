@@ -8,17 +8,16 @@ import Auth from '0auth-sdk';
 import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
 
 import { useRefreshTokenQuery } from '@apis/auth/AuthApi.query';
-import { modalSliceAction } from '@features/modal/modalSlice';
 import useAppStore from '@features/useAppStore';
 import { userSliceActions } from '@features/user/userSlice';
 
 import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
-import useOpenModalByQueryString from '@components/hooks/useOpenModalByQueryString';
 
 import { mode } from '@theme/foundations/colors';
 import { deleteToken } from '@utils/localStorage/token';
 
 import withAppProvider from 'contexts/app/app.provider';
+import { withGlobalModalHandlerContext } from 'contexts/modal/useGlobalModalHandler.context';
 
 function MyApp({ Component, pageProps }: any) {
   const isServer = typeof window === 'undefined';
@@ -43,11 +42,6 @@ function MyApp({ Component, pageProps }: any) {
     },
   });
 
-  useOpenModalByQueryString({
-    'my-modal': (open: boolean) =>
-      dispatch(modalSliceAction.setIsOpenMyModal(open)),
-  } as const);
-
   useEffect(() => {
     Auth.initialize({ brand: 'test' });
   }, []);
@@ -64,4 +58,4 @@ function MyApp({ Component, pageProps }: any) {
   );
 }
 
-export default withAppProvider(MyApp);
+export default withAppProvider(withGlobalModalHandlerContext(MyApp));

@@ -11,7 +11,7 @@ type MappingModalSetterByKey<ModalKey extends string> = Record<
   ModalSetter
 >;
 
-const useOpenModalByQueryString = <ModalKey extends string>(
+const useOpenModalByQueryParams = <ModalKey extends string>(
   setterMap: MappingModalSetterByKey<ModalKey>,
 ) => {
   const router = useRouter();
@@ -65,14 +65,18 @@ const useOpenModalByQueryString = <ModalKey extends string>(
 
   const openModal = React.useCallback(
     (key: ModalKey | ModalKey[]) => {
-      router.push(updateModalUrl(addToModalArray(key)));
+      router.push(updateModalUrl(addToModalArray(key)), undefined, {
+        shallow: true,
+      });
     },
     [addToModalArray, updateModalUrl, router],
   );
 
   const closeModal = React.useCallback(
     (key?: ModalKey | ModalKey[]) => {
-      router.replace(updateModalUrl(removeFromModalArray(key)));
+      router.replace(updateModalUrl(removeFromModalArray(key)), undefined, {
+        shallow: true,
+      });
     },
     [updateModalUrl, removeFromModalArray, router],
   );
@@ -94,4 +98,4 @@ const useOpenModalByQueryString = <ModalKey extends string>(
   return { openModal, closeModal };
 };
 
-export default useOpenModalByQueryString;
+export default useOpenModalByQueryParams;

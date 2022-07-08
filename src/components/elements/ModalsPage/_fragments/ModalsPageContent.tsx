@@ -2,20 +2,29 @@ import React from 'react';
 
 import { Button, SimpleGrid } from '@chakra-ui/react';
 
+import useAppStore from '@features/useAppStore';
+
 import SummaryCard from '@components/common/SummaryCard';
-import useOpenModalByQueryString from '@components/hooks/useOpenModalByQueryString';
+import useOpenModalByQueryParams from '@components/hooks/useOpenModalByQueryParams';
 
 import DrawerExample from './DrawerExample';
 import ModalExample from './ModalExample';
 
+import { useGlobalModalHandlerContext } from 'contexts/modal/useGlobalModalHandler.context';
+
 function ModalsPageContent() {
+  const isOpenGlobalModal = useAppStore(
+    (store) => store.MODAL.isOpenGlobalModal,
+  );
   const [isOpenModal, setIsOpenModal] = React.useState(false);
   const [isOpenBottomDrawer, setIsOpenBottomDrawer] = React.useState(false);
 
-  const { closeModal, openModal } = useOpenModalByQueryString({
+  const { closeModal, openModal } = useOpenModalByQueryParams({
     modal: setIsOpenModal,
     drawer: setIsOpenBottomDrawer,
   });
+
+  const { closeGlobalModal, openGlobalModal } = useGlobalModalHandlerContext();
 
   return (
     <>
@@ -36,6 +45,18 @@ function ModalsPageContent() {
           h="140px"
           w="100%"
           variant="unstyled"
+          onClick={() => openGlobalModal('global-modal')}
+        >
+          <SummaryCard
+            h="100%"
+            title="open global modal"
+            description="by query-string"
+          />
+        </Button>
+        <Button
+          h="140px"
+          w="100%"
+          variant="unstyled"
           onClick={() => openModal('drawer')}
         >
           <SummaryCard
@@ -45,7 +66,16 @@ function ModalsPageContent() {
           />
         </Button>
       </SimpleGrid>
-      <ModalExample isOpen={isOpenModal} onClose={() => closeModal('modal')} />
+      <ModalExample
+        title="글로벌 모달"
+        isOpen={isOpenGlobalModal}
+        onClose={() => closeGlobalModal('global-modal')}
+      />
+      <ModalExample
+        title="모달"
+        isOpen={isOpenModal}
+        onClose={() => closeModal('modal')}
+      />
       <DrawerExample
         isOpen={isOpenBottomDrawer}
         onClose={() => closeModal('drawer')}

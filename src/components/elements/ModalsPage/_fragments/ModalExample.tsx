@@ -11,12 +11,15 @@ import {
   ModalProps,
 } from '@chakra-ui/react';
 
-function ModalExample(props: Omit<ModalProps, 'children'>) {
+interface ModalExampleProps extends Omit<ModalProps, 'children'> {
+  title: string;
+}
+function ModalExample({ title, ...props }: ModalExampleProps) {
   return (
     <Modal isCentered {...props}>
       <ModalOverlay />
       <ModalContent>
-        <ModalHeader>Create your account</ModalHeader>
+        <ModalHeader>{title}</ModalHeader>
         <ModalCloseButton />
         <ModalBody>
           <Input placeholder="Type here..." />

@@ -1,19 +1,19 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export interface UserStateType {
-  isOpenMyModal: boolean;
+  isOpenGlobalModal: boolean;
 }
 
 const initialState: UserStateType = {
-  isOpenMyModal: false,
+  isOpenGlobalModal: false,
 };
 
 export const modalSlice = createSlice({
   name: 'MODAL',
   initialState,
   reducers: {
-    setIsOpenMyModal: (state, action: PayloadAction<boolean>) => {
-      state.isOpenMyModal = action.payload;
+    setIsOpenGlobalModal: (state, action: PayloadAction<boolean>) => {
+      state.isOpenGlobalModal = action.payload;
     },
   },
 });
