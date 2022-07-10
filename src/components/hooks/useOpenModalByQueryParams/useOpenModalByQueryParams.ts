@@ -65,8 +65,9 @@ const useOpenModalByQueryParams = <ModalKey extends string>(
 
   const openModal = React.useCallback(
     (key: ModalKey | ModalKey[]) => {
-      router.push(updateModalUrl(addToModalArray(key)), undefined, {
+      router.replace(updateModalUrl(addToModalArray(key)), undefined, {
         shallow: true,
+        scroll: false,
       });
     },
     [addToModalArray, updateModalUrl, router],
@@ -76,6 +77,7 @@ const useOpenModalByQueryParams = <ModalKey extends string>(
     (key?: ModalKey | ModalKey[]) => {
       router.replace(updateModalUrl(removeFromModalArray(key)), undefined, {
         shallow: true,
+        scroll: false,
       });
     },
     [updateModalUrl, removeFromModalArray, router],
