@@ -1,0 +1,20 @@
+name: Create Domain
+on:
+  workflow_dispatch:
+    inputs:
+      domain:
+        description: domain
+        type: string
+        required: true
+
+jobs:
+  configure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create Domain
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+            -d '{"name": "${{ inputs.domain }}"}' \
+            https://api.vercel.com/v9/projects/$(echo "${{ github.repository }}" | sed "s|${{ github.repository_owner }}\/||g")/domains?teamId=${{ secrets.VERCEL_TEAM_ID }}

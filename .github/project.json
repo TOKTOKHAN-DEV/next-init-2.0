@@ -1,0 +1,10 @@
+{
+    "name": "#{NAME}",
+    "framework": "nextjs",
+    "gitRepository": {
+        "type": "github",
+        "repo": "#{REPO}",
+        "productionBranch": "main"
+    },
+    "serverlessFunctionRegion": "icn1"
+}

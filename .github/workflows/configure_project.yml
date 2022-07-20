@@ -1,0 +1,26 @@
+name: Configure Project
+on:
+  workflow_dispatch:
+  create:
+    branchs:
+      - main
+
+jobs:
+  configure:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Replace Project Json
+        run: |
+          sed -i "s|#{NAME}|$(echo "${{ github.repository }}" | sed "s|${{ github.repository_owner }}\/||g")|g" .github/project.json
+          sed -i "s|#{REPO}|${{ github.repository }}|g" .github/project.json
+
+      - name: Configure Project
+        run: |
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" \
+            -d @.github/project.json \
+            https://api.vercel.com/v9/projects?teamId=${{ secrets.VERCEL_TEAM_ID }}
