@@ -1,0 +1,27 @@
+name: Initialize Project
+on:
+  workflow_dispatch:
+  create:
+    branches:
+      - main
+
+jobs:
+  initialize_project:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set Project Name
+        run: |
+          echo PROJECT_NAME=$(echo "${{ github.repository }}" | sed "s|${{ github.repository_owner }}\/||g" | sed "s|-next||g") >> $GITHUB_ENV
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Change
+        run: |
+          sed -i "s|nextjs-with-typescript|${PROJECT_NAME}|g" package.json
+      - name: Commit
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "initial commit"
+      - name: Push
+        uses: ad-m/github-push-action@master
