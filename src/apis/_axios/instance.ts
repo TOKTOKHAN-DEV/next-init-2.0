@@ -5,6 +5,8 @@ import { apiLogger } from '@utils/apiLogger';
 import { getToken } from '@utils/localStorage/token';
 import styledConsole from '@utils/styledConsole';
 
+import authController from './../auth/AuthApi.controller';
+
 const isDev = CONFIG.ENV === 'development';
 
 const instance = axios.create({
@@ -23,6 +25,20 @@ const setAuthHeader = (token: string) => {
 
 const unsetAuthHeader = () => {
   delete instance.defaults.headers.common['Authorization'];
+};
+
+type Request = (access: string) => void;
+let isTokenRefreshing = false;
+let refreshSubscribers: Request[] = [];
+
+const onTokenRefreshed = (access: string | null) => {
+  if (access !== null) {
+    refreshSubscribers.map((callback: Request) => callback(access));
+  }
+};
+
+const addRefreshSubscriber = (callback: Request) => {
+  refreshSubscribers.push(callback);
 };
 
 instance.interceptors.request.use(
@@ -55,11 +71,28 @@ instance.interceptors.response.use(
         apiLogger({ status, reqData, resData: error, method: 'error' });
 
       if (isExpiredToken) {
-        // const token = await refreshToken();
-        // if (token?.access) {
-        //   setAuthHeader(token?.access);
-        //   return instance(reqData);
-        // }
+        const retryOriginalRequest = new Promise((resolve) => {
+          addRefreshSubscriber((access: string) => {
+            reqData.headers.Authorization = 'Bearer ' + access;
+            resolve(instance(reqData));
+          });
+        });
+
+        if (!isTokenRefreshing) {
+          try {
+            isTokenRefreshing = true;
+            const token = await authController.refreshToken();
+            isTokenRefreshing = false;
+            if (token) {
+              onTokenRefreshed(token.access);
+              refreshSubscribers = [];
+            }
+          } catch (error) {
+            console.log(error);
+          }
+        }
+
+        return retryOriginalRequest;
       }
 
       if (isUnAuthError) {
