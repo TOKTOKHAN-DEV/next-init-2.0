@@ -11,8 +11,8 @@ function useSize() {
         setHeight(window.innerHeight / ratio);
         setWidth(window.innerWidth / ratio);
       } else {
-        setHeight(window.innerHeight);
-        setWidth(window.innerWidth);
+        setHeight(window.screen.availHeight);
+        setWidth(window.screen.availWidth);
       }
     };
     updateSize();
