@@ -1,7 +1,7 @@
-import useExampleForm from '../_hooks/useExampleForm';
-import ExampleFormContentView from './ExampleFormContent.view';
+import ExampleFormContentView from './FormPage.view';
+import useExampleForm from './_hooks/useExampleForm';
 
-const ExampleFormContent = () => {
+const FormPage = () => {
   const formData = useExampleForm();
   const { handleSubmit } = formData;
   const onSubmit = handleSubmit(({ username, email, phone, gender, fruit }) => {
@@ -12,4 +12,4 @@ const ExampleFormContent = () => {
   return <ExampleFormContentView formData={formData} onSubmit={onSubmit} />;
 };
 
-export default ExampleFormContent;
+export default FormPage;

@@ -1,3 +1,8 @@
-import FormPage from '@components/elements/FormPage';
+import FormPage from '@components/FormPage';
+import HomeLayout from '@components/common/@Layout/layouts/HomeLayout/HomeLayout';
 
-export default FormPage;
+function Form() {
+  return <HomeLayout content={<FormPage />} />;
+}
+
+export default Form;

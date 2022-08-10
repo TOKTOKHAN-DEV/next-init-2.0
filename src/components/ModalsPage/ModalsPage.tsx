@@ -5,14 +5,14 @@ import { Button, SimpleGrid } from '@chakra-ui/react';
 import useAppStore from '@features/useAppStore';
 
 import SummaryCard from '@components/common/SummaryCard';
-import useOpenModalByQueryParams from '@components/hooks/useOpenModalByQueryParams';
 
-import DrawerExample from './DrawerExample';
-import ModalExample from './ModalExample';
+import DrawerExample from './_fragments/DrawerExample';
+import ModalExample from './_fragments/ModalExample';
 
 import { useGlobalModalHandlerContext } from 'contexts/modal/useGlobalModalHandler.context';
+import useOpenModalByQueryParams from 'hooks/useOpenModalByQueryParams';
 
-function ModalsPageContent() {
+function ModalsPage() {
   const isOpenGlobalModal = useAppStore(
     (store) => store.MODAL.isOpenGlobalModal,
   );
@@ -84,4 +84,4 @@ function ModalsPageContent() {
   );
 }
 
-export default ModalsPageContent;
+export default ModalsPage;

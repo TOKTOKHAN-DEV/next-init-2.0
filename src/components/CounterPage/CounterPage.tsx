@@ -5,7 +5,7 @@ import { Button, Flex, Text } from '@chakra-ui/react';
 import { counterSliceAction } from '@features/counter/counterSlice';
 import useAppStore from '@features/useAppStore';
 
-const CounterPageContent = () => {
+const CounterPage = () => {
   const dispatch = useDispatch();
   const { value } = useAppStore((store) => store.COUNTER);
 
@@ -35,4 +35,4 @@ const CounterPageContent = () => {
   );
 };
 
-export default CounterPageContent;
+export default CounterPage;

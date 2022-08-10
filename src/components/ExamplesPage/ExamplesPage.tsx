@@ -7,7 +7,7 @@ import SummaryCard from '@components/common/SummaryCard';
 
 import { ROUTES } from '@constants/routes';
 
-function ExamplesPageContent() {
+function ExamplesPage() {
   return (
     <SimpleGrid spacing="20px" columns={2} w="700px" h="fit-content">
       <LinkButton
@@ -38,4 +38,4 @@ function ExamplesPageContent() {
   );
 }
 
-export default ExamplesPageContent;
+export default ExamplesPage;

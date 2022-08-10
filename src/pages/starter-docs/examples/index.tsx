@@ -1,3 +1,10 @@
-import ExamplesPage from '@components/elements/ExamplesPage';
+import ExamplesPage from '@components/ExamplesPage';
+import ExampleLayout from '@components/common/@Layout/layouts/ExampleLayout';
 
-export default ExamplesPage;
+function Examples() {
+  return (
+    <ExampleLayout title="참고할 예시 페이지" content={<ExamplesPage />} />
+  );
+}
+
+export default Examples;

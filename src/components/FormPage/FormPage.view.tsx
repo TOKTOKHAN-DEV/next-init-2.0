@@ -15,13 +15,13 @@ import {
 
 import FormHelper from '@components/common/FormHelper';
 
-import { FormDataType } from '../_hooks/useExampleForm';
+import { FormDataType } from './_hooks/useExampleForm';
 
-interface ExampleFormProps extends BoxProps {
+interface FormPageProps extends BoxProps {
   formData: UseFormReturn<FormDataType>;
 }
 
-const ExampleFormContentView = ({
+const FormPageView = ({
   formData: {
     register,
     control,
@@ -29,7 +29,7 @@ const ExampleFormContentView = ({
   },
   onSubmit,
   ...basisProps
-}: ExampleFormProps) => {
+}: FormPageProps) => {
   return (
     <Box as="form" onSubmit={onSubmit} {...basisProps}>
       <FormHelper mb="40px" label="이름" errorText={errors.username?.message}>
@@ -89,4 +89,4 @@ const ExampleFormContentView = ({
   );
 };
 
-export default ExampleFormContentView;
+export default FormPageView;

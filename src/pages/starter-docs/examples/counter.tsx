@@ -1,3 +1,8 @@
-import CounterPage from '@components/elements/CounterPage';
+import CounterPage from '@components/CounterPage';
+import HomeLayout from '@components/common/@Layout/layouts/HomeLayout';
 
-export default CounterPage;
+function Counter() {
+  return <HomeLayout content={<CounterPage />} />;
+}
+
+export default Counter;

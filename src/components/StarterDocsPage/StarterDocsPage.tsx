@@ -8,7 +8,7 @@ import SummaryCard from '@components/common/SummaryCard';
 import { OUTER_LINKS } from '@constants/outer-links';
 import { ROUTES } from '@constants/routes';
 
-function StarterDocsPagePageContent() {
+function StarterDocsPage() {
   return (
     <SimpleGrid spacing="20px" columns={2} w="700px" h="fit-content">
       <LinkButton
@@ -87,4 +87,4 @@ function StarterDocsPagePageContent() {
   );
 }
 
-export default StarterDocsPagePageContent;
+export default StarterDocsPage;

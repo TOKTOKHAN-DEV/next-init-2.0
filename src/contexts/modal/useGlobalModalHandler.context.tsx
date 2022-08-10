@@ -4,7 +4,7 @@ import constate from 'constate';
 
 import { modalSliceAction } from '@features/modal/modalSlice';
 
-import useOpenModalByQueryParams from '@components/hooks/useOpenModalByQueryParams';
+import useOpenModalByQueryParams from 'hooks/useOpenModalByQueryParams';
 
 function useGlobalModalHandler() {
   const dispatch = useDispatch();

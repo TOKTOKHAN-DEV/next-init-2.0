@@ -12,15 +12,15 @@ import {
   useTheme,
 } from '@chakra-ui/react';
 
-import ThemeViewerAccordionItem from './ThemeViewerAccordionItem';
-import ColorSection from './sections/ColorSection';
-import ComponentSection from './sections/ComponentSection';
-import FontWeightSection from './sections/FontWeightSection';
-import LetterSpacingSection from './sections/LetterSpacingSection';
-import RadiusSection from './sections/RadiusSection';
-import ShadowSection from './sections/ShadowSection';
-import SpaceSection from './sections/SpaceSection';
-import TextStyleSection from './sections/TextStyleSection';
+import ThemeViewerAccordionItem from './_fragments/ThemeViewerAccordionItem';
+import ColorSection from './_fragments/sections/ColorSection';
+import ComponentSection from './_fragments/sections/ComponentSection';
+import FontWeightSection from './_fragments/sections/FontWeightSection';
+import LetterSpacingSection from './_fragments/sections/LetterSpacingSection';
+import RadiusSection from './_fragments/sections/RadiusSection';
+import ShadowSection from './_fragments/sections/ShadowSection';
+import SpaceSection from './_fragments/sections/SpaceSection';
+import TextStyleSection from './_fragments/sections/TextStyleSection';
 
 const codeStyle = atomOneDark;
 
