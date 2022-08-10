@@ -1,5 +1,5 @@
 import CounterPage from '@components/CounterPage';
-import HomeLayout from '@components/common/@Layout/layouts/HomeLayout';
+import HomeLayout from '@components/common/@Layout/HomeLayout';
 
 function Counter() {
   return <HomeLayout content={<CounterPage />} />;

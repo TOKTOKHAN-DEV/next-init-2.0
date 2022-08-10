@@ -4,7 +4,7 @@ import { Container, ContainerProps } from '@chakra-ui/react';
 
 import { LAYOUT } from '@constants/layout';
 
-import HomeHeader from '../../headers/HomeHeader';
+import HomeHeader from './_fragments/HomeHeader';
 
 interface HomeLayoutProps {
   header?: JSX.Element;

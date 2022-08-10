@@ -1,5 +1,5 @@
 import StarterDocsPage from '@components/StarterDocsPage';
-import ExampleLayout from '@components/common/@Layout/layouts/ExampleLayout';
+import ExampleLayout from '@components/common/@Layout/ExampleLayout';
 
 import { CONFIG } from '@config';
 

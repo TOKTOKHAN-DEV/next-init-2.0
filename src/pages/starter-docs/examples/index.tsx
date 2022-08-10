@@ -1,5 +1,5 @@
 import ExamplesPage from '@components/ExamplesPage';
-import ExampleLayout from '@components/common/@Layout/layouts/ExampleLayout';
+import ExampleLayout from '@components/common/@Layout/ExampleLayout';
 
 function Examples() {
   return (

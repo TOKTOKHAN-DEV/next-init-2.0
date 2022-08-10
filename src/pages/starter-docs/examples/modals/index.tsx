@@ -1,7 +1,7 @@
 import Head from 'next/head';
 
 import ModalsPage from '@components/ModalsPage';
-import ExampleLayout from '@components/common/@Layout/layouts/ExampleLayout';
+import ExampleLayout from '@components/common/@Layout/ExampleLayout';
 
 function Modals() {
   return (

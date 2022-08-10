@@ -3,7 +3,7 @@ import Head from 'next/head';
 import React from 'react';
 
 import HomePage from '@components/HomePage';
-import HomeLayout from '@components/common/@Layout/layouts/HomeLayout/HomeLayout';
+import HomeLayout from '@components/common/@Layout/HomeLayout';
 
 import { ROUTES } from '@constants/routes';
 

@@ -11,7 +11,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 
-import HomeHeader from '../../headers/HomeHeader';
+import HomeHeader from '../HomeLayout/_fragments/HomeHeader';
 
 interface HomeLayoutProps {
   title: string | JSX.Element;
