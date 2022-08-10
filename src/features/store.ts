@@ -7,6 +7,7 @@ import { configureStore } from '@reduxjs/toolkit';
 export function makeStore() {
   return configureStore({
     reducer: {
+      //@delete:line
       [counterSlice.name]: counterSlice.reducer,
       [userSlice.name]: userSlice.reducer,
       [modalSlice.name]: modalSlice.reducer,

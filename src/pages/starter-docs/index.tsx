@@ -1,3 +1,4 @@
+//@delete:folder
 import StarterDocsPage from '@components/StarterDocsPage';
 import ExampleLayout from '@components/common/@Layout/ExampleLayout';
 

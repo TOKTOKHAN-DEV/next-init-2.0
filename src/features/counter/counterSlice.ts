@@ -1,3 +1,4 @@
+//@delete:folder
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 
 export interface CounterStateType {

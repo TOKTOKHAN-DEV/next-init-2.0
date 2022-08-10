@@ -1,3 +1,4 @@
+//@delete:folder
 import React from 'react';
 
 function useExample({ initialCount = 0 }) {
