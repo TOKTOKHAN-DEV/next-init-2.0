@@ -1,5 +1,15 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 
+/**
+ * @description
+ * run: yarn run clean-up
+ * marking 된  파일을 자동으로 지워주는 스크립트입니다.
+ * 아래 주석으로 marking 됩니다
+ * - 라인 지우기: @delete:line : 마킹된 다음 라인의 코드를 지웁니다.
+ * - 파일 지우기: @delete:file : 마킹된 파일을 지웁니다.
+ * - 폴더 지우기: @delete:folder : 마킹된 파일의 부모 폴더를 지웁니다.
+ */
+
 const fs = require('fs');
 const path = require('path');
 
