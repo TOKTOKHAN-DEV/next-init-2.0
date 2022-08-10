@@ -20,7 +20,8 @@
     "open:theme-typings": "code -r node_modules/@chakra-ui/styled-system/dist/declarations/src/theming.types.d.ts",
     "postinstall": "yarn run gen:theme-typings",
     "test": "jest --watch",
-    "lint": "tsc --noEmit && eslint --fix"
+    "lint": "tsc --noEmit && eslint --fix",
+    "clean-up": "node src/scripts/remove-unessary.js"
   },
   "dependencies": {
     "0auth-sdk": "^0.0.12",
