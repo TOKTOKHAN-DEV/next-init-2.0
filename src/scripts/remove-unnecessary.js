@@ -64,8 +64,8 @@ function isScriptFile(name) {
 }
 
 function forEachFiles(TPath, cb, options) {
+  if (!fs.existsSync(TPath)) return;
   const { recursive = true, filter = () => true } = options || {};
-
   const targetFiles = fs
     .readdirSync(TPath, { withFileTypes: true })
     .filter(filter);

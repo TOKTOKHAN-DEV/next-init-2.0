@@ -1,3 +1,4 @@
+//@delete:line
 import counterSlice from '@features/counter/counterSlice';
 import modalSlice from '@features/modal/modalSlice';
 import userSlice from '@features/user/userSlice';
