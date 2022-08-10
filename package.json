@@ -21,7 +21,7 @@
     "postinstall": "yarn run gen:theme-typings",
     "test": "jest --watch",
     "lint": "tsc --noEmit && eslint --fix",
-    "clean-up": "node src/scripts/remove-unessary.js"
+    "clean-up": "node src/scripts/remove-unnecessary.js"
   },
   "dependencies": {
     "0auth-sdk": "^0.0.12",

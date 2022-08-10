@@ -13,14 +13,15 @@ const DELETE_KEYS = {
 
 forEachFiles(TARGET_PATH, (d) => {
   if (isScriptFile(d.path)) return;
+  if (!fs.existsSync(d.path)) return;
   const file = fs.readFileSync(d.path, { encoding: 'utf-8' });
-
   if (isRemoveLine(file)) deleteLine(d.path);
   if (isRemoveFile(file)) deleteFile(d.path);
   if (isRemoveFolder(file)) deleteFolder(d.path);
 });
 
 function deleteLine(filePath) {
+  if (!fs.existsSync(filePath)) return;
   const file = fs.readFileSync(filePath, { encoding: 'utf-8' });
   const lines = file.split('\n');
   const keys = lines
@@ -39,9 +40,11 @@ function deleteLine(filePath) {
 }
 
 function deleteFile(filePath) {
+  if (!fs.existsSync(filePath)) return;
   fs.unlinkSync(filePath);
 }
 function deleteFolder(filePath) {
+  if (!fs.existsSync(filePath)) return;
   const info = path.parse(filePath);
   fs.rmSync(info.dir, { recursive: true, force: true });
 }
