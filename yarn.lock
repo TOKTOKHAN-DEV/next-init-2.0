@@ -1806,7 +1806,7 @@
     "@octokit/request-error" "^2.1.0"
     "@octokit/types" "^6.0.3"
 
-"@octokit/core@^3.3.2", "@octokit/core@^3.4.0", "@octokit/core@^3.5.1":
+"@octokit/core@^3.3.2", "@octokit/core@^3.4.0", "@octokit/core@^3.5.1", "@octokit/core@^3.6.0":
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/@octokit/core/-/core-3.6.0.tgz#3376cb9f3008d9b3d110370d90e0a1fcd5fe6085"
   integrity sha512-7RKRKuA4xTjMhY+eG3jthb3hlZCsOwg3rztWh75Xc+ShDWOfDDATWbeZpAHBNRpm4Tv9WgBMOy1zEJYXG6NJ7Q==
@@ -2563,6 +2563,11 @@ ansi-styles@^5.0.0:
   resolved "https://registry.npmjs.org/ansi-styles/-/ansi-styles-5.2.0.tgz"
   integrity sha512-Cxwpt2SfTzTtXcfOlzGEee8O+c+MmUgGrNiBcXnuWxuFJHe6a5Hz7qwhwe5OgaSYI0IJvkLqWX1ASG+cJOkEiA==
 
+ansi-styles@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/ansi-styles/-/ansi-styles-6.1.0.tgz#87313c102b8118abd57371afab34618bf7350ed3"
+  integrity sha512-VbqNsoz55SYGczauuup0MFUyXNQviSpFTj1RQtFzmQLk18qbVSpTFFGMT293rmDaQuKCT6InmbuEyUne4mTuxQ==
+
 anymatch@^3.0.3:
   version "3.1.2"
   resolved "https://registry.npmjs.org/anymatch/-/anymatch-3.1.2.tgz"
@@ -3053,14 +3058,6 @@ chakra-react-select@^3.3.1:
   dependencies:
     react-select "^5.3.0"
 
-chalk@4.1.2, chalk@^4.0.0, chalk@^4.1.0:
-  version "4.1.2"
-  resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
-  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
-  dependencies:
-    ansi-styles "^4.1.0"
-    supports-color "^7.1.0"
-
 chalk@^2.0.0, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.npmjs.org/chalk/-/chalk-2.4.2.tgz"
@@ -3078,7 +3075,15 @@ chalk@^3.0.0:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
 
-chalk@^5.0.0:
+chalk@^4.0.0, chalk@^4.1.0:
+  version "4.1.2"
+  resolved "https://registry.npmjs.org/chalk/-/chalk-4.1.2.tgz"
+  integrity sha512-oKnbhFyRIXpUuez8iBMmyEa4nbj4IOQyuhc/wy9kY7/WVPcwIO9VA668Pu8RkO7+0G76SLROeyw9CpQ061i4mA==
+  dependencies:
+    ansi-styles "^4.1.0"
+    supports-color "^7.1.0"
+
+chalk@^5.0.0, chalk@^5.0.1:
   version "5.0.1"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-5.0.1.tgz#ca57d71e82bb534a296df63bbacc4a1c22b2a4b6"
   integrity sha512-Fo07WOYGqMfCWHOzSXOt2CxDbC6skS/jO9ynEcmpANMoPrD+W1r1K6Vx7iNm+AQmETU1Xr2t+n8nzkV9t6xh3w==
@@ -3393,6 +3398,11 @@ core-js-pure@^3.20.2:
   version "3.21.1"
   resolved "https://registry.npmjs.org/core-js-pure/-/core-js-pure-3.21.1.tgz"
   integrity sha512-12VZfFIu+wyVbBebyHmRTuEE/tZrB4tJToWcwAMcsp3h4+sHR+fMJWbKpYiCRWlhFBq+KNyO8rIV9rTkeVmznQ==
+
+core-js@3:
+  version "3.24.1"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.24.1.tgz#cf7724d41724154010a6576b7b57d94c5d66e64f"
+  integrity sha512-0QTBSYSUZ6Gq21utGzkfITDylE8jWC9Ne1D2MrhvlsZBI1x39OdDIVbzSqtgMndIy6BlHxBXpMGqzZmnztg2rg==
 
 cosmiconfig@^6.0.0:
   version "6.0.0"
@@ -8038,14 +8048,17 @@ toggle-selection@^1.0.6:
   resolved "https://registry.npmjs.org/toggle-selection/-/toggle-selection-1.0.6.tgz"
   integrity sha1-bkWxJj8gF/oKzH2J14sVuL932jI=
 
-tokript@^0.8.7:
-  version "0.8.7"
-  resolved "https://registry.yarnpkg.com/tokript/-/tokript-0.8.7.tgz#3e81d86fc5387bccc747fa2ab4c0edabafc512f0"
-  integrity sha512-eVCIpOUp+YrDTP7NNwHZeO33wvBJkIJKt4V3uvZk/aTTxu54ZMpBrlH5InBEcMVeSyLb6mrTv+VmuAxDJ3J9/g==
+tokript@^0.9.2:
+  version "0.9.2"
+  resolved "https://registry.yarnpkg.com/tokript/-/tokript-0.9.2.tgz#b62cc6fe9c6b6a14534b178400553dc6cdf54b00"
+  integrity sha512-qFduxFQYeRc8hlpXVH7cF66TSMRz89qzs14Yld2IlqD8YPb7lvLaxacFcv+sWAH+OmVMWoZB1L96wWcgIfNHXA==
   dependencies:
-    chalk "4.1.2"
+    "@octokit/core" "^3.6.0"
+    ansi-styles "^6.1.0"
+    chalk "^5.0.1"
     clear "^0.1.0"
     commander "^9.2.0"
+    core-js "3"
     create-chakra-icons "^1.1.0"
     enquirer "^2.3.6"
     eta "^1.12.3"

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { getToken, setToken } from '@utils/localStorage/token';
 
 import authApi, { AuthApi } from './AuthApi';
@@ -12,7 +13,11 @@ export class AuthController {
     const token = getToken();
     if (!token.access || !token.refresh) throw Error('Not found refresh-token');
     try {
-      const refreshed = await this.auth.getRefreshedToken(token.refresh);
+      const { data: refreshed } = await axios({
+        method: 'GET',
+        url: `/v1/refresh/`,
+        data: { refresh: token.refresh },
+      });
       setToken(refreshed);
       return refreshed;
     } catch (err) {
