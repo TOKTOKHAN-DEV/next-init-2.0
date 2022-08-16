@@ -36,6 +36,7 @@
     "constate": "^3.3.2",
     "dayjs": "^1.10.6",
     "framer-motion": "^4",
+    "lodash": "^4.17.21",
     "ls-engines": "^0.7.0",
     "moment": "^2.29.1",
     "next": "^12.1.6",
