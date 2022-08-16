@@ -34,6 +34,14 @@ function ExamplesPage() {
       >
         <SummaryCard h="100%" title="모달 예시" description="" />
       </LinkButton>
+      <LinkButton
+        h="140px"
+        w="100%"
+        variant="unstyled"
+        href={ROUTES.STARTER_DOCS.EXAMPLES.LODASH}
+      >
+        <SummaryCard h="100%" title="throttle & debounce 예시" description="" />
+      </LinkButton>
     </SimpleGrid>
   );
 }
