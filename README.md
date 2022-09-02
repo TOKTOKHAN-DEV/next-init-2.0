@@ -17,8 +17,8 @@ A quick look at the directories you'll see in this project.
         ├── apis                #
         ├── components          #
             ├── common          #
-            ├── elements        #
-            ├── hooks           #
+            ├── HomePage        #
+            ├── ExamplePage     #
         ├── constants           #
         ├── features            #
         ├── generated           #
