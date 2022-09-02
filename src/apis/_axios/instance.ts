@@ -1,11 +1,13 @@
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
+
+import { AuthApi } from '@apis/auth/AuthApi';
 
 import { CONFIG } from '@config';
 import { apiLogger } from '@utils/apiLogger';
 import { getToken } from '@utils/localStorage/token';
 import styledConsole from '@utils/styledConsole';
 
-import authController from './../auth/AuthApi.controller';
+import { refresh } from './refresh';
 
 const isDev = CONFIG.ENV === 'development';
 
@@ -27,20 +29,6 @@ const unsetAuthHeader = () => {
   delete instance.defaults.headers.common['Authorization'];
 };
 
-type Request = (access: string) => void;
-let isTokenRefreshing = false;
-let refreshSubscribers: Request[] = [];
-
-const onTokenRefreshed = (access: string | null) => {
-  if (access !== null) {
-    refreshSubscribers.map((callback: Request) => callback(access));
-  }
-};
-
-const addRefreshSubscriber = (callback: Request) => {
-  refreshSubscribers.push(callback);
-};
-
 instance.interceptors.request.use(
   async (config) => {
     const token = await getToken();
@@ -59,10 +47,10 @@ instance.interceptors.response.use(
     if (isDev) apiLogger({ status, reqData, resData });
     return res;
   },
-  async (error) => {
+  async (error: AxiosError) => {
     try {
       const { response: res, config: reqData } = error || {};
-      const { status } = res || {};
+      const { status } = res || { status: 400 };
       const isUnAuthError = status === 401;
       const isExpiredToken = status === 444;
       const isDev = CONFIG.ENV === 'development';
@@ -71,28 +59,7 @@ instance.interceptors.response.use(
         apiLogger({ status, reqData, resData: error, method: 'error' });
 
       if (isExpiredToken) {
-        const retryOriginalRequest = new Promise((resolve) => {
-          addRefreshSubscriber((access: string) => {
-            reqData.headers.Authorization = 'Bearer ' + access;
-            resolve(instance(reqData));
-          });
-        });
-
-        if (!isTokenRefreshing) {
-          try {
-            isTokenRefreshing = true;
-            const token = await authController.refreshToken();
-            isTokenRefreshing = false;
-            if (token) {
-              onTokenRefreshed(token.access);
-              refreshSubscribers = [];
-            }
-          } catch (error) {
-            console.log(error);
-          }
-        }
-
-        return retryOriginalRequest;
+        return refresh(reqData);
       }
 
       if (isUnAuthError) {
