@@ -11,11 +11,7 @@ import {
 const TOKEN_KEY = CONFIG.AUTH_TOKEN_KEY || '@token';
 
 export const getToken = () => {
-  const token = getLocalStorage<TokenType>(TOKEN_KEY, {
-    access: null,
-    isRegister: false,
-    refresh: null,
-  });
+  const token = getLocalStorage<TokenType>(TOKEN_KEY);
   return token;
 };
 

@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { getToken, setToken } from '@utils/localStorage/token';
 
 import authApi, { AuthApi } from './AuthApi';
@@ -11,7 +12,8 @@ export class AuthController {
 
   refreshToken = async (): Promise<TokenType | void> => {
     const token = getToken();
-    if (!token.access || !token.refresh) throw Error('Not found refresh-token');
+    if (!token?.access || !token?.refresh)
+      throw Error('Not found refresh-token');
     try {
       const { data: refreshed } = await axios({
         method: 'GET',
