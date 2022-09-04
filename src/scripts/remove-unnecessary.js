@@ -70,7 +70,7 @@ function isRemoveFile(file) {
 }
 
 function isScriptFile(name) {
-  name === __filename;
+  return name === __filename;
 }
 
 function forEachFiles(TPath, cb, options) {

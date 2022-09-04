@@ -9,6 +9,7 @@ export const ROUTES = {
       FORM: '/starter-docs/examples/form',
       MODALS: '/starter-docs/examples/modals',
       SOCIAL: '/starter-docs/examples/social',
+      LODASH: '/starter-docs/examples/lodash',
     },
   },
 } as const;
