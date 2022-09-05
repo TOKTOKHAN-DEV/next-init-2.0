@@ -1,6 +1,6 @@
 export const CONFIG = {
   ENV: process.env.NODE_ENV,
-  DOMAIN: process.env.NEXT_PUBLIC_API_DOMAIN,
+  DOMAIN: process.env.NEXT_PUBLIC_DOMAIN,
   API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
   APP_NAME: process.env.NEXT_PUBLIC_APP_NAME,
   AUTH_TOKEN_KEY: process.env.NEXT_PUBLIC_AUTH_TOKEN_KEY,
