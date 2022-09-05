@@ -1,5 +1,7 @@
 import axios, { AxiosError } from 'axios';
 
+import { AuthApi } from '@apis/auth/AuthApi';
+
 import { CONFIG } from '@config';
 import { apiLogger } from '@utils/apiLogger';
 import { getToken } from '@utils/localStorage/token';
