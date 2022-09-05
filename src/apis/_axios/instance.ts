@@ -1,7 +1,5 @@
 import axios, { AxiosError } from 'axios';
 
-import { AuthApi } from '@apis/auth/AuthApi';
-
 import { CONFIG } from '@config';
 import { apiLogger } from '@utils/apiLogger';
 import { getToken } from '@utils/localStorage/token';
@@ -33,7 +31,13 @@ instance.interceptors.request.use(
   async (config) => {
     const token = await getToken();
     const isAccess = !!token && !!token.access;
-    if (isAccess) setAuthHeader(token.access as string);
+    if (isAccess) {
+      setAuthHeader(token.access as string);
+      return {
+        ...config,
+        headers: { ...config.headers, Authorization: `Bearer ${token.access}` },
+      };
+    }
     return config;
   },
   (error) => {

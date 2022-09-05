@@ -1,5 +1,3 @@
-import { TokenType } from '@apis/auth/AuthApi.type';
-
 import { CONFIG } from '@config';
 
 import {
@@ -9,6 +7,12 @@ import {
 } from '../helper';
 
 const TOKEN_KEY = CONFIG.AUTH_TOKEN_KEY || '@token';
+
+export type TokenType = {
+  access: string;
+  refresh: string;
+  isRegister: boolean;
+};
 
 export const getToken = () => {
   const token = getLocalStorage<TokenType>(TOKEN_KEY);
