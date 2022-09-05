@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { ReactQueryDevtools } from 'react-query/devtools';
 
 import Auth from '0auth-sdk';
 
@@ -7,6 +6,7 @@ import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
 
 import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
 
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { mode } from '@theme/foundations/colors';
 
 import withAppProvider from 'contexts/app/app.provider';

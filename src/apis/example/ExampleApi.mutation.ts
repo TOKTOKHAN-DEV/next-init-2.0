@@ -1,6 +1,6 @@
-import { useMutation } from 'react-query';
-
 import { MutationHookParams } from '@apis/type';
+
+import { useMutation } from '@tanstack/react-query';
 
 import exampleApi from './ExampleApi';
 import {

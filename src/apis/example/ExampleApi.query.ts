@@ -1,6 +1,6 @@
-import { useQuery } from 'react-query';
-
 import { QueryHookParams } from '@apis/type';
+
+import { useQuery } from '@tanstack/react-query';
 
 import exampleApi from './ExampleApi';
 import { ExampleParamGetType } from './ExampleApi.type';

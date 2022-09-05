@@ -1,10 +1,11 @@
 import type { AppProps } from 'next/app';
-import { QueryClient, QueryClientProvider } from 'react-query';
 import { Provider as RTKProvider } from 'react-redux';
 
 import { ChakraProvider } from '@chakra-ui/react';
 
 import store from '@features/store';
+
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import Fonts from 'generated/fonts/fonts';
 import theme from 'styles/theme';
