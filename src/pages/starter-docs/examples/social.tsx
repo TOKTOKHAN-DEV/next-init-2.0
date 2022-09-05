@@ -1,6 +1,7 @@
 import Head from 'next/head';
-import HomeLayout from '@components/common/@Layout/HomeLayout';
+
 import SocialPage from '@components/SocialPage';
+import HomeLayout from '@components/common/@Layout/HomeLayout';
 
 function Social() {
   return (

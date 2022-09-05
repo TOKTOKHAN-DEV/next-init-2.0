@@ -2,14 +2,14 @@ import React from 'react';
 
 import { HStack, VStack } from '@chakra-ui/react';
 
-import SocialButton from '@components/common/SocialButton';
+import SocialButton, { SocialType } from '@components/common/SocialButton';
 
 import { CONFIG } from '@config';
 import { SOCIAL } from '@constants/social';
 
 const SOCIAL_REDIRECT_URL = `${CONFIG.DOMAIN}`;
 
-const SOCIAL_LIST: any = [
+const SOCIAL_LIST: Array<{ social: SocialType; link: string }> = [
   {
     social: 'kakao',
     link: `https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${SOCIAL.KAKAO_CLIENT_ID}&redirect_uri=${SOCIAL_REDIRECT_URL}&state=kakao`,
@@ -36,13 +36,13 @@ function SocialPage() {
   return (
     <>
       <VStack mt="150px">
-        {SOCIAL_LIST.map((social: any) => {
-          return <SocialButton data={social} size="md" />;
+        {SOCIAL_LIST.map((social) => {
+          return <SocialButton key={social.social} data={social} size="md" />;
         })}
       </VStack>
       <HStack justifyContent="center" mt="80px">
-        {SOCIAL_LIST.map((social: any) => {
-          return <SocialButton data={social} size="sm" />;
+        {SOCIAL_LIST.map((social) => {
+          return <SocialButton key={social.social} data={social} size="sm" />;
         })}
       </HStack>
     </>
