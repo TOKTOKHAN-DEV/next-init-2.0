@@ -10,7 +10,7 @@ export type QueryHookParams<
   T extends CustomRequestFn,
   Data = RequestFnReturn<T>,
   Variables = Parameter<T>,
-  Error = MyError,
+  Error = MyError | any,
 > = {
   options?: Omit<UseQueryOptions<Data, Error>, 'queryKey' | 'queryFn'>;
 } & OptionalVariables<Variables>;
@@ -19,7 +19,7 @@ export type InfiniteQueryHookParams<
   T extends CustomRequestFn,
   Data = RequestFnReturn<T>,
   Variables = Parameter<T>,
-  Error = MyError,
+  Error = MyError | any,
 > = {
   options?: Omit<
     UseInfiniteQueryOptions<Data, Error, Data, Data, any>,
@@ -31,7 +31,7 @@ export type MutationHookParams<
   T extends CustomRequestFn,
   Data = RequestFnReturn<T>,
   Variables = Parameter<T>,
-  Error = MyError,
+  Error = MyError | any,
 > = {
   options?: Omit<
     UseMutationOptions<Data, Error, Variables>,

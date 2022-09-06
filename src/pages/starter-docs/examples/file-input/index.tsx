@@ -1,8 +1,13 @@
 import StarterDocsExamplesFileInputPage from '@components/StarterDocsExamplesFileInputPage';
-import HomeLayout from '@components/common/@Layout/HomeLayout';
+import ExampleLayout from '@components/common/@Layout/ExampleLayout';
 
 function Form() {
-  return <HomeLayout content={<StarterDocsExamplesFileInputPage />} />;
+  return (
+    <ExampleLayout
+      title="S3 파일 업로드 예시"
+      content={<StarterDocsExamplesFileInputPage />}
+    />
+  );
 }
 
 export default Form;
