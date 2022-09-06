@@ -51,6 +51,14 @@ function ExamplesPage() {
       >
         <SummaryCard h="100%" title="소셜로그인 예시" description="" />
       </LinkButton>
+      <LinkButton
+        h="140px"
+        w="100%"
+        variant="unstyled"
+        href={ROUTES.STARTER_DOCS.EXAMPLES.S3_FILE_INPUT}
+      >
+        <SummaryCard h="100%" title="S3 파일 업로드 예시" description="" />
+      </LinkButton>
     </SimpleGrid>
   );
 }
