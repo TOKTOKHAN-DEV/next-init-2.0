@@ -9,6 +9,7 @@
       "@utils/*": ["./utils/*"],
       "@theme/*": ["./styles/theme/*"],
       "@icons/*": ["./components/common/@Icons/*"],
+      "@image": ["./generated/path/images.ts"],
       "@config": ["../config.ts"]
     },
     "target": "es5",
