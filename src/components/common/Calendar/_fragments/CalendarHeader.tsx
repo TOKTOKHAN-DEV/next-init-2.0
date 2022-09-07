@@ -1,6 +1,6 @@
 import React from 'react';
 
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 import { Center, Flex, Text } from '@chakra-ui/react';
 
@@ -8,8 +8,8 @@ import ArrowLeftIcon from '@icons/System/ArrowLeft';
 import ArrowRightIcon from '@icons/System/ArrowRight';
 
 interface CalendarHeaderProps {
-  date: moment.Moment;
-  setDate: (val: moment.Moment) => void;
+  date: dayjs.Dayjs;
+  setDate: (val: dayjs.Dayjs) => void;
 }
 
 const CalendarHeader = ({ date, setDate }: CalendarHeaderProps) => {

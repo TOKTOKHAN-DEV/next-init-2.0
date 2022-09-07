@@ -1,7 +1,3 @@
-import { useEffect } from 'react';
-
-import Auth from '0auth-sdk';
-
 import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
 
 import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
@@ -15,10 +11,6 @@ import { withGlobalModalHandlerContext } from 'contexts/modal/useGlobalModalHand
 function MyApp({ Component, pageProps }: any) {
   const theme = useTheme();
   const { colorMode } = useColorMode();
-
-  useEffect(() => {
-    Auth.initialize({ brand: 'test' });
-  }, []);
 
   return (
     // Provide the client to your App

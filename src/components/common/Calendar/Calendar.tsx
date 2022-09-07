@@ -1,28 +1,35 @@
 import React, { useState } from 'react';
 
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 import {
-  Divider,
+  Box,
+  Flex,
+  HStack,
+  Image,
   Table,
+  TableContainer,
   Tbody,
   Td,
   Text,
   Th,
-  Thead,
   Tr,
 } from '@chakra-ui/react';
 
 import CalendarHeader from './_fragments/CalendarHeader';
 
+import weekOfYear from 'dayjs/plugin/weekOfYear';
+
+dayjs.extend(weekOfYear);
+
 interface CalendarProps {
-  handleDayClick?: (val: moment.Moment) => void;
+  handleDayClick?: (val: dayjs.Dayjs) => void;
 }
 
 const Calendar = ({ handleDayClick }: CalendarProps) => {
-  const [date, setDate] = useState<moment.Moment>(() => moment());
+  const [date, setDate] = useState<dayjs.Dayjs>(() => dayjs());
 
-  const _handleDayClick = (current: moment.Moment) => {
+  const _handleDayClick = (current: dayjs.Dayjs) => {
     setDate(current);
     if (handleDayClick) {
       handleDayClick(current);
@@ -51,7 +58,7 @@ const Calendar = ({ handleDayClick }: CalendarProps) => {
     // 이제 주마다 일을 표기해야 하므로 len이 7인 arr를 생성 후 index를 기반으로 day를 표기하자
     for (let week = startWeek; week <= endWeek; week++) {
       calendar.push(
-        <Tr key={week} mt="5px">
+        <Tr key={week} h="120px">
           {Array(7)
             .fill(0)
             .map((n, i) => {
@@ -68,7 +75,6 @@ const Calendar = ({ handleDayClick }: CalendarProps) => {
                   : '';
 
               // 만약, 이번 달이 아닌 다른 달의 날짜라면 회색으로 표시하자
-              const isRed = i === 0;
               const isGrayed =
                 current.format('MM') !== today.format('MM') ? 'grayed' : '';
 
@@ -77,27 +83,23 @@ const Calendar = ({ handleDayClick }: CalendarProps) => {
                   key={current.format('YYYYMMDD')}
                   onClick={() => _handleDayClick(current)}
                   cursor="pointer"
-                  borderTopWidth="1px"
-                  borderLeftWidth="1px"
-                  p="0px"
                   h="40px"
-                  bg={isSelected ? 'primary.500' : 'white'}
+                  bg={isSelected ? 'netural.10' : 'white'}
                 >
-                  <Text
-                    fontSize="14px"
-                    textAlign="center"
-                    color={
-                      isSelected
-                        ? 'white'
-                        : isGrayed
-                        ? 'gray.200'
-                        : isRed
-                        ? 'red'
-                        : 'gray.500'
-                    }
+                  <Flex
+                    alignItems="flex-start"
+                    justifyContent="flex-start"
+                    h="100%"
+                    w="100%"
                   >
-                    {current.format('D')}
-                  </Text>
+                    <Text
+                      fontSize="14px"
+                      textAlign="left"
+                      color={isGrayed ? 'netural.50' : 'netural.200'}
+                    >
+                      {current.format('D')}
+                    </Text>
+                  </Flex>
                 </Td>
               );
             })}
@@ -110,28 +112,60 @@ const Calendar = ({ handleDayClick }: CalendarProps) => {
   return (
     <>
       <CalendarHeader date={date} setDate={setDate} />
-      <Divider mt="10px" />
-      <Table variant="simple" w="100%" style={{ tableLayout: 'fixed' }}>
-        <Thead>
-          <Tr>
-            {['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'].map((el) => (
-              <Th
-                p="0px"
-                h="40px"
-                color={el === 'SUN' ? 'red' : 'gray.500'}
-                key={el}
-              >
-                <Text fontSize="12px" textAlign="center">
+      <TableContainer>
+        <Table variant="round">
+          <Tbody>
+            <Tr>
+              <Td colSpan={7}>
+                <HStack spacing="10px">
+                  {TitleData.map((d, idx) => {
+                    if (!d.title)
+                      return (
+                        <Box
+                          key={`calendar-${idx}`}
+                          w="1px"
+                          h="12px"
+                          bg="netural.40"
+                        />
+                      );
+                    return (
+                      <Flex key={`calendar-${idx}`}>
+                        <Image src={d.icon} w="14px" h="14px" />
+                        <Text ml="5px">{d.title}</Text>
+                      </Flex>
+                    );
+                  })}
+                </HStack>
+              </Td>
+            </Tr>
+            <Tr>
+              {['일', '월', '화', '수', '목', '금', '토'].map((el) => (
+                <Th
+                  w="120px"
+                  h="30px"
+                  key={el}
+                  textAlign="left"
+                  color="netural.90"
+                >
                   {el}
-                </Text>
-              </Th>
-            ))}
-          </Tr>
-        </Thead>
-        <Tbody borderRightWidth="1px">{generate()}</Tbody>
-      </Table>
+                </Th>
+              ))}
+            </Tr>
+            {generate()}
+          </Tbody>
+        </Table>
+      </TableContainer>
     </>
   );
 };
 
 export default Calendar;
+
+const TitleData = [
+  { title: '공단일치', icon: '/images/calendar/match.png' },
+  { title: '수정된 일정', icon: '/images/calendar/update.png' },
+  { title: '' },
+  { title: '청구완료', icon: '/images/calendar/paid.png' },
+  { title: '급여기록', icon: '/images/calendar/pay_check.png' },
+  { title: '방문일정', icon: '/images/calendar/visit.png' },
+];
