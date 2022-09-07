@@ -8020,10 +8020,10 @@ toggle-selection@^1.0.6:
   resolved "https://registry.npmjs.org/toggle-selection/-/toggle-selection-1.0.6.tgz"
   integrity sha1-bkWxJj8gF/oKzH2J14sVuL932jI=
 
-tokript@^0.9.3:
-  version "0.9.3"
-  resolved "https://registry.yarnpkg.com/tokript/-/tokript-0.9.3.tgz#672877f56f56e65712c092cb639a1e25119e1fb7"
-  integrity sha512-ji+xNWTK+dhlC70cFTxcEDkWYb+Kn9YhZRehiQsYY+pEBZBYdMTktZNOj/7LJWshdBCmHhM6W4yAk2x3S3CCUA==
+tokript@^0.9.4:
+  version "0.9.4"
+  resolved "https://registry.yarnpkg.com/tokript/-/tokript-0.9.4.tgz#4d5738ef7e45c705938af6bec9236848995e8f8e"
+  integrity sha512-ARkSlY9OuAFhCBEWyp6yDI1ohojVmraOGAeDfhfiT81lUVM4E6q6OTY2iUtVhBSOgEK8p78ZDrwq2G6zYFlBsQ==
   dependencies:
     "@octokit/core" "^3.6.0"
     ansi-styles "^6.1.0"
