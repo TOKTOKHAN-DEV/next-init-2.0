@@ -22,6 +22,12 @@ export const ROUTES = {
       LODASH: '/starter-docs/examples/lodash',
       //@delete:line
       S3_FILE_INPUT: '/starter-docs/examples/file-input',
+      //@delete:line
+      TOSS: '/starter-docs/examples/toss',
+      //@delete:line
+      TOSS_SUCCESS: '/starter-docs/examples/toss/success',
+      //@delete:line
+      TOSS_FAIL: '/starter-docs/examples/toss/fail',
     },
   },
 } as const;
