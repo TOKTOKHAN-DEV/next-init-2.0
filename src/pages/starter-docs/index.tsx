@@ -1,11 +1,11 @@
 //@delete:folder
+import { CONFIG } from '@config';
+
 import StarterDocsPage from '@components/StarterDocsPage';
 import ExampleLayout from '@components/common/@Layout/ExampleLayout';
 
-import { CONFIG } from '@config';
-
 function StarterDocs() {
-  if (CONFIG.ENV === 'production') return null;
+  // if (CONFIG.ENV === 'production') return null;
   return <ExampleLayout title="Welcome!" content={<StarterDocsPage />} />;
 }
 
