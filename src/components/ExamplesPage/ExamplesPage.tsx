@@ -59,6 +59,14 @@ function ExamplesPage() {
       >
         <SummaryCard h="100%" title="S3 파일 업로드 예시" description="" />
       </LinkButton>
+      <LinkButton
+        h="140px"
+        w="100%"
+        variant="unstyled"
+        href={ROUTES.STARTER_DOCS.EXAMPLES.TOSS}
+      >
+        <SummaryCard h="100%" title="토스 결제창" description="" />
+      </LinkButton>
     </SimpleGrid>
   );
 }
