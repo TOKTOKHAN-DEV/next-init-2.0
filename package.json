@@ -17,14 +17,15 @@
     "gen:font": "tokript gen:font",
     "w:start": "tokript w:start",
     "commit": "tokript commit",
-    "open:theme-typings": "code -r node_modules/@chakra-ui/styled-system/dist/declarations/src/theming.types.d.ts",
+    "open:theme-typings": "code -r node_modules/@chakra-ui/styled-system/dist/theming.types.d.ts",
     "postinstall": "yarn run gen:theme-typings",
     "test": "jest --watch",
     "lint": "tsc --noEmit && eslint --fix",
     "clean-up": "node src/scripts/remove-unnecessary.js"
   },
   "dependencies": {
-    "@chakra-ui/react": "^2.1.0",
+    "@chakra-ui/react": "^2.3.4",
+    "@chakra-ui/styled-system": "^2.3.3",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@hookform/resolvers": "^2.8.8",
@@ -53,7 +54,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@chakra-ui/cli": "^1.5.0",
+    "@chakra-ui/cli": "^2.1.8",
     "@testing-library/cypress": "^8.0.1",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^12.1.1",
