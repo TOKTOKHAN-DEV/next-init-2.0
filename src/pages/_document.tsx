@@ -16,7 +16,7 @@ const SITE_TITLE = 'TOKTOKHAN.DEV';
 const SITE_DESCRIPTION = '디지털프로덕트의 TOKTOK한 경험';
 const SITE_IMAGE = '/images/new_og.png';
 
-const GOOGLE_ANALYTICS_ID = 'G-입력해주세요';
+// const GOOGLE_ANALYTICS_ID = 'G-입력해주세요';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -36,16 +36,16 @@ class MyDocument extends Document {
     };
   }
 
-  setGoogleAnalytics() {
-    return {
-      __html: `        
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${GOOGLE_ANALYTICS_ID}');
-      `,
-    };
-  }
+  // setGoogleAnalytics() {
+  //   return {
+  //     __html: `
+  //       window.dataLayer = window.dataLayer || [];
+  //       function gtag(){dataLayer.push(arguments);}
+  //       gtag('js', new Date());
+  //       gtag('config', '${GOOGLE_ANALYTICS_ID}');
+  //     `,
+  //   };
+  // }
   render() {
     return (
       <Html>
@@ -80,11 +80,11 @@ class MyDocument extends Document {
           <link rel="manifest" href="/manifest.json" />
 
           {/* Global site tag (gtag.js) - Google Analytics */}
-          <script
+          {/* <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
-          ></script>
-          <script dangerouslySetInnerHTML={this.setGoogleAnalytics()} />
+          ></script> */}
+          {/* <script dangerouslySetInnerHTML={this.setGoogleAnalytics()} /> */}
         </Head>
         <body>
           <ColorModeScript initialColorMode={config.initialColorMode} />
