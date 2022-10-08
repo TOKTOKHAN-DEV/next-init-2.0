@@ -6,6 +6,7 @@
       "@apis/*": ["./apis/*"],
       "@constants/*": ["./constants/*"],
       "@features/*": ["./features/*"],
+      "@hooks/*": ["./hooks/*"],
       "@utils/*": ["./utils/*"],
       "@theme/*": ["./styles/theme/*"],
       "@icons/*": ["./components/common/@Icons/*"],
