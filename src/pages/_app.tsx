@@ -1,6 +1,7 @@
 import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
 
 import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
+import TokDocsDevTools from '@components/common/TokDocsDevTool';
 
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { mode } from '@theme/foundations/colors';
@@ -20,6 +21,7 @@ function MyApp({ Component, pageProps }: any) {
       <ToggleColorModeButton />
       <Component {...pageProps} />
       <ReactQueryDevtools initialIsOpen={false} />
+      <TokDocsDevTools />
     </ThemeProvider>
   );
 }
