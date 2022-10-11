@@ -1,6 +1,6 @@
 import {
-  APP_STYLE_VIWER_DOCS,
-  AppStyleViwerDocsType,
+  APP_STYLE_VIEWER_DOCS,
+  AppStyleViewerDocsType,
   EXAMPLE_DOCS,
   ExampleDocsType,
   SCRIPT_DOCS,
@@ -15,8 +15,8 @@ export function useTokDocsTitleValidate() {
   };
 }
 
-const isAppStyleViewerDocsTitle = (v: any): v is AppStyleViwerDocsType =>
-  APP_STYLE_VIWER_DOCS.includes(v);
+const isAppStyleViewerDocsTitle = (v: any): v is AppStyleViewerDocsType =>
+  APP_STYLE_VIEWER_DOCS.includes(v);
 
 const isScriptDocsTitle = (v: any): v is ScriptDocsType =>
   SCRIPT_DOCS.includes(v);
