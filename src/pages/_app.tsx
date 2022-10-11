@@ -1,4 +1,9 @@
-import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
+import {
+  ThemeProvider,
+  useBreakpoint,
+  useColorMode,
+  useTheme,
+} from '@chakra-ui/react';
 
 import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
 import TokDocsDevTools from '@components/common/TokDocsDevTool';
@@ -12,6 +17,8 @@ import { withGlobalModalHandlerContext } from 'contexts/modal/useGlobalModalHand
 function MyApp({ Component, pageProps }: any) {
   const theme = useTheme();
   const { colorMode } = useColorMode();
+  const br = useBreakpoint();
+  console.log({ br });
 
   return (
     // Provide the client to your App
