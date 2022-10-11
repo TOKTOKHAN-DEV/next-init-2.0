@@ -16,7 +16,7 @@ interface ExampleSectionProps {
 function ExampleSection({ selectedMenu }: ExampleSectionProps) {
   return (
     <>
-      {selectedMenu === 'redux-tookit 예시' && <ReduxToolkitSection />}
+      {selectedMenu === 'redux-toolkit 예시' && <ReduxToolkitSection />}
       {selectedMenu === 'react-hook-from 예시' && <ReactHookFormSection />}
       {selectedMenu === '모달 예시' && <ModalsSection />}
       {selectedMenu === 'throttle & debounce 예시' && <LodashSection />}

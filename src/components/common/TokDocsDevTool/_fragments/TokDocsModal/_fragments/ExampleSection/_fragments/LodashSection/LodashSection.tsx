@@ -4,7 +4,7 @@ import * as _ from 'lodash';
 
 import { Box, ChakraProps, Input, Text } from '@chakra-ui/react';
 
-const DATAS = ['원숭이', '강아지', '토끼', '다람쥐', '고양이'];
+const DATA = ['원숭이', '강아지', '토끼', '다람쥐', '고양이'];
 interface LodashPageContentProps extends ChakraProps {}
 
 function LodashSection({ ...basisProps }: LodashPageContentProps) {
@@ -21,7 +21,7 @@ function LodashSection({ ...basisProps }: LodashPageContentProps) {
   const sendQuery = React.useCallback((query: string) => {
     console.log('debounceResult : ', { query });
     if (!query.length) return;
-    const debounceResult = DATAS.find((d) => d.includes(query));
+    const debounceResult = DATA.find((d) => d.includes(query));
     if (!debounceResult) return setResult('');
     setResult(debounceResult);
   }, []);

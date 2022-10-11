@@ -1,5 +1,3 @@
-import { createBreakpoints } from '@chakra-ui/theme-tools';
-
 export const mediaSize = {
   // base <780px
   base: '0px',
@@ -10,7 +8,7 @@ export const mediaSize = {
   '2xl': '1920px', // ≥1920px
 };
 
-const breakpoints = createBreakpoints(mediaSize);
+const breakpoints = mediaSize;
 
 export default breakpoints;
 

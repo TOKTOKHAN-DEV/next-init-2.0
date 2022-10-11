@@ -80,7 +80,7 @@ function DocsMenuList({
                 </AccordionButton>
                 <AccordionPanel p="0">
                   <VStack align="flex-start">
-                    {menu.subMemu?.map((sub, idx) => {
+                    {menu.subMenu?.map((sub, idx) => {
                       if (sub.href)
                         return (
                           <LinkButton

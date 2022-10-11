@@ -5,7 +5,7 @@ import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
 import { Box, useTheme } from '@chakra-ui/react';
 
-import { AppStyleViwerDocsType } from '../../TokDocsModal.data';
+import { AppStyleViewerDocsType } from '../../TokDocsModal.data';
 import ColorSection from './_fragments/ColorSection';
 import FontWeightSection from './_fragments/FontWeightSection';
 import GeneratedIconSection from './_fragments/GeneratedIconSection';
@@ -17,11 +17,11 @@ import TextStyleSection from './_fragments/TextStyleSection';
 
 const codeStyle = atomOneDark;
 
-interface AppStyleViwerSectionProps {
-  selectedMenu: AppStyleViwerDocsType;
+interface AppStyleViewerSectionProps {
+  selectedMenu: AppStyleViewerDocsType;
 }
 
-function AppStyleViwerSection({ selectedMenu }: AppStyleViwerSectionProps) {
+function AppStyleViewerSection({ selectedMenu }: AppStyleViewerSectionProps) {
   const theme = useTheme();
   const {
     //
@@ -37,7 +37,7 @@ function AppStyleViwerSection({ selectedMenu }: AppStyleViwerSectionProps) {
 
   return (
     <>
-      {selectedMenu === 'gnerated Icons' && <GeneratedIconSection />}
+      {selectedMenu === 'generated Icons' && <GeneratedIconSection />}
       {selectedMenu === 'colors' && <ColorSection colors={colors} />}
       {selectedMenu === 'break points' && (
         <SyntaxHighlighter language="json" style={codeStyle}>
@@ -54,7 +54,7 @@ function AppStyleViwerSection({ selectedMenu }: AppStyleViwerSectionProps) {
           <ShadowSection boxShadows={shadows} />
         </Box>
       )}
-      {selectedMenu === 'latter spacing' && (
+      {selectedMenu === 'letter spacing' && (
         <LetterSpacingSection letterSpacings={letterSpacings} />
       )}
       {selectedMenu === 'font weight' && (
@@ -72,4 +72,4 @@ function AppStyleViwerSection({ selectedMenu }: AppStyleViwerSectionProps) {
   );
 }
 
-export default AppStyleViwerSection;
+export default AppStyleViewerSection;
