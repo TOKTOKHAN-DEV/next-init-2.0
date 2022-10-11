@@ -4,7 +4,7 @@ import React from 'react';
 import { Box, Text, VStack } from '@chakra-ui/layout';
 import { ChakraProps } from '@chakra-ui/system';
 
-import { mediaSize } from '@theme/foundations/breakpoints';
+import breakpoints from '@theme/foundations/breakpoints';
 import themeTextStyle from '@theme/textStyles';
 
 import useTextStyleUtils from '../_hooks/useTextStyleUtils';
@@ -32,7 +32,7 @@ const TextStyleSection = ({ textStyles }: TextStyleSectionProps) => {
                     {media}{' '}
                     <Text as="span" textStyle="sm" color="gray.600">
                       (@media min-width:
-                      {mediaSize[media as keyof typeof mediaSize]})
+                      {breakpoints[media as keyof typeof breakpoints]})
                     </Text>
                   </Text>
                   <Text textStyle="lg" color="gray.600" {...css}>

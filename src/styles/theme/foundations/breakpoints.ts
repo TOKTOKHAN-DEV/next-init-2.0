@@ -1,4 +1,4 @@
-export const mediaSize = {
+const breakpoints = {
   // base <780px
   base: '0px',
   sm: '780px', // ≥780px
@@ -7,8 +7,6 @@ export const mediaSize = {
   xl: '1480px', // ≥1480px
   '2xl': '1920px', // ≥1920px
 };
-
-const breakpoints = mediaSize;
 
 export default breakpoints;
 
