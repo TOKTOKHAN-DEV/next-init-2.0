@@ -8,18 +8,18 @@ import {
 
 export type QueryHookParams<
   T extends CustomRequestFn,
+  Error = AxiosError<any>,
   Data = RequestFnReturn<T>,
   Variables = Parameter<T>,
-  Error = MyError | any,
 > = {
   options?: Omit<UseQueryOptions<Data, Error>, 'queryKey' | 'queryFn'>;
 } & OptionalVariables<Variables>;
 
 export type InfiniteQueryHookParams<
   T extends CustomRequestFn,
+  Error = AxiosError<any>,
   Data = RequestFnReturn<T>,
   Variables = Parameter<T>,
-  Error = MyError | any,
 > = {
   options?: Omit<
     UseInfiniteQueryOptions<Data, Error, Data, Data, any>,
@@ -29,9 +29,9 @@ export type InfiniteQueryHookParams<
 
 export type MutationHookParams<
   T extends CustomRequestFn,
+  Error = AxiosError<any>,
   Data = RequestFnReturn<T>,
   Variables = Parameter<T>,
-  Error = MyError | any,
 > = {
   options?: Omit<
     UseMutationOptions<Data, Error, Variables>,
@@ -54,5 +54,3 @@ export type UnboxPromise<T extends Promise<any>> = T extends Promise<infer U>
   : never;
 
 export type Parameter<T> = T extends (param: infer U) => any ? U : never;
-
-export type MyError = AxiosError;
