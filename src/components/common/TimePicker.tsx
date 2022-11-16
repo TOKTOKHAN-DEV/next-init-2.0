@@ -6,7 +6,7 @@ interface TimePickerProps {
   handleTimeClick?: (val: { start: number; end: number }) => void;
 }
 const TimePicker = ({ handleTimeClick }: TimePickerProps) => {
-  const timepickerRef = React.useRef<any>(null);
+  const timePickerRef = React.useRef<any>(null);
   const [active, setActive] = React.useState<boolean>(false);
   const [startPos, setStartPos] = React.useState<number>(0);
   const [endPos, setEndPos] = React.useState<number>(0);
@@ -24,23 +24,23 @@ const TimePicker = ({ handleTimeClick }: TimePickerProps) => {
 
   const onScrollHandler = () => {
     if (!active) {
-      setEndPos(timepickerRef.current.scrollLeft);
+      setEndPos(timePickerRef.current.scrollLeft);
     }
   };
   const mouseDownHandler = (e: any) => {
     setActive(true);
     setStartPos(e.clientX);
-    timepickerRef.current.style.cursor = 'grabbing';
-    timepickerRef.current.style.userSelect = 'none';
+    timePickerRef.current.style.cursor = 'grabbing';
+    timePickerRef.current.style.userSelect = 'none';
   };
   const mouseUpHandler = (e: any) => {
-    timepickerRef.current.style.cursor = 'grab';
+    timePickerRef.current.style.cursor = 'grab';
     setEndPos(startPos - e.clientX + endPos);
     setActive(false);
   };
   const mouseMoveHandler = (e: any) => {
     if (active) {
-      timepickerRef.current.scrollLeft = startPos - e.clientX + endPos;
+      timePickerRef.current.scrollLeft = startPos - e.clientX + endPos;
     }
   };
 
@@ -66,7 +66,7 @@ const TimePicker = ({ handleTimeClick }: TimePickerProps) => {
 
   return (
     <Container
-      ref={timepickerRef}
+      ref={timePickerRef}
       id="timepicker"
       overflow="auto"
       cursor="grab"

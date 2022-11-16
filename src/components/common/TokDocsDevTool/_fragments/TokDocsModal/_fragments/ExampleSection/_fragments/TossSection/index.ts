@@ -1,3 +1,3 @@
-import ToassSection from './TossSection';
+import TossSection from './TossSection';
 
-export default ToassSection;
+export default TossSection;

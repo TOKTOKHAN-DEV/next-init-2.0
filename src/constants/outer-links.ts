@@ -24,6 +24,8 @@ export const OUTER_LINKS = {
   },
   NOTION_GIT_FLOW:
     'https://toktokhan.notion.site/Git-Flow-965ac3f7739b4e008d1d2e033df5c6ae#22c49fa77cde4cb6830f738cd90c8ea2',
+  NOTION_CODE_REVIEW:
+    'https://www.notion.so/toktokhan/f13bca35530a4a3ba602cdbdf9c9a501',
   NOTION_SUMMARY: {
     MAIN: 'https://toktokhan.notion.site/1dca5ed8adc84e3f9fd8c68d8d117443',
     PUBLISHING:

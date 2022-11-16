@@ -1,11 +1,10 @@
 import React from 'react';
 
-import { CONFIG } from '@config';
-
 import { HStack, VStack } from '@chakra-ui/react';
 
 import SocialButton, { SocialType } from '@components/common/SocialButton';
 
+import { CONFIG } from '@config';
 import { SOCIAL } from '@constants/social';
 
 const SOCIAL_REDIRECT_URL = `${CONFIG.DOMAIN}`;

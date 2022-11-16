@@ -2,17 +2,9 @@ import React from 'react';
 
 import { Select } from 'chakra-react-select';
 
-import {
-  Box,
-  Button,
-  Center,
-  ChakraProps,
-  Image,
-  Text,
-} from '@chakra-ui/react';
+import { Box, Button, Center } from '@chakra-ui/react';
 
-import { ROUTES } from '@constants/routes';
-import tossPayments, { loadTossPayments } from '@tosspayments/payment-sdk';
+import { loadTossPayments } from '@tosspayments/payment-sdk';
 
 const PAYMENTS_TYPE = [
   { value: '카드', label: '카드' },
@@ -35,7 +27,7 @@ function TossSection() {
       orderId: 'WAJnmx9Tq4lb-bD59Wk8B', // orderId는 서버에서 생성 후 전달받은 값
       orderName: '똑똑한 티셔츠 외 2건',
       customerName: '박토스',
-      successUrl: `${window.location.origin}${'/sueccessUrl'}`,
+      successUrl: `${window.location.origin}${'/successUrl'}`,
       failUrl: `${window.location.origin}${'/failUrl'}`,
     });
   };
