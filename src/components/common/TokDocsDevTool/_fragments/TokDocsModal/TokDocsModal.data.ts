@@ -7,6 +7,7 @@ export const TOK_DOCS_TOPICS = [
   'Script',
   'Git Flow',
   'OnBoarding Summary',
+  'Code Review',
 ] as const;
 
 export const CONVENTION_DOCS = [
@@ -109,6 +110,11 @@ export const TOK_DOCS_MENU_DATA: TokDocsMenuType[] = [
   },
   {
     kind: 'RULES',
+    name: 'Code Review',
+    href: OUTER_LINKS.NOTION_CODE_REVIEW,
+  },
+  {
+    kind: 'RULES',
     name: 'Convention',
     subMenu: [
       { name: 'main', href: OUTER_LINKS.NOTION_CONVENTION.MAIN },
@@ -125,7 +131,6 @@ export const TOK_DOCS_MENU_DATA: TokDocsMenuType[] = [
       { name: 'apis folder', href: OUTER_LINKS.NOTION_CONVENTION.APIS_FOLDER },
     ],
   },
-
   {
     kind: 'RULES',
     name: 'OnBoarding Summary',

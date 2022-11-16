@@ -25,7 +25,7 @@ interface FormHelperProps extends FormControlProps {
 }
 
 /**
- * Chakra 의 FormControll 를 Wrapping 하여 Label, Error Text, Success Text 등을 추가로 넘겨 줄수 있는 컴포넌트입니다.
+ * Chakra 의 FormControl 을 Wrapping 하여 Label, Error Text, Success Text 등을 추가로 넘겨 줄수 있는 컴포넌트입니다.
  *
  * Chakra FormControl 은
  * Chakra 의 Form Element 를 children 으로 받아, isInvalid, isDisabled, isRequired 와 같은 상태를

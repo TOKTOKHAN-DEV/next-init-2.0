@@ -22,7 +22,7 @@ const addRefreshSubscriber = (callback: Request) => {
   refreshSubscribers.push(callback);
 };
 
-const refeshToken = async () => {
+const refreshToken = async () => {
   try {
     const token = getToken();
     if (!token?.refresh) throw new Error('not found refresh-token');
@@ -54,7 +54,7 @@ export const refresh = async (reqData: AxiosRequestConfig) => {
   if (!isTokenRefreshing) {
     try {
       isTokenRefreshing = true;
-      const token = await refeshToken();
+      const token = await refreshToken();
       // TODO 필요할 경우 여기서 토큰을 저장한다.
       onTokenRefreshed(token.access);
       // 완료되면 제거
