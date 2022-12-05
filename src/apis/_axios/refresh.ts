@@ -1,4 +1,6 @@
-import { AxiosRequestConfig } from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
+
+import { CONFIG } from '@config';
 
 import {
   TokenType,
@@ -26,8 +28,8 @@ const refreshToken = async () => {
   try {
     const token = getToken();
     if (!token?.refresh) throw new Error('not found refresh-token');
-    const { data: newToken }: { data: TokenType } = await instance.post(
-      `/v1/user/refresh/`,
+    const { data: newToken }: { data: TokenType } = await axios.post(
+      `${CONFIG.API_BASE_URL}/v1/user/refresh/`,
       { refresh: token.refresh },
     );
     setToken({ ...token, ...newToken });
