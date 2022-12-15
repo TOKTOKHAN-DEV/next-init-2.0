@@ -1,4 +1,4 @@
-# Next.js starter2
+# Next.js starter2 [![](https://img.shields.io/badge/node-v19+-blue)](https://nodejs.org/en/) [![](https://img.shields.io/badge/yarn-v1.22+-green.svg)](https://yarnpkg.com/)  
 
 똑똑한개발자에서 진행하는 프로젝트의 스타터 프로젝트 next-init 2.0입니다.
 
