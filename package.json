@@ -12,6 +12,7 @@
     "gen:theme-typings": "chakra-cli tokens src/styles/theme",
     "tokript": "tokript",
     "gen:source": "tokript gen:source",
+    "gen:api": "tokript gen:api",
     "gen:icon": "tokript gen:icon",
     "gen:img": "tokript gen:img",
     "gen:font": "tokript gen:font",
@@ -82,8 +83,9 @@
     "lint-staged": "^10.5.4",
     "minimist": "^1.2.6",
     "prettier": "^2.2.1",
+    "prettier-plugin-organize-imports": "^3.2.1",
     "react-test-renderer": "^17.0.2",
-    "tokript": "^0.9.6",
+    "tokript": "^0.9.8",
     "typescript": "^4.2.4"
   },
   "lint-staged": {
