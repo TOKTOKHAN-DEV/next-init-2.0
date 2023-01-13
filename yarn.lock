@@ -8654,10 +8654,10 @@ toggle-selection@^1.0.6:
   resolved "https://registry.npmjs.org/toggle-selection/-/toggle-selection-1.0.6.tgz"
   integrity sha1-bkWxJj8gF/oKzH2J14sVuL932jI=
 
-tokript@^0.9.9:
-  version "0.9.9"
-  resolved "https://registry.yarnpkg.com/tokript/-/tokript-0.9.9.tgz#0e10f17b2ba1253101f2952a444ffec8fb725dcf"
-  integrity sha512-zbW68erjzvFxyHaNNvGdSHcTq2dS3S5KHdm5KlU6FNms3YNF74Nap4dfobkqo3jNh4PTj+bhZLpByHGOUB6uxg==
+tokript@^0.9.91:
+  version "0.9.91"
+  resolved "https://registry.yarnpkg.com/tokript/-/tokript-0.9.91.tgz#a120523de2729ba078997557179252c72058c2d3"
+  integrity sha512-jRjRrl4RUnOl4myqDOk3JjAkDB/hkSib4bNraj6PuFmHaDZ/MhC3Q7IpzuwlMSJ8yRFCbmD3HZ9UuETQQ/0rCQ==
   dependencies:
     "@octokit/core" "^3.6.0"
     ansi-styles "^6.1.0"
@@ -8969,6 +8969,11 @@ util@^0.10.3:
   integrity sha512-0Pm9hTQ3se5ll1XihRic3FDIku70C+iHUdT/W926rSgHV5QgXsYbKZN8MSC3tJtSkhuROzvsQjAaFENRXr+19A==
   dependencies:
     inherits "2.0.3"
+
+utility-types@^3.10.0:
+  version "3.10.0"
+  resolved "https://registry.yarnpkg.com/utility-types/-/utility-types-3.10.0.tgz#ea4148f9a741015f05ed74fd615e1d20e6bed82b"
+  integrity sha512-O11mqxmi7wMKCo6HKFt5AhO4BwY3VV68YU07tgxfz8zJTIxr4BpsezN49Ffwy9j3ZpwwJp4fkRwjRzq3uWE6Rg==
 
 uuid@3.3.2:
   version "3.3.2"
