@@ -26,7 +26,8 @@ const FORBIDDEN = ['/signup', '/login'].map((route) => `!**${route}`);
         .replace(/\/index/g, '');
       return route;
     })
-    .map((route) => `${route}`);
+    .map((route) => `${route}`)
+    .sort();
 
   // write the sitemap.json
   fs.writeFileSync('public/sitemap.json', JSON.stringify(localRoutes));
