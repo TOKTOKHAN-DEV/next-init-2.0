@@ -7421,7 +7421,7 @@ process@^0.11.1:
   resolved "https://registry.yarnpkg.com/process/-/process-0.11.10.tgz#7332300e840161bda3e69a1d1d91a7d4bc16f182"
   integrity sha1-czIwDoQBYb2j5podHZGn1LwW8YI=
 
-progress@^2.0.0:
+progress@^2.0.0, progress@^2.0.3:
   version "2.0.3"
   resolved "https://registry.npmjs.org/progress/-/progress-2.0.3.tgz"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
@@ -8654,10 +8654,10 @@ toggle-selection@^1.0.6:
   resolved "https://registry.npmjs.org/toggle-selection/-/toggle-selection-1.0.6.tgz"
   integrity sha1-bkWxJj8gF/oKzH2J14sVuL932jI=
 
-tokript@^0.9.91:
-  version "0.9.91"
-  resolved "https://registry.yarnpkg.com/tokript/-/tokript-0.9.91.tgz#a120523de2729ba078997557179252c72058c2d3"
-  integrity sha512-jRjRrl4RUnOl4myqDOk3JjAkDB/hkSib4bNraj6PuFmHaDZ/MhC3Q7IpzuwlMSJ8yRFCbmD3HZ9UuETQQ/0rCQ==
+tokript@^0.9.92:
+  version "0.9.92"
+  resolved "https://registry.yarnpkg.com/tokript/-/tokript-0.9.92.tgz#bdd359dc5d574f56b0d3dfffa3edcba7e6c90407"
+  integrity sha512-XIWIFjLC839oq3C7jZ0HUeRgeUTE0Z9OpPMdOYM9W2ajA9Zr8KFxdLJ2X/YqdHipIIR8cK9tY/xZaxI8I3JBzQ==
   dependencies:
     "@octokit/core" "^3.6.0"
     ansi-styles "^6.1.0"
@@ -8675,6 +8675,7 @@ tokript@^0.9.91:
     path "^0.12.7"
     prettier "^2.6.2"
     prettier-plugin-organize-imports "^3.2.1"
+    progress "^2.0.3"
     swagger-typescript-api "^12.0.2"
     valid-url "^1.0.9"
 

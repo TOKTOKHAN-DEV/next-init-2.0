@@ -76,18 +76,29 @@ exports.module = {
     includeReactQuery: true,
     /** 생성되는 코드의 InfiniteQuery 포함 여부 입니다. */
     includeReactInfiniteQuery: true,
-    /** 생성되는 코드의 mock 파일 포함 여부 입니다. */
-    includeMock: false,
-    /** pagination 이 가능한 Api 의 query param 키 값으로써,
-     * InfiniteQuery 를 생성하기위해 해당 키워드를 포함한 api를 조회합니다 */
-    paginationKeywords: ['cursor'],
-    /** 다음 페이지를 구분하는 query param 의 핵심 키워드로써.
-     * paginationKeywords 를 통해 찾은 api 의 response 에서
-     * Property "next" url 를 찾아 해당 키값을 조회 후에,
-     * useInfiniteQuery 의 nextPageParam 을 통해 다음 페이지를 위한 param을 결정하게 됩니다.
-     */
-    paginationKey: 'cursor',
     /** Api 의 axios 요청 instance 주소입니다 */
     axiosInstancePath: '@apis/_axios/instance',
+    /**
+     * infiniteQuery 를 생성할 함수 필터입니다.
+     * - keywords:  api 의 queryParams key 에 keywords 가 포함되어 있는 항목만 생성됩니다. 키워드 배열은 AND 연산으로써 사용됩니다.
+     * ex) [limit, offset] === limit && offset
+     * - nextkey : InfiniteQuery 의 nextPage 와 nextPageParam 을 구하는 함수를 작성하기 위해 사용됩니다.
+     *
+     *  getNextPage 와 getNextPagePram 을 커스텀 하고 싶다면 넘겨지는 객체에 포함시켜 주세요,
+     */
+    paginations: [
+      {
+        keywords: ['cursor'],
+        nextKey: 'cursor',
+        /**
+         * @type undefined | string | (param: {apiInstanceName: string; functionName: string, pagination: { keywords: string[], nextKey: string }}) => string
+         */
+        // getNextPage: "",
+        /**
+         * @type undefined | string | (param: {apiInstanceName: string; functionName: string, pagination: { keywords: string[], nextKey: string }}) => string
+         */
+        // getNextPageParam: ""
+      },
+    ],
   },
 };
