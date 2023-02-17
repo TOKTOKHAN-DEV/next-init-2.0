@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { AppState } from '@features/store'
+import {ROUTES} from "@constants/routes";
 
 export default function withAuthGuard(AppComponent: NextPage<AppProps>) {
   return function WrappedAppComponent(props: AppProps) {
@@ -13,7 +14,7 @@ export default function withAuthGuard(AppComponent: NextPage<AppProps>) {
 
     useEffect(() => {
       if (isLogin === false)
-        router.replace(`/login?next=${encodeURIComponent(router.asPath)}`);
+        router.replace(`${ROUTES.LOGIN}?next=${encodeURIComponent(router.asPath)}`);
     }, [isLogin]);
 
     return isLogin !== true ? <></> : <AppComponent {...props} />
