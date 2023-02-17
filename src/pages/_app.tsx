@@ -7,12 +7,14 @@ import {
 
 import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
 import TokDocsDevTools from '@components/common/TokDocsDevTool';
+import useAuth from '@hooks/useAuth';
 
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { mode } from '@theme/foundations/colors';
 
 import withAppProvider from 'contexts/app/app.provider';
 import { withGlobalModalHandlerContext } from 'contexts/modal/useGlobalModalHandler.context';
+import { useSelector } from 'react-redux';
 
 declare global {
   interface Window {
@@ -28,7 +30,9 @@ function MyApp({ Component, pageProps }: any) {
   const br = useBreakpoint();
   console.log({ br });
 
-  return (
+  useAuth()
+  const { isLogin } = useSelector((state) => state.USER)
+  return isLogin === null ? <></> : (
     // Provide the client to your App
     <ThemeProvider
       theme={{ ...theme, colors: { ...theme.colors, ...mode[colorMode] } }}
@@ -42,3 +46,4 @@ function MyApp({ Component, pageProps }: any) {
 }
 
 export default withAppProvider(withGlobalModalHandlerContext(MyApp));
+
