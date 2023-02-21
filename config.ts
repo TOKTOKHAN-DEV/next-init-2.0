@@ -3,9 +3,20 @@ export const CONFIG = {
   DOMAIN: process.env.NEXT_PUBLIC_DOMAIN,
   API_BASE_URL: process.env.NEXT_PUBLIC_API_BASE_URL,
   APP_NAME: process.env.NEXT_PUBLIC_APP_NAME,
+  /** For Login */
   AUTH_TOKEN_KEY: process.env.NEXT_PUBLIC_AUTH_TOKEN_KEY,
+  KAKAO_CLIENT_ID: process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID,
+  NAVER_CLIENT_ID: process.env.NEXT_PUBLIC_NAVER_CLIENT_ID,
+  GOOGLE_CLIENT_ID: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
+  /** For: Analytics */
+  FACEBOOK_PIXEL_KEY: process.env.NEXT_PUBLIC_FACEBOOK_PIXEL_KEY,
+  KAKAO_PIXEL_KEY: process.env.NEXT_PUBLIC_KAKAO_PIXEL_KEY,
+  GA_KEY: process.env.NEXT_PUBLIC_GA_KEY,
 
   /** For Script w:start */
   GITHUB_TOKEN: process.env._GITHUB_TOKEN,
   GITHUB_REPO: process.env._GITHUB_REPO,
+  /** For Cypress */
+  CYPRESS_AUTH_EMAIL: process.env.CYPRESS_AUTH_EMAIL,
+  CYPRESS_AUTH_PASSWORD: process.env.CYPRESS_AUTH_PASSWORD,
 } as const;

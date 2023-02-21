@@ -14,6 +14,14 @@ import { mode } from '@theme/foundations/colors';
 import withAppProvider from 'contexts/app/app.provider';
 import { withGlobalModalHandlerContext } from 'contexts/modal/useGlobalModalHandler.context';
 
+declare global {
+  interface Window {
+    fbq: any;
+    gtag: any;
+    kakaoPixel: any;
+  }
+}
+
 function MyApp({ Component, pageProps }: any) {
   const theme = useTheme();
   const { colorMode } = useColorMode();
