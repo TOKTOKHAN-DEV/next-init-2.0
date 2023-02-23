@@ -1,53 +1,53 @@
 const textStyles = {
-  "ExtraLarge": {
+  ExtraLarge: {
     fontSize: { base: '26px', sm: '26px', md: '35px' },
     fontWeight: 700,
     lineHeight: { base: '38px', sm: '38px', md: '52px' },
   },
-  "TitleLarge": {
+  TitleLarge: {
     fontSize: { base: '20px', sm: '20px', md: '26px' },
     fontWeight: 700,
     lineHeight: { base: '29px', sm: '29px', md: '42px' },
   },
-  "Title": {
+  Title: {
     fontSize: { base: '16px', sm: '14px', md: '15px' },
     fontWeight: 700,
     lineHeight: { base: '28px', sm: '26px', md: '27px' },
   },
-  "TextLarge": {
+  TextLarge: {
     fontSize: { base: '20px', sm: '20px', md: '26px' },
     fontWeight: 400,
     lineHeight: { base: '29px', sm: '29px', md: '42px' },
   },
-  "Text": {
+  Text: {
     fontSize: { base: '16px', sm: '14px', md: '15px' },
     fontWeight: 400,
     lineHeight: { base: '28px', sm: '26px', md: '27px' },
   },
-  "TextSmall": {
+  TextSmall: {
     fontSize: { base: '12px', sm: '10px', md: '12px' },
     fontWeight: 400,
     lineHeight: { base: '18px', sm: '16px', md: '18px' },
   },
-  "Button": {
+  Button: {
     fontSize: { base: '16px', sm: '14px', md: '15px' },
     fontWeight: 700,
     lineHeight: { base: '28px', sm: '26px', md: '27px' },
   },
-  "ButtonSmall": {
+  ButtonSmall: {
     fontSize: { base: '12px', sm: '10px', md: '12px' },
     fontWeight: 700,
     lineHeight: { base: '18px', sm: '16px', md: '18px' },
   },
-  "TextActive": {
+  TextActive: {
     fontSize: { base: '16px', sm: '14px', md: '15px' },
-    textDecoration: "underline",
+    textDecoration: 'underline',
     lineHeight: { base: '28px', sm: '26px', md: '27px' },
   },
-  "TextActiveSmall": {
+  TextActiveSmall: {
     fontSize: { base: '12px', sm: '10px', md: '12px' },
     fontWeight: 400,
-    textDecoration: "underline",
+    textDecoration: 'underline',
     lineHeight: { base: '18px', sm: '16px', md: '18px' },
   },
   sm: {
