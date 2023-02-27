@@ -1,11 +1,6 @@
 import { useSelector } from 'react-redux';
 
-import {
-  ThemeProvider,
-  useBreakpoint,
-  useColorMode,
-  useTheme,
-} from '@chakra-ui/react';
+import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
 
 import { AppState } from '@features/store';
 import useAuth from '@hooks/useAuth';
@@ -30,8 +25,6 @@ declare global {
 function MyApp({ Component, pageProps }: any) {
   const theme = useTheme();
   const { colorMode } = useColorMode();
-  const br = useBreakpoint();
-  console.log({ br });
 
   useAuth();
   const { isLogin } = useSelector((state: AppState) => state.USER);
