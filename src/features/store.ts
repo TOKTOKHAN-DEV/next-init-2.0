@@ -1,4 +1,6 @@
 //@delete:line
+import { TypedUseSelectorHook, useSelector } from 'react-redux';
+
 import counterSlice from '@features/counter/counterSlice';
 import modalSlice from '@features/modal/modalSlice';
 import userSlice from '@features/user/userSlice';
@@ -18,8 +20,13 @@ export function makeStore() {
 
 const store = makeStore();
 
-export type AppState = ReturnType<typeof store.getState>
+export type AppStoreType = ReturnType<typeof store.getState>;
 
-export type AppDispatch = typeof store.dispatch
+export const useAppStore: TypedUseSelectorHook<AppStoreType> = (
+  selector,
+  equalityFn,
+) => {
+  return useSelector(selector, equalityFn);
+};
 
 export default store;

@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button, SimpleGrid } from '@chakra-ui/react';
 
-import useAppStore from '@features/useAppStore';
+import { useAppStore } from '@features/store';
 
 import SummaryCard from '@components/common/SummaryCard';
 

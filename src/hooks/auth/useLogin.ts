@@ -2,7 +2,7 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
-import useAppStore from '@features/useAppStore';
+import { useAppStore } from '@features/store';
 import { userSliceActions } from '@features/user/userSlice';
 
 import { useQueryClient } from '@tanstack/react-query';

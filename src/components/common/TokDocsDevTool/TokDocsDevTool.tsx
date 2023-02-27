@@ -5,6 +5,8 @@ import TokDocsModal from '@components/common/TokDocsDevTool/_fragments/TokDocsMo
 function TokDocsDevTools() {
   const { isOpen, onClose, onOpen } = useDisclosure();
 
+  if (process.env.NODE_ENV === 'production') return null;
+
   return (
     // Provide the client to your App
     <>

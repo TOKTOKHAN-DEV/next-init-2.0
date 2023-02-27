@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Button, Flex, Text } from '@chakra-ui/react';
 
 import { counterSliceAction } from '@features/counter/counterSlice';
-import useAppStore from '@features/useAppStore';
+import { useAppStore } from '@features/store';
 
 const ReduxToolkitSection = () => {
   const dispatch = useDispatch();
