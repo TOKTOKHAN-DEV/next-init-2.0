@@ -1,9 +1,6 @@
-import { useSelector } from 'react-redux';
-
 import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
 
-import { AppState } from '@features/store';
-import useAuth from '@hooks/useAuth';
+import useRefreshInterval from '@hooks/useRefreshInterval';
 
 import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
 import TokDocsDevTools from '@components/common/TokDocsDevTool';
@@ -26,12 +23,9 @@ function MyApp({ Component, pageProps }: any) {
   const theme = useTheme();
   const { colorMode } = useColorMode();
 
-  useAuth();
-  const { isLogin } = useSelector((state: AppState) => state.USER);
-  return isLogin === null ? (
-    <></>
-  ) : (
-    // Provide the client to your App
+  useRefreshInterval();
+
+  return (
     <ThemeProvider
       theme={{ ...theme, colors: { ...theme.colors, ...mode[colorMode] } }}
     >
