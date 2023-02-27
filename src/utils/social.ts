@@ -46,7 +46,7 @@ export const encodeOAuthState = (type: string, returnUrl?: string) => {
   );
 };
 export const decodeOAuthState = (
-  state?: string,
+  state?: string | string[],
 ): {
   type?: string;
   returnUrl?: string;

@@ -1,25 +1,24 @@
-import { NextPage } from 'next';
-import { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 
-import { AppState } from '@features/store'
+import useAppStore from '@features/useAppStore';
 
-export default function withUnAuthGuard(AppComponent: NextPage<AppProps>) {
-  return function WrappedAppComponent(props: AppProps) {
+export default function withUnAuthGuard<P>(
+  AppComponent: React.ComponentType<P>,
+) {
+  return function WrappedAppComponent(props: P) {
     const router = useRouter();
-    const { isLogin } = useSelector((state: AppState) => state.USER);
+    const isLogin = useAppStore((store) => store.USER.isLogin);
 
     useEffect(() => {
       if (isLogin === true)
         router.replace(
-          router.query?.next
-            ? decodeURIComponent(router.query?.next as string)
+          router.query?.returnUrl
+            ? decodeURIComponent(router.query?.returnUrl as string)
             : '/',
         );
-    }, [isLogin]);
+    }, [isLogin, router]);
 
-    return isLogin !== false ? <></> : <AppComponent {...props} />
-  }
+    return isLogin === false ? <AppComponent {...props} /> : <></>;
+  };
 }

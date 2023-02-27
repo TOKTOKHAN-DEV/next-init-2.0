@@ -1,19 +1,19 @@
 // import { useRouter } from 'next/router';
 // import React, { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
-
 // import { userSliceActions } from '@features/user/userSlice';
+import Splash from '@components/common/Splash';
 
 // import { setToken } from '@utils/localStorage/token';
 // import { decodeOAuthState } from '@utils/social';
 
-// import Splash from '@components/common/Splash';
-// import { useUserSocialLoginMutation } from '@apis/user/UserApi.mutation';
+// import { useUserSocialLoginCreateMutation } from 'generated/apis/User/User.query';
 
 function SocialCallback() {
   //   const router = useRouter();
   //   const dispatch = useDispatch();
-  //   const { mutate } = useUserSocialLoginMutation({
+
+  //   const { mutate } = useUserSocialLoginCreateMutation({
   //     options: {
   //       onSuccess: (res) => {
   //         setToken(res);
@@ -28,17 +28,21 @@ function SocialCallback() {
   //       },
   //     },
   //   });
+
   //   useEffect(() => {
   //     const { code, state } = router.query;
   //     const parsed = decodeOAuthState(state);
   //     if (code && parsed) {
   //       mutate({
-  //         code: String(code),
-  //         state: String(parsed.type),
+  //         data: {
+  //           code: String(code),
+  //           state: String(parsed.type),
+  //         },
   //       });
   //     }
   //   }, [mutate, router]);
-  //   return <Splash />;
+
+  return <Splash />;
 }
 
 export default SocialCallback;

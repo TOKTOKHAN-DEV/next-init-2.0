@@ -6,7 +6,7 @@ import styledConsole, { StyledConsoleArgs } from './styledConsole';
 
 interface ApiLoggerArgs extends Pick<StyledConsoleArgs, 'method'> {
   status: string | number;
-  reqData: AxiosRequestConfig;
+  reqData?: AxiosRequestConfig;
   resData: unknown;
 }
 

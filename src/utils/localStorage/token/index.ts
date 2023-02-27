@@ -11,7 +11,6 @@ const TOKEN_KEY = CONFIG.AUTH_TOKEN_KEY || '@token';
 export type TokenType = {
   access: string;
   refresh: string;
-  isRegister: boolean;
 };
 
 export const getToken = () => {
