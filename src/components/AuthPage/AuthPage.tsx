@@ -2,8 +2,6 @@ import React from 'react';
 
 import { Center, ChakraProps, Code, Text } from '@chakra-ui/react';
 
-import withAuthGuard from '@hocs/withAuthGuard';
-
 interface AuthPageProps extends ChakraProps {}
 
 function AuthPage({ ...basisProps }: AuthPageProps) {
@@ -15,4 +13,4 @@ function AuthPage({ ...basisProps }: AuthPageProps) {
   );
 }
 
-export default withAuthGuard(AuthPage);
+export default AuthPage;

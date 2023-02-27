@@ -1,6 +1,9 @@
+import React from 'react';
+
 import { ThemeProvider, useColorMode, useTheme } from '@chakra-ui/react';
 
-import useRefreshInterval from '@hooks/useRefreshInterval';
+import useRefreshInterval from '@hooks/auth/useRefreshInterval';
+import { useUpdateLoginStatus } from '@hooks/auth/useUpdateLoginStatus';
 
 import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
 import TokDocsDevTools from '@components/common/TokDocsDevTool';
@@ -23,6 +26,7 @@ function MyApp({ Component, pageProps }: any) {
   const theme = useTheme();
   const { colorMode } = useColorMode();
 
+  useUpdateLoginStatus();
   useRefreshInterval();
 
   return (

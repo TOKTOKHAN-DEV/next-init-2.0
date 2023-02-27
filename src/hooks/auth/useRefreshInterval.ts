@@ -25,10 +25,8 @@ const useRefreshInterval = () => {
   // });
   // useEffect(() => {
   //   const token = getToken();
-  //   if (!token?.refresh) {
-  //     dispatch(userSliceActions.setIsLogin(false));
-  //     return;
-  //   }
+  //   if (!token?.refresh) return;
+  //
   //   mutate({ data: { refresh: token.refresh } });
   //   const refreshInterval = setInterval(() => {
   //     mutate({ data: { refresh: token.refresh } });
