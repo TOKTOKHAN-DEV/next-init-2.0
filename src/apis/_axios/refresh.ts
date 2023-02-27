@@ -40,11 +40,11 @@ const refreshToken = async () => {
   }
 };
 
-export const refresh = async (reqData: AxiosRequestConfig) => {
+export const refresh = async (reqData?: AxiosRequestConfig) => {
   // reqData
   const retriedOriginalRequest = new Promise((resolve) => {
     addRefreshSubscriber((access: string) => {
-      if (reqData.headers) {
+      if (reqData?.headers) {
         reqData.headers.Authorization = 'Bearer ' + access;
         resolve(instance(reqData));
         return;

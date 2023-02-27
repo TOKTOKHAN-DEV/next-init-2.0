@@ -1,6 +1,7 @@
 import axios, { AxiosError } from 'axios';
 
 import { CONFIG } from '@config';
+
 import { apiLogger } from '@utils/apiLogger';
 import { getToken } from '@utils/localStorage/token';
 import styledConsole from '@utils/styledConsole';
@@ -32,11 +33,7 @@ instance.interceptors.request.use(
     const token = await getToken();
     const isAccess = !!token && !!token.access;
     if (isAccess) {
-      setAuthHeader(token.access as string);
-      return {
-        ...config,
-        headers: { ...config.headers, Authorization: `Bearer ${token.access}` },
-      };
+      config.headers.setAuthorization(`Bearer ${token.access}`);
     }
     return config;
   },
