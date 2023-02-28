@@ -16,6 +16,7 @@
     "gen:icon": "tokript gen:icon",
     "gen:img": "tokript gen:img",
     "gen:font": "tokript gen:font",
+    "gen:route": "tokript gen:route",
     "w:start": "tokript w:start",
     "commit": "tokript commit",
     "open:theme-typings": "code -r node_modules/@chakra-ui/styled-system/dist/theming.types.d.ts",
@@ -85,7 +86,7 @@
     "prettier": "^2.2.1",
     "prettier-plugin-organize-imports": "^3.2.1",
     "react-test-renderer": "^17.0.2",
-    "tokript": "^0.9.92",
+    "tokript": "^0.9.94",
     "typescript": "^4.2.4",
     "utility-types": "^3.10.0"
   },

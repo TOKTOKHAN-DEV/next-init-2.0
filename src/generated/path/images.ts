@@ -1,5 +1,4 @@
 export const MY_IMAGES = {
-  FONTS: {},
   ICONS: {
     120: { src: '/icons/120.png', alt: '120' },
     152: { src: '/icons/152.png', alt: '152' },
