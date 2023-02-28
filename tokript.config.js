@@ -28,6 +28,18 @@ exports.module = {
     /** key 값을 결정할 포멧함수입니다. 기본적으로, SNAKE_UPPER_CASE 로 생성됩니다. */
     // formatKey: (filename) => str
   },
+  'gen:route': {
+    /** 조회할 page 파일들이 포함되어있는 폴더 입니다. */
+    inputPath: 'src/pages',
+    /** 생성될 파일이 위치할 경로입니다.*/
+    outputPath: 'src/generated/path/routes.ts',
+    /** 생성될 route 객체의 이름입니다 */
+    displayName: 'ROUTES',
+    /** 포함할 route 의 glob 패턴입니다. */
+    includingPattern: [],
+    /** 제외될 route 의 glob 패턴입니다. */
+    ignoredPattern: ['_app.tsx', '_document.tsx', '_error.tsx', 'api/**'],
+  },
   'gen:source': {
     page: {
       /** 컴포넌트 생성시 Next Head 의 <title> 태그에 들어가게될 앱 이름입니다. */
