@@ -16,24 +16,27 @@ export const startProject = (params: { id: string; step: number }) => {
   if (!isValid()) return;
   window.fbq('track', 'ViewContent', {
     contents_id: params.id,
-    content_name: "StartProject",
+    content_name: 'StartProject',
     value: params.step,
   });
 };
 
 export const completeProject = (id: string) => {
   if (!isValid()) return;
-  window.fbq('track', 'ViewContent', { content_name: "CompleteProject", content_ids: id });
+  window.fbq('track', 'ViewContent', {
+    content_name: 'CompleteProject',
+    content_ids: id,
+  });
 };
 
 export const consultingApply = () => {
   if (!isValid()) return;
-  window.fbq('track', 'Lead', { content_name: "ConsultingApply" });
+  window.fbq('track', 'Lead', { content_name: 'ConsultingApply' });
 };
 
 export const requestApply = () => {
   if (!isValid()) return;
-  window.fbq('track', 'Lead', { content_name: "RequestApply" });
+  window.fbq('track', 'Lead', { content_name: 'RequestApply' });
 };
 
 export const FacebookSetter = () => {
