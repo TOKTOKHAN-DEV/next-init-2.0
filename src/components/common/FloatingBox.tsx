@@ -11,7 +11,7 @@ const FloatingBox = ({ position, children }: FloatingBoxProps) => {
       bottom={position === 'bottom' ? '30px' : 'none'}
       top={position === 'top' ? '30px' : 'none'}
       right="16px"
-      zIndex="999"
+      zIndex="9999"
     >
       {children}
     </Box>

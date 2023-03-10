@@ -1,10 +1,4 @@
-import { getColorSchema } from '@utils/color-generator';
-
-const Light = {
-  primary: getColorSchema('#4850FF'),
-  secondary: getColorSchema('#7B61FF'),
-  warning: getColorSchema('#FF6060'),
-  success: getColorSchema('#4850FF'),
+const Colors = {
   gray: {
     50: '#FAFAFA',
     100: '#F7F7F7',
@@ -19,33 +13,6 @@ const Light = {
   },
   black: '#1A1A1A',
   white: '#FFFFFF',
-  background: {
-    primary: '#FFFFFF',
-    secondary: '#FAFAFA',
-    tertiary: '#F0F0F0',
-  },
-  modal: '#FFFFFF',
-};
-
-const Dark = {
-  primary: getColorSchema('#485BFF'),
-  secondary: getColorSchema('#755AFF'),
-  warning: getColorSchema('#FF6060'),
-  success: getColorSchema('#4850FF'),
-  gray: {
-    50: '#292A2E',
-    100: '#313236',
-    200: '#39393D',
-    300: '#4A4D55',
-    400: '#5C606A',
-    500: '#757983',
-    600: '#8C919F',
-    700: '#B8BCC8',
-    800: '#D1D4DD',
-    900: '#DFE1E7',
-  },
-  black: '#E5E7EC',
-  white: '#232325',
   background: {
     primary: '#FFFFFF',
     secondary: '#FAFAFA',
@@ -87,19 +54,14 @@ const Dim = {
   secondary: '#1A1A1A33',
 };
 
-const mode = {
-  light: Light,
-  dark: Dark,
-};
-
 const colors = {
-  ...Light,
+  ...Colors,
   ...Brand,
   dim: {
     ...Dim,
   },
 };
 
-export { mode, Brand, Light, Dark, Dim };
+export { Brand, Colors, Dim };
 
 export default colors;

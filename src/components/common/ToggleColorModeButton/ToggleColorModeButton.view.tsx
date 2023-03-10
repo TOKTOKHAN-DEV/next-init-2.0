@@ -15,7 +15,7 @@ export const ToggleColorModeButtonView = ({
     <FloatingBox position="top">
       <Button
         onClick={toggleColorMode}
-        colorScheme="dark"
+        colorScheme="primary"
         w="50px"
         h="50px"
         borderRadius="full"
