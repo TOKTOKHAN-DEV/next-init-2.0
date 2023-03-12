@@ -21,6 +21,7 @@ const HomeHeaderDrawer = ({
       <DrawerContent>
         <DrawerBody //
           {...bodyProps}
+          color="primary"
           py="0px"
           px="16px"
           position="relative"

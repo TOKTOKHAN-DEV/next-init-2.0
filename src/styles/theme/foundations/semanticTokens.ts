@@ -1,3 +1,5 @@
+import { SemanticValue } from '@chakra-ui/react';
+
 import { getColorSchema } from '@utils/color-generator';
 
 const Colors = {
@@ -8,7 +10,9 @@ const Colors = {
   success: getColorSchema('success', '#4850FF', '#4850FF'),
 };
 
-const getValues = <T extends object>(colors: T) => {
+const getValues = <T extends object>(
+  colors: T,
+): SemanticValue<string, string> => {
   return Object.values(colors).reduce((acc, cur) => ({ ...acc, ...cur }), {});
 };
 

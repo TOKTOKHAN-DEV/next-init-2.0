@@ -198,7 +198,7 @@ const sizes = {
     w: ['60px', '70px', '80px'],
     h: '26px',
     fontSize: ['12px', '10px', '12px'],
-    px: '8px',
+    px: '10px',
   }),
 };
 

@@ -39,6 +39,7 @@ const HomeHeader = ({ variant = 'light' }: HomeHeaderProps) => {
         />
         <Image src="/images/header/menu.png" w="24px" h="24px" />
         <IconButton //
+          size={'xs'}
           color={cssByVariant.pointColor}
           icon={<MenuIcon w="24px" h="24px" />}
           onClick={onOpen}

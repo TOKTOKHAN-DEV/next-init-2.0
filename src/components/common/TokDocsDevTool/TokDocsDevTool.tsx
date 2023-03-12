@@ -10,7 +10,13 @@ function TokDocsDevTools() {
   return (
     // Provide the client to your App
     <>
-      <Button onClick={onOpen} position="fixed" bottom="5%" right="5%">
+      <Button
+        size={'xs'}
+        onClick={onOpen}
+        position="fixed"
+        bottom="5%"
+        right="5%"
+      >
         TOK DOCS
       </Button>
       <TokDocsModal isOpen={isOpen} onClose={onClose} />
