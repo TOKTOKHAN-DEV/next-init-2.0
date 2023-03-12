@@ -1,13 +1,33 @@
 import { SemanticValue } from '@chakra-ui/react';
 
-import { getColorSchema } from '@utils/color-generator';
+import getColorSemanticTokens from '@utils/color-generator/getColorSemanticTokens';
+
+const Tertiary = {
+  light: {
+    50: '#FAFAFA',
+    100: '#ffc179',
+    200: '#ffb55f',
+    300: '#ffaa46',
+    400: '#ff9e2c',
+    500: '#FF9213',
+    600: '#f88600',
+    700: '#df7800',
+    800: '#c56a00',
+    900: '#ac5d00',
+  },
+  dark: {
+    500: '#F9BC00',
+    600: '#dfa900',
+    700: '#c69500',
+  },
+};
 
 const Colors = {
-  primary: getColorSchema('primary', '#4850FF', '#FF6060'),
-  test: getColorSchema('test', '#17c554', '#FF6060'),
-  secondary: getColorSchema('secondary', '#7B61FF', '#FF6060'),
-  warning: getColorSchema('warning', '#FF6060', '#FF6060'),
-  success: getColorSchema('success', '#4850FF', '#4850FF'),
+  primary: getColorSemanticTokens('primary', '#4850FF', '#4850FF'),
+  secondary: getColorSemanticTokens('secondary', '#7B61FF', '#7B61FF'),
+  warning: getColorSemanticTokens('warning', '#FF6060', '#FF6060'),
+  success: getColorSemanticTokens('success', '#4850FF', '#4850FF'),
+  tertiary: getColorSemanticTokens('tertiary', Tertiary.light, Tertiary.dark),
 };
 
 const getValues = <T extends object>(

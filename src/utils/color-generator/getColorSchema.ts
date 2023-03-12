@@ -1,21 +1,14 @@
 import { getColorToneSafety } from './getColorToneSafety';
 
 type ColorKey = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
-
 type Options = {
   keys?: ColorKey[];
   percent?: number;
 };
 
-type Values = {
-  default: string;
-  _dark?: string;
-};
 /**
  * target color 를 기준으로 밝기를 조절하여 chakra 의 color schema 형태로 반환하는 함수입니다.
- * @param keyName - 대상 이름 (eg. primary, secondary..)
- * @param color - 대상 색상 (Light Mode)
- * @param darkColor - 대상 색상 (Dark Mode)
+ * @param color - 대상 색상
  * @param {Array} [options.keys = [50,100,200,300,400,500,600,700,800,900]]
  *  - 가져올 색상을 결정합니다. Default value: [50, 100, ...900].
  *  - ex) [500, 600, 700] = {500: #aaaaaa , 600: #bbbbbb, 700: #cccccc}
@@ -23,12 +16,7 @@ type Values = {
  * - 기본컬러 부터(500)의 색상 밝기 간격을 결정합니다.
  * - ex) percent 가 5% 일때 400 은 밝기가  500 에서 +5% 된 색상이고, 300 컬러는 +10% 색상입니다.
  */
-export function getColorSchema(
-  keyName: string,
-  lightColor: string,
-  darkColor: string,
-  options?: Options,
-) {
+export function getColorSchema(color: string, options?: Options) {
   const {
     percent = 5,
     keys = [
@@ -46,34 +34,27 @@ export function getColorSchema(
   } = options || {};
 
   const { darkTones, lightTones } = getColorToneSafety({
-    color: lightColor, //
+    color, //
     percent,
     safetyLength: getSafetyLength(keys),
   });
-  const { darkTones: darkTonesForDark, lightTones: lightTonesForDark } =
-    getColorToneSafety({
-      color: darkColor, //
-      percent,
-      safetyLength: getSafetyLength(keys),
-    });
 
   const colorMap = {
-    50: { default: lightTones[5], _dark: lightTonesForDark[5] },
-    100: { default: lightTones[4], _dark: lightTonesForDark[4] },
-    200: { default: lightTones[3], _dark: lightTonesForDark[3] },
-    300: { default: lightTones[2], _dark: lightTonesForDark[2] },
-    400: { default: lightTones[1], _dark: lightTonesForDark[1] },
-    500: { default: lightColor, _dark: darkColor },
-    600: { default: darkTones[1], _dark: darkTonesForDark[1] },
-    700: { default: darkTones[2], _dark: darkTonesForDark[2] },
-    800: { default: darkTones[3], _dark: darkTonesForDark[3] },
-    900: { default: darkTones[4], _dark: darkTonesForDark[4] },
+    50: lightTones[5],
+    100: lightTones[4],
+    200: lightTones[3],
+    300: lightTones[2],
+    400: lightTones[1],
+    500: color,
+    600: darkTones[1],
+    700: darkTones[2],
+    800: darkTones[3],
+    900: darkTones[4],
   };
 
-  const colorSchema: Partial<Record<string, Values>> = {};
-  colorSchema[keyName] = colorMap[500];
-  for (const key of keys)
-    colorSchema[keyName + '.' + key.toString()] = colorMap[key];
+  const colorSchema: Partial<Record<ColorKey, string>> = {};
+  for (const key of keys) colorSchema[key] = colorMap[key];
+
   return colorSchema;
 }
 
