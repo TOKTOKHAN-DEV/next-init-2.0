@@ -1,15 +1,5 @@
-import { extend } from 'lodash';
-
 import { getColorSchema } from './getColorSchema';
-
-type ColorKey = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
-type LightColorValues = Required<DarkColorValues>;
-type DarkColorValues = Partial<Record<ColorKey, string>> & Record<500, string>;
-
-type SemanticTokenValue = {
-  default?: string;
-  _dark?: string;
-};
+import { ColorKey, ColorSchema, ColorToken } from './types';
 
 /**
  * @brief CSS selectors 환경에 호환되는 semanticToken을 생성하는 함수입니다.
@@ -26,24 +16,31 @@ type SemanticTokenValue = {
  * @returns semantic Token schema 형태를 가지는 객체 모음으로 반환
  */
 
-const getColorSemanticTokens = (
-  keyName: string,
-  light: string | LightColorValues,
-  dark: string | DarkColorValues,
-) => {
+const getColorSemanticTokens = <
+  KeyName extends string,
+  LightScheme extends string | Partial<ColorSchema>,
+  DarkScheme extends string | Partial<LightScheme>,
+>(
+  keyName: KeyName,
+  light: LightScheme,
+  dark?: DarkScheme,
+): Record<string, ColorToken> => {
   const lightSchema = typeof light === 'string' ? getColorSchema(light) : light;
   const darkSchema = typeof dark === 'string' ? getColorSchema(dark) : dark;
 
   const keyNumbers = Object.keys(lightSchema) as unknown as ColorKey[];
 
   const mainColor = {
-    [keyName]: { default: lightSchema[500], _dark: darkSchema[500] },
+    [keyName]: {
+      default: lightSchema?.[500] || 'black',
+      _dark: darkSchema?.[500] || lightSchema?.[500] || 'black',
+    },
   };
-  const semanticTokens = keyNumbers.reduce<Record<string, SemanticTokenValue>>(
+  const semanticTokens = keyNumbers.reduce<Record<string, ColorToken>>(
     (acc, cur) => {
       acc[`${keyName}.${cur}`] = {
-        default: lightSchema[cur],
-        _dark: darkSchema[cur] || lightSchema[cur],
+        default: lightSchema[cur] || 'black',
+        _dark: darkSchema?.[cur] || lightSchema[cur] || 'black',
       };
 
       return acc;

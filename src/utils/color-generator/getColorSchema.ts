@@ -1,6 +1,6 @@
 import { getColorToneSafety } from './getColorToneSafety';
+import { ColorKey, ColorSchema } from './types';
 
-type ColorKey = 50 | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
 type Options = {
   keys?: ColorKey[];
   percent?: number;
@@ -16,7 +16,7 @@ type Options = {
  * - 기본컬러 부터(500)의 색상 밝기 간격을 결정합니다.
  * - ex) percent 가 5% 일때 400 은 밝기가  500 에서 +5% 된 색상이고, 300 컬러는 +10% 색상입니다.
  */
-export function getColorSchema(color: string, options?: Options) {
+export function getColorSchema(color: string, options?: Options): ColorSchema {
   const {
     percent = 5,
     keys = [
@@ -52,7 +52,7 @@ export function getColorSchema(color: string, options?: Options) {
     900: darkTones[4],
   };
 
-  const colorSchema: Partial<Record<ColorKey, string>> = {};
+  const colorSchema = {} as ColorSchema;
   for (const key of keys) colorSchema[key] = colorMap[key];
 
   return colorSchema;
