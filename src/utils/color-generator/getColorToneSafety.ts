@@ -43,6 +43,7 @@ export function getColorToneSafety({
    - target length: light: ${safetyLength.light}, dark: ${safetyLength.dark}
    - current length: light: ${colorTone.lightTones.length}, dark: ${colorTone.darkTones.length}
   `);
+
   if (isInValidLength) {
     const nextPercentage = percent - 2;
     console.warn(`The correct length cannot be obtained from this color(${color}).

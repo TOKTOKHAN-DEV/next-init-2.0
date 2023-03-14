@@ -30,12 +30,11 @@ const getColorSemanticTokens = <
 
   const keyNumbers = Object.keys(lightSchema) as unknown as ColorKey[];
 
-  const mainColor = {
-    [keyName]: {
-      default: lightSchema?.[500] || 'black',
-      _dark: darkSchema?.[500] || lightSchema?.[500] || 'black',
-    },
-  };
+  const mainColor =
+    '500' in (lightSchema as Object) &&
+    getMainColorSchema(keyName, lightSchema, darkSchema);
+
+  if (keyNumbers.length === 1 && mainColor) return mainColor;
   const semanticTokens = keyNumbers.reduce<Record<string, ColorToken>>(
     (acc, cur) => {
       acc[`${keyName}.${cur}`] = {
@@ -45,10 +44,27 @@ const getColorSemanticTokens = <
 
       return acc;
     },
-    { ...mainColor },
+    mainColor ? mainColor : {},
   );
 
   return semanticTokens;
+};
+
+const getMainColorSchema = <
+  KeyName extends string,
+  LightScheme extends string | Partial<ColorSchema>,
+  DarkScheme extends string | Partial<LightScheme>,
+>(
+  keyName: KeyName,
+  lightSchema: LightScheme,
+  darkSchema?: DarkScheme,
+) => {
+  return {
+    [keyName]: {
+      default: lightSchema?.[500] || 'black',
+      _dark: darkSchema?.[500] || lightSchema?.[500] || 'black',
+    },
+  };
 };
 
 export default getColorSemanticTokens;
