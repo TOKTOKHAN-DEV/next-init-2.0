@@ -1,14 +1,7 @@
-import { SemanticValue } from '@chakra-ui/react';
+import colors from './colors';
 
-import semanticColors from './semanticColors';
-
-const getValues = <T extends object>(
-  colors: T,
-): SemanticValue<string, string> => {
-  return Object.values(colors).reduce((acc, cur) => ({ ...acc, ...cur }), {});
-};
 const semanticTokens = {
-  colors: getValues<typeof semanticColors>(semanticColors),
+  colors,
 };
 
 export default semanticTokens;
