@@ -27,44 +27,46 @@ const getColorSemanticTokens = <
 ): Record<string, ColorToken> => {
   const lightSchema = typeof light === 'string' ? getColorSchema(light) : light;
   const darkSchema = typeof dark === 'string' ? getColorSchema(dark) : dark;
-
   const keyNumbers = Object.keys(lightSchema) as unknown as ColorKey[];
 
+  const has500 = '500' in (lightSchema as Object);
   const mainColor =
-    '500' in (lightSchema as Object) &&
-    getMainColorSchema(keyName, lightSchema, darkSchema);
+    has500 &&
+    createToken({
+      keyName,
+      light: lightSchema[500] || 'black',
+      dark: darkSchema?.[500] || lightSchema[500] || 'black',
+    });
 
-  if (keyNumbers.length === 1 && mainColor) return mainColor;
+  const hasOnlyMainColor = keyNumbers.length === 1 && mainColor;
+  if (hasOnlyMainColor) return mainColor;
+
   const semanticTokens = keyNumbers.reduce<Record<string, ColorToken>>(
     (acc, cur) => {
-      acc[`${keyName}.${cur}`] = {
-        default: lightSchema[cur] || 'black',
-        _dark: darkSchema?.[cur] || lightSchema[cur] || 'black',
-      };
-
-      return acc;
+      const token = createToken({
+        keyName: `${keyName}.${cur}`,
+        light: lightSchema[cur] || 'black',
+        dark: darkSchema?.[cur] || lightSchema[cur] || 'black',
+      });
+      return { ...acc, ...token };
     },
-    mainColor ? mainColor : {},
+    mainColor || {},
   );
 
   return semanticTokens;
 };
 
-const getMainColorSchema = <
-  KeyName extends string,
-  LightScheme extends string | Partial<ColorSchema>,
-  DarkScheme extends string | Partial<LightScheme>,
->(
-  keyName: KeyName,
-  lightSchema: LightScheme,
-  darkSchema?: DarkScheme,
-) => {
+const createToken = <KeyName extends string>(params: {
+  keyName: KeyName;
+  light: string;
+  dark?: string;
+}): Record<KeyName, ColorToken> => {
   return {
-    [keyName]: {
-      default: lightSchema?.[500] || 'black',
-      _dark: darkSchema?.[500] || lightSchema?.[500] || 'black',
+    [params.keyName]: {
+      default: params.light,
+      _dark: params.dark,
     },
-  };
+  } as Record<KeyName, ColorToken>;
 };
 
 export default getColorSemanticTokens;

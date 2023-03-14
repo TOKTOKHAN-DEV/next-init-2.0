@@ -25,7 +25,6 @@ function AppStyleViewerSection({ selectedMenu }: AppStyleViewerSectionProps) {
   const theme = useTheme();
   const {
     //
-    colors,
     breakpoints,
     space,
     shadows,
@@ -33,12 +32,15 @@ function AppStyleViewerSection({ selectedMenu }: AppStyleViewerSectionProps) {
     radii,
     fontWeights,
     textStyles,
+    semanticTokens,
   } = theme;
 
   return (
     <>
       {selectedMenu === 'generated Icons' && <GeneratedIconSection />}
-      {selectedMenu === 'colors' && <ColorSection colors={colors} />}
+      {selectedMenu === 'colors' && (
+        <ColorSection colors={semanticTokens.colors} />
+      )}
       {selectedMenu === 'break points' && (
         <SyntaxHighlighter language="json" style={codeStyle}>
           {JSON.stringify(breakpoints, null, 4)}
