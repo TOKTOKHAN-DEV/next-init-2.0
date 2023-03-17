@@ -1,12 +1,14 @@
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { ComponentProps, ComponentType, useEffect } from 'react';
 
 import { useAppStore } from '@features/store';
 
 import { ROUTES } from '@constants/routes';
 
-export default function withAuthGuard<T>(AppComponent: React.ComponentType<T>) {
-  return function WrappedAppComponent(props: T) {
+export default function withAuthGuard<T extends ComponentType<any>>(
+  AppComponent: T,
+) {
+  return function WrappedAppComponent(props: ComponentProps<T>) {
     const router = useRouter();
     const isLogin = useAppStore((store) => store.USER.isLogin);
 

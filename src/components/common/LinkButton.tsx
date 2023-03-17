@@ -9,7 +9,7 @@ import { Button, ButtonProps } from '@chakra-ui/react';
 
 export interface LinkButtonProps
   extends LinkProps,
-    Omit<ButtonProps, 'as' | 'onMouseEnter' | 'onClick'> {
+    Omit<ButtonProps, 'as' | 'onMouseEnter' | 'onClick' | 'onTouchStart'> {
   target?: React.AnchorHTMLAttributes<HTMLAnchorElement>['target'];
 }
 

@@ -1,4 +1,4 @@
-import { ComponentSingleStyleConfig } from '@chakra-ui/theme';
+import { ComponentSingleStyleConfig } from '@chakra-ui/react';
 
 export const Heading: ComponentSingleStyleConfig = {
   baseStyle: {},

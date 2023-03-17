@@ -32,9 +32,6 @@ export const requestApply = () => {
   window.gtag('event', 'RequestApply');
 };
 
-
-
-
 export const GASetter = () => {
   if (!CONFIG.GA_KEY) return <></>;
   return (

@@ -46,7 +46,7 @@ export const getColorToken = <T extends string | Partial<ColorSchema>>({
   const keyNumbers = Object.keys(light) as unknown as ColorKey[];
 
   const mainColor =
-    '500' in light &&
+    '500' in (light as Object) &&
     createToken({
       key,
       light: light[500] || 'black',

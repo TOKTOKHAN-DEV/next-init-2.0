@@ -14,12 +14,16 @@ export const completeRegistration = (social: string) => {
 
 export const startProject = (params: { id: string; step: number }) => {
   if (!isValid()) return;
-  window.kakaoPixel(CONFIG.KAKAO_PIXEL_KEY).viewContent({ id: params.id, tag: params.step });
+  window
+    .kakaoPixel(CONFIG.KAKAO_PIXEL_KEY)
+    .viewContent({ id: params.id, tag: params.step });
 };
 
 export const completeProject = (id: string) => {
   if (!isValid()) return;
-  window.kakaoPixel(CONFIG.KAKAO_PIXEL_KEY).addToCart({ id: id, tag: 'complete' });
+  window
+    .kakaoPixel(CONFIG.KAKAO_PIXEL_KEY)
+    .addToCart({ id: id, tag: 'complete' });
 };
 
 export const consultingApply = () => {
@@ -31,7 +35,6 @@ export const requestApply = () => {
   if (!isValid()) return;
   window.kakaoPixel(CONFIG.KAKAO_PIXEL_KEY).participation('Consulting');
 };
-
 
 export const KakaoSetter = () => {
   if (!CONFIG.KAKAO_PIXEL_KEY) return <></>;

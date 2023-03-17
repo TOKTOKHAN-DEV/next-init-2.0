@@ -1,4 +1,4 @@
-# Next.js starter2 [![](https://img.shields.io/badge/node-v19+-blue)](https://nodejs.org/en/) [![](https://img.shields.io/badge/yarn-v1.22+-green.svg)](https://yarnpkg.com/)  
+# Next.js starter2 [![](https://img.shields.io/badge/node-v19+-blue)](https://nodejs.org/en/) [![](https://img.shields.io/badge/yarn-v1.22+-green.svg)](https://yarnpkg.com/)
 
 똑똑한개발자에서 진행하는 프로젝트의 스타터 프로젝트 next-init 2.0입니다.
 
@@ -59,8 +59,8 @@ Css, Chakra-ui theme configuration files are placed into this folder.
 
     .
     ├── ...
-    ├── styles           
-    │   ├── theme        
+    ├── styles
+    │   ├── theme
     │       └── index.ts
     │       └── styles.ts
     │       └── textStyles.ts
@@ -71,13 +71,13 @@ Css, Chakra-ui theme configuration files are placed into this folder.
 Api call related functions.
 
     .
-    ├── apis              
-    │   ├── _axios        
+    ├── apis
+    │   ├── _axios
     │       └── instance.ts
     │       └── useCustomInstance.ts
-    │   ├── auth          
-    │   ├── example       
-    │   ├── theme         
+    │   ├── auth
+    │   ├── example
+    │   ├── theme
     └── ...
 
 ### Components
@@ -86,15 +86,15 @@ Components are independent and reusable bits of code.
 
     .
     ├── ...
-    ├── components   
-    │ ├── common     
-    │   ├── @Icons   
-    │   ├── @Layout  
-    │   ├── Select   
-    │   ├── Calendar 
-    │   └── ...      
-    │ ├── elements   
-    │ ├── hooks       
+    ├── components
+    │ ├── common
+    │   ├── @Icons
+    │   ├── @Layout
+    │   ├── Select
+    │   ├── Calendar
+    │   └── ...
+    │ ├── elements
+    │ ├── hooks
     └── ...
 
 ### Hooks
@@ -103,12 +103,13 @@ Custom hook allows you to extract some components logic into a reusable function
 
       .
     ├── ...
-    ├── components   
-    │ ├── common     
-    │ ├── elements   
-    │ ├── hooks      
-    │   ├── useSize.ts       
+    ├── components
+    │ ├── common
+    │ ├── elements
+    │ ├── hooks
+    │   ├── useSize.ts
     └── ...
+
 ### Utils
 
 Small snippets you can use throughout the application. Short and specific functions and constants used throughout application.
@@ -168,22 +169,19 @@ see more [README.md](/src/scripts/README.md)
   ```tsx
   // bad
   import reservationCard from './ReservationCard';
- 
   // good
   import ReservationCard from './ReservationCard';
-  
-  
+
   // bad
   const ReservationItem = <ReservationCard />;
-  
-  
+
   // good
   const reservationItem = <ReservationCard />;
   ```
 
 - **Component Naming:** Use the filename as the component name. For example, ReservationCard.tsx should have a reference name of ReservationCard. However, for root components of a directory, use index.tsx as the filename and use the directory name as the component name:
 
-  ```tsx
+  ````tsx
   // bad
   import Footer from './Footer/Footer';
 
@@ -194,10 +192,13 @@ see more [README.md](/src/scripts/README.md)
   import Footer from './Footer';
   ```# ⭐️ Stack
 
+  ````
+
 - **Framework:** [Next.js](https://nextjs.org/)
 - **State Management:** [React Query](https://react-query.tanstack.com/), [Redux Toolkit](https://redux-toolkit.js.org/)
 - **Styling:** [Chakra-ui](https://chakra-ui.com/), [Emotion](https://emotion.sh/docs/introduction)
 - **Forms:** [React Hook Form](https://react-hook-form.com/)
+
 # Reference
 
 - [Airbnb React/JSX Style Guide - Naming](https://github.com/airbnb/javascript/tree/master/react#naming)

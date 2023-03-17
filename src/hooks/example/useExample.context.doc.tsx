@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import React from 'react';
+
 import useCounter from './useExample';
 
 import constate from 'constate/dist/ts/src';
@@ -73,8 +75,8 @@ const [ExampleProvider, useExampleCount, useExampleIncrement] = constate(
  * HOC 패턴 사용을 고려해보세요 Context 를 사용하는 컴포넌트가
  * 부모 컴포넌트를 가지기 애매한 경우에 유용합니다.
  */
-function withExampleContext<T extends Function>(Component: T) {
-  return function WrappedComponent(props: Parameter<T>) {
+function withExampleContext<T extends React.ComponentType<any>>(Component: T) {
+  return function WrappedComponent(props: React.ComponentProps<T>) {
     return (
       <ExampleProvider>
         <Component {...props} />

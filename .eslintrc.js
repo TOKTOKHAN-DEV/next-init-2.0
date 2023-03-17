@@ -10,8 +10,6 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:testing-library/react',
-    'plugin:jest-dom/recommended',
     'plugin:@typescript-eslint/recommended', // 해당 플러그인의 권장 규칙을 사용합니다.
     'plugin:prettier/recommended', // plugin과 eslint-config-prettier 설정을 한번에 합니다.
   ],

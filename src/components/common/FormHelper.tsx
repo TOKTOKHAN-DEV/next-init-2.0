@@ -1,4 +1,4 @@
-import React from 'react';
+import { ReactNode } from 'react';
 
 import {
   FormControl,
@@ -8,19 +8,19 @@ import {
   FormHelperText,
   FormLabel,
   FormLabelProps,
-  HelpTextProps,
-} from '@chakra-ui/form-control';
+  TextProps,
+} from '@chakra-ui/react';
 
 interface FormHelperProps extends FormControlProps {
-  helperText?: string | JSX.Element;
-  errorText?: string | JSX.Element;
-  successText?: string | JSX.Element;
+  helperText?: ReactNode;
+  errorText?: ReactNode;
+  successText?: ReactNode;
   label?: string;
-  children: JSX.Element | JSX.Element[];
+  children: ReactNode | ReactNode[];
 
   labelProps?: FormLabelProps;
-  successTextProps?: HelpTextProps;
-  helperTextProps?: HelpTextProps;
+  successTextProps?: TextProps;
+  helperTextProps?: TextProps;
   errorTextProps?: FormErrorMessageProps;
 }
 

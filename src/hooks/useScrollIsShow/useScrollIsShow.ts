@@ -9,7 +9,7 @@ const useScrollIsShow = <T extends HTMLElement>(threshold: number) => {
   const dom = useRef<T>(null);
   const [isShow, setIsShow] = useState<boolean>(false);
 
-  const handleScroll = useCallback(([entry]) => {
+  const handleScroll: IntersectionObserverCallback = useCallback(([entry]) => {
     if (entry.isIntersecting) {
       setIsShow(true);
     } else {

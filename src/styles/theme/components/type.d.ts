@@ -1,4 +1,4 @@
-import { ComponentDefaultProps } from '@chakra-ui/theme';
+import { ComponentDefaultProps } from '@chakra-ui/react';
 import { PartsStyleInterpolation } from '@chakra-ui/theme-tools';
 
 export type ChakraMultiPartComponentType<Parts extends readonly string[]> = {

@@ -1,3 +1,4 @@
+import { ComponentProps, ComponentType } from 'react';
 import { useDispatch } from 'react-redux';
 
 import constate from 'constate';
@@ -20,10 +21,10 @@ function useGlobalModalHandler() {
 export const [GlobalModalHandlerProvider, useGlobalModalHandlerContext] =
   constate(useGlobalModalHandler);
 
-export function withGlobalModalHandlerContext<T extends Function>(
+export function withGlobalModalHandlerContext<T extends ComponentType<any>>(
   Component: T,
 ) {
-  return function WrappedComponent(props: Parameter<T>) {
+  return function WrappedComponent(props: ComponentProps<T>) {
     return (
       <GlobalModalHandlerProvider>
         <Component {...props} />

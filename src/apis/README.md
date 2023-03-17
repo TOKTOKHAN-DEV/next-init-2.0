@@ -128,11 +128,20 @@ export default postApi;
 
 ```tsx
 import { useQuery } from 'react-query';
+
 import postApi from './PostApi.ts';
+
 import { QueryHookParams } from 'apis/type';
 import { QUERY_KEY } from 'constants/query-keys';
-export const useGetPostsQuery = (params: QueryHookParams<typeof postApi.getPosts>) => {
-  return useQuery(QUERY_KEY.POST.GET(params?.variables), () => postApi.getPosts(params?.variables), params?.options);
+
+export const useGetPostsQuery = (
+  params: QueryHookParams<typeof postApi.getPosts>,
+) => {
+  return useQuery(
+    QUERY_KEY.POST.GET(params?.variables),
+    () => postApi.getPosts(params?.variables),
+    params?.options,
+  );
 };
 ```
 
@@ -148,9 +157,14 @@ export const useGetPostsQuery = (params: QueryHookParams<typeof postApi.getPosts
 
 ```tsx
 import { useMutation } from 'react-query';
+
 import postApi from './PostApi.ts';
+
 import { MutationHookParams } from 'apis/type';
-export const useDeletePostMutation = (params?: MutationHookParams<typeof postApi.deletePost>) => {
+
+export const useDeletePostMutation = (
+  params?: MutationHookParams<typeof postApi.deletePost>,
+) => {
   return useMutation(postApi.deletePost, { ...params?.options });
 };
 ```
