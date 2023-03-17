@@ -1,21 +1,41 @@
-import { getColorSchema } from '@utils/color-generator';
-import { getColorToken } from '@utils/color-generator/getColorSemanticToken';
-import { ColorSchema, ColorToken } from '@utils/color-generator/types';
+import { genColorSchema } from '@theme/utils/color/genColorSchema';
+import { getColorToken } from '@theme/utils/color/getColorSemanticToken';
+import { ColorSchema, ColorToken } from '@theme/utils/color/type';
 
-type Colors = {
+/**
+ * theme color 를 정의하는 곳입니다.
+ * dark 모드를 대응하기 위해 semantic token 을 사용해서 정의합니다.
+ * 500에 정의된 color 는 기본 컬러로써, 접근 시 500 을 붙이지 않고도 접근할 수 있습니다.
+ * ex) primary.500 => primary
+ *
+ *  @see https://chakra-ui.com/docs/styled-system/semantic-tokens
+ */
+type CustomColors = {
   [key: string]: {
-    /** 넘겨준 ColorSchema를 기준으로 ColorToken 을 생성합니다.*/
+    /**
+     * 50-900 까지의 Color Scheme 혹은 컬러 값으로 색상을 정의합니다.
+     */
     default?: Partial<ColorSchema> | string;
-    /** 넘겨준 ColorSchema를 기준으로 ColorToken 을 생성합니다.*/
+    /**
+     * 50-900 까지의 Color Scheme 혹은 컬러 값으로 색상을 정의합니다.
+     * 범위는, default 에 정의된 Schema 범위 안에서만 정의 할 수 있습니다.
+     * 정의하지 않은 schema 범위에 대해선, default 에 적용된 schema 값이 적용됩니다.
+     * ex) dark 엔 900을 정의했다면, default Schema 에도 해당 키가 존재 해야합니다.
+     */
     dark?: Partial<ColorSchema> | string;
-    /** 넘겨준 단일 컬러를 기준으로 50-900 범위의 ColorToken 을 생성합니다.*/
+    /**
+     * 넘겨준 단일 컬러를 기준으로 50-900 범위의 ColorToken 을 생성합니다.
+     * default 의 대안입니다.
+     */
     default_gen?: string;
-    /** 넘겨준 단일 컬러를 기준으로 50-900 범위의 ColorToken 을 생성합니다.*/
+    /** 넘겨준 단일 컬러를 기준으로 50-900 범위의 ColorToken 을 생성합니다.
+     *  dark 의 대안 입니다.
+     */
     dark_gen?: string;
   };
 };
 
-const colors: Colors = {
+const colors: CustomColors = {
   primary: {
     default_gen: '#4850FF',
   },
@@ -119,17 +139,17 @@ const colors: Colors = {
   },
 };
 
-const convertToColorToken = (colors: Colors) =>
+const convertToColorToken = (colors: CustomColors) =>
   Object.keys(colors).reduce<Record<string, ColorToken>>((prev, key) => {
     const color = colors[key];
     const getLight = () => {
       if (color.default) return color.default;
-      if (color.default_gen) return getColorSchema(color.default_gen);
+      if (color.default_gen) return genColorSchema(color.default_gen);
       throw Error(`should set default color on: ${key}`);
     };
     const getDark = () => {
       if (color.dark) return color.dark;
-      if (color.dark_gen) return getColorSchema(color.dark_gen);
+      if (color.dark_gen) return genColorSchema(color.dark_gen);
     };
     const token = getColorToken({
       key,

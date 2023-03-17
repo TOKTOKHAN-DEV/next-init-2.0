@@ -1,4 +1,4 @@
-import { ColorKey, ColorSchema, ColorToken } from './types';
+import { ColorKey, ColorSchema, ColorToken } from './type';
 
 /**
  * @brief CSS selectors 환경에 호환되는 semanticToken을 생성하는 함수입니다.
@@ -37,9 +37,7 @@ export const getColorToken = <T extends string | Partial<ColorSchema>>({
     typeof light === 'string' &&
     (typeof dark === 'undefined' || typeof dark === 'string');
 
-  if (isObjAndStr)
-    throw Error('should pass same type schema: obj,obj or str,str');
-  if (isStrAndObj)
+  if (isObjAndStr || isStrAndObj)
     throw Error('should pass same type schema: obj,obj or str,str');
   if (isOutBoundDark)
     throw Error('The dark schema must be within the light schema');

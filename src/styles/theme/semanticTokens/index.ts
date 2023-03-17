@@ -1,6 +1,8 @@
+import { ChakraTheme } from '@chakra-ui/react';
+
 import colors from './colors';
 
-const semanticTokens = {
+const semanticTokens: ChakraTheme['semanticTokens'] = {
   colors,
 };
 

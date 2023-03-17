@@ -1,5 +1,6 @@
-import { getColorToneSafety } from './getColorToneSafety';
-import { ColorKey, ColorSchema } from './types';
+import { ColorKey, ColorSchema } from '../type';
+import { getColorToneSafety } from './_fragments/getColorToneSafety';
+import { getSafetyLength } from './_fragments/getSafetyLength';
 
 type Options = {
   keys?: ColorKey[];
@@ -16,7 +17,7 @@ type Options = {
  * - 기본컬러 부터(500)의 색상 밝기 간격을 결정합니다.
  * - ex) percent 가 5% 일때 400 은 밝기가  500 에서 +5% 된 색상이고, 300 컬러는 +10% 색상입니다.
  */
-export function getColorSchema(color: string, options?: Options): ColorSchema {
+export function genColorSchema(color: string, options?: Options): ColorSchema {
   const {
     percent = 5,
     keys = [
@@ -56,42 +57,4 @@ export function getColorSchema(color: string, options?: Options): ColorSchema {
   for (const key of keys) colorSchema[key] = colorMap[key];
 
   return colorSchema;
-}
-
-function getSafetyLength(keys: ColorKey[]): { light: number; dark: number } {
-  // 키 별 꼭 받아와야하는 부터의 색상 갯수 ex) [50] = [500, 400, 300, 200, 100, 50]  총  6개 필요
-  const mappingLightColorSafetyLength = {
-    50: 6,
-    100: 5,
-    200: 4,
-    300: 3,
-    400: 2,
-  };
-
-  const mappingDarkColorSafetyLength = {
-    600: 2,
-    700: 3,
-    800: 4,
-    900: 5,
-  };
-
-  const safetyLengthMap = {
-    500: 1,
-    ...mappingDarkColorSafetyLength,
-    ...mappingLightColorSafetyLength,
-  };
-
-  const safetyLength = keys.reduce(
-    // prev = 초깃값 :  { dark: 0, light: 0 }
-    // cur =  key  값 : 100, 200, 300 ...
-    (prev, cur) => {
-      const updated = { ...prev };
-      if (cur < 500) updated.dark = Math.max(safetyLengthMap[cur], prev.dark);
-      if (cur > 500) updated.light = Math.max(safetyLengthMap[cur], prev.light);
-      return updated;
-    },
-    { dark: 0, light: 0 },
-  );
-
-  return safetyLength;
 }
