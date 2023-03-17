@@ -12,12 +12,11 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
+import LinkAsNext from '@components/common/LinkAsNext';
 import {
   TokDocsMenuType,
   TokDocsSubMenuTitle,
 } from '@components/common/TokDocsDevTool/_fragments/TokDocsModal/TokDocsModal.data';
-
-import LinkButton from 'components/common/LinkButton';
 
 interface MenuListProps {
   title: string;
@@ -50,13 +49,13 @@ function DocsMenuList({
                   _hover={{ hover: 'none' }}
                   _focus={{ boxShadow: 'none' }}
                 >
-                  <LinkButton
+                  <LinkAsNext
                     href={menu.href}
                     target="_blank"
                     {...buttonStyles}
                   >
                     {menu.name}
-                  </LinkButton>
+                  </LinkAsNext>
                 </AccordionButton>
               </AccordionItem>
             ) : (
@@ -83,7 +82,7 @@ function DocsMenuList({
                     {menu.subMenu?.map((sub, idx) => {
                       if (sub.href)
                         return (
-                          <LinkButton
+                          <LinkAsNext
                             {...buttonStyles}
                             key={idx}
                             href={sub.href}
@@ -91,7 +90,7 @@ function DocsMenuList({
                             target="_blank"
                           >
                             {sub.name}
-                          </LinkButton>
+                          </LinkAsNext>
                         );
 
                       return (

@@ -1,4 +1,5 @@
 module.exports = {
+  swcMinify: true,
   poweredByHeader: false,
   eslint: {
     ignoreDuringBuilds: true,
