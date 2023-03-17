@@ -16,6 +16,7 @@
     "clean-up": "node src/scripts/remove-unnecessary.js",
     "tokript": "tokript",
     "theme": "chakra-cli tokens src/styles/theme",
+    "theme:watch": "chakra-cli tokens src/styles/theme --watch",
     "theme:open": "code -r node_modules/@chakra-ui/styled-system/dist/theming.types.d.ts",
     "gen:source": "tokript gen:source",
     "gen:api": "tokript gen:api",
@@ -58,7 +59,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@chakra-ui/cli": "^2.1.8",
+    "@chakra-ui/cli": "^2.3.0",
     "@tosspayments/payment-sdk": "^1.1.1",
     "@trivago/prettier-plugin-sort-imports": "^3.2.0",
     "@types/react": "^18.0.28",
