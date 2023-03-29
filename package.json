@@ -16,7 +16,6 @@
     "clean-up": "node src/scripts/remove-unnecessary.js",
     "tokript": "tokript",
     "theme": "chakra-cli tokens src/styles/theme",
-    "theme:watch": "chakra-cli tokens src/styles/theme --watch",
     "theme:open": "code -r node_modules/@chakra-ui/styled-system/dist/theming.types.d.ts",
     "gen:source": "tokript gen:source",
     "gen:api": "tokript gen:api",
@@ -24,8 +23,7 @@
     "gen:img": "tokript gen:img",
     "gen:font": "tokript gen:font",
     "gen:route": "tokript gen:route",
-    "format": "prettier --loglevel warn --write \"**/*.{ts,tsx,css,md}\"",
-    "posttest": "npm run format"
+    "format": "prettier --loglevel warn --write \"**/*.{ts,tsx,css,md}\""
   },
   "dependencies": {
     "@chakra-ui/react": "^2.5.1",
