@@ -79,7 +79,7 @@ export const createToken = (params: {
   return {
     [params.key]: {
       default: params.light,
-      _dark: params.dark,
+      _dark: params.dark || params.light,
     },
   };
 };
