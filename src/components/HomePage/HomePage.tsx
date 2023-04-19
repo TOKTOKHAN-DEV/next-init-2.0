@@ -1,11 +1,25 @@
 import React from 'react';
 
-import { Box, BoxProps } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
-interface HomePageContentProps extends BoxProps {}
+import { useGlobalContext } from '@contexts/global/useGlobalStoreContext';
 
-function HomePageContent({ ...basisProps }: HomePageContentProps) {
-  return <Box {...basisProps}>Hello World</Box>;
+import { todoStorage } from '@utils/web-storage/todo';
+
+function HomePageContent() {
+  const todos = useGlobalContext((ctx) => ctx.webStorage.todoList);
+  return (
+    <Box>
+      <button
+        onClick={() => todoStorage?.set([...(todos || []), { text: 'value' }])}
+      >
+        add
+      </button>
+      {todos?.map((d, idx) => (
+        <li key={idx}>{d.text}</li>
+      ))}
+    </Box>
+  );
 }
 
 export default HomePageContent;

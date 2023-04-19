@@ -1,15 +1,14 @@
 import React from 'react';
 
 import useRefreshInterval from '@hooks/auth/useRefreshInterval';
-import { useUpdateLoginStatus } from '@hooks/auth/useUpdateLoginStatus';
 
 import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
 import TokDocsDevTools from '@components/common/TokDocsDevTool';
 
+import withAppProvider from '@hocs/withAppProvider';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-import withAppProvider from 'contexts/app/app.provider';
-import { withGlobalModalHandlerContext } from 'contexts/modal/useGlobalModalHandler.context';
+import Fonts from 'generated/fonts/fonts';
 
 declare global {
   interface Window {
@@ -20,11 +19,11 @@ declare global {
 }
 
 function MyApp({ Component, pageProps }: any) {
-  useUpdateLoginStatus();
   useRefreshInterval();
 
   return (
     <React.Fragment>
+      <Fonts />
       <ToggleColorModeButton />
       <Component {...pageProps} />
       <ReactQueryDevtools initialIsOpen={false} />
@@ -33,4 +32,4 @@ function MyApp({ Component, pageProps }: any) {
   );
 }
 
-export default withAppProvider(withGlobalModalHandlerContext(MyApp));
+export default withAppProvider(MyApp);

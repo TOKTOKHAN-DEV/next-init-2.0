@@ -16,7 +16,6 @@ const HomeHeader = ({ variant = 'light' }: HomeHeaderProps) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const cssByVariant = HOME_HEADER_VARIANTS[variant];
-
   return (
     <>
       <Flex //

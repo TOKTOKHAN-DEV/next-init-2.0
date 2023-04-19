@@ -4,6 +4,8 @@ import React from 'react';
 import HomePage from '@components/HomePage';
 import HomeLayout from '@components/common/@Layout/HomeLayout';
 
+import withHomePageProvider from '@hocs/withHomePageProvider';
+
 function Home() {
   return (
     <>
@@ -16,4 +18,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default withHomePageProvider(Home);
