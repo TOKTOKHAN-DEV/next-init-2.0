@@ -1,14 +1,10 @@
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
 
-import { useAppStore } from '@features/store';
+import { useGlobalContext } from '@contexts/global/useGlobalStoreContext';
 
 import { useQueryClient } from '@tanstack/react-query';
 import { deleteToken, getToken } from '@utils/localStorage/token';
 
-jest.mock('react-redux', () => ({
-  useDispatch: jest.fn(),
-}));
 jest.mock('@utils/localStorage/token', () => ({
   getToken: jest.fn(),
   deleteToken: jest.fn(),
@@ -19,26 +15,21 @@ jest.mock('next/router', () => ({
 jest.mock('@features/store', () => ({
   useAppStore: jest.fn(),
 }));
-jest.mock('react-redux');
 jest.mock('@tanstack/react-query');
 
-const __useDispatch = useDispatch as MockedFn<typeof useDispatch>;
-const __useAppStore = useAppStore as MockedFn<typeof useAppStore>;
+const __useGlobalContext = useGlobalContext as MockedFn<
+  typeof useGlobalContext
+>;
 const __useRouter = useRouter as MockedFn<typeof useRouter>;
 const __useQueryClient = useQueryClient as MockedFn<typeof useQueryClient>;
 
 const __getToken = getToken as MockedFn<typeof getToken>;
 const __deleteToken = deleteToken as MockedFn<typeof deleteToken>;
 
-const __dispatch = jest.fn();
-__useDispatch.mockReturnValue(__dispatch);
-
 export {
   //
-  __useDispatch,
   __getToken,
-  __dispatch,
-  __useAppStore,
+  __useGlobalContext,
   __useRouter,
   __useQueryClient,
   __deleteToken,

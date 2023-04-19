@@ -3,7 +3,6 @@ import React from 'react';
 import { ExampleDocsType } from '../../TokDocsModal.data';
 import LodashSection from './_fragments/LodashSection';
 import ReactHookFormSection from './_fragments/ReactHookFormSection';
-import ReduxToolkitSection from './_fragments/ReduxToolkitSection';
 import S3FileUploadSection from './_fragments/S3FileUploadSection';
 import SocialSection from './_fragments/SocialSection';
 import TossSection from './_fragments/TossSection';
@@ -15,7 +14,6 @@ interface ExampleSectionProps {
 function ExampleSection({ selectedMenu }: ExampleSectionProps) {
   return (
     <>
-      {selectedMenu === 'redux-toolkit 예시' && <ReduxToolkitSection />}
       {selectedMenu === 'react-hook-from 예시' && <ReactHookFormSection />}
       {selectedMenu === 'throttle & debounce 예시' && <LodashSection />}
       {selectedMenu === '소셜 로그인 예시' && <SocialSection />}

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { ComponentProps, ComponentType, useEffect } from 'react';
 
-import { useAppStore } from '@features/store';
+import { useGlobalContext } from '@contexts/global/useGlobalStoreContext';
 
 import { ROUTES } from '@constants/routes';
 
@@ -10,7 +10,7 @@ export default function withAuthGuard<T extends ComponentType<any>>(
 ) {
   return function WrappedAppComponent(props: ComponentProps<T>) {
     const router = useRouter();
-    const isLogin = useAppStore((store) => store.USER.isLogin);
+    const isLogin = useGlobalContext((ctx) => ctx.state.isLogin);
 
     useEffect(() => {
       if (isLogin === false)

@@ -1,7 +1,5 @@
 import React from 'react';
 
-import useRefreshInterval from '@hooks/auth/useRefreshInterval';
-
 import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
 import TokDocsDevTools from '@components/common/TokDocsDevTool';
 
@@ -19,8 +17,6 @@ declare global {
 }
 
 function MyApp({ Component, pageProps }: any) {
-  useRefreshInterval();
-
   return (
     <React.Fragment>
       <Fonts />

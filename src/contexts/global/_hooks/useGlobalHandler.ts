@@ -24,10 +24,10 @@ export const useGlobalHandler = ({
   }, [dispatch, state, webStorage]);
 
   const logout = useCallback(
-    (path = '/') => {
+    (redirect: string | null = '/') => {
       tokenStorage?.remove();
       queryClient.clear();
-      router.push(path);
+      if (redirect) router.replace(redirect);
     },
     [queryClient, router],
   );
