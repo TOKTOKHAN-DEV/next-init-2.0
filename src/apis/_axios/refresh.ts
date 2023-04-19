@@ -2,12 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios';
 
 import { CONFIG } from '@config';
 
-import {
-  TokenType,
-  deleteToken,
-  getToken,
-  setToken,
-} from '@utils/localStorage/token';
+import { TokenType, tokenStorage } from '@utils/web-storage/token';
 
 import instance from './instance';
 
@@ -26,16 +21,16 @@ const addRefreshSubscriber = (callback: Request) => {
 
 const refreshToken = async () => {
   try {
-    const token = getToken();
+    const token = tokenStorage?.get();
     if (!token?.refresh) throw new Error('not found refresh-token');
     const { data: newToken }: { data: TokenType } = await axios.post(
       `${CONFIG.API_BASE_URL}/v1/user/refresh/`,
       { refresh: token.refresh },
     );
-    setToken({ ...token, ...newToken });
+    tokenStorage?.set({ ...token, ...newToken });
     return newToken;
   } catch (err) {
-    deleteToken();
+    tokenStorage?.remove();
     throw err;
   }
 };

@@ -3,8 +3,8 @@ import axios, { AxiosError } from 'axios';
 import { CONFIG } from '@config';
 
 import { apiLogger } from '@utils/apiLogger';
-import { getToken } from '@utils/localStorage/token';
 import styledConsole from '@utils/styledConsole';
+import { tokenStorage } from '@utils/web-storage/token';
 
 import { refresh } from './refresh';
 
@@ -30,7 +30,7 @@ const unsetAuthHeader = () => {
 
 instance.interceptors.request.use(
   async (config) => {
-    const token = await getToken();
+    const token = await tokenStorage?.get();
     const isAccess = !!token && !!token.access;
     if (isAccess) {
       config.headers.setAuthorization(`Bearer ${token.access}`);
