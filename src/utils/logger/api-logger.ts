@@ -2,7 +2,7 @@ import { CSSProperties } from 'react';
 
 import { AxiosRequestConfig } from 'axios';
 
-import styledConsole, { StyledConsoleArgs } from './styledConsole';
+import styledConsole, { StyledConsoleArgs } from './styled-console';
 
 interface ApiLoggerArgs extends Pick<StyledConsoleArgs, 'method'> {
   status: string | number;

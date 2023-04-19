@@ -2,8 +2,8 @@ import axios, { AxiosError } from 'axios';
 
 import { CONFIG } from '@config';
 
-import { apiLogger } from '@utils/apiLogger';
-import styledConsole from '@utils/styledConsole';
+import { apiLogger } from '@utils/logger/api-logger';
+import styledConsole from '@utils/logger/styled-console';
 import { tokenStorage } from '@utils/web-storage/token';
 
 import { refresh } from './refresh';

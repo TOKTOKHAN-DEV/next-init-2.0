@@ -3,7 +3,9 @@ import { AxiosInstance } from 'axios';
 import instance from '@apis/_axios/instance';
 import { RequestFnReturn } from '@apis/type';
 
-import { bytesToMB, isOverSize, mbToBytes } from '@utils/file';
+import { bytesToMB } from '@utils/file/bytes-to-mb';
+import { isOverSize } from '@utils/file/is-over-size';
+import { mbToBytes } from '@utils/file/mb-to-bytes';
 
 export class S3FileUploaderApi {
   axios: AxiosInstance = instance;

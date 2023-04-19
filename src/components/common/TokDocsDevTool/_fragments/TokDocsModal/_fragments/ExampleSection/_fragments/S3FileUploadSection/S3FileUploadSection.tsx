@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Center,
-  ChakraProps,
   Image,
   List,
   ListItem,
@@ -17,7 +16,10 @@ import {
   useUploadFilesToS3Mutation,
 } from '@apis/S3FileUploader/S3FileUploaderApi.mutation';
 
-import { bytesToMB, fileToBase64, isBase64Img, isOverSize } from '@utils/file';
+import { bytesToMB } from '@utils/file/bytes-to-mb';
+import { fileToBase64 } from '@utils/file/file-to-base64';
+import { isBase64Img } from '@utils/file/is-base64-img';
+import { isOverSize } from '@utils/file/is-over-size';
 
 function S3FileUploadSection() {
   const FILE_MAX_SIZE_MB = 10;
