@@ -1,9 +1,9 @@
 import { createContextSelector } from '@utils/react/create-context-selector';
 
-import { useGlobalEffect } from './_hooks/useGlobalEffect';
-import { useGlobalHandler } from './_hooks/useGlobalHandler';
-import { useGlobalState } from './_hooks/useGlobalState';
-import { useWebStorage } from './_hooks/useWebStorage';
+import { useGlobalEffect } from './hooks/useGlobalEffect';
+import { useGlobalHandler } from './hooks/useGlobalHandler';
+import { useGlobalState } from './hooks/useGlobalState';
+import { useWebStorage } from './hooks/useWebStorage';
 
 const useGlobalStore = () => {
   const { state, dispatch } = useGlobalState();

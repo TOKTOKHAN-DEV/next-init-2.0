@@ -1,7 +1,7 @@
 import { createContextSelector } from '@utils/react/create-context-selector';
 
-import { useHomePageHandlers } from './_hooks/useHomePageHandler';
-import { useHomePageState } from './_hooks/useHomePageState';
+import { useHomePageHandlers } from './hooks/useHomePageHandler';
+import { useHomePageState } from './hooks/useHomePageState';
 
 const useHomePage = () => {
   const { state, dispatch } = useHomePageState();

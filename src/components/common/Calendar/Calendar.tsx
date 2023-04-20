@@ -16,7 +16,7 @@ import {
   Tr,
 } from '@chakra-ui/react';
 
-import CalendarHeader from './_fragments/CalendarHeader';
+import CalendarHeader from './components/CalendarHeader';
 
 import weekOfYear from 'dayjs/plugin/weekOfYear';
 
