@@ -1,5 +1,3 @@
-import React from 'react';
-
 import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
 import TokDocsDevTools from '@components/common/TokDocsDevTool';
 
@@ -18,13 +16,13 @@ declare global {
 
 function MyApp({ Component, pageProps }: any) {
   return (
-    <React.Fragment>
+    <>
       <Fonts />
       <ToggleColorModeButton />
       <Component {...pageProps} />
       <ReactQueryDevtools initialIsOpen={false} />
       <TokDocsDevTools />
-    </React.Fragment>
+    </>
   );
 }
 

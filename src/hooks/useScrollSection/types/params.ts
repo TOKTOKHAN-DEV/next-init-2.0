@@ -1,6 +1,8 @@
+import { MutableRefObject } from 'react';
+
 export type UseScrollSectionParamType = {
   /** 부모요소에 해당하는 HTML Element 입니다 scroll yOffset 의 기준이 됩니다. default: "body" */
-  parentsRef?: React.MutableRefObject<HTMLElement | null>;
+  parentsRef?: MutableRefObject<HTMLElement | null>;
   /** scroll progress 를 조회할 대상 Element 입니다. */
   onProgress: (arg: {
     /** Target Element 의 높이 대비 window 의 scroll 정도입니다. */

@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useRef } from 'react';
 
 import { ProgressHelper, UseScrollSectionParamType } from './types/params';
 
@@ -8,9 +8,9 @@ export default function useScrollSection<T extends HTMLElement | null>({
   onInValid,
   entryPoint = 'bottom',
 }: UseScrollSectionParamType) {
-  const targetRef = React.useRef<T>(null);
+  const targetRef = useRef<T>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const parentsEl = parentsRef?.current || document.querySelector('body');
     const targetEl = targetRef.current;
     if (!targetEl) return;

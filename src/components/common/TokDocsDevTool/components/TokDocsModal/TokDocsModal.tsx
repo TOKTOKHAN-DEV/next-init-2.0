@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Box, ModalProps } from '@chakra-ui/react';
 
@@ -14,8 +14,7 @@ import {
 interface TokDocsModalProps extends Omit<ModalProps, 'children'> {}
 
 function TokDocsModal({ ...props }: TokDocsModalProps) {
-  const [title, setTitle] =
-    React.useState<TokDocsSubMenuTitle>('generated Icons');
+  const [title, setTitle] = useState<TokDocsSubMenuTitle>('generated Icons');
 
   const getContent = () => {
     if (isAppStyleViewerDocsTitle(title))

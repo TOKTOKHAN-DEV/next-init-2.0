@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Select } from 'chakra-react-select';
 
@@ -17,7 +17,7 @@ const PAYMENTS_TYPE = [
   { value: '게임문화상품권', label: '게임문화상품권' },
 ];
 function TossSection() {
-  const [type, setType] = React.useState<any>(PAYMENTS_TYPE[0]);
+  const [type, setType] = useState<any>(PAYMENTS_TYPE[0]);
   const clientKey = 'test_ck_aBX7zk2yd8yyKYvjGJE8x9POLqKQ';
 
   const test = async () => {

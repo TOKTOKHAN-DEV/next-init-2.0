@@ -1,24 +1,25 @@
-import React from 'react';
-
-import * as _ from 'lodash';
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 
 import { Box, ChakraProps, Input, Text } from '@chakra-ui/react';
+
+import debounce from 'lodash/debounce';
+import throttle from 'lodash/throttle';
 
 const DATA = ['원숭이', '강아지', '토끼', '다람쥐', '고양이'];
 interface LodashPageContentProps extends ChakraProps {}
 
 function LodashSection({ ...basisProps }: LodashPageContentProps) {
-  const [searchValue, setSearchValue] = React.useState('');
-  const [result, setResult] = React.useState('');
+  const [searchValue, setSearchValue] = useState('');
+  const [result, setResult] = useState('');
 
-  const [dimensions, setDimensions] = React.useState({
+  const [dimensions, setDimensions] = useState({
     height: 0,
     width: 0,
   });
 
   // 검색 api 호출 시 debounce를 통하여 불필요한 통신을 막아줍니다.
   // sendQuery를 react-query로 바꿔서 사용할 수 있습니다.
-  const sendQuery = React.useCallback((query: string) => {
+  const sendQuery = useCallback((query: string) => {
     console.log('debounceResult : ', { query });
     if (!query.length) return;
     const debounceResult = DATA.find((d) => d.includes(query));
@@ -27,12 +28,10 @@ function LodashSection({ ...basisProps }: LodashPageContentProps) {
   }, []);
 
   // 300ms 의 입력 주기가 끝나면 출력합니다.
-  const delayedQueryCall = React.useRef(
-    _.debounce((q) => sendQuery(q), 300),
-  ).current;
+  const delayedQueryCall = useRef(debounce((q) => sendQuery(q), 300)).current;
 
-  const handleSearchChange = React.useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSearchChange = useCallback(
+    (event: ChangeEvent<HTMLInputElement>) => {
       console.log(event.target.value);
       setSearchValue(event.target.value);
       delayedQueryCall(event.target.value);
@@ -41,7 +40,7 @@ function LodashSection({ ...basisProps }: LodashPageContentProps) {
   );
 
   // throttle
-  React.useEffect(() => {
+  useEffect(() => {
     const updateWindowSize = () => {
       const { clientHeight, clientWidth } = document.documentElement;
       setDimensions({
@@ -51,7 +50,7 @@ function LodashSection({ ...basisProps }: LodashPageContentProps) {
     };
     updateWindowSize();
 
-    const throttleWithUpdateWindowSize = _.throttle(updateWindowSize, 1000);
+    const throttleWithUpdateWindowSize = throttle(updateWindowSize, 1000);
     // 1000ms 내에 한 번만 호출합니다.
     window.addEventListener('resize', throttleWithUpdateWindowSize);
     return () => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import { ChangeEventHandler, useEffect, useState } from 'react';
 
 import {
   Box,
@@ -24,9 +24,9 @@ import { isOverSize } from '@utils/file/is-over-size';
 function S3FileUploadSection() {
   const FILE_MAX_SIZE_MB = 10;
 
-  const [files, setFiles] = React.useState<File[]>([]);
-  const [currentFile, setCurrentFile] = React.useState<File | null>(null);
-  const [currentFileBase64, setCurrentFileBase64] = React.useState<
+  const [files, setFiles] = useState<File[]>([]);
+  const [currentFile, setCurrentFile] = useState<File | null>(null);
+  const [currentFileBase64, setCurrentFileBase64] = useState<
     string | ArrayBuffer | null
   >(null);
 
@@ -43,7 +43,7 @@ function S3FileUploadSection() {
     isLoading: isLoadingUploadFilesMutate,
   } = useUploadFilesToS3Mutation();
 
-  const onChangeFile: React.ChangeEventHandler<HTMLInputElement> = (e) => {
+  const onChangeFile: ChangeEventHandler<HTMLInputElement> = (e) => {
     const file = e.target.files?.[0];
 
     if (!file) return;
@@ -116,7 +116,7 @@ function S3FileUploadSection() {
   };
 
   // For: Convert Current File To Base64
-  React.useEffect(() => {
+  useEffect(() => {
     async function setter() {
       if (!currentFile) return;
       setCurrentFileBase64(await fileToBase64(currentFile));
@@ -125,7 +125,7 @@ function S3FileUploadSection() {
   }, [currentFile]);
 
   // For : Console Log Current Fullfiled Muataion Data
-  React.useEffect(() => {
+  useEffect(() => {
     console.log(
       'useMuattion 에서도 최근에 실행된 mutate 의 결과값을 useQuery 처럼 data 값으로 가져올 수 있습니다.',
       { uploadedFileData, uploadedFilesData },

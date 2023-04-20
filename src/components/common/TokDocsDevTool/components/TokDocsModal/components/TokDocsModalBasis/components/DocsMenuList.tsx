@@ -1,4 +1,4 @@
-import React from 'react';
+import { Fragment } from 'react';
 
 import {
   Accordion,
@@ -36,7 +36,7 @@ function DocsMenuList({
       </Text>
       {menuData.map((menu, idx) => {
         return (
-          <React.Fragment key={idx}>
+          <Fragment key={idx}>
             {menu.href ? (
               <AccordionItem style={{ border: '0px' }}>
                 <AccordionButton //
@@ -111,7 +111,7 @@ function DocsMenuList({
                 </AccordionPanel>
               </AccordionItem>
             )}
-          </React.Fragment>
+          </Fragment>
         );
       })}
     </Accordion>

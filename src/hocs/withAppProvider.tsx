@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app';
+import { FC } from 'react';
 
 import { ChakraProvider } from '@chakra-ui/react';
 
@@ -11,7 +12,7 @@ import theme from 'styles/theme';
 // Create a client
 const queryClient = new QueryClient();
 
-function withAppProvider(AppComponent: React.FC<AppProps>) {
+function withAppProvider(AppComponent: FC<AppProps>) {
   return function WrappedAppComponent(props: AppProps) {
     return (
       <QueryClientProvider client={queryClient}>

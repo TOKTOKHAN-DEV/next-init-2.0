@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import React from 'react';
+import { useEffect } from 'react';
 
 import { Box, ChakraProps, Text, VStack } from '@chakra-ui/react';
 
@@ -9,7 +9,7 @@ function SuccessPage({ ...basisProps }: TossPageProps) {
   const router = useRouter();
   const { orderId, paymentKey, amount } = router.query;
 
-  React.useEffect(() => {
+  useEffect(() => {
     // TODO Update Order API
     // 주문 상태 업데이트를 통해서 결제 성공 여부 체크
   }, []);
