@@ -5,8 +5,11 @@ import MenuIcon from '@components/common/@Icons/System/Menu';
 
 import { LAYOUT } from '@constants/layout';
 
-import { HOME_HEADER_VARIANTS, HomeHeaderVariantType } from './HomeHeader.data';
 import HomeHeaderDrawer from './components/HomeHeaderDrawer';
+import {
+  HOME_HEADER_VARIANTS,
+  HomeHeaderVariantType,
+} from './constants/variants';
 
 interface HomeHeaderProps {
   variant?: HomeHeaderVariantType;
