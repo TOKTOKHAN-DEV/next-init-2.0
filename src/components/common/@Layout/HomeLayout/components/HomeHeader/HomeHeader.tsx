@@ -1,8 +1,6 @@
 import { Flex, IconButton, Image } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
 
-import MenuIcon from '@components/common/@Icons/System/Menu';
-
 import { LAYOUT } from '@constants/layout';
 
 import HomeHeaderDrawer from './components/HomeHeaderDrawer';
@@ -10,6 +8,8 @@ import {
   HOME_HEADER_VARIANTS,
   HomeHeaderVariantType,
 } from './constants/variants';
+
+import { MenuIcon } from 'generated/icons/MyIcons';
 
 interface HomeHeaderProps {
   variant?: HomeHeaderVariantType;

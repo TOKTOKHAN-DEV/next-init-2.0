@@ -1,6 +1,4 @@
-import { Button, Image } from '@chakra-ui/react';
-
-import FloatingBox from '@components/common/FloatingBox';
+import { Button, Text } from '@chakra-ui/react';
 
 interface ToggleColorModeButtonViewProps {
   colorMode: 'dark' | 'light';
@@ -12,21 +10,18 @@ export const ToggleColorModeButtonView = ({
   toggleColorMode,
 }: ToggleColorModeButtonViewProps) => {
   return (
-    <FloatingBox position="top">
-      <Button
-        onClick={toggleColorMode}
-        colorScheme="primary"
-        w="50px"
-        h="50px"
-        borderRadius="full"
-        p="0"
-      >
-        <Image
-          src={
-            colorMode === 'light' ? '/icons/svg/moon.svg' : '/icons/svg/sun.svg'
-          }
-        />
-      </Button>
-    </FloatingBox>
+    <Button
+      position="fixed"
+      top="100px"
+      right="100px"
+      onClick={toggleColorMode}
+      colorScheme="primary"
+      w="50px"
+      h="50px"
+      borderRadius="full"
+      p="0"
+    >
+      {colorMode === 'light' ? <Text>DARK</Text> : <Text>LIGHT</Text>}
+    </Button>
   );
 };

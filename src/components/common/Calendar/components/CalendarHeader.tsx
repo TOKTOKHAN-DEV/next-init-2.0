@@ -4,8 +4,7 @@ import dayjs from 'dayjs';
 
 import { Center, Flex, Text } from '@chakra-ui/react';
 
-import ArrowLeftIcon from '@components/common/@Icons/System/ArrowLeft';
-import ArrowRightIcon from '@components/common/@Icons/System/ArrowRight';
+import { ArrowLeftIcon, ArrowRightIcon } from 'generated/icons/MyIcons';
 
 interface CalendarHeaderProps {
   date: dayjs.Dayjs;
