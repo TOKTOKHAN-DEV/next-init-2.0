@@ -1,4 +1,4 @@
-import { ActionsByMap, ReducerMap } from './create-slice.type';
+import { ActionsByMap, ReducerMap } from './types/reducer';
 
 type CreateReducerParams<S, R extends ReducerMap<S, any>> = {
   initialState: S;

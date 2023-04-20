@@ -1,9 +1,6 @@
 import React from 'react';
 
-import {
-  ProgressHelper,
-  UseScrollSectionParamType,
-} from './useScrollSection.type';
+import { ProgressHelper, UseScrollSectionParamType } from './types/params';
 
 export default function useScrollSection<T extends HTMLElement | null>({
   parentsRef,
