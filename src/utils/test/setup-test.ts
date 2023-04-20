@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 
 import { useGlobalContext } from '@contexts/global/useGlobalStoreContext';
 
+import { MockedFn } from '@/types/utility/mocked-fn';
 import { useQueryClient } from '@tanstack/react-query';
 
 jest.mock('@utils/localStorage/token', () => ({
@@ -28,6 +29,3 @@ export {
   __useRouter,
   __useQueryClient,
 };
-
-type MockedFn<T extends (...params: any) => any> = jest.Mock &
-  ((...args: Parameters<T>) => ReturnType<T>);

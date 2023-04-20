@@ -11,6 +11,8 @@ import {
   Text,
 } from '@chakra-ui/react';
 
+import { PropsOf } from '@/types/module/react/props-of';
+
 import HomeHeader from '../HomeLayout/_fragments/HomeHeader';
 
 interface HomeLayoutProps {
@@ -63,7 +65,7 @@ const ExampleLayout = ({
 export default ExampleLayout;
 
 const MotionBox = motion<Omit<BoxProps, 'transition'>>(Box);
-const RotateBox = (props: Parameter<typeof MotionBox>) => (
+const RotateBox = (props: PropsOf<typeof MotionBox>) => (
   <MotionBox
     bg="red.500"
     w="10px"

@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 
 import { Box, BoxProps, Flex, FlexProps, Text } from '@chakra-ui/react';
 
+import { PropsOf } from '@/types/module/react/props-of';
+
 interface DocsHeaderProps extends FlexProps {
   title: string;
 }
@@ -28,7 +30,7 @@ function DocsHeader({ title, ...props }: DocsHeaderProps) {
 export default DocsHeader;
 
 const MotionBox = motion<Omit<BoxProps, 'transition'>>(Box);
-const RotateBox = (props: Parameter<typeof MotionBox>) => (
+const RotateBox = (props: PropsOf<typeof MotionBox>) => (
   <MotionBox
     bg="red.500"
     w="10px"

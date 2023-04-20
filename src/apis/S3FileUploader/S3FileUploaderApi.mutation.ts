@@ -1,11 +1,10 @@
-import { MutationHookParams } from '@apis/type';
-
+import { UseMutationParams } from '@/types/module/react-query/use-mutaton-params';
 import { useMutation } from '@tanstack/react-query';
 
 import s3FileUploaderApi from './S3FileUploaderApi';
 
 export const useUploadFileToS3Mutation = (
-  params?: MutationHookParams<typeof s3FileUploaderApi.uploadFileToS3>,
+  params?: UseMutationParams<typeof s3FileUploaderApi.uploadFileToS3>,
 ) => {
   return useMutation(s3FileUploaderApi.uploadFileToS3, {
     ...params?.options,
@@ -13,7 +12,7 @@ export const useUploadFileToS3Mutation = (
 };
 
 export const useUploadFilesToS3Mutation = (
-  params?: MutationHookParams<typeof s3FileUploaderApi.uploadFilesToS3>,
+  params?: UseMutationParams<typeof s3FileUploaderApi.uploadFilesToS3>,
 ) => {
   return useMutation(s3FileUploaderApi.uploadFilesToS3, {
     ...params?.options,

@@ -1,4 +1,4 @@
-type UseScrollSectionParamType = {
+export type UseScrollSectionParamType = {
   /** 부모요소에 해당하는 HTML Element 입니다 scroll yOffset 의 기준이 됩니다. default: "body" */
   parentsRef?: React.MutableRefObject<HTMLElement | null>;
   /** scroll progress 를 조회할 대상 Element 입니다. */

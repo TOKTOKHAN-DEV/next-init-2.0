@@ -1,5 +1,4 @@
-import { MutationHookParams } from '@apis/type';
-
+import { UseMutationParams } from '@/types/module/react-query/use-mutaton-params';
 import { useMutation } from '@tanstack/react-query';
 
 import exampleApi from './ExampleApi';
@@ -17,7 +16,7 @@ export const EXAMPLE_API_MUTATION_KEY = {
 };
 
 export const usePostExampleMutation = (
-  params?: MutationHookParams<typeof exampleApi.postExample>,
+  params?: UseMutationParams<typeof exampleApi.postExample>,
 ) => {
   return useMutation(exampleApi.postExample, {
     ...params?.options,
@@ -25,21 +24,21 @@ export const usePostExampleMutation = (
 };
 
 export const usePutExampleMutation = (
-  params?: MutationHookParams<typeof exampleApi.putExample>,
+  params?: UseMutationParams<typeof exampleApi.putExample>,
 ) => {
   return useMutation(exampleApi.putExample, {
     ...params?.options,
   });
 };
 export const usePatchExampleMutation = (
-  params?: MutationHookParams<typeof exampleApi.patchExample>,
+  params?: UseMutationParams<typeof exampleApi.patchExample>,
 ) => {
   return useMutation(exampleApi.patchExample, {
     ...params?.options,
   });
 };
 export const useDeleteExampleMutation = (
-  params?: MutationHookParams<typeof exampleApi.deleteExample>,
+  params?: UseMutationParams<typeof exampleApi.deleteExample>,
 ) => {
   return useMutation(exampleApi.deleteExample, {
     ...params?.options,

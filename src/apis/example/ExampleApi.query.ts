@@ -1,5 +1,4 @@
-import { QueryHookParams } from '@apis/type';
-
+import { UseQueryParams } from '@/types/module/react-query/use-query-params';
 import { useQuery } from '@tanstack/react-query';
 
 import exampleApi from './ExampleApi';
@@ -11,7 +10,7 @@ export const EXAMPLE_API_QUERY_KEY = {
 };
 
 export function useGetExampleListQuery(
-  params?: QueryHookParams<typeof exampleApi.getExampleList>,
+  params?: UseQueryParams<typeof exampleApi.getExampleList>,
 ) {
   const queryKey = EXAMPLE_API_QUERY_KEY.GET(params?.variables);
   const query = useQuery(
@@ -23,7 +22,7 @@ export function useGetExampleListQuery(
 }
 
 export function useGetExampleByIdQuery(
-  params: QueryHookParams<typeof exampleApi.getExampleById>,
+  params: UseQueryParams<typeof exampleApi.getExampleById>,
 ) {
   const queryKey = EXAMPLE_API_QUERY_KEY.GET_BY_ID(params?.variables);
   const query = useQuery(
