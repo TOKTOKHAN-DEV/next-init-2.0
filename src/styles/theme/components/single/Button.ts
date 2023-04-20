@@ -1,7 +1,7 @@
 import { ComponentSingleStyleConfig } from '@chakra-ui/react';
 import { defineStyle } from '@chakra-ui/styled-system';
 
-import { runIfFn } from '@theme/utils/run-if-fn';
+import { runIfFn } from '@utils/validate/run-if-fn';
 
 /**
  * Light & Dark mode

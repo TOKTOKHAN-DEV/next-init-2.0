@@ -1,4 +1,4 @@
-import { ChakraMultiPartComponentType } from '@theme/components/type';
+import { ChakraMultiPartComponentType } from '@/types/module/chakra/chakra-multi-part-component-type';
 
 import { sizes } from './sizes';
 import { variants } from './variants';

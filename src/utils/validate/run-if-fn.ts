@@ -1,5 +1,4 @@
-const isFunction = (value: any): value is Function =>
-  typeof value === 'function';
+import { isFunction } from './is-function';
 
 export function runIfFn<T, U>(
   valueOrFn: T | ((...fnArgs: U[]) => T),
