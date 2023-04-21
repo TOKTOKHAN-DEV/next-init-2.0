@@ -1,7 +1,7 @@
-import { CONFIG } from '@config';
+import { ENV } from '@configs/env';
 
 const isValid = () => {
-  if (!CONFIG.FACEBOOK_PIXEL_KEY) return false;
+  if (!ENV.FACEBOOK_PIXEL_KEY) return false;
   if (typeof window === 'undefined') return false;
   if (!window.fbq) return false;
   return true;
@@ -40,7 +40,7 @@ export const requestApply = () => {
 };
 
 export const FacebookSetter = () => {
-  if (!CONFIG.FACEBOOK_PIXEL_KEY) return <></>;
+  if (!ENV.FACEBOOK_PIXEL_KEY) return <></>;
   return (
     <>
       <script
@@ -54,7 +54,7 @@ export const FacebookSetter = () => {
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '${CONFIG.FACEBOOK_PIXEL_KEY}');
+        fbq('init', '${ENV.FACEBOOK_PIXEL_KEY}');
         fbq('track', 'PageView');
       `,
         }}
@@ -64,7 +64,7 @@ export const FacebookSetter = () => {
           height="1"
           width="1"
           style={{ display: 'none' }}
-          src={`https://www.facebook.com/tr?id=${CONFIG.FACEBOOK_PIXEL_KEY}&ev=PageView&noscript=1`}
+          src={`https://www.facebook.com/tr?id=${ENV.FACEBOOK_PIXEL_KEY}&ev=PageView&noscript=1`}
         />
       </noscript>
     </>

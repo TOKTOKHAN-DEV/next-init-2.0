@@ -1,7 +1,7 @@
-import { CONFIG } from '@config';
+import { ENV } from '@configs/env';
 
 const isValid = () => {
-  if (!CONFIG.GA_KEY) return false;
+  if (!ENV.GA_KEY) return false;
   if (typeof window === 'undefined') return false;
   if (!window.gtag) return false;
   return true;
@@ -33,12 +33,12 @@ export const requestApply = () => {
 };
 
 export const GASetter = () => {
-  if (!CONFIG.GA_KEY) return <></>;
+  if (!ENV.GA_KEY) return <></>;
   return (
     <>
       <script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${CONFIG.GA_KEY}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${ENV.GA_KEY}`}
       ></script>
       <script
         dangerouslySetInnerHTML={{
@@ -46,7 +46,7 @@ export const GASetter = () => {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', '${CONFIG.GA_KEY}');
+        gtag('config', '${ENV.GA_KEY}');
       `,
         }}
       />

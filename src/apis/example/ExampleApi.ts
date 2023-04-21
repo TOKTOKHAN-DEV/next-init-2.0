@@ -1,9 +1,8 @@
 import { AxiosInstance } from 'axios';
 
-import instance from '@apis/_axios/instance';
-
 import { Paginated } from '@/types/utility/paginated';
 import { WithPaginationParams } from '@/types/utility/with-pagination-params';
+import instance from '@configs/axios/instance';
 
 import { CreateExampleDto } from './types/dto/create-example-dto';
 import { GetExampleDto } from './types/dto/get-example-dto';

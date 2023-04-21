@@ -1,7 +1,6 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-import { CONFIG } from '@config';
-
+import { ENV } from '@configs/env';
 import { TokenType, tokenStorage } from '@utils/web-storage/token';
 
 import instance from './instance';
@@ -24,7 +23,7 @@ const refreshToken = async () => {
     const token = tokenStorage?.get();
     if (!token?.refresh) throw new Error('not found refresh-token');
     const { data: newToken }: { data: TokenType } = await axios.post(
-      `${CONFIG.API_BASE_URL}/v1/user/refresh/`,
+      `${ENV.API_BASE_URL}/v1/user/refresh/`,
       { refresh: token.refresh },
     );
     tokenStorage?.set({ ...token, ...newToken });

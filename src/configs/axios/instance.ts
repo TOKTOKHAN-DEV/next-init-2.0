@@ -1,17 +1,16 @@
 import axios, { AxiosError } from 'axios';
 
-import { CONFIG } from '@config';
-
+import { ENV } from '@configs/env';
 import { apiLogger } from '@utils/logger/api-logger';
 import styledConsole from '@utils/logger/styled-console';
 import { tokenStorage } from '@utils/web-storage/token';
 
 import { refresh } from './refresh';
 
-const isDev = CONFIG.ENV === 'development';
+const isDev = ENV.NODE_ENV === 'development';
 
 const instance = axios.create({
-  baseURL: CONFIG.API_BASE_URL,
+  baseURL: ENV.API_BASE_URL,
   timeout: 5000,
   headers: {
     'Content-Type': 'application/json',
@@ -54,7 +53,6 @@ instance.interceptors.response.use(
       const { status } = res || { status: 400 };
       const isUnAuthError = status === 401;
       const isExpiredToken = status === 444;
-      const isDev = CONFIG.ENV === 'development';
 
       if (isDev)
         apiLogger({ status, reqData, resData: error, method: 'error' });

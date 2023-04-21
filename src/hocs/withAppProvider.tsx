@@ -5,12 +5,9 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 import { GlobalStoreProvider } from '@contexts/global/useGlobalStoreContext';
 
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-
-import theme from 'styles/theme';
-
-// Create a client
-const queryClient = new QueryClient();
+import { queryClient } from '@configs/react-query';
+import theme from '@configs/theme';
+import { QueryClientProvider } from '@tanstack/react-query';
 
 function withAppProvider(AppComponent: FC<AppProps>) {
   return function WrappedAppComponent(props: AppProps) {
