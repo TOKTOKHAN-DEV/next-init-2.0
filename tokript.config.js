@@ -89,7 +89,7 @@ exports.module = {
     /** 생성되는 코드의 InfiniteQuery 포함 여부 입니다. */
     includeReactInfiniteQuery: true,
     /** Api 의 axios 요청 instance 주소입니다 */
-    axiosInstancePath: '@apis/_axios/instance',
+    axiosInstancePath: '@/configs/axios/instance',
     /**
      * infiniteQuery 를 생성할 함수 필터입니다.
      * - keywords:  api 의 queryParams key 에 keywords 가 포함되어 있는 항목만 생성됩니다. 키워드 배열은 AND 연산으로써 사용됩니다.

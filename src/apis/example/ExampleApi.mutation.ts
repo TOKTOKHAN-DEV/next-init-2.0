@@ -1,15 +1,18 @@
 import { useMutation } from '@tanstack/react-query';
 
 import { UseMutationParams } from '@/types/module/react-query/use-mutaton-params';
+import { Parameter } from '@/types/utility/parameter';
+import { isNotNull } from '@/utils/validate/is-not-null';
 
 import exampleApi from './ExampleApi';
-import { CreateExampleDto } from './types/dto/create-example-dto';
-import { UpdateExampleDto } from './types/dto/update-example-dto';
 
 export const EXAMPLE_API_MUTATION_KEY = {
-  CREATE: (dto?: CreateExampleDto) => ['example-create', dto],
-  UPDATE: (dto?: UpdateExampleDto) => ['example-update', dto],
-  DELETE: (id?: string) => ['example-delete', id],
+  CREATE: (params?: Parameter<typeof exampleApi.create>) =>
+    ['example-create', params].filter(isNotNull),
+  UPDATE: (params?: Parameter<typeof exampleApi.update>) =>
+    ['example-update', params].filter(isNotNull),
+  DELETE: (id?: Parameter<typeof exampleApi.delete>) =>
+    ['example-delete', id].filter(isNotNull),
 };
 
 export const useCreateExampleMutation = (
@@ -27,6 +30,7 @@ export const useUpdateExampleMutation = (
     ...params?.options,
   });
 };
+
 export const useDeleteExampleMutation = (
   params?: UseMutationParams<typeof exampleApi.delete>,
 ) => {

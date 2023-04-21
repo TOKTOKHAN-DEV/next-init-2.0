@@ -15,11 +15,11 @@ export class ExampleApi {
     if (axios) this.axios = axios;
   }
 
-  getList = async (req?: GetExampleDto): Promise<ExampleModel[]> => {
+  getList = async (params?: GetExampleDto): Promise<ExampleModel[]> => {
     const { data } = await this.axios({
       method: 'GET',
       url: `/v1/example`,
-      params: req,
+      params,
     });
     return data;
   };
@@ -54,7 +54,7 @@ export class ExampleApi {
 
   update = async (req: UpdateExampleDto): Promise<ExampleModel> => {
     const { data } = await this.axios({
-      method: 'PATCH',
+      method: 'PUT',
       url: `/v1/example/${req.id}`,
       data: req,
     });
