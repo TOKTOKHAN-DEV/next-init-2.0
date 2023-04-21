@@ -1,5 +1,6 @@
-import { UseMutationParams } from '@/types/module/react-query/use-mutaton-params';
 import { useMutation } from '@tanstack/react-query';
+
+import { UseMutationParams } from '@/types/module/react-query/use-mutaton-params';
 
 import exampleApi from './ExampleApi';
 import { CreateExampleDto } from './types/dto/create-example-dto';

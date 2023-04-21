@@ -88,7 +88,7 @@ Components are independent and reusable bits of code.
     ├── ...
     ├── components
     │ ├── common
-    │   ├── @Icons
+    │   ├── @/icons
     │   ├── @Layout
     │   ├── Select
     │   ├── Calendar

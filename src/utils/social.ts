@@ -1,4 +1,4 @@
-import { ENV } from '@configs/env';
+import { ENV } from '@/configs/env';
 
 type SocialOAuthType = 'kakao' | 'naver' | 'google' | 'facebook' | 'apple';
 

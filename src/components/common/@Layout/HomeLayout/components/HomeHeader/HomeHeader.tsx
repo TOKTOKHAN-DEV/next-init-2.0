@@ -1,7 +1,7 @@
 import { Flex, IconButton, Image } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
 
-import { LAYOUT } from '@constants/layout';
+import { LAYOUT } from '@/constants/layout';
 
 import HomeHeaderDrawer from './components/HomeHeaderDrawer';
 import {

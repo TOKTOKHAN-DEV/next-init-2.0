@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import { useGlobalContext } from '@contexts/global/useGlobalStoreContext';
+import { useGlobalContext } from '@/contexts/global/useGlobalStoreContext';
 
-import { todoStorage } from '@utils/web-storage/todo';
+import { todoStorage } from '@/utils/web-storage/todo';
 
 function HomePageContent() {
   const todos = useGlobalContext((ctx) => ctx.webStorage.todoList);

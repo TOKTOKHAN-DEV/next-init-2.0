@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-import { tokenStorage } from '@utils/web-storage/token';
+import { tokenStorage } from '@/utils/web-storage/token';
 
 import { useGlobalHandler } from './useGlobalHandler';
 import { useGlobalState } from './useGlobalState';

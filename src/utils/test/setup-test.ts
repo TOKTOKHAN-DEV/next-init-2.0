@@ -1,11 +1,12 @@
 import { useRouter } from 'next/router';
 
-import { useGlobalContext } from '@contexts/global/useGlobalStoreContext';
-
-import { MockedFn } from '@/types/utility/mocked-fn';
 import { useQueryClient } from '@tanstack/react-query';
 
-jest.mock('@utils/localStorage/token', () => ({
+import { useGlobalContext } from '@/contexts/global/useGlobalStoreContext';
+
+import { MockedFn } from '@/types/utility/mocked-fn';
+
+jest.mock('@/utils/localStorage/token', () => ({
   getToken: jest.fn(),
   deleteToken: jest.fn(),
 }));

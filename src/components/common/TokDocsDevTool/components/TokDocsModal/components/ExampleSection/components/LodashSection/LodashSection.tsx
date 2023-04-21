@@ -1,9 +1,9 @@
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 
-import { Box, ChakraProps, Input, Text } from '@chakra-ui/react';
-
 import debounce from 'lodash/debounce';
 import throttle from 'lodash/throttle';
+
+import { Box, ChakraProps, Input, Text } from '@chakra-ui/react';
 
 const DATA = ['원숭이', '강아지', '토끼', '다람쥐', '고양이'];
 interface LodashPageContentProps extends ChakraProps {}

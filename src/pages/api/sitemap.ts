@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { ENV } from '@configs/env';
+import { ENV } from '@/configs/env';
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const prettier = require('prettier');

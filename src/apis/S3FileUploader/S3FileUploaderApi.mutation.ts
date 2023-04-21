@@ -1,5 +1,6 @@
-import { UseMutationParams } from '@/types/module/react-query/use-mutaton-params';
 import { useMutation } from '@tanstack/react-query';
+
+import { UseMutationParams } from '@/types/module/react-query/use-mutaton-params';
 
 import s3FileUploaderApi from './S3FileUploaderApi';
 

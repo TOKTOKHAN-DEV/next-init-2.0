@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 
+import { loadTossPayments } from '@tosspayments/payment-sdk';
 import { Select } from 'chakra-react-select';
 
 import { Box, Button, Center } from '@chakra-ui/react';
-
-import { loadTossPayments } from '@tosspayments/payment-sdk';
 
 const PAYMENTS_TYPE = [
   { value: '카드', label: '카드' },

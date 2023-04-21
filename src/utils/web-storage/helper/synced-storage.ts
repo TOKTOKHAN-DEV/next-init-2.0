@@ -1,4 +1,4 @@
-import { ReactSynced } from '@utils/react/react-synced';
+import { ReactSynced } from '@/utils/react/react-synced';
 
 export class SyncedStorage<Data> extends ReactSynced<Data> {
   constructor(public key: string, private storage: Storage) {

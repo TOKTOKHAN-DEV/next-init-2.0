@@ -1,5 +1,6 @@
-import { useRouter } from 'next/router';
 import React from 'react';
+
+import { useRouter } from 'next/router';
 
 import {
   Box,
@@ -12,9 +13,9 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
-import SocialButton from '@components/common/SocialButton';
+import SocialButton from '@/components/common/SocialButton';
 
-import { socialOAuthUrl } from '@utils/social';
+import { socialOAuthUrl } from '@/utils/social';
 
 const SOCIAL_LIST = ['kakao', 'naver', 'facebook', 'google', 'apple'] as const;
 

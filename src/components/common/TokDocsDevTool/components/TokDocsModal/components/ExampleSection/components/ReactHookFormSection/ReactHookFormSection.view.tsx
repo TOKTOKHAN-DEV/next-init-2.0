@@ -1,7 +1,7 @@
 import React from 'react';
-import { Controller, UseFormReturn } from 'react-hook-form';
 
 import { Select } from 'chakra-react-select';
+import { Controller, UseFormReturn } from 'react-hook-form';
 
 import {
   Box,
@@ -13,7 +13,7 @@ import {
   Stack,
 } from '@chakra-ui/react';
 
-import FormHelper from '@components/common/FormHelper';
+import FormHelper from '@/components/common/FormHelper';
 
 import { FormDataType } from './hooks/useExampleForm';
 

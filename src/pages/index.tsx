@@ -1,10 +1,10 @@
-import Head from 'next/head';
 import React from 'react';
 
-import HomePage from '@components/HomePage';
-import HomeLayout from '@components/common/@Layout/HomeLayout';
+import Head from 'next/head';
 
-import withHomePageProvider from '@hocs/withHomePageProvider';
+import HomePage from '@/components/HomePage';
+import HomeLayout from '@/components/common/@Layout/HomeLayout';
+import withHomePageProvider from '@/hocs/withHomePageProvider';
 
 function Home() {
   return (

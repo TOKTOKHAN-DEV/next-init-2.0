@@ -1,9 +1,9 @@
+import { UseMutationOptions } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
 
 import { AsyncFn } from '@/types/static/async-fn';
 import { AsyncFnReturn } from '@/types/utility/async-fn-return';
 import { Parameter } from '@/types/utility/parameter';
-import { UseMutationOptions } from '@tanstack/react-query';
 
 // Example : const useAnyMutation = ({ options, variables } : UseMutationParams<typeof anyApiFn>) => {...}
 

@@ -1,8 +1,6 @@
-import { UseFormProps, useForm } from 'react-hook-form';
-
-import * as yup from 'yup';
-
 import { yupResolver } from '@hookform/resolvers/yup';
+import { UseFormProps, useForm } from 'react-hook-form';
+import * as yup from 'yup';
 
 export type FormDataType = {
   username: string;

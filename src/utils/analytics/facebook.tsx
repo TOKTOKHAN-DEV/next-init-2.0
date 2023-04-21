@@ -1,4 +1,4 @@
-import { ENV } from '@configs/env';
+import { ENV } from '@/configs/env';
 
 const isValid = () => {
   if (!ENV.FACEBOOK_PIXEL_KEY) return false;

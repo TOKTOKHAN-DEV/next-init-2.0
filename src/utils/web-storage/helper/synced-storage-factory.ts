@@ -1,4 +1,4 @@
-import { ReactSyncConnector } from '@utils/react/react-sync-connector';
+import { ReactSyncConnector } from '@/utils/react/react-sync-connector';
 
 import { SyncedStorage } from './synced-storage';
 

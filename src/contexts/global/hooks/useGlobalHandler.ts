@@ -1,8 +1,10 @@
-import { useRouter } from 'next/router';
 import { useCallback } from 'react';
 
+import { useRouter } from 'next/router';
+
 import { useQueryClient } from '@tanstack/react-query';
-import { tokenStorage } from '@utils/web-storage/token';
+
+import { tokenStorage } from '@/utils/web-storage/token';
 
 import { useGlobalState } from './useGlobalState';
 import { useWebStorage } from './useWebStorage';

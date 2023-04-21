@@ -1,7 +1,8 @@
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
+
 import { UseInfiniteQueryParams } from '@/types/module/react-query/use-infinite-query-params';
 import { UseQueryParams } from '@/types/module/react-query/use-query-params';
-import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
-import { isNotNull } from '@utils/validate/is-not-null';
+import { isNotNull } from '@/utils/validate/is-not-null';
 
 import exampleApi from './ExampleApi';
 import { GetExampleDto } from './types/dto/get-example-dto';

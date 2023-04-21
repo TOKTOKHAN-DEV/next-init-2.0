@@ -1,7 +1,8 @@
-import { useRouter } from 'next/router';
 import { ComponentProps, ComponentType, useEffect } from 'react';
 
-import { useGlobalContext } from '@contexts/global/useGlobalStoreContext';
+import { useRouter } from 'next/router';
+
+import { useGlobalContext } from '@/contexts/global/useGlobalStoreContext';
 
 export default function withUnAuthGuard<T extends ComponentType<any>>(
   AppComponent: T,

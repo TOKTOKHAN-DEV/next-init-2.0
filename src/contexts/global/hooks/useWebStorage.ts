@@ -1,7 +1,7 @@
-import { useSyncWebStorage } from '@hooks/useSyncWebStorage';
+import { useSyncWebStorage } from '@/hooks/useSyncWebStorage';
 
-import { todoConnector } from '@utils/web-storage/todo';
-import { tokenConnector } from '@utils/web-storage/token';
+import { todoConnector } from '@/utils/web-storage/todo';
+import { tokenConnector } from '@/utils/web-storage/token';
 
 export const useWebStorage = () => {
   const token = useSyncWebStorage(tokenConnector);

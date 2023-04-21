@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react';
 
-import { ReactSyncConnector } from '@utils/react/react-sync-connector';
+import { ReactSyncConnector } from '@/utils/react/react-sync-connector';
 
 export const useSyncWebStorage = <T>(connector: ReactSyncConnector<T>) => {
   return useSyncExternalStore(

@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios';
 
-import { ENV } from '@configs/env';
-import { TokenType, tokenStorage } from '@utils/web-storage/token';
+import { ENV } from '@/configs/env';
+import { TokenType, tokenStorage } from '@/utils/web-storage/token';
 
 import instance from './instance';
 

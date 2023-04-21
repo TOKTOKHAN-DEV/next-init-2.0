@@ -1,10 +1,10 @@
-import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
-import TokDocsDevTools from '@components/common/TokDocsDevTool';
-
-import withAppProvider from '@hocs/withAppProvider';
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-import Fonts from 'generated/fonts/fonts';
+import ToggleColorModeButton from '@/components/common/ToggleColorModeButton';
+import TokDocsDevTools from '@/components/common/TokDocsDevTool';
+import withAppProvider from '@/hocs/withAppProvider';
+
+import Fonts from '@/generated/fonts/fonts';
 
 declare global {
   interface Window {

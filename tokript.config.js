@@ -80,9 +80,9 @@ exports.module = {
     /** 조회할 스웨거의 url 혹은 file(yaml, json) 경로 입니다. 통상적으로
      * 백앤드 개발자에게 공유받은  api-swagger-url 의 '/openapi.json' 경로에 해당합니다.
      */
-    swaggerSchemaUrl: `${process.env.NEXT_PUBLIC_API_BASE_URL}/openapi.json/`,
+    swaggerSchemaUrl: `${process.env.NEXT_PUBLIC_API_BASE_URL}/schema/`,
     /** 생성될 파일들이 위치할 경로입니다. */
-    outputPath: 'src/generated/apis',
+    outputPath: 'src/generated/swagger',
     /** 생성되는 코드의 React Query 포함 여부 입니다.
      *  해당 옵션이 false 일경우 infiniteQuery 를 포함한 모든 Query 가 생성되지 않습니다. */
     includeReactQuery: true,

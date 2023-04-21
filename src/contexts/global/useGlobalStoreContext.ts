@@ -1,4 +1,4 @@
-import { createContextSelector } from '@utils/react/create-context-selector';
+import { createContextSelector } from '@/utils/react/create-context-selector';
 
 import { useGlobalEffect } from './hooks/useGlobalEffect';
 import { useGlobalHandler } from './hooks/useGlobalHandler';

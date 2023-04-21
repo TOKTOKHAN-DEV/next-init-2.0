@@ -1,6 +1,6 @@
-import { genColorSchema } from '@theme/utils/color/gen-color-schema';
-import { getColorToken } from '@theme/utils/color/get-color-semantic-token';
-import { ColorSchema, ColorToken } from '@theme/utils/color/types/color';
+import { genColorSchema } from '@/theme/utils/color/gen-color-schema';
+import { getColorToken } from '@/theme/utils/color/get-color-semantic-token';
+import { ColorSchema, ColorToken } from '@/theme/utils/color/types/color';
 
 /**
  * theme color 를 정의하는 곳입니다.

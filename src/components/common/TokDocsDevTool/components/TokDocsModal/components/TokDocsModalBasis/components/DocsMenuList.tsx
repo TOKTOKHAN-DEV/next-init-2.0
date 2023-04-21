@@ -12,7 +12,7 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
-import LinkAsNext from '@components/common/LinkAsNext';
+import LinkAsNext from '@/components/common/LinkAsNext';
 
 import { TokDocsMenuType, TokDocsSubMenuTitle } from '../../../types/docs';
 

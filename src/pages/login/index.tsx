@@ -1,9 +1,8 @@
 import Head from 'next/head';
 
-import LoginPage from '@components/LoginPage';
-import HomeLayout from '@components/common/@Layout/HomeLayout';
-
-import withUnAuthGuard from '@hocs/withUnAuthGuard';
+import LoginPage from '@/components/LoginPage';
+import HomeLayout from '@/components/common/@Layout/HomeLayout';
+import withUnAuthGuard from '@/hocs/withUnAuthGuard';
 
 function Login() {
   return (

@@ -1,4 +1,4 @@
-import { createContextSelector } from '@utils/react/create-context-selector';
+import { createContextSelector } from '@/utils/react/create-context-selector';
 
 import { useHomePageHandlers } from './hooks/useHomePageHandler';
 import { useHomePageState } from './hooks/useHomePageState';

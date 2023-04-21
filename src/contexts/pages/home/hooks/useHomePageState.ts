@@ -1,6 +1,6 @@
 import { useReducer } from 'react';
 
-import { createSlice } from '@utils/react/create-slice';
+import { createSlice } from '@/utils/react/create-slice';
 
 type GlobalStateType = {
   value: number;

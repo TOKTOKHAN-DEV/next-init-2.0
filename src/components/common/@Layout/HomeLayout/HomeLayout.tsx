@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Container, ContainerProps } from '@chakra-ui/react';
 
-import { LAYOUT } from '@constants/layout';
+import { LAYOUT } from '@/constants/layout';
 
 import HomeHeader from './components/HomeHeader';
 

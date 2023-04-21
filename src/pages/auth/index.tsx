@@ -1,9 +1,8 @@
 import Head from 'next/head';
 
-import AuthPage from '@components/AuthPage';
-import HomeLayout from '@components/common/@Layout/HomeLayout';
-
-import withAuthGuard from '@hocs/withAuthGuard';
+import AuthPage from '@/components/AuthPage';
+import HomeLayout from '@/components/common/@Layout/HomeLayout';
+import withAuthGuard from '@/hocs/withAuthGuard';
 
 function Auth() {
   return (

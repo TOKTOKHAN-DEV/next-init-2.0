@@ -2,9 +2,9 @@ import React from 'react';
 
 import { HStack, VStack } from '@chakra-ui/react';
 
-import SocialButton from '@components/common/SocialButton';
+import SocialButton from '@/components/common/SocialButton';
 
-import { socialOAuthUrl } from '@utils/social';
+import { socialOAuthUrl } from '@/utils/social';
 
 const SOCIAL_LIST = ['kakao', 'naver', 'facebook', 'google', 'apple'] as const;
 

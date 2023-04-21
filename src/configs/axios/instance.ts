@@ -1,9 +1,9 @@
 import axios, { AxiosError } from 'axios';
 
-import { ENV } from '@configs/env';
-import { apiLogger } from '@utils/logger/api-logger';
-import styledConsole from '@utils/logger/styled-console';
-import { tokenStorage } from '@utils/web-storage/token';
+import { ENV } from '@/configs/env';
+import { apiLogger } from '@/utils/logger/api-logger';
+import styledConsole from '@/utils/logger/styled-console';
+import { tokenStorage } from '@/utils/web-storage/token';
 
 import { refresh } from './refresh';
 
