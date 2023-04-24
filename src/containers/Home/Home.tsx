@@ -6,7 +6,7 @@ import { useGlobalContext } from '@/contexts/global/useGlobalStoreContext';
 
 import { todoStorage } from '@/utils/web-storage/todo';
 
-function HomePageContent() {
+function Home() {
   const todos = useGlobalContext((ctx) => ctx.webStorage.todoList);
   return (
     <Box>
@@ -22,4 +22,4 @@ function HomePageContent() {
   );
 }
 
-export default HomePageContent;
+export default Home;

@@ -13,13 +13,13 @@ import {
   VStack,
 } from '@chakra-ui/react';
 
-import SocialButton from '@/components/common/SocialButton';
+import SocialButton from '@/components/SocialButton';
 
 import { socialOAuthUrl } from '@/utils/social';
 
 const SOCIAL_LIST = ['kakao', 'naver', 'facebook', 'google', 'apple'] as const;
 
-function LoginPage() {
+function Login() {
   const router = useRouter();
   const { returnUrl } = router.query;
 
@@ -82,4 +82,4 @@ function LoginPage() {
   );
 }
 
-export default LoginPage;
+export default Login;

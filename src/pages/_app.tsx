@@ -1,7 +1,7 @@
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-import ToggleColorModeButton from '@/components/common/ToggleColorModeButton';
-import TokDocsDevTools from '@/components/common/TokDocsDevTool';
+import ToggleColorModeButton from '@/components/ToggleColorModeButton';
+import TokDocsDevTools from '@/components/TokDocsDevTool';
 import withAppProvider from '@/hocs/withAppProvider';
 
 import Fonts from '@/generated/fonts/fonts';
@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-function MyApp({ Component, pageProps }: any) {
+function App({ Component, pageProps }: any) {
   return (
     <>
       <Fonts />
@@ -26,4 +26,4 @@ function MyApp({ Component, pageProps }: any) {
   );
 }
 
-export default withAppProvider(MyApp);
+export default withAppProvider(App);

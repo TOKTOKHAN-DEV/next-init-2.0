@@ -10,7 +10,6 @@ import { GlobalStoreProvider } from '@/contexts/global/useGlobalStoreContext';
 
 import { queryClient } from '@/configs/react-query';
 import theme from '@/configs/theme';
-import { formatNumberKR } from '@/utils/format/format-number-kr';
 
 function withAppProvider(AppComponent: FC<AppProps>) {
   return function WrappedAppComponent(props: AppProps) {

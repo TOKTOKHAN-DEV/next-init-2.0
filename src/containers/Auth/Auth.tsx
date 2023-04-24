@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Center, ChakraProps, Code, Text } from '@chakra-ui/react';
 
-interface AuthPageProps extends ChakraProps {}
+interface AuthProps extends ChakraProps {}
 
-function AuthPage({ ...basisProps }: AuthPageProps) {
+function Auth({ ...basisProps }: AuthProps) {
   return (
     <Center {...basisProps}>
       <Text>로그인 해야지만 접근할 수 있는 페이지 입니다.</Text>
@@ -13,4 +13,4 @@ function AuthPage({ ...basisProps }: AuthPageProps) {
   );
 }
 
-export default AuthPage;
+export default Auth;

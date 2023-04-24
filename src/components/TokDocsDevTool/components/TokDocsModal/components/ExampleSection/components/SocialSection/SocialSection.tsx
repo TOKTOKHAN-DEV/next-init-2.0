@@ -2,7 +2,7 @@ import React from 'react';
 
 import { HStack, VStack } from '@chakra-ui/react';
 
-import SocialButton from '@/components/common/SocialButton';
+import SocialButton from '@/components/SocialButton';
 
 import { socialOAuthUrl } from '@/utils/social';
 

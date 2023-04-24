@@ -1,19 +1,19 @@
 import Head from 'next/head';
 
-import LoginPage from '@/components/LoginPage';
-import HomeLayout from '@/components/common/@Layout/HomeLayout';
+import HomeLayout from '@/components/@Layout/HomeLayout';
+import Login from '@/containers/Login';
 import withUnAuthGuard from '@/hocs/withUnAuthGuard';
 
-function Login() {
+function LoginPage() {
   return (
     <>
       <Head>
         {/* ex) Your App Name | Page Name */}
         <title>똑똑한개발자 | login</title>
       </Head>
-      <HomeLayout content={<LoginPage />} />
+      <HomeLayout content={<Login />} />
     </>
   );
 }
 
-export default withUnAuthGuard(Login);
+export default withUnAuthGuard(LoginPage);

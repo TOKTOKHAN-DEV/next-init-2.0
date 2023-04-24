@@ -5,6 +5,7 @@
       "@/types/*": ["./types/*"],
       "@/configs/*": ["./configs/*"],
       "@/components/*": ["./components/*"],
+      "@/containers/*": ["./containers/*"],
       "@/apis/*": ["./apis/*"],
       "@/constants/*": ["./constants/*"],
       "@/hocs/*": ["./hocs/*"],

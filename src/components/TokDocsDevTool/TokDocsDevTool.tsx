@@ -1,6 +1,6 @@
 import { Button, useDisclosure } from '@chakra-ui/react';
 
-import TokDocsModal from '@/components/common/TokDocsDevTool/components/TokDocsModal';
+import TokDocsModal from '@/components/TokDocsDevTool/components/TokDocsModal';
 
 function TokDocsDevTools() {
   const { isOpen, onClose, onOpen } = useDisclosure();
