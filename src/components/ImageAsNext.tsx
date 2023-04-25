@@ -1,4 +1,4 @@
-import { forwardRef } from 'react';
+import { ForwardRefRenderFunction, forwardRef, memo } from 'react';
 
 import NextImage from 'next/image';
 
@@ -50,72 +50,75 @@ interface ImageAsNextProps
  * @see https://chakra-ui.com/docs/components/aspect-ratio/usage
  *
  */
-export const ImageAsNext = forwardRef<HTMLImageElement, ImageAsNextProps>(
-  function ImageAsNext(
-    {
-      src, // used next/images props
-      alt,
-      fill = true,
-      loader,
-      quality,
-      priority,
-      loading,
-      placeholder,
-      blurDataURL,
-      unoptimized,
-      onLoadingComplete,
-      onError,
+const ImageAsNext: ForwardRefRenderFunction<
+  HTMLImageElement,
+  ImageAsNextProps
+> = (
+  {
+    src, // used next/images props
+    alt,
+    fill = true,
+    loader,
+    quality,
+    priority,
+    loading,
+    placeholder,
+    blurDataURL,
+    unoptimized,
+    onLoadingComplete,
+    onError,
 
-      isLoading, // custom props
-      isDisabledSkeleton,
+    isLoading, // custom props
+    isDisabledSkeleton,
 
-      ...props // chakra props
-    },
-    ref,
-  ) {
-    const [_isLoading, setIsLoading] = useControllableState({
-      value: isLoading,
-      defaultValue: true,
-    });
-
-    const isShowSkelton = !isDisabledSkeleton && _isLoading;
-
-    return (
-      <Box position="relative" overflow="hidden" {...props}>
-        <Skeleton
-          w="100%"
-          h="100%"
-          objectFit="inherit"
-          objectPosition="inherit"
-          isLoaded={!isShowSkelton}
-        >
-          <NextImage
-            ref={ref}
-            src={src}
-            alt={alt}
-            fill={fill}
-            loader={loader}
-            quality={quality}
-            priority={priority}
-            loading={loading}
-            placeholder={placeholder}
-            blurDataURL={blurDataURL}
-            unoptimized={unoptimized}
-            onLoadingComplete={(t) => {
-              setIsLoading(false);
-              onLoadingComplete?.(t);
-            }}
-            onError={(t) => {
-              setIsLoading(false);
-              onError?.(t);
-            }}
-            style={{
-              objectFit: 'inherit',
-              objectPosition: 'inherit',
-            }}
-          />
-        </Skeleton>
-      </Box>
-    );
+    ...props // chakra props
   },
-);
+  ref,
+) => {
+  const [_isLoading, setIsLoading] = useControllableState({
+    value: isLoading,
+    defaultValue: true,
+  });
+
+  const isShowSkelton = !isDisabledSkeleton && _isLoading;
+
+  return (
+    <Box position="relative" overflow="hidden" objectFit="contain" {...props}>
+      <Skeleton
+        w="100%"
+        h="100%"
+        objectFit="inherit"
+        objectPosition="inherit"
+        isLoaded={!isShowSkelton}
+      >
+        <NextImage
+          ref={ref}
+          src={src}
+          alt={alt}
+          fill={fill}
+          loader={loader}
+          quality={quality}
+          priority={priority}
+          loading={loading}
+          placeholder={placeholder}
+          blurDataURL={blurDataURL}
+          unoptimized={unoptimized}
+          onLoadingComplete={(t) => {
+            setIsLoading(false);
+            onLoadingComplete?.(t);
+          }}
+          onError={(t) => {
+            setIsLoading(false);
+            onError?.(t);
+          }}
+          style={{
+            objectFit: 'inherit',
+            objectPosition: 'inherit',
+          }}
+        />
+      </Skeleton>
+    </Box>
+  );
+};
+
+export default memo(forwardRef(ImageAsNext));
