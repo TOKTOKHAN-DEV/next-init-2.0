@@ -14,7 +14,9 @@ const { reducer } = createSlice({
   initialState,
   reducers: {
     RESET: () => initialState,
-    SET_VALUE: (state, payload: number) => ({ ...state, value: payload }),
+    SET_VALUE: (state, payload: number) => {
+      state.value = payload;
+    },
   },
 });
 
