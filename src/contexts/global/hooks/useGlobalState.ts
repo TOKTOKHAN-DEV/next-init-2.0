@@ -2,22 +2,38 @@ import { useReducer } from 'react';
 
 import { createSlice } from '@/utils/react/create-slice';
 
-type GlobalStateType = {
+import { ConfirmAlertState } from './types/confirm-alert-state';
+
+export type GlobalStateType = {
   isLogin: null | boolean;
-  value: number;
+  confirmAlert: ConfirmAlertState;
 };
 
 const initialState: GlobalStateType = {
-  value: 0,
   isLogin: null,
+  confirmAlert: {
+    isOpen: false,
+    title: null,
+    description: null,
+    onCancel: null,
+    onConfirm: null,
+  },
 };
 
 const { reducer } = createSlice({
   initialState,
   reducers: {
     RESET: () => initialState,
-    SET_IS_LOGIN: (state, isLogin: boolean) => ({ ...state, isLogin }),
-    SET_VALUE: (state, value: number) => ({ ...state, value }),
+    SET_IS_LOGIN: (state, isLogin: boolean) => {
+      state.isLogin = isLogin;
+    },
+    CLEAN_UP_CONFIRM_ALERT: (state) => {
+      state.confirmAlert = initialState.confirmAlert;
+    },
+    SET_CONFIRM_ALERT: (state, confirmAlert: Partial<ConfirmAlertState>) => {
+      const merged = { ...state.confirmAlert, ...confirmAlert };
+      state.confirmAlert = merged;
+    },
   },
 });
 
