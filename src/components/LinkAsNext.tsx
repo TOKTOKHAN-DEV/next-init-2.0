@@ -6,10 +6,8 @@ import {
 } from '@chakra-ui/react';
 
 /**
- * @see Docs https://chakra-ui.com/docs/typography/text
- * @see Docs https://nextjs.org/docs/api-reference/next/link
+ * @see Docs https://chakra-ui.com/docs/components/link/usage#usage-with-nextjs
  */
-
 const LinkAsNext = (props: ChakraLinkProps) => {
   return (
     <ChakraLink //
