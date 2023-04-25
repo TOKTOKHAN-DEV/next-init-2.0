@@ -14,7 +14,7 @@ import {
 import {
   useUploadFileToS3Mutation,
   useUploadFilesToS3Mutation,
-} from '@/apis/S3FileUploader/S3FileUploaderApi.mutation';
+} from '@/apis/s3-file-uploader/S3FileUploaderApi.mutation';
 
 import { bytesToMB } from '@/utils/file/bytes-to-mb';
 import { fileToBase64 } from '@/utils/file/file-to-base64';
@@ -172,7 +172,7 @@ function S3FileUploadSection() {
         <List w="100%" bg="gray.200" p="10px" mb="20px">
           {!!currentFile && (
             <ListItem>
-              {currentFile.name}({bytesToMB(currentFile.size).toFixed(1)}MB)
+              {currentFile.name}({bytesToMB(currentFile.size).toFixed(3)}MB)
             </ListItem>
           )}
         </List>
@@ -185,7 +185,7 @@ function S3FileUploadSection() {
         {files.map((f, idx) => {
           return (
             <ListItem key={idx}>
-              {f.name}({bytesToMB(f.size).toFixed(1)}MB)
+              {f.name}({bytesToMB(f.size).toFixed(3)}MB)
             </ListItem>
           );
         })}
