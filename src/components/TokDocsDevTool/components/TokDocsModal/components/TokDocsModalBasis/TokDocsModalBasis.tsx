@@ -1,13 +1,6 @@
-import {
-  Box,
-  Flex,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalOverlay,
-  ModalProps,
-} from '@chakra-ui/react';
+import { Box, Flex, ModalProps } from '@chakra-ui/react';
+
+import ModalBasis from '@/components/@Modal/ModalBasis';
 
 import { TOK_DOCS_MENU_DATA } from '../../constants/docs';
 import { TokDocsSubMenuTitle } from '../../types/docs';
@@ -26,32 +19,21 @@ function TokDocsModalBasis({
   ...props
 }: TokDocsModalBasisProps) {
   return (
-    <Modal size="5xl" isCentered {...props}>
-      <ModalOverlay />
-      <ModalContent>
-        <ModalCloseButton />
-        <ModalBody
-          height="80vh"
-          maxH="80vh"
-          minH="80vh"
-          overflow="auto"
-          display="flex"
-          flexDirection="column"
-          justifyContent="start"
-          alignItems="center"
-        >
-          <DocsHeader title={title} />
-          <Flex w="100%">
-            <DocsNavigation
-              menuData={TOK_DOCS_MENU_DATA}
-              selectedMenu={title}
-              setMenu={setTitle}
-            />
-            <Box flexGrow={1}>{content}</Box>
-          </Flex>
-        </ModalBody>
-      </ModalContent>
-    </Modal>
+    <ModalBasis
+      size="5xl"
+      header={<DocsHeader title={title} />}
+      body={
+        <Flex w="100%" overflow="auto" h="60vh">
+          <DocsNavigation
+            menuData={TOK_DOCS_MENU_DATA}
+            selectedMenu={title}
+            setMenu={setTitle}
+          />
+          <Box flexGrow={1}>{content}</Box>
+        </Flex>
+      }
+      {...props}
+    />
   );
 }
 

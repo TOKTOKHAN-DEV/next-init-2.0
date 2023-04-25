@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-import { Box, BoxProps, Flex, FlexProps, Text } from '@chakra-ui/react';
+import { Box, BoxProps, Center, Flex, FlexProps, Text } from '@chakra-ui/react';
 
 import { PropsOf } from '@/types/module/react/props-of';
 
@@ -9,7 +9,7 @@ interface DocsHeaderProps extends FlexProps {
 }
 function DocsHeader({ title, ...props }: DocsHeaderProps) {
   return (
-    <Flex alignItems="center" mb="50px" {...props}>
+    <Center alignItems="center" mb="50px" {...props}>
       <RotateBox
         mx="20px"
         bg="cyan.500"
@@ -23,7 +23,7 @@ function DocsHeader({ title, ...props }: DocsHeaderProps) {
         bg="secondary.500"
         transition={{ repeat: Infinity, duration: 2 }}
       />
-    </Flex>
+    </Center>
   );
 }
 
