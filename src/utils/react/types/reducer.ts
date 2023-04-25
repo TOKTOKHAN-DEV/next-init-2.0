@@ -1,4 +1,4 @@
-export type ReducerMapFn<S, P> = (state: S, payload: P) => S;
+export type ReducerMapFn<S, P> = (state: S, payload: P) => S | void;
 
 export type ReducerMap<S, P> = Record<string, ReducerMapFn<S, P>>;
 
