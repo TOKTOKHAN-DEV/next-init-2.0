@@ -5,12 +5,10 @@ import ToggleColorModeButton from '@/components/ToggleColorModeButton';
 import TokDocsDevTools from '@/components/TokDocsDevTool';
 import withAppProvider from '@/hocs/withAppProvider';
 
-import Fonts from '@/generated/fonts/fonts';
-
 function App({ Component, pageProps }: any) {
   return (
     <>
-      <Fonts />
+      {/* <Fonts /> */}
       <ToggleColorModeButton />
       <Component {...pageProps} />
       <ControlledConfirmAlert />

@@ -9,7 +9,7 @@
     "prepare": "husky install && node_modules/.bin/ls-engines",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "yarn build && next start",
     "lint:staged": "lint-staged",
     "lint": "tsc --noEmit && eslint .",
     "commit": "tokript commit",
