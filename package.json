@@ -56,7 +56,7 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "@chakra-ui/cli": "^2.3.0",
+    "@chakra-ui/cli": "^2.4.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
     "@tosspayments/payment-sdk": "^1.1.1",
