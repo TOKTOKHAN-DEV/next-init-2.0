@@ -87,6 +87,7 @@ const ImageAsNext: ForwardRefRenderFunction<
       <Skeleton
         w="100%"
         h="100%"
+        position="relative"
         objectFit="inherit"
         objectPosition="inherit"
         isLoaded={!isShowSkelton}

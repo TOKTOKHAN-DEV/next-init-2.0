@@ -1,4 +1,4 @@
-import { DeclaredNextFontType } from './fonts/types/next-font-types';
+import { DeclaredFontsType } from './fonts/types/declared-fonts-type';
 
 /**
  * @issues
@@ -11,14 +11,16 @@ import { DeclaredNextFontType } from './fonts/types/next-font-types';
  * 해결 방법:
  *  - chakra-cli: 타입정의는 fonts 의 키 값 정도만 참조 하기때문에, 사용되는 next-fonts 의 key 값을 가진 Mock 데이터로 대체
  *  - next/fonts: 실제 적용되는 부분은 app-provider 이기 때문에 provider 에 theme 이 넘겨지기 전에 실제 fonts 데이터로 대체 후 넘겨줌
+ *
+ * @see https://github.com/chakra-ui/chakra-ui/discussions/7235#discussioncomment-5230995
  */
-const declaredNextFontsMock: DeclaredNextFontType = {
+const declaredNextFontsMock: DeclaredFontsType = {
   akronim: 'sans-serif',
   pretendard: 'sans-serif',
 };
 
 const typography = {
-  fonts: { ...declaredNextFontsMock },
+  fonts: declaredNextFontsMock,
   fontWeights: {
     thin: 100,
     extralight: 200,

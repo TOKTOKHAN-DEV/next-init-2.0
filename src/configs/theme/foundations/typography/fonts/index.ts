@@ -1,8 +1,9 @@
-import { mappingNextFontFamily } from '@/configs/theme/utils/mapping-next-font-family';
+import { ChakraTheme } from '@chakra-ui/react';
 
-import * as googleFonts from './next-fonts/google-fonts';
-import * as localFont from './next-fonts/local-fonts';
+import nextFonts from './next-fonts';
 
-const fonts = mappingNextFontFamily({ ...googleFonts, ...localFont });
+const fonts: ChakraTheme['fonts'] = {
+  ...nextFonts,
+};
 
 export default fonts;
