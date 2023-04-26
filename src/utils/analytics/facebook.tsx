@@ -61,6 +61,7 @@ export const FacebookSetter = () => {
       />
       <noscript>
         <img
+          alt="facebook-pixel"
           height="1"
           width="1"
           style={{ display: 'none' }}

@@ -168,7 +168,9 @@ function S3FileUploadSection() {
         현재 파일
       </Text>
       <Center w="100%" flexDirection="column">
-        {isBase64Img(currentFileBase64) && <Image src={currentFileBase64} />}
+        {isBase64Img(currentFileBase64) && (
+          <Image src={currentFileBase64} alt="base64-img" />
+        )}
         <List w="100%" bg="gray.200" p="10px" mb="20px">
           {!!currentFile && (
             <ListItem>

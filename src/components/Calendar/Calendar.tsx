@@ -130,7 +130,7 @@ const Calendar = ({ handleDayClick }: CalendarProps) => {
                       );
                     return (
                       <Flex key={`calendar-${idx}`}>
-                        <Image src={d.icon} w="14px" h="14px" />
+                        <Image src={d.icon} w="14px" h="14px" alt="icon" />
                         <Text ml="5px">{d.title}</Text>
                       </Flex>
                     );

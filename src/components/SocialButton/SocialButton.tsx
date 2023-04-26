@@ -35,6 +35,7 @@ const SocialButton = ({ data, size }: SocialButtonProps) => {
           left={left}
           src={SOCIALS[data.social].icon}
           loading="lazy"
+          alt="img"
         />
         {size !== 'sm' && (
           <Text fontSize={['16px', '14px', '15px']}>

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-import { Box, BoxProps, Center, Flex, FlexProps, Text } from '@chakra-ui/react';
+import { Box, BoxProps, Center, FlexProps, Text } from '@chakra-ui/react';
 
 import { PropsOf } from '@/types/module/react/props-of';
 

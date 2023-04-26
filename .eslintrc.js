@@ -8,17 +8,18 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
+    'plugin:prettier/recommended', // plugin과 eslint-config-prettier 설정을 한번에 합니다.
+    'plugin:@typescript-eslint/recommended', // 해당 플러그인의 권장 규칙을 사용합니다.
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
-    'plugin:@typescript-eslint/recommended', // 해당 플러그인의 권장 규칙을 사용합니다.
-    'plugin:prettier/recommended', // plugin과 eslint-config-prettier 설정을 한번에 합니다.
+    'plugin:@next/next/recommended',
   ],
   parser: '@typescript-eslint/parser', // ESLint 파서를 지정합니다.
   parserOptions: {
     ecmaFeatures: {
       jsx: true, // JSX를 파싱할 수 있습니다.
     },
-    ecmaVersion: 12, // Modern ECMAScript를 파싱할 수 있습니다.
+    ecmaVersion: 'latest', // Modern ECMAScript를 파싱할 수 있습니다.
     sourceType: 'module', // import, export를 사용할 수 있습니다.
   },
   plugins: ['react', '@typescript-eslint'],
@@ -31,6 +32,7 @@ module.exports = {
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-empty-interface': 'off',
     '@typescript-eslint/no-namespace': 'off',
+    '@next/next/no-img-element': 'off',
   },
   settings: {
     react: {

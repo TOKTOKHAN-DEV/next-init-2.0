@@ -34,12 +34,13 @@ const HomeHeader = ({ variant = 'light' }: HomeHeaderProps) => {
         {...cssByVariant.header}
       >
         <Image //
+          alt="logo"
           src="/images/header/logo.png"
           w="74px"
           h="42px"
           cursor="pointer"
         />
-        <Image src="/images/header/menu.png" w="24px" h="24px" />
+        <Image alt="menu" src="/images/header/menu.png" w="24px" h="24px" />
         <IconButton //
           size={'xs'}
           color={cssByVariant.pointColor}

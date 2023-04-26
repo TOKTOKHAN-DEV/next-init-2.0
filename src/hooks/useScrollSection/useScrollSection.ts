@@ -39,6 +39,7 @@ export default function useScrollSection<T extends HTMLElement | null>({
       window.removeEventListener('load', handleProgress);
       window.removeEventListener('resize', handleProgress);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [parentsRef, targetRef, entryPoint]);
 
   return { ref: targetRef };
