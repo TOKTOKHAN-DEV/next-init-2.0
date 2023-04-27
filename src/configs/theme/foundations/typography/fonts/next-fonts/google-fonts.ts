@@ -1,6 +1,6 @@
-import { Akronim } from 'next/font/google';
+import { Akronim as _Akronim } from 'next/font/google';
 
-export const akronim = Akronim({
+export const Akronim = _Akronim({
   subsets: ['latin'],
   weight: '400',
   display: 'block',

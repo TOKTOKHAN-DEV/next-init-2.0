@@ -15,8 +15,8 @@ import { DeclaredFontsType } from './fonts/types/declared-fonts-type';
  * @see https://github.com/chakra-ui/chakra-ui/discussions/7235#discussioncomment-5230995
  */
 const declaredNextFontsMock: DeclaredFontsType = {
-  akronim: 'sans-serif',
-  pretendard: 'sans-serif',
+  Akronim: 'sans-serif',
+  Pretendard: 'sans-serif',
 };
 
 const typography = {

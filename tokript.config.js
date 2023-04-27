@@ -50,11 +50,7 @@ exports.module = {
     /** 조회할 font 파일들이 포함되어있는 폴더 입니다. */
     inputPath: 'public/fonts',
     /** 생성될 파일이 위치할 경로입니다.*/
-    outputPath: 'src/generated/fonts/fonts.tsx',
-    /** 생성될 font 객체의 이름입니다 */
-    displayName: 'FONTS',
-    /** 생성될 객체의 value 에 할당될 경로의 base-path 입니다 */
-    basePath: '',
+    outputPath: 'src/generated/fonts/next-fonts.ts',
     /** 생성될 폰트 파일을 판별하는 패턴으로써, 파일이름이 패턴과 일치할 경우에만 객체에 포함됩니다.
      * (default: ['*.otf', '*.ttf', '*.woff', '*.woff2'])
      */
