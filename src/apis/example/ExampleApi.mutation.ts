@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
 
-import { UseMutationParams } from '@/types/module/react-query/use-mutaton-params';
+import { UseMutationParams } from '@/types/module/react-query/use-mutation-params';
 import { Parameter } from '@/types/utility/parameter';
 import { isNotNull } from '@/utils/validate/is-not-null';
 
