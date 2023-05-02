@@ -101,6 +101,8 @@ yarn run theme:open
 업무를 도와주는 사내 cli-tool 입니다.
 아이콘, 이미지, 폰트, api, page template 등 다양한 작업에 도움을 줍니다.
 
+- [Tokript npm](https://www.npmjs.com/package/tokript)
+
 #### Source
 
 page, dynamic-page, api 에 대한 탬플릿을 생성해 줍니다.
