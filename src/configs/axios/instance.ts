@@ -17,19 +17,9 @@ const instance = axios.create({
   },
 });
 
-const setAuthHeader = (token: string) => {
-  if (token) {
-    instance.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-  }
-};
-
-const unsetAuthHeader = () => {
-  delete instance.defaults.headers.common['Authorization'];
-};
-
 instance.interceptors.request.use(
-  async (config) => {
-    const token = await tokenStorage?.get();
+  (config) => {
+    const token = tokenStorage?.get();
     const isAccess = !!token && !!token.access;
     if (isAccess) {
       config.headers.setAuthorization(`Bearer ${token.access}`);
@@ -80,5 +70,4 @@ instance.interceptors.response.use(
   },
 );
 
-export { setAuthHeader, unsetAuthHeader };
 export default instance;
