@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 
 import HomeLayout from '@/components/@Layout/HomeLayout';
 import Home from '@/containers/Home';
@@ -9,10 +9,7 @@ import withHomePageProvider from '@/hocs/withHomePageProvider';
 function HomePage() {
   return (
     <>
-      <Head>
-        {/* ex) Your App Name | Page Name */}
-        <title>똑똑한 개발자 | 메인</title>
-      </Head>
+      <NextSeo title="메인" />
       <HomeLayout content={<Home />} />
     </>
   );
