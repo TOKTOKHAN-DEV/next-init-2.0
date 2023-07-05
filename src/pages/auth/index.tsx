@@ -1,4 +1,4 @@
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 
 import HomeLayout from '@/components/@Layout/HomeLayout';
 import Auth from '@/containers/Auth';
@@ -7,10 +7,7 @@ import withAuthGuard from '@/hocs/withAuthGuard';
 function AuthPage() {
   return (
     <>
-      <Head>
-        {/* ex) Your App Name | Page Name */}
-        <title>똑똑한개발자 | auth</title>
-      </Head>
+      <NextSeo title="auth" />
       <HomeLayout content={<Auth />} />
     </>
   );
