@@ -1,11 +1,22 @@
-import { ChakraMultiPartComponentType } from '@/types/module/chakra/chakra-multi-part-component-type';
+import { listAnatomy as parts } from '@chakra-ui/anatomy';
+import {
+  createMultiStyleConfigHelpers,
+  defineStyle,
+} from '@chakra-ui/styled-system';
 
-const parts = ['container', 'item', 'icon'] as const;
+const { defineMultiStyleConfig, definePartsStyle } =
+  createMultiStyleConfigHelpers(parts.keys);
 
-export const List: ChakraMultiPartComponentType<typeof parts> = {
-  parts,
-  baseStyle: {},
-  defaultProps: {},
-  sizes: {},
-  variants: {},
-};
+const baseStyleIcon = defineStyle({
+  marginEnd: '2',
+  display: 'inline',
+  verticalAlign: 'text-bottom',
+});
+
+const baseStyle = definePartsStyle({
+  icon: baseStyleIcon,
+});
+
+export const listTheme = defineMultiStyleConfig({
+  baseStyle,
+});

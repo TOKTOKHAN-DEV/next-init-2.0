@@ -2,6 +2,7 @@ import { Flex, IconButton, Image } from '@chakra-ui/react';
 import { useDisclosure } from '@chakra-ui/react';
 
 import { LAYOUT } from '@/constants/layout';
+import { MY_IMAGES } from '@/images';
 
 import HomeHeaderDrawer from './components/HomeHeaderDrawer';
 import {
@@ -34,10 +35,9 @@ const HomeHeader = ({ variant = 'light' }: HomeHeaderProps) => {
         {...cssByVariant.header}
       >
         <Image //
-          alt="logo"
-          src="/images/header/logo.png"
+          alt={MY_IMAGES.ICONS.LOGO.alt}
+          src={MY_IMAGES.ICONS.LOGO.src}
           w="74px"
-          h="42px"
           cursor="pointer"
         />
         <Image alt="menu" src="/images/header/menu.png" w="24px" h="24px" />
