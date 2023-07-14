@@ -8,6 +8,18 @@ module.exports = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  reactStrictMode: true,
+  compiler: {
+    removeConsole: {
+      exclude: ['error'],
+    },
+  },
+  modularizeImports: {
+    'lodash-es': {
+      transform: 'lodash-es/{{member}}',
+      preventFullImport: true,
+    },
+  },
 
   webpack: (config, { isServer }) => {
     if (isServer) {
