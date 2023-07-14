@@ -1,9 +1,9 @@
 import { extendTheme } from '@chakra-ui/react';
 
+import { components } from './components';
+import { foundations } from './foundations';
 // Component style overrides
-import components from './components';
 // Foundational style overrides
-import foundations from './foundations';
 // SemanticTokens
 import semanticTokens from './semantic-tokens';
 // Global style overrides
