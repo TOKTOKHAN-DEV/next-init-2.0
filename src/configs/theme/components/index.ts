@@ -1,6 +1,6 @@
-// import { buttonTheme } from './core/button';
+import { buttonTheme } from './core/button';
 import { containerTheme } from './core/container';
-// import { inputTheme } from './core/input';
+import { inputTheme } from './core/input';
 import { breadcrumbTheme } from './misc/breadcrumb';
 import { closeButtonTheme } from './misc/close-button';
 import { codeTheme } from './misc/code';
@@ -10,7 +10,7 @@ import { formErrorTheme } from './misc/form-error';
 import { formLabelTheme } from './misc/form-label';
 import { headingTheme } from './misc/heading';
 import { kbdTheme } from './misc/kbd';
-// import { numberInputTheme } from './misc/number-input';
+import { numberInputTheme } from './misc/number-input';
 import { pinInputTheme } from './misc/pin-input';
 import { skipLinkTheme } from './misc/skip-link';
 import { statTheme } from './misc/stat';
@@ -47,7 +47,7 @@ export const components = {
   Avatar: avatarTheme,
   Badge: badgeTheme,
   Breadcrumb: breadcrumbTheme,
-  // Button: buttonTheme,
+  Button: buttonTheme,
   Checkbox: checkboxTheme,
   CloseButton: closeButtonTheme,
   Code: codeTheme,
@@ -59,13 +59,13 @@ export const components = {
   FormError: formErrorTheme,
   FormLabel: formLabelTheme,
   Heading: headingTheme,
-  // Input: inputTheme,
+  Input: inputTheme,
   Kbd: kbdTheme,
   Link: linkTheme,
   List: listTheme,
   Menu: menuTheme,
   Modal: modalTheme,
-  // NumberInput: numberInputTheme,
+  NumberInput: numberInputTheme,
   PinInput: pinInputTheme,
   Popover: popoverTheme,
   Progress: progressTheme,
