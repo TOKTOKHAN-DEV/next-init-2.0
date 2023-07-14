@@ -5,7 +5,6 @@ import { ChakraTheme } from '../types/theme.types';
 export const requiredChakraThemeKeys: (keyof ChakraTheme)[] = [
   'borders',
   'breakpoints',
-  'colors',
   'components',
   'config',
   'direction',
@@ -21,6 +20,7 @@ export const requiredChakraThemeKeys: (keyof ChakraTheme)[] = [
   'styles',
   'transition',
   'zIndices',
+  'semanticTokens',
 ];
 
 export function isChakraTheme(unit: unknown): unit is ChakraTheme {

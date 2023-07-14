@@ -1,5 +1,5 @@
 import { defineStyle } from '@chakra-ui/react';
-import { mode, transparentize } from '@chakra-ui/theme-tools';
+import { mode } from '@chakra-ui/theme-tools';
 
 import { runIfFn } from '@/utils/validate/run-if-fn';
 
@@ -16,17 +16,14 @@ const variantGhost = defineStyle((props) => {
     };
   }
 
-  const darkHoverBg = transparentize(`${c}.200`, 0.12)(theme);
-  const darkActiveBg = transparentize(`${c}.200`, 0.24)(theme);
-
   return {
     color: mode(`${c}.600`, `${c}.200`)(props),
     bg: 'transparent',
     _hover: {
-      bg: mode(`${c}.50`, darkHoverBg)(props),
+      bg: mode(`${c}.50`, `${c}.200`)(props),
     },
     _active: {
-      bg: mode(`${c}.100`, darkActiveBg)(props),
+      bg: mode(`${c}.100`, `${c}.400`)(props),
     },
   };
 });
