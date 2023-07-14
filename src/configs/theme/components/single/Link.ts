@@ -1,11 +1,21 @@
-import { ComponentSingleStyleConfig } from '@chakra-ui/react';
+import { defineStyle, defineStyleConfig } from '@chakra-ui/styled-system';
 
-export const Link: ComponentSingleStyleConfig = {
-  baseStyle: {
-    _hover: { textDecoration: 'none' },
-    _focus: { boxShadow: 'none' },
+const baseStyle = defineStyle({
+  transitionProperty: 'common',
+  transitionDuration: 'fast',
+  transitionTimingFunction: 'ease-out',
+  cursor: 'pointer',
+  textDecoration: 'none',
+  outline: 'none',
+  color: 'inherit',
+  _hover: {
+    textDecoration: 'underline',
   },
-  defaultProps: {},
-  sizes: {},
-  variants: {},
-};
+  _focusVisible: {
+    boxShadow: 'outline',
+  },
+});
+
+export const linkTheme = defineStyleConfig({
+  baseStyle,
+});
