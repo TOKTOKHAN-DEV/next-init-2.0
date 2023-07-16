@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: process.env.ANALYZE === 'true',
+});
+module.exports = withBundleAnalyzer({
   // images: {
   //   domains: ['example.com'], // remote 이미지를 next image 로 랜더링하고싶다면 도메인을 설정해주세요
   // },
@@ -10,9 +14,8 @@ module.exports = {
   },
   reactStrictMode: true,
   compiler: {
-    removeConsole: {
-      exclude: ['error'],
-    },
+    removeConsole:
+      process.env.NODE_ENV === 'production' ? { exclude: ['error'] } : false,
   },
   modularizeImports: {
     'lodash-es': {
@@ -35,4 +38,4 @@ module.exports = {
       },
     ];
   },
-};
+});
