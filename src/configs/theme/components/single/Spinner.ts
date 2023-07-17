@@ -26,10 +26,12 @@ const sizes = {
   }),
 };
 
-export const spinnerTheme = defineStyleConfig({
+const spinnerTheme = defineStyleConfig({
   baseStyle,
   sizes,
   defaultProps: {
     size: 'md',
   },
 });
+
+export default spinnerTheme;
