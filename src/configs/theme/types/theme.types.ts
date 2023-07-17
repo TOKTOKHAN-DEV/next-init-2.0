@@ -101,32 +101,31 @@ export interface ThemeComponents {
 
 interface Typography {
   fonts: RecursiveObject<string>;
-  fontSizes: RecursiveObject;
   fontWeights: RecursiveObject;
-  letterSpacings: RecursiveObject;
-  lineHeights: RecursiveObject;
 }
 
-interface Foundations extends Typography {
+interface EtcFoundations {
   borders: RecursiveObject;
-  breakpoints: Dict;
-  colors: Colors;
-  radii: RecursiveObject;
   shadows: RecursiveObject<string>;
-  sizes: RecursiveObject;
+  radii: RecursiveObject;
   space: RecursiveObject;
   transition: ThemeTransitions;
-  zIndices: RecursiveObject;
 }
 
-export interface ChakraTheme extends Foundations {
+interface Foundations extends Typography, EtcFoundations {
+  breakpoints: Dict;
+  sizes: RecursiveObject;
+  zIndices: RecursiveObject;
+  textStyles: SystemStyleObjectRecord;
+  styles: Styles;
   semanticTokens?: Partial<
     Record<keyof Foundations, Record<string, SemanticValue<keyof Pseudos>>>
   >;
+}
+
+export interface ChakraTheme extends Foundations {
   components: ThemeComponents;
   config: ThemeConfig;
   direction: ThemeDirection;
-  styles: Styles;
   layerStyles?: SystemStyleObjectRecord;
-  textStyles?: SystemStyleObjectRecord;
 }
