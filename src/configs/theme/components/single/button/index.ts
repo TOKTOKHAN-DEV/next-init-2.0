@@ -31,6 +31,6 @@ export const buttonTheme = defineStyleConfig({
   defaultProps: {
     variant: 'solid',
     size: 'md',
-    colorScheme: 'gray',
+    colorScheme: 'primary',
   },
 });

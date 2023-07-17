@@ -3,7 +3,8 @@ import {
   defineStyle,
   defineStyleConfig,
 } from '@chakra-ui/styled-system';
-import { transparentize } from '@chakra-ui/theme-tools';
+
+import { transparentize } from '../../utils/transparentize';
 
 const vars = defineCssVars('badge', ['bg', 'color', 'shadow']);
 
@@ -20,7 +21,7 @@ const baseStyle = defineStyle({
 
 const variantSolid = defineStyle((props) => {
   const { colorScheme: c, theme } = props;
-  const dark = transparentize(`${c}.500`, 0.6)(theme);
+  const dark = transparentize(`${c}.500`, 0.6, '_dark')(theme);
   return {
     [vars.bg.variable]: `colors.${c}.500`,
     [vars.color.variable]: `colors.white`,
@@ -33,7 +34,7 @@ const variantSolid = defineStyle((props) => {
 
 const variantSubtle = defineStyle((props) => {
   const { colorScheme: c, theme } = props;
-  const darkBg = transparentize(`${c}.200`, 0.16)(theme);
+  const darkBg = transparentize(`${c}.200`, 0.16, '_dark')(theme);
   return {
     [vars.bg.variable]: `colors.${c}.100`,
     [vars.color.variable]: `colors.${c}.800`,
@@ -46,7 +47,7 @@ const variantSubtle = defineStyle((props) => {
 
 const variantOutline = defineStyle((props) => {
   const { colorScheme: c, theme } = props;
-  const darkColor = transparentize(`${c}.200`, 0.8)(theme);
+  const darkColor = transparentize(`${c}.200`, 0.8, '_dark')(theme);
   return {
     [vars.color.variable]: `colors.${c}.500`,
     _dark: {

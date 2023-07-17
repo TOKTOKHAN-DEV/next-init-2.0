@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import { ReactNode } from 'react';
 
 import { Heading, VStack } from '@chakra-ui/react';
 
@@ -16,7 +16,7 @@ const ChakraComponentLayout = ({
       justifyContent={'flex-start'}
       alignItems={'flex-start'}
     >
-      <Heading>{title}</Heading>
+      <Heading size={'lg'}>{title}</Heading>
       {content}
     </VStack>
   );

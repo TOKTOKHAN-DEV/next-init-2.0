@@ -5,7 +5,7 @@ import {
   defineStyle,
 } from '@chakra-ui/styled-system';
 
-import { inputTheme } from '../core/input';
+import { inputTheme } from './input';
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys);

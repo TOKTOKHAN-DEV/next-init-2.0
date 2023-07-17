@@ -9,7 +9,7 @@ import Document, {
 
 import { ColorModeScript } from '@chakra-ui/color-mode';
 
-import config from '@/theme/config';
+import config from '@/configs/theme/config';
 
 // const GOOGLE_ANALYTICS_ID = 'G-입력해주세요';
 
