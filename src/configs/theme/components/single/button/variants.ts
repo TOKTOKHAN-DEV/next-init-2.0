@@ -47,27 +47,48 @@ type AccessibleColor = {
   color?: string;
   hoverBg?: string;
   activeBg?: string;
+  border?: string;
 };
 
 /** Accessible color overrides for less accessible colors. */
+
 const accessibleColorMap: { [key: string]: AccessibleColor } = {
-  yellow: {
-    bg: 'yellow.400',
-    color: 'black',
-    hoverBg: 'yellow.500',
-    activeBg: 'yellow.600',
+  kakao: {
+    bg: 'kakao.500',
+    color: '#1A1A1A',
+    hoverBg: 'kakao.600',
+    activeBg: 'kakao.700',
   },
-  cyan: {
-    bg: 'cyan.400',
-    color: 'black',
-    hoverBg: 'cyan.500',
-    activeBg: 'cyan.600',
+  naver: {
+    bg: 'naver.500',
+    color: '#FFFFFF',
+    hoverBg: 'naver.600',
+    activeBg: 'naver.700',
+  },
+  facebook: {
+    bg: 'facebook.500',
+    color: '#FFFFFF',
+    hoverBg: 'facebook.600',
+    activeBg: 'facebook.700',
+  },
+  apple: {
+    bg: 'apple.500',
+    color: '#FFFFFF',
+    hoverBg: 'apple.600',
+    activeBg: 'apple.700',
+  },
+  google: {
+    bg: 'google.500',
+    color: '#808080',
+    hoverBg: 'google.600',
+    activeBg: 'google.700',
+    border: '#DDDDDD',
   },
 };
 
 const variantSolid = defineStyle((props) => {
   const { colorScheme: c } = props;
-
+  console.log('c', c);
   if (c === 'gray') {
     const bg = mode(`gray.100`, `whiteAlpha.200`)(props);
 
@@ -89,12 +110,14 @@ const variantSolid = defineStyle((props) => {
     color = 'white',
     hoverBg = `${c}.600`,
     activeBg = `${c}.700`,
+    border = `${c}`,
   } = accessibleColorMap[c] ?? {};
 
   const background = mode(bg, `${c}.200`)(props);
 
   return {
     bg: background,
+    borderColor: border,
     color: mode(color, `gray.800`)(props),
     _hover: {
       bg: mode(hoverBg, `${c}.300`)(props),

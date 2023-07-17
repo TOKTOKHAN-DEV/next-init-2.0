@@ -1,6 +1,6 @@
 import { defineStyle, defineStyleConfig } from '@chakra-ui/styled-system';
 
-import { inputTheme } from '../core/input';
+import { inputTheme } from '../multi-parts/input';
 
 const baseStyle = defineStyle({
   ...inputTheme.baseStyle?.field,

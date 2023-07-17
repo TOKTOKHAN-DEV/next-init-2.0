@@ -2,7 +2,11 @@ import { TokDocsMenuType } from '../types/docs';
 
 export const TOK_DOCS_TOPICS = ['App Style Viewer', 'Example'] as const;
 
-export const APP_STYLE_VIEWER_DOCS = ['generated Icons', 'colors'] as const;
+export const APP_STYLE_VIEWER_DOCS = [
+  'generated Icons',
+  'colors',
+  'Chakra theme',
+] as const;
 export const EXAMPLE_DOCS = [
   'redux-toolkit 예시',
   'react-hook-from 예시',
@@ -17,7 +21,11 @@ export const TOK_DOCS_MENU_DATA: TokDocsMenuType[] = [
   {
     kind: 'IN APP',
     name: 'App Style Viewer',
-    subMenu: [{ name: 'generated Icons' }, { name: 'colors' }],
+    subMenu: [
+      { name: 'generated Icons' },
+      { name: 'colors' },
+      { name: 'Chakra theme' },
+    ],
   },
   {
     kind: 'IN APP',

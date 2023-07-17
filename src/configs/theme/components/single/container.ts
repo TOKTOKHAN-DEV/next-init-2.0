@@ -14,6 +14,13 @@ const baseStyle = defineStyle({
   px: '0',
 });
 
+const variants = defineStyle({
+  chakra: {
+    px: '30px',
+  },
+});
+
 export const containerTheme = defineStyleConfig({
   baseStyle,
+  variants,
 });

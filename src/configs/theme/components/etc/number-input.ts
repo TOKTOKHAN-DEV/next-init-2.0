@@ -7,8 +7,8 @@ import { calc, cssVar } from '@chakra-ui/theme-tools';
 
 import { runIfFn } from '@/utils/validate/run-if-fn';
 
-import { inputTheme } from '../core/input';
-import { sizes as inputSizes } from '../core/input/sizes';
+import { inputTheme } from '../multi-parts/input';
+import { sizes as inputSizes } from '../multi-parts/input/sizes';
 
 const { defineMultiStyleConfig, definePartsStyle } =
   createMultiStyleConfigHelpers(parts.keys);

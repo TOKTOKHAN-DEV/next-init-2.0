@@ -9,7 +9,7 @@ interface HomeHeaderDrawerProps extends Omit<DrawerProps, 'children'> {
 const HomeHeaderDrawer = ({ bodyProps, ...props }: HomeHeaderDrawerProps) => {
   return (
     <DrawerBasis //
-      header={'hh'}
+      header={'header'}
       body={<Text> body</Text>}
       footer={<Text> footer</Text>}
       bodyProps={bodyProps}
