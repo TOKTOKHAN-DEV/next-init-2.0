@@ -88,6 +88,7 @@ const accessibleColorMap: { [key: string]: AccessibleColor } = {
 
 const variantSolid = defineStyle((props) => {
   const { colorScheme: c } = props;
+
   if (c === 'gray') {
     const bg = mode(`gray.100`, `whiteAlpha.200`)(props);
 
@@ -113,7 +114,6 @@ const variantSolid = defineStyle((props) => {
   } = accessibleColorMap[c] ?? {};
 
   const background = mode(bg, `${c}.200`)(props);
-
   return {
     bg: background,
     borderColor: border,

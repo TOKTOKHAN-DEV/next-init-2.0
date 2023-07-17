@@ -28,7 +28,7 @@ const ChakraThemeSection = ({ ...basisProps }: ChakraThemeSectionProps) => {
           title={'Button'}
           content={
             <SimpleGrid columns={3} spacing={10}>
-              <Button variant={'outline'}>Button</Button>
+              <Button>Button</Button>
               <Button colorScheme={'secondary'}>Button</Button>
               <SocialButton
                 data={{ link: '#', social: 'google' }}

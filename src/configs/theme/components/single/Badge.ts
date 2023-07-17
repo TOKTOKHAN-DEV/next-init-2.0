@@ -63,7 +63,7 @@ const variants = {
   outline: variantOutline,
 };
 
-const badgeTheme = defineStyleConfig({
+const Badge = defineStyleConfig({
   baseStyle,
   variants,
   defaultProps: {
@@ -72,6 +72,6 @@ const badgeTheme = defineStyleConfig({
   },
 });
 
-export default badgeTheme;
+export default Badge;
 
 export { vars as badgeVars };
