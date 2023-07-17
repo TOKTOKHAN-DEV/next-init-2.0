@@ -24,7 +24,7 @@ const baseStyle = defineStyle({
   },
 });
 
-const buttonTheme = defineStyleConfig({
+const Button = defineStyleConfig({
   baseStyle,
   sizes,
   variants,
@@ -35,4 +35,4 @@ const buttonTheme = defineStyleConfig({
   },
 });
 
-export default buttonTheme;
+export default Button;
