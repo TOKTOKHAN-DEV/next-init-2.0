@@ -104,15 +104,7 @@ interface Typography {
   fontWeights: RecursiveObject;
 }
 
-interface EtcFoundations {
-  borders: RecursiveObject;
-  shadows: RecursiveObject<string>;
-  radii: RecursiveObject;
-  space: RecursiveObject;
-  transition: ThemeTransitions;
-}
-
-interface Foundations extends Typography, EtcFoundations {
+interface Foundations extends Typography {
   breakpoints: Dict;
   sizes: RecursiveObject;
   zIndices: RecursiveObject;
