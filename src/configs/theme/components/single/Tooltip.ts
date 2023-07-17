@@ -25,6 +25,8 @@ const baseStyle = defineStyle({
   zIndex: 'tooltip',
 });
 
-export const tooltipTheme = defineStyleConfig({
+const tooltipTheme = defineStyleConfig({
   baseStyle,
 });
+
+export default tooltipTheme;
