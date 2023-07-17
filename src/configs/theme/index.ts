@@ -4,8 +4,8 @@ import { components } from './components';
 import { foundations } from './foundations';
 
 const overrides = {
-  ...foundations,
   components,
+  ...foundations,
 };
 
 export default extendTheme(overrides);

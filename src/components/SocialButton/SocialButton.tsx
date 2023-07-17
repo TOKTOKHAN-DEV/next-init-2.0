@@ -21,6 +21,7 @@ const SocialButton = ({ data, size }: SocialButtonProps) => {
   return (
     <Button
       colorScheme={data.social}
+      variant={'solid'}
       w={width}
       h="45px"
       p={padding}

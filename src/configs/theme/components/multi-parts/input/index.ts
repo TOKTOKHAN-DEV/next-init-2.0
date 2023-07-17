@@ -25,7 +25,7 @@ const baseStyle = defineInputPartsStyle({
   },
 });
 
-const inputTheme = defineMultiStyleConfig({
+const Input = defineMultiStyleConfig({
   baseStyle,
   sizes,
   variants,
@@ -35,4 +35,4 @@ const inputTheme = defineMultiStyleConfig({
   },
 });
 
-export default inputTheme;
+export default Input;

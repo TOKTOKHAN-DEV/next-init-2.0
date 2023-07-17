@@ -103,7 +103,7 @@ const sizes = {
   }),
 };
 
-const checkboxTheme = defineMultiStyleConfig({
+const Checkbox = defineMultiStyleConfig({
   baseStyle,
   sizes,
   defaultProps: {
@@ -111,4 +111,4 @@ const checkboxTheme = defineMultiStyleConfig({
     colorScheme: 'blue',
   },
 });
-export default checkboxTheme;
+export default Checkbox;

@@ -20,9 +20,9 @@ const variants = defineStyle({
   },
 });
 
-const containerTheme = defineStyleConfig({
+const Container = defineStyleConfig({
   baseStyle,
   variants,
 });
 
-export default containerTheme;
+export default Container;
