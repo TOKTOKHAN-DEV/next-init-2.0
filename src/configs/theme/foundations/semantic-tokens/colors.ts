@@ -98,9 +98,9 @@ const colors: CustomColors = {
   },
   kakao: {
     default: {
-      500: '#000000',
-      600: '#111111',
-      700: '#222222',
+      500: '#FEE500',
+      600: '#FEE500',
+      700: '#FEE500',
     },
   },
   naver: {

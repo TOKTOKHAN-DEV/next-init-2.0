@@ -4,7 +4,8 @@ import {
   createMultiStyleConfigHelpers,
   cssVar,
 } from '@chakra-ui/styled-system';
-import { transparentize } from '@chakra-ui/theme-tools';
+
+import { transparentize } from '../../utils/transparentize';
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys);
@@ -44,7 +45,7 @@ const baseStyle = definePartsStyle({
 
 function getBg(props: StyleFunctionProps) {
   const { theme, colorScheme: c } = props;
-  const darkBg = transparentize(`${c}.200`, 0.16)(theme);
+  const darkBg = transparentize(`${c}.200`, 0.16, '_dark')(theme);
   return {
     light: `colors.${c}.100`,
     dark: darkBg,
@@ -129,6 +130,6 @@ export const alertTheme = defineMultiStyleConfig({
   variants,
   defaultProps: {
     variant: 'subtle',
-    colorScheme: 'blue',
+    colorScheme: 'primary',
   },
 });

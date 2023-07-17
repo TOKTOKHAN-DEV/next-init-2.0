@@ -8,7 +8,7 @@ import { isDark, randomColor } from '@chakra-ui/theme-tools';
 
 import { runIfFn } from '@/utils/validate/run-if-fn';
 
-import themeSizes from '../../foundations/core/sizes';
+import themeSizes from '../../foundations/sizes';
 
 const { definePartsStyle, defineMultiStyleConfig } =
   createMultiStyleConfigHelpers(parts.keys);

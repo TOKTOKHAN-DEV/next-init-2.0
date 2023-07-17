@@ -3,6 +3,7 @@ import React from 'react';
 import { useTheme } from '@chakra-ui/react';
 
 import { AppStyleViewerDocsType } from '../../types/docs';
+import ChakraThemeSection from './components/ChakraThemeSection';
 import ColorSection from './components/ColorSection';
 import GeneratedIconSection from './components/GeneratedIconSection';
 
@@ -20,6 +21,7 @@ function AppStyleViewerSection({ selectedMenu }: AppStyleViewerSectionProps) {
       {selectedMenu === 'colors' && (
         <ColorSection colors={semanticTokens.colors} />
       )}
+      {selectedMenu === 'Chakra theme' && <ChakraThemeSection />}
     </>
   );
 }

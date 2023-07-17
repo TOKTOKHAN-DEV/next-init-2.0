@@ -1,25 +1,21 @@
-import colors from '../semantic-tokens/colors';
-import breakpoints from './core/breakpoints';
-import sizes from './core/sizes';
-import zIndices from './core/z-index';
-import blur from './misc/blur';
-import borders from './misc/borders';
-import radii from './misc/radius';
-import shadows from './misc/shadows';
-import { spacing } from './misc/spacing';
-import transition from './misc/transition';
+import breakpoints from './breakpoints';
+import { etcComponents } from './etc';
+import semanticTokens from './semantic-tokens';
+import colors from './semantic-tokens/colors';
+import sizes from './sizes';
+import styles from './styles';
+import textStyles from './text-styles';
 import typography from './typography';
+import zIndices from './z-index';
 
 export const foundations = {
-  breakpoints,
+  etcComponents,
   zIndices,
-  radii,
-  blur,
+  breakpoints,
   colors,
   sizes,
-  shadows,
-  space: spacing,
-  borders,
-  transition,
+  styles,
+  textStyles,
+  semanticTokens,
   ...typography,
 };
