@@ -10,7 +10,7 @@ export const useHomePageHandlers = ({
   dispatch,
 }: useHomePageHandlersParams) => {
   const logExample = useCallback(() => {
-    console.log({ dispatch, state });
+    console.log('example', { dispatch, state });
   }, [dispatch, state]);
 
   return { logExample };
