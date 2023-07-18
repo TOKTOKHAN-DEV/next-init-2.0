@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/TOKTOKHAN-DEV/next-init-2.0/compare/v1.0.0...v1.0.1) (2023-07-18)
+
+
+### Bug Fixes
+
+* 🐛package name ([0ce7e48](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/0ce7e48c070a7a160190146fd97c44a7b9d75562))
+
 # 1.0.0 (2023-07-18)
 
 

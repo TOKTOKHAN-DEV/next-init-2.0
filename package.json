@@ -1,6 +1,6 @@
 {
   "name": "next-init",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "description": "Simple project that shows the usage of Next.js with TypeScript",
   "author": "TOKTOKHAN.DEV<dev@toktokhan.dev>",
