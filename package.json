@@ -1,6 +1,6 @@
 {
   "name": "nextjs-with-typescript",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
   "description": "Simple project that shows the usage of Next.js with TypeScript",
   "author": "TOKTOKHAN.DEV<dev@toktokhan.dev>",
@@ -26,7 +26,8 @@
     "gen:font": "tokript gen:font",
     "gen:route": "tokript gen:route",
     "convert:webp": "tokript convert:webp",
-    "format": "prettier --loglevel warn --write \"**/*.{ts,tsx,css,md}\""
+    "format": "prettier --loglevel warn --write \"**/*.{ts,tsx,css,md}\"",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.5.1",
@@ -86,7 +87,11 @@
     "prettier": "^2.8.8",
     "prettier-plugin-organize-imports": "^3.2.2",
     "tokript": "^1.4.0",
-    "typescript": "^4.9.4"
+    "typescript": "^4.9.4",
+    "@semantic-release/changelog": "^6.0.3",
+    "@semantic-release/git": "^10.0.1",
+    "semantic-release": "^21.0.1",
+    "semantic-release-slack-bot": "^4.0.1"
   },
   "msw": {
     "workerDirectory": "public"

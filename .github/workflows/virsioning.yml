@@ -1,0 +1,50 @@
+name: Versioning
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+jobs:
+  release:
+    name: Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check if secrets exist
+        id: check_secrets
+        run: |
+          if [[ -z "$SLACK_WEBHOOK" || -z "$GITHUB_TOKEN" ]]; then
+            echo "One or more secrets are missing. Please make sure to set both SLACK_WEBHOOK and GITHUB_TOKEN secrets in repository settings."
+            echo "::set-output name=secrets_exist::false"
+            exit 1
+          else
+            echo "All secrets exist."
+            echo "::set-output name=secrets_exist::true"
+          fi
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout Code
+        uses: actions/checkout@v2
+        if: steps.check_secrets.outputs.secrets_exist == 'true'
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.x
+          cache: 'yarn'
+        if: steps.check_secrets.outputs.secrets_exist == 'true'
+
+      - name: Install Dependencies
+        run: yarn install
+        if: steps.check_secrets.outputs.secrets_exist == 'true'
+
+      - name: Release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+        run: yarn semantic-release
+        if: steps.check_secrets.outputs.secrets_exist == 'true'
