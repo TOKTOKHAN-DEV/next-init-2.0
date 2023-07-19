@@ -27,7 +27,8 @@
     "gen:route": "tokript gen:route",
     "convert:webp": "tokript convert:webp",
     "format": "prettier --loglevel warn --write \"**/*.{ts,tsx,css,md}\"",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "checklist:progress": "node src/scripts/update-checklist-progress.js"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.5.1",
