@@ -15,7 +15,7 @@ yarn run checklist:progress
 
 #### Progress
 
-![progress](https://geps.dev/progress/0)
+![progress](https://geps.dev/progress/7)
 
 #### Advance Progress
 
@@ -25,16 +25,16 @@ yarn run checklist:progress
 
 **✅ 프로젝트**
 
-- [ ] 시작하는 프로젝트의 일정 파악이 이루어졌는가?
-- [ ] 프로젝트 또는 사용하고자 하는 라이브러리 버전에 맞는 노드 버전을 채택 하고있는가?
-- [ ] 특정 기능을 위해 사용할 라이브러리에 대한 검토가 이루어졌는가?
-- [ ] Sample 코드를 제거하였는가?
+- [x] 시작하는 프로젝트의 일정 파악이 이루어졌는가?
+- [x] 프로젝트 또는 사용하고자 하는 라이브러리 버전에 맞는 노드 버전을 채택 하고있는가?
+- [x] 특정 기능을 위해 사용할 라이브러리에 대한 검토가 이루어졌는가?
+- [x] Sample 코드를 제거하였는가?
 
 **✅ Git**
 
 - [ ] 프로젝트 Repository 를 생성 하였는가?
-- [ ] Repository에 대한 Access 권한을 부여 받았는가?
-- [ ] 형상 관리를 위한 브랜치 전략을 수립하였는가?
+- [x] Repository에 대한 Access 권한을 부여 받았는가?
+- [x] 형상 관리를 위한 브랜치 전략을 수립하였는가?
   - [ ] 운영 브랜치(main)
   - [ ] 릴리즈 브랜치(release) **`Advanced`**
   - [ ] QA 브랜치(qa) **`Advanced`**
