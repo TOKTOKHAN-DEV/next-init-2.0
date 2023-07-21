@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-yarn run checklist:progress && git add CHECKLIST.md & git commit -m "chore:update checklist" && npm run build
+yarn run checklist:progress && git add CHECKLIST.md && git commit -m "chore:update checklist" & npm run build
