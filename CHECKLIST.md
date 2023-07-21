@@ -44,14 +44,14 @@ yarn run checklist:progress
 **✅ Style**
 
 - [ ] Figma 디자인 시스템에 맞게 config 설정을 하였는가?
-  - [ ] Font-Family `**Tokript**`
+  - [ ] Font-Family **`Tokript`**
   - [ ] Colors
   - [ ] Typography
   - [ ] Break Point(viewport 기준)
   - [ ] Container (/single/components/container)
-  - [ ] Icongraphy `**Tokript**`
-- [ ] Chakra Theme Component Setting `**Advanced**`
-- [ ] 스켈레톤 UI 또는 스피너와 같은 로딩처리 UI가 적용되어 있는가? `**Advanced**`
+  - [ ] Icongraphy **`Tokript`**
+- [ ] Chakra Theme Component Setting **`Advanced`**
+- [ ] 스켈레톤 UI 또는 스피너와 같은 로딩처리 UI가 적용되어 있는가? **`Advanced`**
 
 **✅ 반응형(Responsive Web)**
 
@@ -62,7 +62,7 @@ _→ 체크리스트 추가
 
 - [ ] Form의 유효성 검사가 적용되어 있는가?
 - [ ] 불필요한 `console.log` 제거
-- [ ] 이미지에 대한 대체 텍스트(alt)가 적용되어 있는가? `**Tokript**`
+- [ ] 이미지에 대한 대체 텍스트(alt)가 적용되어 있는가? **`Tokript`**
 
 **✅ Memoization & Optimization `Advanced`**
 
@@ -79,14 +79,13 @@ _→ 체크리스트 추가
 
 **✅ API**
 
-- [ ] tokript config 설정을 하였는가? `**Tokript**`
+- [ ] tokript config 설정을 하였는가? **`Tokript`**
 - [ ] swagger를 전달 받았는가?
-- [ ] useQuery, useInfiniteQuery를 구분하여 적절한 용도로 사용하였는가? `**Tokript**`
+- [ ] useQuery, useInfiniteQuery를 구분하여 적절한 용도로 사용하였는가? **`Tokript`**
       → `gen:source`
-- [ ] ~~CORS 에러를 해결 하였는가?~~
-- [ ] Axios 설정 `**Advanced**`
-- [ ] React-query 설정 `**Advanced**`
-- [ ] 에러 핸들링 처리가 되었는가? `**Advanced**`
+- [ ] Axios 설정 **`Advanced`**
+- [ ] React-query 설정 **`Advanced`**
+- [ ] 에러 핸들링 처리가 되었는가? **`Advanced`**
 
 **✅ SEO**
 _→ next-seo 라이브러리 적용중_
@@ -98,15 +97,14 @@ _→ next-seo 라이브러리 적용중_
 - [ ] twitter og 삽입
 - [ ] favicon 삽입
 - [ ] apple-touch-icon 삽입
-- [ ] canonical tag `**Advanced**`
-- [ ] robots.txt `**Advanced**`
-- [ ] sitemap.json `**Advanced**`
-- [ ] manifest.json `**Advanced**`
+- [ ] canonical tag **`Advanced`**
+- [ ] robots.txt **`Advanced`**
+- [ ] sitemap.json **`Advanced`**
+- [ ] manifest.json **`Advanced`**
 
 **✅ Secure `Advanced`**
 
 - [ ] XSS(Cross-site scripting) 취약점 조치
-- [ ] ~~CORS Proxy~~
 
 **✅ 외부 협업 `Advanced`**
 
@@ -125,9 +123,7 @@ _→ next-seo 라이브러리 적용중_
 
 - [ ] 콘텐츠의 의미나 용도를 파악할 수 있는 적절한 대체 텍스트를 제공 하였는가?
 - [ ] 멀티미디어 컨텐츠에 대한 대체 수단(자막, 원고, 수화)를 제공 하였는가?
-- [ ] 색상만으로 콘텐츠를 구별, 인식하도록 제공되지 않게 디자인 되었는가?
 - [ ] 지시사항을 크기, 위치, 방향, 색에 관계 없이 인식할 수 있도록 제공 하였는가?
-- [ ] 텍스트 컨텐츠와 배경의 명도가 4.5대 1 이상으로 디자인 되었는가?
 - [ ] 자동으로 재생되는 소리가 없거나, 3초 이내 혹은 바로 정지할 수 있는 컨텐츠를 사용하였는가?
 - [ ] 이웃한 컨텐츠 간에 테두리, 구분선, 서로 다른 패턴 등을 사용하여 시각적으로 구분되도록 제공 하였는가?
       → 마우스 오버나 키보드 포커스 시 시각적으로 구분할 수 있는 방법을 제공할 경우 오류가 아니다.
@@ -144,7 +140,7 @@ _→ next-seo 라이브러리 적용중_
 - [ ] 페이지, 프레임, 컨텐츠 블록에 적절한 제목을 제공
 - [ ] 적절한 링크 텍스트
 
-``이해**의 용이성**`
+**`이해의 용이성`**
 
 - [ ] 문서 타입에 맞는 기본 언어 표시
 - [ ] 사용자가 의도하지 않은 기능이 아닌 요구에 따른 기능 실행
@@ -163,7 +159,7 @@ _→ next-seo 라이브러리 적용중_
 
 **✅ 다국어 설정 `Advanced`**
 
-`**모듈 설정**`
+**`모듈 설정`**
 
 - [ ] next-i18next.config 파일을 생성하고 locale 설정을 하였는가
       예시) 언어 초기값 설정, 사용되는 언어 목록 등
@@ -171,7 +167,7 @@ _→ next-seo 라이브러리 적용중_
 - [ ] 다국어 기능이 적용 될 json 파일을 생성하였는가?
       예시) about페이지에 사용될 json파일 경로: public/locales/en/about.json
 
-`**렌더링 전 다국어 정보 제공**`
+**`렌더링 전 다국어 정보 제공`**
 
 - [ ] 각 페이지의 index 컴포넌트: getStaticProps / getServerSideProps
 - [ ] Dynamic route 페이지의 index 컴포넌트: getStaticPaths → 동적 path에 locale 정보를 제공
