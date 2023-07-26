@@ -12,6 +12,8 @@ import { queryClient } from '@/configs/react-query';
 import theme from '@/configs/theme';
 import fonts from '@/configs/theme/foundations/typography/fonts';
 
+import '../extensions';
+
 const coveredTheme = {
   ...theme,
   fonts,
