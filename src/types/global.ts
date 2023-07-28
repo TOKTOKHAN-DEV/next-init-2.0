@@ -1,9 +1,2 @@
-declare global {
-  interface Window {
-    fbq: any;
-    gtag: any;
-    kakaoPixel: any;
-  }
-}
-
+declare global {}
 export {};

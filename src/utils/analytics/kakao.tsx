@@ -1,46 +1,46 @@
-import { ENV } from '@/configs/env';
+/**
+ * @brief Kakao pixel에서 제공하는 event가 정의 된 class입니다.
+ * @description 카카오 픽셀에서는 여러 종류의 이벤트를 전송할 수 있습니다.
+ *  수집된 데이터를 이용하여 타겟팅, 카탈로그 소재정보 수집, 전환 보고서, 전환 최적화 등의 다양한 카카오 광고 목적으로 활용할 수 있습니다.
+ * @see Docs https://kakaoad.github.io/kakao-pixel/
+ */
 
-const isValid = () => {
-  if (!ENV.KAKAO_PIXEL_KEY) return false;
-  if (typeof window === 'undefined') return false;
-  if (!window.kakaoPixel) return false;
-  return true;
-};
+export class KakaoAnalytics {
+  public kakaoAnalytics: (id: string) => kakao.Pixel.Event = kakaoPixel;
+  constructor(private key: string) {
+    this.key = key;
+  }
 
-export const completeRegistration = (social: string) => {
-  if (!isValid()) return;
-  window.kakaoPixel(ENV.KAKAO_PIXEL_KEY).completeRegistration(social);
-};
+  completeRegistration = (social: string) => {
+    this.kakaoAnalytics(this.key).completeRegistration(social);
+  };
 
-export const startProject = (params: { id: string; step: number }) => {
-  if (!isValid()) return;
-  window
-    .kakaoPixel(ENV.KAKAO_PIXEL_KEY)
-    .viewContent({ id: params.id, tag: params.step });
-};
+  startProject = (params: { id: string; step: string }) => {
+    this.kakaoAnalytics(this.key).viewContent({
+      id: params.id,
+      tag: params.step,
+    });
+  };
 
-export const completeProject = (id: string) => {
-  if (!isValid()) return;
-  window.kakaoPixel(ENV.KAKAO_PIXEL_KEY).addToCart({ id: id, tag: 'complete' });
-};
+  completeProject = (id: string) => {
+    this.kakaoAnalytics(this.key).addToCart({ id: id, tag: 'complete' });
+  };
 
-export const consultingApply = () => {
-  if (!isValid()) return;
-  window.kakaoPixel(ENV.KAKAO_PIXEL_KEY).participation('PreBooking');
-};
+  consultingApply = () => {
+    this.kakaoAnalytics(this.key).participation('PreBooking');
+  };
 
-export const requestApply = () => {
-  if (!isValid()) return;
-  window.kakaoPixel(ENV.KAKAO_PIXEL_KEY).participation('Consulting');
-};
+  requestApply = () => {
+    this.kakaoAnalytics(this.key).participation('Consulting');
+  };
 
-export const KakaoSetter = () => {
-  if (!ENV.KAKAO_PIXEL_KEY) return <></>;
-  return (
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `kakaoPixel('${ENV.KAKAO_PIXEL_KEY}').pageView();`,
-      }}
-    />
-  );
-};
+  KakaoSetter = () => {
+    return (
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `kakaoAnalytics('${this.key}').pageView();`,
+        }}
+      />
+    );
+  };
+}

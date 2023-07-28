@@ -1,33 +1,51 @@
-import * as _facebook from './facebook';
-import * as _google from './google';
-import * as _kakao from './kakao';
+import { ENV } from '@/configs/env';
+
+import { FacebookAnalytics } from './facebook';
+import { GoogleAnalytics } from './google';
+import { KakaoAnalytics } from './kakao';
+
+const googleAnalytics = ENV.GA_KEY
+  ? new GoogleAnalytics(ENV.GA_KEY)
+  : console.error('should set GA key');
+
+const facebookAnalytics = ENV.FACEBOOK_PIXEL_KEY
+  ? new FacebookAnalytics(ENV.FACEBOOK_PIXEL_KEY)
+  : console.error('should set facebook key');
+
+const kakaoAnalytics = ENV.KAKAO_PIXEL_KEY
+  ? new KakaoAnalytics(ENV.KAKAO_PIXEL_KEY)
+  : console.error('should set Kakao pixel key');
 
 export const completeRegistrationAnalytics = (social: string) => {
-  _facebook.completeRegistration(social);
-  _google.completeRegistration(social);
-  _kakao.completeRegistration(social);
+  googleAnalytics?.completeRegistration(social);
+  facebookAnalytics?.completeRegistration(social);
+  kakaoAnalytics?.completeRegistration(social);
 };
 
-export const startProjectAnalytics = (params: { id: string; step: number }) => {
-  _facebook.startProject(params);
-  _google.startProject(params);
-  _kakao.startProject(params);
+export const startProjectAnalytics = (params: { id: string; step: string }) => {
+  googleAnalytics?.startProject(params);
+  facebookAnalytics?.startProject(params);
+  kakaoAnalytics?.startProject(params);
 };
 
 export const completeProjectAnalytics = (id: string) => {
-  _facebook.completeProject(id);
-  _google.completeProject(id);
-  _kakao.completeProject(id);
+  googleAnalytics?.completeProject(id);
+  facebookAnalytics?.completeProject(id);
+  kakaoAnalytics?.completeProject(id);
 };
 
 export const consultingApplyAnalytics = () => {
-  _facebook.consultingApply();
-  _google.consultingApply();
-  _kakao.consultingApply();
+  googleAnalytics?.consultingApply();
+  facebookAnalytics?.consultingApply();
+  kakaoAnalytics?.consultingApply();
 };
 
 export const requestApplyAnalytics = () => {
-  _facebook.requestApply();
-  _google.requestApply();
-  _kakao.requestApply();
+  googleAnalytics?.requestApply();
+  facebookAnalytics?.requestApply();
+  kakaoAnalytics?.requestApply();
 };
+
+export const GASetter = () => googleAnalytics?.GASetter();
+export const FacebookSetter = () => facebookAnalytics?.FacebookSetter();
+export const KakaoSetter = () => kakaoAnalytics?.KakaoSetter();
