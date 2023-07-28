@@ -10,6 +10,7 @@ import Document, {
 import { ColorModeScript } from '@chakra-ui/color-mode';
 
 import config from '@/configs/theme/config';
+import { GASetter } from '@/utils/analytics/analytics';
 
 // const GOOGLE_ANALYTICS_ID = 'G-입력해주세요';
 
@@ -47,11 +48,7 @@ class MyDocument extends Document {
         <Head>
           <script dangerouslySetInnerHTML={this.redirectIEtoEdge()} />
           {/* Global site tag (gtag.js) - Google Analytics */}
-          {/* <script
-            async
-            src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ANALYTICS_ID}`}
-          ></script> */}
-          {/* <script dangerouslySetInnerHTML={this.setGoogleAnalytics()} /> */}
+          {/* {GASetter()} */}
         </Head>
         <body>
           <ColorModeScript initialColorMode={config.initialColorMode} />
