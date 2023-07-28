@@ -12,8 +12,6 @@ import { ColorModeScript } from '@chakra-ui/color-mode';
 import config from '@/configs/theme/config';
 import { GASetter } from '@/utils/analytics/analytics';
 
-// const GOOGLE_ANALYTICS_ID = 'G-입력해주세요';
-
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -32,16 +30,6 @@ class MyDocument extends Document {
     };
   }
 
-  // setGoogleAnalytics() {
-  //   return {
-  //     __html: `
-  //       window.dataLayer = window.dataLayer || [];
-  //       function gtag(){dataLayer.push(arguments);}
-  //       gtag('js', new Date());
-  //       gtag('config', '${GOOGLE_ANALYTICS_ID}');
-  //     `,
-  //   };
-  // }
   render() {
     return (
       <Html>
