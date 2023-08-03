@@ -10,7 +10,8 @@
     "lint": "next lint",
     "lint:staged": "lint-staged",
     "start": "yarn build && next start",
-    "prepare": "husky install && node_modules/.bin/ls-engines",
+    "prepare": "husky install",
+    "preinstall": "node_modules/.bin/ls-engines",
     "postinstall": "yarn run theme",
     "commit": "tokript commit",
     "test": "jest --coverage --coverageReporters=text-summary",
@@ -97,7 +98,7 @@
     "workerDirectory": "public"
   },
   "engines": {
-    "node": ">= 16.0.0",
+    "node": ">= 18.0.0",
     "npm": ">= 7.10.0",
     "yarn": ">= 1.22.17"
   },
