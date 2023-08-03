@@ -1,13 +1,13 @@
 import { AxiosInstance } from 'axios';
 
-import instance from '@apis/_axios/instance';
+import instance from '@/configs/axios/instance';
+import { Paginated } from '@/types/utility/paginated';
+import { WithPaginationParams } from '@/types/utility/with-pagination-params';
 
-import {
-  ExampleDTOType,
-  ExampleParamGetType,
-  ExampleParamPatchType,
-  ExampleParamPutType,
-} from './ExampleApi.type';
+import { CreateExampleDto } from './types/dto/create-example-dto';
+import { GetExampleDto } from './types/dto/get-example-dto';
+import { UpdateExampleDto } from './types/dto/update-example-dto';
+import { ExampleModel } from './types/model/example';
 
 export class ExampleApi {
   axios: AxiosInstance = instance;
@@ -15,9 +15,7 @@ export class ExampleApi {
     if (axios) this.axios = axios;
   }
 
-  getExampleList = async (
-    params?: ExampleParamGetType,
-  ): Promise<ExampleDTOType[]> => {
+  getList = async (params?: GetExampleDto): Promise<ExampleModel[]> => {
     const { data } = await this.axios({
       method: 'GET',
       url: `/v1/example`,
@@ -26,7 +24,18 @@ export class ExampleApi {
     return data;
   };
 
-  getExampleById = async (id: string): Promise<ExampleDTOType> => {
+  getListPaginated = async (
+    req?: WithPaginationParams<GetExampleDto>,
+  ): Promise<Paginated<ExampleModel[]>> => {
+    const { data } = await this.axios({
+      method: 'GET',
+      url: `/v1/example`,
+      params: req,
+    });
+    return data;
+  };
+
+  getById = async (id: string): Promise<ExampleModel> => {
     const { data } = await this.axios({
       method: 'GET',
       url: `/v1/example/${id}`,
@@ -34,35 +43,25 @@ export class ExampleApi {
     return data;
   };
 
-  postExample = async (body: ExampleDTOType): Promise<ExampleDTOType> => {
+  create = async (req: CreateExampleDto): Promise<ExampleModel> => {
     const { data } = await this.axios({
       method: 'POST',
       url: `/v1/example`,
-      data: body,
+      data: req,
     });
     return data;
   };
 
-  putExample = async (req: ExampleParamPutType): Promise<ExampleDTOType> => {
+  update = async (req: UpdateExampleDto): Promise<ExampleModel> => {
     const { data } = await this.axios({
       method: 'PUT',
       url: `/v1/example/${req.id}`,
-      data: req.data,
-    });
-    return data;
-  };
-  patchExample = async (
-    req: ExampleParamPatchType,
-  ): Promise<ExampleDTOType> => {
-    const { data } = await this.axios({
-      method: 'PATCH',
-      url: `/v1/example/${req.id}`,
-      data: req.data,
+      data: req,
     });
     return data;
   };
 
-  deleteExample = async (id: string): Promise<boolean> => {
+  delete = async (id: string): Promise<void> => {
     const { data } = await this.axios({
       method: 'DELETE',
       url: `/v1/example/${id}`,

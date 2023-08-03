@@ -1,13 +1,13 @@
-import { CONFIG } from '@config';
+import { ENV } from '@/configs/env';
 
 type SocialOAuthType = 'kakao' | 'naver' | 'google' | 'facebook' | 'apple';
 
 const CLIENT_IDS: Record<SocialOAuthType, string> = {
-  kakao: CONFIG.KAKAO_CLIENT_ID ?? '',
-  naver: CONFIG.NAVER_CLIENT_ID ?? '',
-  google: CONFIG.GOOGLE_CLIENT_ID ?? '',
-  apple: CONFIG.GOOGLE_CLIENT_ID ?? '',
-  facebook: CONFIG.GOOGLE_CLIENT_ID ?? '',
+  kakao: ENV.KAKAO_CLIENT_ID ?? '',
+  naver: ENV.NAVER_CLIENT_ID ?? '',
+  google: ENV.GOOGLE_CLIENT_ID ?? '',
+  apple: ENV.GOOGLE_CLIENT_ID ?? '',
+  facebook: ENV.GOOGLE_CLIENT_ID ?? '',
 };
 
 const OAUTH_PATH: Record<SocialOAuthType, string> = {
@@ -32,7 +32,7 @@ const createOAuthUrl = (
   options?: { returnUrl?: string; scope?: string },
 ) => {
   const clientId = CLIENT_IDS[type];
-  const redirectUri = `${CONFIG.DOMAIN}/social/callback`;
+  const redirectUri = `${ENV.DOMAIN}/social/callback`;
   const responseType = 'code';
   const state = encodeOAuthState(type, options?.returnUrl);
   const scope = options?.scope ? `&scope=${options.scope}` : '';

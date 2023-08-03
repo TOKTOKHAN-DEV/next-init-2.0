@@ -6,15 +6,15 @@ module.exports = {
   trailingComma: 'all',
   printWidth: 80,
   importOrder: [
-    '^(react|next|redux|msw).*',
-    '^((?!(/|^@config$)).)*$', // target: 외부 라이브러리 (문자열에 "/"" 가 포함되지 않을때, 예외처리: @config 도 포함되지 않을때)
-    '^((?!(/|^@image$)).)*$', // target: 외부 라이브러리 (문자열에 "/"" 가 포함되지 않을때, 예외처리: @config 도 포함되지 않을때)
-    '^@chakra.*',
-    '^@(apis|features|contexts|hooks).*',
-    '^@(components|icons).*',
-    '^@.*',
-    '^[.].*/.*', //  target: 상대 경로 ( "." 로 시작하고 "/"" 가 포함되어 있을 때)
-    '.*',
+    '^react$', // react
+    '^next.*', // next 로 시작하는 경로
+    '^(react|lodash|msw|chakra|^@(?!chakra)[^/]|^[^./]*$).*', // 외부 라이브러리 경로
+    '^@chakra.*', // @charka 로 시작하는 경로
+    '^@/(apis|swagger).*', // api 관련
+    '^@/(contexts|hooks|hocs|components|containers).*', // react 관련 선언
+    '^@/.*', // 나머지 전역 레벨로 관리되는 경로
+    '^[.].*/.*', //  상대 경로
+    '.*', // 나머지 경로
   ],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,

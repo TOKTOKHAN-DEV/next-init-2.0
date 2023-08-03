@@ -1,9 +1,6 @@
-import React from 'react';
+import { useEffect, useRef } from 'react';
 
-import {
-  ProgressHelper,
-  UseScrollSectionParamType,
-} from './useScrollSection.type';
+import { ProgressHelper, UseScrollSectionParamType } from './types/params';
 
 export default function useScrollSection<T extends HTMLElement | null>({
   parentsRef,
@@ -11,9 +8,9 @@ export default function useScrollSection<T extends HTMLElement | null>({
   onInValid,
   entryPoint = 'bottom',
 }: UseScrollSectionParamType) {
-  const targetRef = React.useRef<T>(null);
+  const targetRef = useRef<T>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     const parentsEl = parentsRef?.current || document.querySelector('body');
     const targetEl = targetRef.current;
     if (!targetEl) return;
@@ -42,6 +39,7 @@ export default function useScrollSection<T extends HTMLElement | null>({
       window.removeEventListener('load', handleProgress);
       window.removeEventListener('resize', handleProgress);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [parentsRef, targetRef, entryPoint]);
 
   return { ref: targetRef };

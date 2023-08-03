@@ -1,36 +1,55 @@
-import { QueryHookParams } from '@apis/type';
+import { useInfiniteQuery, useQuery } from '@tanstack/react-query';
 
-import { useQuery } from '@tanstack/react-query';
+import { UseInfiniteQueryParams } from '@/types/module/react-query/use-infinite-query-params';
+import { UseQueryParams } from '@/types/module/react-query/use-query-params';
+import { Parameter } from '@/types/utility/parameter';
+import { isNotNull } from '@/utils/validate/is-not-null';
 
 import exampleApi from './ExampleApi';
-import { ExampleParamGetType } from './ExampleApi.type';
 
 export const EXAMPLE_API_QUERY_KEY = {
-  GET: (param?: ExampleParamGetType) => ['example-list', param],
-  GET_BY_ID: (id?: string) => ['example-by-id', id],
+  GET_LIST: (params?: Parameter<typeof exampleApi.getList>) =>
+    ['example-list', params].filter(isNotNull),
+  GET_LIST_PAGINATED: (
+    params?: Parameter<typeof exampleApi.getListPaginated>,
+  ) => ['example-list-paginated', params].filter(isNotNull),
+  GET_BY_ID: (params?: Parameter<typeof exampleApi.getById>) =>
+    ['example-by-id', params].filter(isNotNull),
 };
 
 export function useGetExampleListQuery(
-  params?: QueryHookParams<typeof exampleApi.getExampleList>,
+  params?: UseQueryParams<typeof exampleApi.getList>,
 ) {
-  const queryKey = EXAMPLE_API_QUERY_KEY.GET(params?.variables);
-  const query = useQuery(
+  const queryKey = EXAMPLE_API_QUERY_KEY.GET_LIST(params?.variables);
+  return useQuery(
     queryKey,
-    () => exampleApi.getExampleList(params?.variables),
+    () => exampleApi.getList(params?.variables),
     params?.options,
   );
-  return { ...query, queryKey };
+}
+
+export function useGetExampleListInfiniteQuery(
+  params?: UseInfiniteQueryParams<typeof exampleApi.getListPaginated>,
+) {
+  const queryKey = EXAMPLE_API_QUERY_KEY.GET_LIST_PAGINATED(params?.variables);
+  return useInfiniteQuery(
+    queryKey,
+    ({ pageParam = null }) =>
+      exampleApi.getListPaginated({ ...params?.variables, cursor: pageParam }),
+    {
+      getNextPageParam: (lastPage) => lastPage.next,
+      ...params?.options,
+    },
+  );
 }
 
 export function useGetExampleByIdQuery(
-  params: QueryHookParams<typeof exampleApi.getExampleById>,
+  params: UseQueryParams<typeof exampleApi.getById>,
 ) {
   const queryKey = EXAMPLE_API_QUERY_KEY.GET_BY_ID(params?.variables);
-  const query = useQuery(
+  return useQuery(
     queryKey,
-    () => exampleApi.getExampleById(params?.variables),
+    () => exampleApi.getById(params?.variables),
     params?.options,
   );
-
-  return { ...query, queryKey };
 }

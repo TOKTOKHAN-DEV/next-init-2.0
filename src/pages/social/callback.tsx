@@ -2,10 +2,10 @@
 // import React, { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 // import { userSliceActions } from '@features/user/userSlice';
-import Splash from '@components/common/Splash';
+import Splash from '@/components/Splash';
 
-// import { setToken } from '@utils/localStorage/token';
-// import { decodeOAuthState } from '@utils/social';
+// import { setToken } from '@/utils/localStorage/token';
+// import { decodeOAuthState } from '@/utils/social';
 
 // import { useUserSocialLoginCreateMutation } from 'generated/apis/User/User.query';
 

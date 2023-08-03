@@ -1,36 +1,26 @@
-import React from 'react';
-
-import useRefreshInterval from '@hooks/auth/useRefreshInterval';
-import { useUpdateLoginStatus } from '@hooks/auth/useUpdateLoginStatus';
-
-import ToggleColorModeButton from '@components/common/ToggleColorModeButton';
-import TokDocsDevTools from '@components/common/TokDocsDevTool';
+import { DefaultSeo } from 'next-seo';
 
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 
-import withAppProvider from 'contexts/app/app.provider';
-import { withGlobalModalHandlerContext } from 'contexts/modal/useGlobalModalHandler.context';
+import ControlledConfirmAlert from '@/components/@Alert/ControlledConfirmAlert';
+import ToggleColorModeButton from '@/components/ToggleColorModeButton';
+import TokDocsDevTools from '@/components/TokDocsDevTool';
+import withAppProvider from '@/hocs/withAppProvider';
 
-declare global {
-  interface Window {
-    fbq: any;
-    gtag: any;
-    kakaoPixel: any;
-  }
-}
+import { config as SEO } from '@/configs/seo/config';
 
-function MyApp({ Component, pageProps }: any) {
-  useUpdateLoginStatus();
-  useRefreshInterval();
-
+function App({ Component, pageProps }: any) {
   return (
-    <React.Fragment>
+    <>
+      {/* <Fonts /> */}
+      <DefaultSeo {...SEO} />
       <ToggleColorModeButton />
       <Component {...pageProps} />
+      <ControlledConfirmAlert />
       <ReactQueryDevtools initialIsOpen={false} />
       <TokDocsDevTools />
-    </React.Fragment>
+    </>
   );
 }
 
-export default withAppProvider(withGlobalModalHandlerContext(MyApp));
+export default withAppProvider(App);

@@ -1,0 +1,42 @@
+{
+  "branches": [
+    "main",
+    {
+      "name": "beta",
+      "prerelease": true
+    }
+  ],
+  "plugins": [
+    "@semantic-release/commit-analyzer",
+    "@semantic-release/release-notes-generator",
+    "@semantic-release/changelog",
+    [
+      "@semantic-release/npm",
+      {
+        "npmPublish": false
+      }
+    ],
+    "@semantic-release/git",
+    "@semantic-release/github",
+    [
+      "semantic-release-slack-bot",
+      {
+        "slackIcon": ":drum_with_drumsticks:",
+        "slackName": "똑똑-next-init",
+        "notifyOnSuccess": true,
+        "notifyOnFail": true,
+        "markdownReleaseNotes": true,
+        "onSuccessTemplate": {
+          "text": "새로운 버젼의 `$package_name`가 배포 되었습니다!\n최신 버젼은 *$npm_package_version* 입니다.\n\n>:package:*Repo:* *<$repo_url|$repo_path>*\n>:notebook_with_decorative_cover:*Release Note:* *<$repo_url/releases/tag/v$npm_package_version|v$npm_package_version>*\n\n$release_notes"
+        },
+        "branchesConfig": [
+          {
+            "pattern": "main",
+            "notifyOnSuccess": true,
+            "notifyOnFail": true
+          }
+        ]
+      }
+    ]
+  ]
+}

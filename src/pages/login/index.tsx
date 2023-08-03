@@ -1,20 +1,18 @@
-import Head from 'next/head';
+import { NextSeo } from 'next-seo';
 
-import LoginPage from '@components/LoginPage';
-import HomeLayout from '@components/common/@Layout/HomeLayout';
+import HomeLayout from '@/components/@Layout/HomeLayout';
+import Login from '@/containers/Login';
+import withUnAuthGuard from '@/hocs/withUnAuthGuard';
 
-import withUnAuthGuard from '@hocs/withUnAuthGuard';
-
-function Login() {
+function LoginPage() {
   return (
     <>
-      <Head>
-        {/* ex) Your App Name | Page Name */}
-        <title>똑똑한개발자 | login</title>
-      </Head>
-      <HomeLayout content={<LoginPage />} />
+      {/* output: 똑똑한 개발자 | login */}
+      {/* titleTemplate는 /configs/seo/config.ts에서 변경 가능합니다. */}
+      <NextSeo title="login" />
+      <HomeLayout content={<Login />} />
     </>
   );
 }
 
-export default withUnAuthGuard(Login);
+export default withUnAuthGuard(LoginPage);

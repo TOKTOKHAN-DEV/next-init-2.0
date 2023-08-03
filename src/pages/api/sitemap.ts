@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 
-import { CONFIG } from '@config';
+import { ENV } from '@/configs/env';
 
 /* eslint-disable @typescript-eslint/no-var-requires */
 const prettier = require('prettier');
@@ -8,11 +8,12 @@ const prettier = require('prettier');
 const axios = require('axios');
 
 const DOMAIN =
-  process.env.NODE_ENV === 'production'
-    ? CONFIG.DOMAIN
-    : 'http://localhost:3000';
+  process.env.NODE_ENV === 'production' ? ENV.DOMAIN : 'http://localhost:3000';
 
-export default async (_req: NextApiRequest, res: NextApiResponse) => {
+export default async function Sitemap(
+  _req: NextApiRequest,
+  res: NextApiResponse,
+) {
   try {
     const { data: localRoutes } = await axios.get(`${DOMAIN}/sitemap.json`);
 
@@ -56,4 +57,4 @@ export default async (_req: NextApiRequest, res: NextApiResponse) => {
   } catch (error) {
     res.status(500).json({ error });
   }
-};
+}
