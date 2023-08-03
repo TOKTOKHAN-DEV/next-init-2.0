@@ -17,6 +17,7 @@ jobs:
       - name: Change
         run: |
           sed -i "s|nextjs-with-typescript|${PROJECT_NAME}|g" package.json
+          sed -i "s|#{PROJECT_NAME}|${PROJECT_NAME}|g" next.config.js
       - name: Commit
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
