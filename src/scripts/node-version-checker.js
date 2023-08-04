@@ -54,9 +54,9 @@ function compareVersions(current, required) {
   const requiredArr = required.replace(reg, '').split('.').map(Number);
 
   for (let i = 0; i < Math.max(currentArr.length, requiredArr.length); i++) {
-    const aPart = currentArr[i] || 0;
-    const bPart = requiredArr[i] || 0;
-    return aPart < bPart;
+    const currentVer = currentArr[i] || 0;
+    const requiredVer = requiredArr[i] || 0;
+    return currentVer < requiredVer;
   }
 }
 
