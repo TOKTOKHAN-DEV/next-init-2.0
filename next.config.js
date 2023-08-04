@@ -42,15 +42,7 @@ module.exports = withBundleAnalyzer({
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '#{PROJECT_NAME}-dev-bucket.s3.ap-northeast-2.amazonaws.com',
-        port: '',
-        pathname: '/_media/**',
-      },
-      {
-        protocol: 'https',
-        hostname: '#{PROJECT_NAME}-prod-bucket.s3.ap-northeast-2.amazonaws.com',
-        port: '',
-        pathname: '/_media/**',
+        hostname: '*.s3.*.amazonaws.com',
       },
     ],
   },
