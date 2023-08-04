@@ -10,7 +10,8 @@
     "lint": "next lint",
     "lint:staged": "lint-staged",
     "start": "yarn build && next start",
-    "prepare": "husky install && node_modules/.bin/ls-engines",
+    "preinstall": "node src/scripts/node-version-checker.js",
+    "prepare": "husky install",
     "postinstall": "yarn run theme",
     "commit": "tokript commit",
     "test": "jest --coverage --coverageReporters=text-summary",
@@ -94,7 +95,6 @@
     "jest": "^29.5.0",
     "jest-environment-jsdom": "^29.5.0",
     "lint-staged": "^10.5.4",
-    "ls-engines": "^0.9.0",
     "prettier": "^2.8.8",
     "prettier-plugin-organize-imports": "^3.2.2",
     "semantic-release": "^21.0.1",
@@ -106,7 +106,7 @@
     "workerDirectory": "public"
   },
   "engines": {
-    "node": ">= 16.0.0",
+    "node": ">= 18.0.0",
     "npm": ">= 7.10.0",
     "yarn": ">= 1.22.17"
   },
