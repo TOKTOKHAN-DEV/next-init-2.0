@@ -1,7 +1,6 @@
 import { ChangeEvent, useCallback, useEffect, useRef, useState } from 'react';
 
-import debounce from 'lodash/debounce';
-import throttle from 'lodash/throttle';
+import { debounce, throttle } from 'lodash-es';
 
 import { Box, ChakraProps, Input, Text } from '@chakra-ui/react';
 
