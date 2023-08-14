@@ -1,4 +1,4 @@
-import { HomePageProvider } from '@/contexts/pages/home/useHomePageContext';
+import { HomePageProvider } from '@/containers/Home/context/useHomePageContext';
 
 import { PropsOf } from '@/types/module/react/props-of';
 
