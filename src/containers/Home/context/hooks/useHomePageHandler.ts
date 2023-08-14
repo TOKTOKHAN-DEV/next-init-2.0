@@ -13,5 +13,13 @@ export const useHomePageHandlers = ({
     console.log('example', { dispatch, state });
   }, [dispatch, state]);
 
-  return { logExample };
+  const increaseValue = useCallback(() => {
+    dispatch({ type: 'SET_VALUE', payload: state.value + 1 });
+  }, [dispatch, state.value]);
+
+  const decreaseValue = useCallback(() => {
+    dispatch({ type: 'SET_VALUE', payload: state.value - 1 });
+  }, [dispatch, state.value]);
+
+  return { logExample, increaseValue, decreaseValue };
 };
