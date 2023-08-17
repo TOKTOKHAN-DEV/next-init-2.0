@@ -45,6 +45,7 @@
     "chakra-react-select": "^4.6.0",
     "dayjs": "^1.10.6",
     "framer-motion": "^10.5.0",
+    "globby": "^13.2.2",
     "immer": "^10.0.1",
     "lodash-es": "^4.17.21",
     "next": "^13.2.4",
