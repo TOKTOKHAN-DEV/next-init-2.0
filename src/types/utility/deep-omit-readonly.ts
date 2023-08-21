@@ -2,13 +2,16 @@ import { Obj } from '@/types/static/obj';
 
 import { ReadonlyKeysOf } from './readonly-keys-of';
 
-// type Example = OmitReadOnly<{
-//   readonly a: number;
-//   readonly b: string;
-//   c: { readonly d : number; e : string };
-// }>;
+/**
+ * @example
+  type Example = OmitReadOnly<{
+    readonly a: number;
+    readonly b: string;
+    c: { readonly d : number; e : string };
+  }>;
 
-// Example = { c : { e: string }; }
+  Example = { c : { e: string }; }
+*/
 
 export type DeepOmitReadOnly<T extends Obj | undefined> = Omit<
   {
