@@ -6,7 +6,6 @@ interface useSubExampleHandlersParams
   extends ReturnType<typeof useSubExampleState> {}
 
 export const useSubExampleHandlers = ({
-  state,
   dispatch,
 }: useSubExampleHandlersParams) => {
   const handleColor = useCallback(
