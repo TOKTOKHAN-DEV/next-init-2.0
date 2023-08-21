@@ -1,6 +1,6 @@
-import { SubExampleProvider } from '@/components/Home/components/ContextColorPicker/context/useSubExampleContext';
-
 import { PropsOf } from '@/types/module/react/props-of';
+
+import { SubExampleProvider } from '../context/useSubExampleContext';
 
 function withColorPickerProvider<T extends (props?: any) => JSX.Element | null>(
   Component: T,
