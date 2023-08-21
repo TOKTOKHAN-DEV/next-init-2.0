@@ -7,7 +7,9 @@ import { Parameter } from '@/types/utility/parameter';
 
 import { WrapVariables } from './wrap-variables';
 
-// Example : const useAnyQuery = ({ options, variables } : UseInfiniteQueryParams<typeof anyApiFn>) => {...}
+/**
+ * @example const useAnyQuery = ({ options, variables } : UseInfiniteQueryParams<typeof anyApiFn>) => {...}
+ */
 
 export type UseInfiniteQueryParams<
   T extends AsyncFn,

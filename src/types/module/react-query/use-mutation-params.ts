@@ -5,7 +5,9 @@ import { AsyncFn } from '@/types/static/async-fn';
 import { AsyncFnReturn } from '@/types/utility/async-fn-return';
 import { Parameter } from '@/types/utility/parameter';
 
-// Example : const useAnyMutation = ({ options, variables } : UseMutationParams<typeof anyApiFn>) => {...}
+/**
+ * @example const useAnyMutation = ({ options, variables } : UseMutationParams<typeof anyApiFn>) => {...}
+ */
 
 export type UseMutationParams<
   T extends AsyncFn,
