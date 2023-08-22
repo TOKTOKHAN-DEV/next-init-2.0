@@ -1,4 +1,4 @@
-import { ExamplePageProvider } from '@/components/TokDocsDevTool/components/TokDocsModal/components/ExampleSection/components/ContextSection/context/useExamplePageHandler';
+import { ExamplePageProvider } from '@/components/TokDocsDevTool/components/TokDocsModal/components/ExampleSection/components/ContextSection/context/useExamplePageContext';
 
 import { PropsOf } from '@/types/module/react/props-of';
 
