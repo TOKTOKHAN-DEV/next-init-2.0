@@ -8,11 +8,12 @@ module.exports = {
   },
   extends: [
     'eslint:recommended',
-    'plugin:prettier/recommended', // plugin과 eslint-config-prettier 설정을 한번에 합니다.
-    'plugin:@typescript-eslint/recommended', // 해당 플러그인의 권장 규칙을 사용합니다.
+    'plugin:prettier/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
     'plugin:react-hooks/recommended',
     'plugin:@next/next/recommended',
+    'plugin:storybook/recommended',
   ],
   parser: '@typescript-eslint/parser', // ESLint 파서를 지정합니다.
   parserOptions: {
