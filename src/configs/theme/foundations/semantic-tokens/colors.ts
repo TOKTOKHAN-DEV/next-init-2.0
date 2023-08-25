@@ -10,7 +10,7 @@ import { ColorSchema, ColorToken } from '@/theme/utils/color/types/color';
  *
  *  @see https://chakra-ui.com/docs/styled-system/semantic-tokens
  */
-type CustomColors = {
+export type CustomColors = {
   [key: string]: {
     /**
      * 50-900 까지의 Color Scheme 혹은 컬러 값으로 색상을 정의합니다.
@@ -35,7 +35,7 @@ type CustomColors = {
   };
 };
 
-const colors: CustomColors = {
+export const basisColors: CustomColors = {
   primary: {
     default_gen: '#4850FF',
   },
@@ -44,6 +44,7 @@ const colors: CustomColors = {
   },
   tertiary: {
     default: {
+      50: '#ffc171',
       100: '#ffc179',
       200: '#ffb55f',
       300: '#ffaa46',
@@ -159,4 +160,4 @@ const convertToColorToken = (colors: CustomColors) =>
     return { ...prev, ...token };
   }, {});
 
-export default convertToColorToken(colors);
+export default convertToColorToken(basisColors);

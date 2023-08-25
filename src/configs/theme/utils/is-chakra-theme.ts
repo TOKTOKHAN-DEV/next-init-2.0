@@ -7,8 +7,6 @@ export const requiredChakraThemeKeys: (keyof ChakraTheme)[] = [
   'components',
   'config',
   'direction',
-  'fonts',
-  'fontWeights',
   'styles',
   'zIndices',
   'semanticTokens',
