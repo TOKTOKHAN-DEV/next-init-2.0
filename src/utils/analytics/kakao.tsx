@@ -6,7 +6,7 @@
  */
 
 export class KakaoAnalytics {
-  public kakaoAnalytics: (id: string) => kakao.Pixel.Event = kakaoPixel;
+  public kakaoAnalytics: (id: string) => kakao.Pixel.Event = window.kakaoPixel;
   constructor(private key: string) {
     this.key = key;
   }
