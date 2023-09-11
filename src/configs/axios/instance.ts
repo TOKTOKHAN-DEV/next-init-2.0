@@ -5,7 +5,7 @@ import { apiLogger } from '@/utils/logger/api-logger';
 import styledConsole from '@/utils/logger/styled-console';
 import { tokenStorage } from '@/utils/web-storage/token';
 
-import { refresh } from './refresh';
+import TokenRefreshManager from './token-refresh-manager';
 
 const isDev = ENV.NODE_ENV === 'development';
 
@@ -16,6 +16,8 @@ const instance = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
+const refreshManager = new TokenRefreshManager({ axios: instance });
 
 instance.interceptors.request.use(
   (config) => {
@@ -47,8 +49,8 @@ instance.interceptors.response.use(
       if (isDev)
         apiLogger({ status, reqData, resData: error, method: 'error' });
 
-      if (isExpiredToken) {
-        return refresh(reqData);
+      if (isExpiredToken && reqData) {
+        return refreshManager.refresh(reqData);
       }
 
       if (isUnAuthError) {
