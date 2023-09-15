@@ -1,3 +1,33 @@
+# [1.1.0](https://github.com/TOKTOKHAN-DEV/next-init-2.0/compare/v1.0.1...v1.1.0) (2023-09-15)
+
+
+### Bug Fixes
+
+* **generate-sitemap-json.js:** 🐛use dynamic import ([df72d3d](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/df72d3d8e373bd746ba90831fe4c8deaf6a44d8e))
+* **LodashSection:** 🐛import lodash => lodash-es ([6581d3b](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/6581d3befb4ae0c73b35dba5844c232db325e956))
+* **next.config.js:** 🐛add braket ([ae2d0f3](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/ae2d0f32f31348e88481cbbd9cab13b9ee6efebf))
+* **pre-push:** 🐛check-list script ([2ffb0b3](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/2ffb0b3828bc8238a353eb285973c73616de1afc))
+* **pre-push:** 🐛script for checklist ([98e4ae5](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/98e4ae5f0689cee71387b26f67e304d540d638b2))
+* **theme:** 🐛fix overriding issue ([a61a2ed](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/a61a2ed1cb2e14a989c72578f6ee59726f901ebf))
+* **theme:** 🐛fix: change letter case ([6f05a89](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/6f05a89526d7e717d54bb71e4e1a3e3251609537))
+* **yarn.lock:** 🐛update ([7e245d5](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/7e245d574ea631ca0280e590f85ef7cb523299b3))
+* **yarn.lock:** 🐛update ([ce89e9d](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/ce89e9d2be598c56641dc0ff807938bfc35cc49c))
+
+
+### Features
+
+* 🎸add next.config options and replace lodash with lodash-es ([0ba20d9](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/0ba20d9721182d83fb283da8a8df78e9d2d4bb6a))
+* 🎸checklist commit on pre-push ([2b2f330](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/2b2f3306eeebb667202715680ed0610e9d4c8582))
+* 🎸checklist, script ([0f7c22c](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/0f7c22c4824eb2ad12aa564af3a7f783cb33cb3f))
+* **ChakraThemeSection.tsx:** 🎸apply theme section ([8223951](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/8223951f2e6b8682c62fff65f7c64caa50a721b3))
+* **commit-msg:** 🎸apply conventional commit msg husky ([5e98129](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/5e9812904af5ef2cf32d067316a3b128708df429))
+* **theme:** 🎸update to chakra theme ([c967ef4](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/c967ef49762e2db9ffb119a64c7f2f33947e8984))
+
+
+### Reverts
+
+* Revert "chore(package.json): 🤖add lodash to devDependencies" ([c240833](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/c2408332de6071ff98a90c3ab860ac2a2278e31b))
+
 ## [1.0.1](https://github.com/TOKTOKHAN-DEV/next-init-2.0/compare/v1.0.0...v1.0.1) (2023-07-18)
 
 
