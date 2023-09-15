@@ -4,7 +4,7 @@ import { mode } from '@chakra-ui/theme-tools';
 import { runIfFn } from '@/utils/validate/run-if-fn';
 
 const variantGhost = defineStyle((props) => {
-  const { colorScheme: c, theme } = props;
+  const { colorScheme: c } = props;
 
   if (c === 'gray') {
     return {

@@ -1,5 +1,3 @@
-import { useTheme } from '@emotion/react';
-
 import {
   Badge,
   Button,

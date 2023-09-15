@@ -10,7 +10,6 @@ import Document, {
 import { ColorModeScript } from '@chakra-ui/color-mode';
 
 import config from '@/configs/theme/config';
-import { GASetter } from '@/utils/analytics/analytics';
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
