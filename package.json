@@ -101,7 +101,7 @@
     "semantic-release": "^21.0.1",
     "semantic-release-slack-bot": "^4.0.1",
     "tokript": "^1.4.0",
-    "typescript": "^4.9.4"
+    "typescript": "^5.0.0"
   },
   "msw": {
     "workerDirectory": "public"
