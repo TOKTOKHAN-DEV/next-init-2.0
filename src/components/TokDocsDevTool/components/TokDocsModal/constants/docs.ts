@@ -8,6 +8,7 @@ export const APP_STYLE_VIEWER_DOCS = [
   'Chakra theme',
 ] as const;
 export const EXAMPLE_DOCS = [
+  'Context 예시',
   'redux-toolkit 예시',
   'react-hook-from 예시',
   '모달 예시',
@@ -31,6 +32,7 @@ export const TOK_DOCS_MENU_DATA: TokDocsMenuType[] = [
     kind: 'IN APP',
     name: 'Example',
     subMenu: [
+      { name: 'Context 예시' },
       { name: 'redux-toolkit 예시' },
       { name: 'react-hook-from 예시' },
       { name: '모달 예시' },
