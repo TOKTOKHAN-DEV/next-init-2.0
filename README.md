@@ -256,10 +256,7 @@ public 폴더를 사용하여 주로 사용하는 fonts, image, svg 와 같은 �
     public
     ├── fonts
     │   └── pretendard
-    │    ├── ...
-    │    ├── Pretendard-Bold.woff
-    │    ├── Pretendard-Thin.woff
-    │    └── ...
+    │    ├── PretendardVariable.woff2
     ├── icons
     │   └── svg
     │    ├── ...
