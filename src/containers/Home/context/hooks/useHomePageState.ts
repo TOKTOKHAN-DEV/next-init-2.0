@@ -1,4 +1,4 @@
-import { useReducer } from 'react';
+import { useSlice } from '@/hooks/useSlice';
 
 import { createSlice } from '@/utils/react/create-slice';
 
@@ -10,10 +10,9 @@ const initialState: GlobalStateType = {
   value: 0,
 };
 
-const { reducer } = createSlice({
+export const homeSlice = createSlice({
   initialState,
   reducers: {
-    RESET: () => initialState,
     SET_VALUE: (state, payload: number) => {
       state.value = payload;
     },
@@ -21,7 +20,7 @@ const { reducer } = createSlice({
 });
 
 export const useHomePageState = () => {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useSlice(homeSlice);
 
   return { state, dispatch };
 };
