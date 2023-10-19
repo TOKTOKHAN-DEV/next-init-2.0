@@ -1,10 +1,17 @@
 const path = require('path');
 
-const buildEslintCommand = (filenames) =>
+const checkType = () => 'bash -c tsc --skipLibCheck --noEmit';
+
+const checkLint = (filenames) =>
   `next lint --fix --file ${filenames
     .map((f) => path.relative(process.cwd(), f))
     .join(' --file ')}`;
 
+const checkPrettier = (filenames) =>
+  `prettier --write ${filenames
+    .map((f) => path.relative(process.cwd(), f))
+    .join(' ')}`;
+
 module.exports = {
-  '*.{js,jsx,ts,tsx}': [buildEslintCommand, 'prettier --write'],
+  '*.{js,jsx,ts,tsx}': [checkType, checkLint, checkPrettier],
 };
