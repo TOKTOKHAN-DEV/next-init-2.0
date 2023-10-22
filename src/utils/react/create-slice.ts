@@ -1,24 +1,13 @@
 import { produce } from 'immer';
 
-import { ActionsByMap, ReducerMap } from './types/reducer';
-
-type CreateReducerParams<S, R extends ReducerMap<S, any>> = {
-  initialState: S;
-  reducers: R;
-};
-
-type CreateSliceReturn<S, R extends ReducerMap<S, any>> = {
-  initialState: S;
-  reducer: (
-    state: S,
-    action: ActionsByMap<S, R> | { type: 'RESET'; payload?: S },
-  ) => S;
-  reducers: R;
-  getState: () => S;
-  setState: (next: S | ((prev: S) => S)) => void;
-  subscribe: (listener: () => void) => () => void;
-  copy: () => CreateSliceReturn<S, R>;
-};
+import { runIfFn } from '../validate/run-if-fn';
+import {
+  ActionWithReset,
+  CreateReducerParams,
+  CreateSliceReturn,
+  ReducerMap,
+  ReducerWithResetAction,
+} from './types/reducer';
 
 export const createSlice = <S, R extends ReducerMap<S, any>>({
   initialState,
@@ -28,28 +17,16 @@ export const createSlice = <S, R extends ReducerMap<S, any>>({
 
   const listeners = new Set<() => void>();
 
-  const reducer = produce(
-    (
-      state: S,
-      action: ActionsByMap<S, R> | { type: 'RESET'; payload?: S },
-    ): S => {
-      if (action.type === 'RESET') return (action.payload || initialState) as S;
-      const reducer = reducers[action.type];
-      return reducer(state, action.payload) as S;
-    },
-  ) as (
-    state: S,
-    action: ActionsByMap<S, R> | { type: 'RESET'; payload?: S },
-  ) => S;
+  const reducer: ReducerWithResetAction<S, R> = produce((state, action) => {
+    if (action.type === 'RESET') return (action.payload || initialState) as S;
+    const reducer = reducers[action.type];
+    return reducer(state as S, action.payload);
+  }) as ReducerWithResetAction<S, R>;
 
   const getState = () => state;
 
   const setState = (next: S | ((prev: S) => S)) => {
-    if (typeof next === 'function') {
-      state = (next as Function)(state);
-    } else {
-      state = next;
-    }
+    state = runIfFn(next, state);
     listeners.forEach((listener) => listener());
   };
 
@@ -60,10 +37,15 @@ export const createSlice = <S, R extends ReducerMap<S, any>>({
 
   const copy = () => createSlice({ initialState, reducers });
 
+  const dispatch = (action: ActionWithReset<S, R>) => {
+    setState(reducer(state, action));
+  };
+
   return {
     initialState,
     reducers,
     reducer,
+    dispatch,
     getState,
     setState,
     subscribe,
