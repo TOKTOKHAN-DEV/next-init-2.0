@@ -43,7 +43,7 @@ export const globalSlice = createSlice({
 });
 
 export const useGlobalState = () => {
-  const [state, dispatch] = useSlice(globalSlice, { isGlobalSlice: true });
+  const [state, dispatch] = useSlice(globalSlice, { access: 'global' });
 
   return { state, dispatch };
 };

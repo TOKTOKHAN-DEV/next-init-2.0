@@ -13,17 +13,37 @@ import {
 
 import ContextColorPicker from './components/ContextColorPicker';
 import StatefulColorPicker from './components/StatefulColorPicker';
+import { exampleSlice } from './context/hooks/useExampleSlice';
 import { useExamplePageContext } from './context/useExamplePageContext';
 import withExamplePageProvider from './hocs/withExamplePageProvider';
 
+const increaseFromOutOfComponent = () => {
+  exampleSlice.dispatch({
+    type: 'INCREASE_VALUE',
+    payload: 1,
+  });
+};
+
+const decreaseFromOutOfComponent = () => {
+  exampleSlice.dispatch({
+    type: 'DECREASE_VALUE',
+    payload: 1,
+  });
+};
+
 const ContextSection = () => {
   const value = useExamplePageContext((ctx) => ctx.state.value);
-  const decreaseValue = useExamplePageContext(
-    (ctx) => ctx.handler.decreaseValue,
+  const dispatch = useExamplePageContext((ctx) => ctx.dispatch);
+  const accessAbleValue = useExamplePageContext(
+    (ctx) => ctx.accessAbleState.value,
   );
-  const increaseValue = useExamplePageContext(
-    (ctx) => ctx.handler.increaseValue,
-  );
+
+  const decreaseValue = () => {
+    dispatch({ type: 'DECREASE_VALUE', payload: 1 });
+  };
+  const increaseValue = () => {
+    dispatch({ type: 'INCREASE_VALUE', payload: 1 });
+  };
 
   return (
     <Grid
@@ -70,6 +90,33 @@ const ContextSection = () => {
               {value}
             </Text>
             <Button onClick={increaseValue}>+</Button>
+          </HStack>
+        </VStack>
+      </GridItem>
+      <GridItem rowSpan={2} colSpan={4} alignSelf={'center'}>
+        <VStack>
+          <Text as={'h2'} textStyle={'title-lg'}>
+            ExamplePage (컴포넌트 바깥에서 접근하기)
+          </Text>
+          <Text textStyle={'title'}>
+            state 를 만들때 useSlice 훅의 access 옵션의 값이 global 일 경우
+            컴포넌트 바깥에서 접근이 가능합니다. <br />
+            단, 지역 컨텍스트나 지역 상태에서는 컴포넌트 언마운트시 state 가
+            초기화가 되지 않을 수 있으므로 전역상태에서만 사용하는 것 을
+            권장합니다.
+          </Text>
+          <Text>{`Current Context Value is`}</Text>
+          <HStack>
+            <Button
+              isDisabled={accessAbleValue === 0}
+              onClick={decreaseFromOutOfComponent}
+            >
+              -
+            </Button>
+            <Text w={'100px'} textAlign={'center'}>
+              {accessAbleValue}
+            </Text>
+            <Button onClick={increaseFromOutOfComponent}>+</Button>
           </HStack>
         </VStack>
       </GridItem>
