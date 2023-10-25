@@ -35,6 +35,7 @@ const LinkAsNext = ({
       scroll={scroll}
       shallow={shallow}
       prefetch={prefetch}
+      style={{ width: '100%' }}
     >
       <ChakraLink //
         as={'span'}
