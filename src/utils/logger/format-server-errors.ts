@@ -1,8 +1,6 @@
 import { AxiosError } from 'axios';
 import { isObject } from 'lodash-es';
 
-const defMessage = '에러가 발생했습니다. 고객센터에 문의해주세요.';
-
 type ErrorMessage = {
   [key: string]: any;
 };
@@ -12,11 +10,17 @@ type FormattedError = {
   message: string;
 };
 
+type SeverError<T extends AxiosError<{ message: ErrorMessage }, any>> = {
+  errors: T;
+  defMessage?: string;
+};
+
 export const formatServerErrors = <
   T extends AxiosError<{ message: ErrorMessage }, any>,
->(
-  errors: T,
-): {
+>({
+  errors,
+  defMessage,
+}: SeverError<T>): {
   defMessage?: string;
   list?: FormattedError[];
   messages?: string;
