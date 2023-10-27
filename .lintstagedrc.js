@@ -13,5 +13,5 @@ const checkPrettier = (filenames) =>
     .join(' ')}`;
 
 module.exports = {
-  '*.{js,jsx,ts,tsx}': [checkType, checkLint, checkPrettier],
+  '*.{ts,tsx,js,jsx}': [checkType, checkLint, checkPrettier],
 };
