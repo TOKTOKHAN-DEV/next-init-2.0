@@ -109,6 +109,7 @@
   },
   "engines": {
     "npm": "Please Use \"yarn\"",
+    "pnpm": "Please Use \"yarn\"",
     "node": ">= 18.0.0",
     "yarn": ">= 1.22.17"
   },
