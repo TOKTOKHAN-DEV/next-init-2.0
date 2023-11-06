@@ -117,6 +117,5 @@
     "darwin",
     "win64",
     "linux"
-  ],
-  "engineStrict": true
+  ]
 }
