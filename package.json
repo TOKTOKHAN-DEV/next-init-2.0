@@ -108,8 +108,8 @@
     "workerDirectory": "public"
   },
   "engines": {
+    "npm": "Please Use \"yarn\"",
     "node": ">= 18.0.0",
-    "npm": ">= 7.10.0",
     "yarn": ">= 1.22.17"
   },
   "os": [
