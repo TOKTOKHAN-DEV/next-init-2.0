@@ -2570,23 +2570,23 @@
   integrity sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==
 
 "@tosspayments/payment-sdk@^1.1.1":
-  version "1.6.1"
-  resolved "https://registry.npmjs.org/@tosspayments/payment-sdk/-/payment-sdk-1.6.1.tgz"
-  integrity sha512-LPMo3VkAxUz6UiW0owSF7swqHDlHQ4KW0QIrn78cAwNq6mSj76FdcVX9HpnAggDk8GA42erLXlqpxWt3Jy/gSQ==
+  version "1.7.0"
+  resolved "https://registry.yarnpkg.com/@tosspayments/payment-sdk/-/payment-sdk-1.7.0.tgz#d5317629ec375769a285d5c43e5e3fec10a174b0"
+  integrity sha512-fjCIPTnnAx43GJ72o8Zjw135GEFAb0HstXc7W6QgLRuhV6KIietuUzrA38qy/s9mEkQH29Pi/frlg+OfDAv+zA==
   dependencies:
-    "@tosspayments/payment__types" "^1.60.0"
+    "@tosspayments/payment__types" "1.67.0"
 
-"@tosspayments/payment__types@^1.60.0":
-  version "1.61.0"
-  resolved "https://registry.npmjs.org/@tosspayments/payment__types/-/payment__types-1.61.0.tgz"
-  integrity sha512-+gf57Xn0MsHwHK54LuCL2lzshYtBKbTwGAWlKtthqm2Mu00RK3cOzDzX1p2qcRkQcivwSZHRZtD3g7NihdvLwQ==
+"@tosspayments/payment__types@1.67.0":
+  version "1.67.0"
+  resolved "https://registry.yarnpkg.com/@tosspayments/payment__types/-/payment__types-1.67.0.tgz#3e7a6c62bfcf7642d2c2ae3decb6e5df25c4fdca"
+  integrity sha512-e2W5AolyED1AA3uUaq27a8YQhrL7ZPNffIOF5qN2uP6RXIk6w1dtAFpY5tXBgLcyntYFMSKPCYevutUy8Ggc0g==
   dependencies:
-    "@tosspayments/sdk-constants" "^0.2.1"
+    "@tosspayments/sdk-constants" "^0.2.2"
 
-"@tosspayments/sdk-constants@^0.2.1":
-  version "0.2.1"
-  resolved "https://registry.npmjs.org/@tosspayments/sdk-constants/-/sdk-constants-0.2.1.tgz"
-  integrity sha512-svTqRO0vVs78UxG23pa4ywxsWEzVEiO6VYAMhKJClFYlnn1yqetFCL9aFzWwTYnChWuJu3OTC+SC1xslVf1Eqg==
+"@tosspayments/sdk-constants@^0.2.2":
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/@tosspayments/sdk-constants/-/sdk-constants-0.2.2.tgz#91bd84fc1543eb2382b2a9b40792eed9f9146b1e"
+  integrity sha512-qTIcD9JnVtN65/yiW5sPAlvK5fpQtDluv4IEyslubncbQLQKE+ePSnGZU1fLNPxcchv6QTnwmgj9Ndm6EN/Ymg==
   dependencies:
     type-fest "^2.11.2"
 
