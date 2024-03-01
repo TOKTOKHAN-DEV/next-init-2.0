@@ -5,7 +5,7 @@
  * @see Docs https://developers.facebook.com/docs/meta-pixel/reference#object-properties
  */
 export class FacebookAnalytics {
-  public facebookAnalytics: facebook.Pixel.Event = window.fbq;
+  public facebookAnalytics: facebook.Pixel.Event = typeof window !== "undefined" ? window.fbq : () => {};
 
   constructor(private key: string) {
     this.key = key;
