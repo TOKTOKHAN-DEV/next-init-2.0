@@ -5,7 +5,7 @@
  */
 
 export class GoogleAnalytics {
-  public googleAnalytics: Gtag.Gtag = window.gtag;
+  public googleAnalytics: Gtag.Gtag = typeof window !== "undefined" ? window.gtag : () => {};
 
   constructor(private key: string) {
     this.key = key;
