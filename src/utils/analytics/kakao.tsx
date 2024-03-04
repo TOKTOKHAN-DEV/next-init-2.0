@@ -1,3 +1,8 @@
+import React from 'react';
+
+import { Analytics } from './types';
+import { analyticsValidCheckHandler } from './utils/valid-check-with-proxy';
+
 /**
  * @brief Kakao pixel에서 제공하는 event가 정의 된 class입니다.
  * @description 카카오 픽셀에서는 여러 종류의 이벤트를 전송할 수 있습니다.
@@ -6,41 +11,61 @@
  */
 
 export class KakaoAnalytics {
-  public kakaoAnalytics: (id: string) => kakao.Pixel.Event = kakaoPixel;
-  constructor(private key: string) {
+  private kakao: (id: string) => kakao.Pixel.Event | void = () => {};
+
+  constructor(private key?: string) {
+    if (!key) {
+      console.warn('Kakao 키 설정이 필요합니다.');
+      return;
+    }
     this.key = key;
+    this.kakao = new Proxy(
+      {
+        kakao: typeof window !== 'undefined' ? window.kakaoPixel : () => {},
+      },
+      analyticsValidCheckHandler,
+    ).kakao;
   }
 
-  completeRegistration = (social: string) => {
-    this.kakaoAnalytics(this.key).completeRegistration(social);
+  /**
+   * 회원가입 이벤트 전송
+   */
+  completeRegistration = (params: Analytics.CompleteRegistration['Kakao']) => {
+    if (!this.key) return;
+    this.kakao(this.key)?.completeRegistration(params?.tag);
   };
 
-  startProject = (params: { id: string; step: string }) => {
-    this.kakaoAnalytics(this.key).viewContent({
-      id: params.id,
-      tag: params.step,
-    });
+  /**
+   * 페이지 조회 이벤트 전송
+   */
+  pageView = (params: Analytics.PageView['Kakao']) => {
+    if (!this.key) return;
+    this.kakao(this.key)?.pageView(params?.tag);
   };
 
-  completeProject = (id: string) => {
-    this.kakaoAnalytics(this.key).addToCart({ id: id, tag: 'complete' });
+  /**
+   * 콘텐츠 / 상품 조회 이벤트 전송
+   */
+  viewContent = (params: Analytics.ViewContent['Kakao']) => {
+    if (!this.key) return;
+    this.kakao(this.key)?.viewContent(params);
   };
 
-  consultingApply = () => {
-    this.kakaoAnalytics(this.key).participation('PreBooking');
-  };
-
-  requestApply = () => {
-    this.kakaoAnalytics(this.key).participation('Consulting');
+  /**
+   * 검색 이벤트 전송
+   */
+  search = (params: Analytics.Search['Kakao']) => {
+    if (!this.key) return;
+    this.kakao(this.key)?.search(params);
   };
 
   KakaoSetter = () => {
     return (
       <script
-        dangerouslySetInnerHTML={{
-          __html: `kakaoAnalytics('${this.key}').pageView();`,
-        }}
-      />
+        async
+        type="text/javascript"
+        src="//t1.daumcdn.net/kas/static/kp.js"
+      ></script>
     );
   };
 }

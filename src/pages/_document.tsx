@@ -34,8 +34,10 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <script dangerouslySetInnerHTML={this.redirectIEtoEdge()} />
-          {/* Global site tag (gtag.js) - Google Analytics */}
-          {/* {GASetter()} */}
+          {/* 분석도구가 필요한 경우 주석 해제 후 사용해주세요. src/utils/analytics/analytics.ts 설정 필요 */}
+          {/* {GASetter()}
+          {KakaoSetter()}
+          {FacebookSetter()} */}
         </Head>
         <body>
           <ColorModeScript initialColorMode={config.initialColorMode} />

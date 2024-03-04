@@ -1,34 +1,31 @@
-/**
- * @brief Google analytics event가 정의 된 class입니다.
- * @description Google 애널리틱스에서 자동으로 수집되는 정보 외에 추가로 정보를 수집하거나 애널리틱스의 특정 기능을 사용하려는 경우 사용합니다.
- * @see Docs https://developers.google.com/analytics/devguides/collection/ga4/events?hl=ko&client_type=gtag
- */
+import { Analytics } from './types';
+import { analyticsValidCheckHandler } from './utils/valid-check-with-proxy';
 
 export class GoogleAnalytics {
-  public googleAnalytics: Gtag.Gtag = window.gtag;
+  private ga: Gtag.Gtag = () => {};
 
-  constructor(private key: string) {
+  constructor(private key?: string) {
+    if (!key) {
+      console.warn('GA 키 설정이 필요합니다.');
+      return;
+    }
     this.key = key;
+    this.ga = new Proxy(
+      { gtag: typeof window !== 'undefined' ? window.gtag : () => {} },
+      analyticsValidCheckHandler,
+    ).gtag;
   }
 
-  completeRegistration = (social: string) => {
-    this.googleAnalytics('event', 'CompleteRegistration', { social });
+  completeRegistration = (params: Analytics.CompleteRegistration['Ga']) => {
+    this.ga('event', 'sign_up', params);
   };
 
-  startProject = (params: { id: string; step: string }) => {
-    this.googleAnalytics('event', 'StartProject', params);
+  viewContent = (params: Analytics.ViewContent['Ga']) => {
+    this.ga('event', 'view_item', params);
   };
 
-  completeProject = (id: string) => {
-    this.googleAnalytics('event', 'CompleteProject', { id });
-  };
-
-  consultingApply = () => {
-    this.googleAnalytics('event', 'ConsultingApply');
-  };
-
-  requestApply = () => {
-    this.googleAnalytics('event', 'RequestApply');
+  login = () => {
+    this.ga('event', 'login');
   };
 
   GASetter = () => {
