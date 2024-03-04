@@ -1,51 +1,31 @@
-import { ENV } from '@/configs/env';
-
+import { ENV } from '../../configs/env';
 import { FacebookAnalytics } from './facebook';
 import { GoogleAnalytics } from './google';
 import { KakaoAnalytics } from './kakao';
+import { Analytics } from './types';
 
-const googleAnalytics = ENV.GA_KEY
-  ? new GoogleAnalytics(ENV.GA_KEY)
-  : console.error('should set GA key');
+/**
+ * 필요하지 않은 분석 도구는 이 코드에서 제거해주세요.
+ * 단일 분석 도구만 사용할 경우, 해당 도구의 메서드를 직접 호출하여 사용합니다. 
+  useEffect(() => {
+    facebookAnalytics?.pageView({ content_name: 'page2', content_ids: [2] });
+  }, [])
+*/
 
-const facebookAnalytics = ENV.FACEBOOK_PIXEL_KEY
-  ? new FacebookAnalytics(ENV.FACEBOOK_PIXEL_KEY)
-  : console.error('should set facebook key');
+export const googleAnalytics = new GoogleAnalytics(ENV.GA_KEY);
+export const facebookAnalytics = new FacebookAnalytics(ENV.FACEBOOK_PIXEL_KEY);
+export const kakaoAnalytics = new KakaoAnalytics(ENV.KAKAO_PIXEL_KEY);
 
-const kakaoAnalytics = ENV.KAKAO_PIXEL_KEY
-  ? new KakaoAnalytics(ENV.KAKAO_PIXEL_KEY)
-  : console.error('should set Kakao pixel key');
-
-export const completeRegistrationAnalytics = (social: string) => {
-  googleAnalytics?.completeRegistration(social);
-  facebookAnalytics?.completeRegistration(social);
-  kakaoAnalytics?.completeRegistration(social);
+/** Google Analytics, Facebook Pixel, Kakao Pixel을 모두 사용하는 경우 아래의 함수를 공통으로 사용할 수 있습니다. */
+export const completeRegistrationAnalytics = (
+  params: Analytics.CompleteRegistration,
+) => {
+  googleAnalytics?.completeRegistration(params.Ga);
+  facebookAnalytics?.completeRegistration(params.Fbq);
+  kakaoAnalytics?.completeRegistration(params.Kakao);
 };
 
-export const startProjectAnalytics = (params: { id: string; step: string }) => {
-  googleAnalytics?.startProject(params);
-  facebookAnalytics?.startProject(params);
-  kakaoAnalytics?.startProject(params);
-};
-
-export const completeProjectAnalytics = (id: string) => {
-  googleAnalytics?.completeProject(id);
-  facebookAnalytics?.completeProject(id);
-  kakaoAnalytics?.completeProject(id);
-};
-
-export const consultingApplyAnalytics = () => {
-  googleAnalytics?.consultingApply();
-  facebookAnalytics?.consultingApply();
-  kakaoAnalytics?.consultingApply();
-};
-
-export const requestApplyAnalytics = () => {
-  googleAnalytics?.requestApply();
-  facebookAnalytics?.requestApply();
-  kakaoAnalytics?.requestApply();
-};
-
+/** 각 분석 도구의 설정 메서드를 호출하는 함수들입니다. */
 export const GASetter = () => googleAnalytics?.GASetter();
 export const FacebookSetter = () => facebookAnalytics?.FacebookSetter();
 export const KakaoSetter = () => kakaoAnalytics?.KakaoSetter();
