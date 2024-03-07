@@ -1,8 +1,8 @@
 import { CSSProperties } from 'react';
 
-import { AxiosRequestConfig } from 'axios';
+import { AxiosRequestConfig, isAxiosError } from 'axios';
 
-import { formatServerErrors } from './format-server-errors';
+import { genErrorByServer } from './gen-error-by-server';
 import styledConsole, { StyledConsoleArgs } from './styled-console';
 
 interface ApiLoggerArgs extends Pick<StyledConsoleArgs, 'method'> {
@@ -25,8 +25,9 @@ export const apiLogger = ({
 
   const errors = (() => {
     if (consoleMethod !== 'error') return '';
-    const errors = formatServerErrors(resData);
-    return errors.messages;
+    if (!isAxiosError(resData)) return '';
+    const errors = genErrorByServer(resData);
+    return errors.messagesWithKey;
   })();
 
   styledConsole({
