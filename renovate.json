@@ -15,7 +15,9 @@
       "matchPackageNames": [
         "@chakra-ui/react",
         "@chakra-ui/cli",
-        "chakra-react-select"
+        "chakra-react-select",
+        "@chakra-ui/theme-tools",
+        "@chakra-ui/styled-system"
       ],
       "groupName": "chakra packages",
       "enabled": true,
