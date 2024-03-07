@@ -9,8 +9,8 @@ import { useGlobalContext } from '@/contexts/global/useGlobalStoreContext';
 import { tokenStorage } from '@/utils/web-storage/token';
 
 export const useLogin = () => {
-  const isLogin = useGlobalContext((ctx) => ctx.state.isLogin);
   const token = useGlobalContext((ctx) => ctx.webStorage.token);
+  const isLogin = !!token;
 
   const queryClient = useQueryClient();
   const router = useRouter();

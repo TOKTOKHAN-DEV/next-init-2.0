@@ -2,14 +2,14 @@ import { ComponentProps, ComponentType, useEffect } from 'react';
 
 import { useRouter } from 'next/router';
 
-import { useGlobalContext } from '@/contexts/global/useGlobalStoreContext';
+import { useLogin } from '@/hooks/useLogin';
 
 export default function withUnAuthGuard<T extends ComponentType<any>>(
   AppComponent: T,
 ) {
   return function WrappedAppComponent(props: ComponentProps<T>) {
     const router = useRouter();
-    const isLogin = useGlobalContext((store) => store.state.isLogin);
+    const { isLogin } = useLogin();
 
     useEffect(() => {
       if (isLogin === true)
