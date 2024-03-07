@@ -1,6 +1,54 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base"
+  "extends": ["config:base"],
+  "baseBranches": ["beta"],
+  "schedule": ["every weekend"],
+  "packageRules": [
+    {
+      "matchPackageNames": ["react", "react-dom"],
+      "groupName": "react packages",
+      "enabled": true,
+      "rangeStrategy": "bump",
+      "stabilityDays": 7
+    },
+    {
+      "matchPackageNames": [
+        "@chakra-ui/react",
+        "@chakra-ui/cli",
+        "chakra-react-select"
+      ],
+      "groupName": "chakra packages",
+      "enabled": true,
+      "rangeStrategy": "bump",
+      "stabilityDays": 7
+    },
+    {
+      "matchPackageNames": ["react-hook-form", "@hookform/resolvers", "yup"],
+      "groupName": "react-hook-form packages",
+      "enabled": true,
+      "rangeStrategy": "bump",
+      "stabilityDays": 7
+    },
+    {
+      "matchPackageNames": [
+        "@tanstack/react-query",
+        "@tanstack/react-query-devtools",
+        "yup"
+      ],
+      "groupName": "react-query packages",
+      "enabled": true,
+      "rangeStrategy": "bump",
+      "stabilityDays": 7
+    },
+    {
+      "matchPackageNames": ["@tosspayments/payment-sdk", "next"],
+      "enabled": true,
+      "rangeStrategy": "bump",
+      "stabilityDays": 7
+    },
+    {
+      "matchPackageNames": ["*"],
+      "enabled": false
+    }
   ]
 }
