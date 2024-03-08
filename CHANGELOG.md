@@ -1,3 +1,26 @@
+# [1.2.0](https://github.com/TOKTOKHAN-DEV/next-init-2.0/compare/v1.1.0...v1.2.0) (2024-03-08)
+
+
+### Bug Fixes
+
+* 🐛on Exit ([b588cf3](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/b588cf3c6b889ffcf189d66e1aaf76a789b6e28d))
+* 🐛on-exit fix ([6b0a0f9](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/6b0a0f9adc26c0983e7992d102675074e8636247))
+* 🐛onExit bug fix ([34dd1d8](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/34dd1d82fa825a92c43f1898caa884dcbedc3306))
+
+
+### Features
+
+* 🎸add type-check on lint ([d6f50ff](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/d6f50ff5a936eca1cef9a750b5dc6c8671dd6d5b))
+* **ContextSection.tsx:** 🎸create context example ([37f5376](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/37f5376a7449b4200b865bf1b622d3fe74bc916d))
+* **format-server-errors.ts:** 🎸format and style console output for server errors ([7b137b6](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/7b137b61e506885f770ff74f6d86a4f44ddaf2a5))
+* **Home.tsx:** 🎸Restructure the Context Folder with Example Components ([abcf675](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/abcf6754642501d4b9df2a7060e6b1184cc01c61))
+* **useInvalidateQuires.ts:** 🎸for invalidate querykey ([9da287f](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/9da287fa86d3f663cd7e075fa0a67ecf0db225ce))
+
+
+### Performance Improvements
+
+* **next-fonts:** ⚡️change to variable font (extension woff to woff2) ([ce2edf8](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/ce2edf8b1f51333e7f9d63a2d2649e1846e06ffe))
+
 # [1.1.0](https://github.com/TOKTOKHAN-DEV/next-init-2.0/compare/v1.0.1...v1.1.0) (2023-09-15)
 
 
