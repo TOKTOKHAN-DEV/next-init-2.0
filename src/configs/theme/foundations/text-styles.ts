@@ -1,4 +1,8 @@
-const textStyles = {
+// new font text-styles
+const newFontTextStyles = {};
+
+// pretendard font text-styles
+const pretendardTextStyles = {
   'extra-lg': {
     fontSize: { base: '26px', sm: '26px', md: '35px' },
     fontWeight: 700,
@@ -66,6 +70,11 @@ const textStyles = {
     fontSize: ['26px', '26px', '35px'],
     lineHeight: ['38px', '38px', '52px'],
   },
+};
+
+const textStyles = {
+  ...pretendardTextStyles,
+  ...newFontTextStyles,
 };
 
 export default textStyles;
