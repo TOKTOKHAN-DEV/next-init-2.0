@@ -1,3 +1,10 @@
+## [1.2.1](https://github.com/TOKTOKHAN-DEV/next-init-2.0/compare/v1.2.0...v1.2.1) (2024-03-08)
+
+
+### Bug Fixes
+
+* **analytics.ts:** 🐛analytics setup ([c06d0c9](https://github.com/TOKTOKHAN-DEV/next-init-2.0/commit/c06d0c9d5c228e7db0097d58d88f737b6b5ba60c))
+
 # [1.2.0](https://github.com/TOKTOKHAN-DEV/next-init-2.0/compare/v1.1.0...v1.2.0) (2024-03-08)
 
 
