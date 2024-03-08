@@ -1,5 +1,6 @@
 import { Fragment } from 'react';
 
+import { Link } from '@chakra-ui/next-js';
 import {
   Accordion,
   AccordionButton,
@@ -11,8 +12,6 @@ import {
   Text,
   VStack,
 } from '@chakra-ui/react';
-
-import LinkAsNext from '@/components/LinkAsNext';
 
 import { TokDocsMenuType, TokDocsSubMenuTitle } from '../../../types/docs';
 
@@ -47,13 +46,9 @@ function DocsMenuList({
                   _hover={{ hover: 'none' }}
                   _focus={{ boxShadow: 'none' }}
                 >
-                  <LinkAsNext
-                    href={menu.href}
-                    target="_blank"
-                    {...buttonStyles}
-                  >
+                  <Link href={menu.href} target="_blank" {...buttonStyles}>
                     {menu.name}
-                  </LinkAsNext>
+                  </Link>
                 </AccordionButton>
               </AccordionItem>
             ) : (
@@ -80,7 +75,7 @@ function DocsMenuList({
                     {menu.subMenu?.map((sub, idx) => {
                       if (sub.href)
                         return (
-                          <LinkAsNext
+                          <Link
                             {...buttonStyles}
                             key={idx}
                             href={sub.href}
@@ -88,7 +83,7 @@ function DocsMenuList({
                             target="_blank"
                           >
                             {sub.name}
-                          </LinkAsNext>
+                          </Link>
                         );
 
                       return (
