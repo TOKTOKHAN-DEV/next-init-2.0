@@ -435,9 +435,9 @@
     "@chakra-ui/visually-hidden" "2.2.0"
     "@zag-js/focus-visible" "0.16.0"
 
-"@chakra-ui/cli@^2.4.0":
+"@chakra-ui/cli@^2.4.1":
   version "2.4.1"
-  resolved "https://registry.npmjs.org/@chakra-ui/cli/-/cli-2.4.1.tgz#254a0f229a38c2ba235e2a7cc24c6c20deee8117"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/cli/-/cli-2.4.1.tgz#254a0f229a38c2ba235e2a7cc24c6c20deee8117"
   integrity sha512-GZZuHUA1cXJWpmYNiVTLPihvY4VhIssRl+AXgw/0IbeodTMop3jWlIioPKLAQeXu5CwvRA6iESyGjnu1V8Zykg==
   dependencies:
     chokidar "^3.5.3"
@@ -891,9 +891,9 @@
   dependencies:
     "@chakra-ui/utils" "2.0.15"
 
-"@chakra-ui/react@^2.5.1":
+"@chakra-ui/react@^2.8.2":
   version "2.8.2"
-  resolved "https://registry.npmjs.org/@chakra-ui/react/-/react-2.8.2.tgz#94d692fb35e4447748c5bfd73d8d38a746193c7d"
+  resolved "https://registry.yarnpkg.com/@chakra-ui/react/-/react-2.8.2.tgz#94d692fb35e4447748c5bfd73d8d38a746193c7d"
   integrity sha512-Hn0moyxxyCDKuR9ywYpqgX8dvjqwu9ArwpIb9wHNYjnODETjLwazgNIliCVBRcJvysGRiV51U2/JtJVrpeCjUQ==
   dependencies:
     "@chakra-ui/accordion" "2.3.1"
@@ -1018,7 +1018,7 @@
     "@chakra-ui/react-context" "2.1.0"
     "@chakra-ui/shared-utils" "2.0.5"
 
-"@chakra-ui/styled-system@2.9.2", "@chakra-ui/styled-system@^2.9.1":
+"@chakra-ui/styled-system@2.9.2", "@chakra-ui/styled-system@^2.9.2":
   version "2.9.2"
   resolved "https://registry.npmjs.org/@chakra-ui/styled-system/-/styled-system-2.9.2.tgz#898ab63da560a4a014f7b05fa7767e8c76da6d2f"
   integrity sha512-To/Z92oHpIE+4nk11uVMWqo2GGRS86coeMmjxtpnErmWRdLcp1WVCVRAvn+ZwpLiNR+reWFr2FFqJRsREuZdAg==
@@ -1087,7 +1087,7 @@
     "@chakra-ui/form-control" "2.2.0"
     "@chakra-ui/shared-utils" "2.0.5"
 
-"@chakra-ui/theme-tools@2.1.2", "@chakra-ui/theme-tools@^2.0.18":
+"@chakra-ui/theme-tools@2.1.2", "@chakra-ui/theme-tools@^2.1.2":
   version "2.1.2"
   resolved "https://registry.npmjs.org/@chakra-ui/theme-tools/-/theme-tools-2.1.2.tgz#913be05879cd816c546993ccb9ff7615f85ff69f"
   integrity sha512-Qdj8ajF9kxY4gLrq7gA+Azp8CtFHGO9tWMN2wfF9aQNgG9AuMhPrUzMq9AMQ0MXiYcgNq/FD3eegB43nHVmXVA==
@@ -3757,9 +3757,9 @@ ccount@^1.0.0:
   resolved "https://registry.npmjs.org/ccount/-/ccount-1.1.0.tgz#246687debb6014735131be8abab2d93898f8d043"
   integrity sha512-vlNK021QdI7PNeiUh/lKkC/mNHHfV0m/Ad5JoI0TYtlBnJAslM/JIkm/tGC88bkLIwO6OQ5uV6ztS6kVAtCDlg==
 
-chakra-react-select@^4.6.0:
+chakra-react-select@^4.7.6:
   version "4.7.6"
-  resolved "https://registry.npmjs.org/chakra-react-select/-/chakra-react-select-4.7.6.tgz#3be8ffb314b8e75ef02663fd3e2fdf872b79683b"
+  resolved "https://registry.yarnpkg.com/chakra-react-select/-/chakra-react-select-4.7.6.tgz#3be8ffb314b8e75ef02663fd3e2fdf872b79683b"
   integrity sha512-ZL43hyXPnWf1g/HjsZDecbeJ4F2Q6tTPYJozlKWkrQ7lIX7ORP0aZYwmc5/Wly4UNzMimj2Vuosl6MmIXH+G2g==
   dependencies:
     react-select "5.7.7"
