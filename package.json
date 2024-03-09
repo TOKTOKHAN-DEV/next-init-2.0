@@ -72,7 +72,7 @@
     "@semantic-release/git": "^10.0.1",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^14.0.0",
-    "@tosspayments/payment-sdk": "^1.1.1",
+    "@tosspayments/payment-sdk": "^1.7.0",
     "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/facebook-pixel": "^0.0.30",
     "@types/gtag.js": "^0.0.12",

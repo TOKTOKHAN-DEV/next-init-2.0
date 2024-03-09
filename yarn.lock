@@ -2557,9 +2557,9 @@
   resolved "https://registry.npmjs.org/@tootallnate/once/-/once-2.0.0.tgz#f544a148d3ab35801c1f633a7441fd87c2e484bf"
   integrity sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==
 
-"@tosspayments/payment-sdk@^1.1.1":
+"@tosspayments/payment-sdk@^1.7.0":
   version "1.7.0"
-  resolved "https://registry.npmjs.org/@tosspayments/payment-sdk/-/payment-sdk-1.7.0.tgz#d5317629ec375769a285d5c43e5e3fec10a174b0"
+  resolved "https://registry.yarnpkg.com/@tosspayments/payment-sdk/-/payment-sdk-1.7.0.tgz#d5317629ec375769a285d5c43e5e3fec10a174b0"
   integrity sha512-fjCIPTnnAx43GJ72o8Zjw135GEFAb0HstXc7W6QgLRuhV6KIietuUzrA38qy/s9mEkQH29Pi/frlg+OfDAv+zA==
   dependencies:
     "@tosspayments/payment__types" "1.67.0"
