@@ -6,6 +6,8 @@ export const useSyncWebStorage = <T>(connector: ReactSyncConnector<T>) => {
   return useSyncExternalStore(
     connector.subscribe,
     connector.getSnapshot,
-    connector.getServerSnapShot,
+    typeof window === 'undefined'
+      ? connector.getServerSnapShot
+      : connector.getSnapshot,
   );
 };

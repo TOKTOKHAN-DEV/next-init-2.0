@@ -12,28 +12,7 @@ interface useGlobalEffectParams extends ReturnType<typeof useGlobalState> {
   webStorage: ReturnType<typeof useWebStorage>;
 }
 
-export const useGlobalEffect = ({
-  webStorage,
-  dispatch,
-}: useGlobalEffectParams) => {
-  // const { mutate } = useUserRefreshCreateMutation({
-  //   options: {
-  //     enabled: !!tokenStorage,
-  //     onSuccess: (res) => {
-  //       tokenStorage?.set(res);
-  //     },
-  //     onError: () => {
-  //       tokenStorage?.remove();
-  //     },
-  //   },
-  // });
-
-  // For: sync isLogin by access token
-  useEffect(() => {
-    const isLogin = !!webStorage.token?.access;
-    dispatch({ type: 'SET_IS_LOGIN', payload: isLogin });
-  }, [dispatch, webStorage.token?.access]);
-
+export const useGlobalEffect = ({ dispatch }: useGlobalEffectParams) => {
   // For: refresh before expired
   useEffect(() => {
     const refresh = tokenStorage?.get()?.refresh;

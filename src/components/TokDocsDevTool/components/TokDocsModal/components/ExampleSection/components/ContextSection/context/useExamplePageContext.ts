@@ -1,13 +1,20 @@
 import { createContextSelector } from '@/utils/react/create-context-selector';
 
-import { useExamplePageHandlers } from './hooks/useExamplePageHandlers';
-import { useExamplePageState } from './hooks/useExamplePageState';
+import {
+  useExampleAccessAbleSlice,
+  useExampleSlice,
+} from './hooks/useExampleSlice';
 
 const useExamplePage = () => {
-  const { state, dispatch } = useExamplePageState();
-  const handler = useExamplePageHandlers({ state, dispatch });
+  const [state, dispatch] = useExampleSlice();
+  const [accessAbleState, accessAbleDispatch] = useExampleAccessAbleSlice();
 
-  return { dispatch, state, handler };
+  return {
+    state,
+    dispatch,
+    accessAbleState,
+    accessAbleDispatch,
+  };
 };
 
 export const {
