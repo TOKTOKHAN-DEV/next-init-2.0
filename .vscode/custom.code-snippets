@@ -1,0 +1,23 @@
+{
+  "커스텀 스니펫 예시입니다.": {
+    "prefix": "tok_example1",
+    "description": "커스텀 스니펫 예시입니다.",
+    "body": [
+      "console.log('Hello, world!');"
+    ]
+  },
+  "커스텀 스니펫(var적용) 예시입니다.": {
+    "prefix": "tok_example2",
+    "description": "커스텀 스니펫(var적용) 예시입니다.",
+    "body": [
+      "const handler${1:custom} = useCallback(()=>{},[]);"
+    ]
+  },
+  "커스텀 스니펫(cursor적용) 예시입니다.": {
+    "prefix": "tok_example3",
+    "description": "커스텀 스니펫(cursor적용) 예시입니다.",
+    "body": [
+      "console.log('Hello, $2');"
+    ]
+  }
+}
